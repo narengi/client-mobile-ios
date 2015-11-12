@@ -1,0 +1,63 @@
+PODS:
+  - AFNetworking (2.6.1):
+    - AFNetworking/NSURLConnection (= 2.6.1)
+    - AFNetworking/NSURLSession (= 2.6.1)
+    - AFNetworking/Reachability (= 2.6.1)
+    - AFNetworking/Security (= 2.6.1)
+    - AFNetworking/Serialization (= 2.6.1)
+    - AFNetworking/UIKit (= 2.6.1)
+  - AFNetworking/NSURLConnection (2.6.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.1)
+  - AFNetworking/Security (2.6.1)
+  - AFNetworking/Serialization (2.6.1)
+  - AFNetworking/UIKit (2.6.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - DZNEmptyDataSet (1.7.2)
+  - FMDB (2.5):
+    - FMDB/standard (= 2.5)
+  - FMDB/common (2.5)
+  - FMDB/standard (2.5):
+    - FMDB/common
+  - GoogleMaps (1.10.5)
+  - JDStatusBarNotification (1.5.2)
+  - JNKeychain (0.1.2)
+  - JSONModel (1.1.2)
+  - REFrostedViewController (2.4.8)
+  - SDWebImage (3.7.3):
+    - SDWebImage/Core (= 3.7.3)
+  - SDWebImage/Core (3.7.3)
+  - SVProgressHUD (1.1.3)
+
+DEPENDENCIES:
+  - AFNetworking
+  - DZNEmptyDataSet
+  - FMDB
+  - GoogleMaps
+  - JDStatusBarNotification
+  - JNKeychain
+  - JSONModel
+  - REFrostedViewController
+  - SDWebImage
+  - SVProgressHUD
+
+SPEC CHECKSUMS:
+  AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
+  DZNEmptyDataSet: 0ec00bfc230d7450997b60c127afdd0b9f24f3b6
+  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
+  GoogleMaps: da51c62c338c2d9c47cdad470a0d1e0e4b8544e4
+  JDStatusBarNotification: a36d09ccbb047217572b074a61e7ca10dddc5f0a
+  JNKeychain: 3428e123958aca6672b55d615a8a45cdf7b82c71
+  JSONModel: 216584d0311b053ff714f1d6cb700dbf890847bc
+  REFrostedViewController: a893b4979ba1f200c547aef9ff4c3fd5a18f5923
+  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
+
+COCOAPODS: 0.39.0
