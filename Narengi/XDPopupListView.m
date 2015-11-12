@@ -96,6 +96,9 @@
         
         mIsShowing = NO;
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self  selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification  object:nil];
+
     return self;
 }
 
@@ -120,6 +123,7 @@
     CGRect boundViewframe = mBoundView.frame;
     
     __block NSInteger paddingInt  =[[[NSUserDefaults standardUserDefaults] objectForKey:@"PADDING"] integerValue];
+     __block NSInteger width  =[[[NSUserDefaults standardUserDefaults] objectForKey:@"widthAutoCompleteTable"] integerValue];
     if (mPopupType == XDPopupListViewDropDown) {
         
         
@@ -127,7 +131,7 @@
         
             mTableView.frame = CGRectMake(paddingInt,
                                           CGRectGetMaxY(boundViewframe),
-                                          300,
+                                          width,
                                           90);
             
             [boundViewSuperView addSubview:self];
@@ -137,7 +141,7 @@
         {
             mTableView.frame = CGRectMake(paddingInt,
                                           CGRectGetMaxY(boundViewframe),
-                                          300,
+                                          width,
                                           kDefaultPopupListViewHeight);
             
             [boundViewSuperView addSubview:self];
@@ -148,7 +152,7 @@
             [UIView animateWithDuration:kDefalutPopupAnimationDuration animations:^{
                 mTableView.frame = CGRectMake(paddingInt,
                                               CGRectGetMaxY(boundViewframe),
-                                              300,
+                                              width,
                                               90);
             } completion:^(BOOL finished) {
                 
@@ -159,7 +163,7 @@
             [UIView animateWithDuration:kDefalutPopupAnimationDuration animations:^{
                 mTableView.frame = CGRectMake(paddingInt,
                                               CGRectGetMaxY(boundViewframe),
-                                              300,
+                                              width,
                                               kDefaultPopupListViewHeight);
             } completion:^(BOOL finished) {
                 
@@ -330,6 +334,105 @@
     }
     return nil;
 }
+
+- (void)orientationChanged:(NSNotification*)note
+{
+
+    UIWindow *keywindow = [[UIApplication sharedApplication] windows][0];
+    //[keywindow addSubview:self];
+    
+    
+    CGRect boundViewframe = mBoundView.frame;
+    
+    __block NSInteger paddingInt  =[[[NSUserDefaults standardUserDefaults] objectForKey:@"PADDING"] integerValue];
+    __block NSInteger width  =[[[NSUserDefaults standardUserDefaults] objectForKey:@"widthAutoCompleteTable"] integerValue];
+    if (mPopupType == XDPopupListViewDropDown) {
+        
+        
+        if (isiPhone3_5INCH) {
+            
+            mTableView.frame = CGRectMake(paddingInt,
+                                          CGRectGetMaxY(boundViewframe),
+                                          width,
+                                          90);
+            
+            
+        }else
+        {
+            mTableView.frame = CGRectMake(paddingInt,
+                                          CGRectGetMaxY(boundViewframe),
+                                          width,
+                                          kDefaultPopupListViewHeight);
+            
+        }
+        
+        if (isiPhone3_5INCH) {
+            [UIView animateWithDuration:kDefalutPopupAnimationDuration animations:^{
+                mTableView.frame = CGRectMake(paddingInt,
+                                              CGRectGetMaxY(boundViewframe),
+                                              width,
+                                              90);
+            } completion:^(BOOL finished) {
+                
+            }];
+            
+        }
+        else{
+            [UIView animateWithDuration:kDefalutPopupAnimationDuration animations:^{
+                mTableView.frame = CGRectMake(paddingInt,
+                                              CGRectGetMaxY(boundViewframe),
+                                              width,
+                                              kDefaultPopupListViewHeight);
+            } completion:^(BOOL finished) {
+                
+            }];
+        }
+        
+        
+        
+    }else if (mPopupType == XDPopupListViewPullup) {
+        
+        
+        mTableView.frame = CGRectMake(CGRectGetMinX(boundViewframe),
+                                      CGRectGetMinY(boundViewframe),
+                                      boundViewframe.size.width,
+                                      0.0f);
+        
+        
+        
+        [UIView animateWithDuration:kDefalutPopupAnimationDuration animations:^{
+            
+        } completion:^(BOOL finished) {
+            mTableView.frame = CGRectMake(CGRectGetMinX(boundViewframe),
+                                          CGRectGetMinY(boundViewframe)-kDefaultPopupListViewHeight,
+                                          boundViewframe.size.width,
+                                          kDefaultPopupListViewHeight);
+        }];
+        NSLog(@"%f %f", mTableView.frame.origin.x, mTableView.frame.origin.y);
+        
+    }else {
+        [keywindow addSubview:self];
+        CGSize winSize = [UIScreen mainScreen].bounds.size;
+        mTableView.frame = CGRectMake((winSize.width-kCenterPopupListViewWidth)/2.0f,
+                                      (winSize.height-kCenterPopupListViewHeight)/2.0f,
+                                      kCenterPopupListViewWidth,
+                                      kCenterPopupListViewHeight);
+        
+        
+        NSLog(@"%s: %f %f", __func__, mTableView.bounds.size.width, mTableView.bounds.size.height);
+        
+        
+        // fadeIn
+        mTableView.transform = CGAffineTransformMakeScale(0.5, 0.5);
+        mTableView.alpha = 0;
+        [UIView animateWithDuration:kDefalutPopupAnimationDuration animations:^{
+            mTableView.alpha = 1;
+            mTableView.transform = CGAffineTransformMakeScale(1, 1);
+        }];
+    }
+    
+}
+
 
 
 @end

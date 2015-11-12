@@ -34,6 +34,8 @@
 		72D5E5EE1BF4BB7500E950C1 /* PagerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D5E5ED1BF4BB7500E950C1 /* PagerCollectionViewCell.m */; };
 		72D5E5F91BF4D29200E950C1 /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D5E5F61BF4D29200E950C1 /* NSString+Utils.m */; };
 		72D5E5FB1BF4D2D700E950C1 /* XDPopupListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D5E5F81BF4D29200E950C1 /* XDPopupListView.m */; };
+		72D5E5FF1BF4E2B000E950C1 /* AutoCompleteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D5E5FD1BF4E2B000E950C1 /* AutoCompleteTableViewCell.m */; };
+		72D5E6001BF4E2B000E950C1 /* AutocompleteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D5E5FE1BF4E2B000E950C1 /* AutocompleteCell.xib */; };
 		8806210A2432B6524B082D82 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184F4AA531303E30BD8254D8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +105,9 @@
 		72D5E5F61BF4D29200E950C1 /* NSString+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utils.m"; sourceTree = "<group>"; };
 		72D5E5F71BF4D29200E950C1 /* XDPopupListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDPopupListView.h; sourceTree = "<group>"; };
 		72D5E5F81BF4D29200E950C1 /* XDPopupListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDPopupListView.m; sourceTree = "<group>"; };
+		72D5E5FC1BF4E2B000E950C1 /* AutoCompleteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoCompleteTableViewCell.h; sourceTree = "<group>"; };
+		72D5E5FD1BF4E2B000E950C1 /* AutoCompleteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoCompleteTableViewCell.m; sourceTree = "<group>"; };
+		72D5E5FE1BF4E2B000E950C1 /* AutocompleteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutocompleteCell.xib; sourceTree = "<group>"; };
 		82E3942A9DDE72785E55F3C3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,6 +158,9 @@
 				7285DE5E1BF4B40600F92608 /* PageCell.h */,
 				7285DE5F1BF4B40600F92608 /* PageCell.m */,
 				7214FB501BF1C79C00824043 /* CitiesCollectionViewCell.xib */,
+				72D5E5FC1BF4E2B000E950C1 /* AutoCompleteTableViewCell.h */,
+				72D5E5FD1BF4E2B000E950C1 /* AutoCompleteTableViewCell.m */,
+				72D5E5FE1BF4E2B000E950C1 /* AutocompleteCell.xib */,
 			);
 			name = CitiesVC;
 			sourceTree = "<group>";
@@ -383,6 +391,7 @@
 				7214FB621BF1D14C00824043 /* c1.png in Resources */,
 				726DF1FC1BE79937004796EC /* Main.storyboard in Resources */,
 				7214FB631BF1D14C00824043 /* c2.png in Resources */,
+				72D5E6001BF4E2B000E950C1 /* AutocompleteCell.xib in Resources */,
 				7214FB511BF1C79C00824043 /* CitiesCollectionViewCell.xib in Resources */,
 				7285DE621BF4B6F100F92608 /* image.jpg in Resources */,
 			);
@@ -460,6 +469,7 @@
 				7285DE5A1BF4AFD500F92608 /* HWViewPager.m in Sources */,
 				7214FB5A1BF1C7E100824043 /* CitiesViewController.m in Sources */,
 				72D5E5EE1BF4BB7500E950C1 /* PagerCollectionViewCell.m in Sources */,
+				72D5E5FF1BF4E2B000E950C1 /* AutoCompleteTableViewCell.m in Sources */,
 				726DF1F61BE79937004796EC /* AppDelegate.m in Sources */,
 				7214FB571BF1C7CF00824043 /* RootViewController.m in Sources */,
 				7285DE551BF494CD00F92608 /* NSObject+NullCheck.m in Sources */,

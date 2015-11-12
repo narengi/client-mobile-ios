@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MLPAutoCompleteTextField.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,12 +67,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1B264A392092B74246F3D532DC4EB454</key>
+		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
+		<key>53B37853DF3B11F20FCCC1C8109DEC6B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5B71C92A9C78338C851ACA09BB349F75</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,12 +87,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>7AB28FAD67595672D6027F398AAF54BB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>844287E96B46FEE21F6758263EE7E871</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8738AA0A840736AED59C5635CC4B364B</key>
+		<key>8816573C36DAEDEC45EB8753A0E63183</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,12 +107,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C44A03417150A72EE272204570FA1448</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E7DDD67F572BDE1CB03CA7F2ED9552E7</key>
+		<key>C4330ECEB340DEABD997DBE9749AD060</key>
 		<dict>
 			<key>primary</key>
 			<true/>

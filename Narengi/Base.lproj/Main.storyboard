@@ -230,6 +230,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="8Ct-5M-3t5"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <animations/>
@@ -251,6 +254,7 @@
                     <connections>
                         <outlet property="collectionView" destination="qbn-16-Owt" id="TPB-gi-XDY"/>
                         <outlet property="menuButton" destination="mVU-f6-q3Q" id="e7K-QO-5Xy"/>
+                        <outlet property="searchTextField" destination="850-l9-Wjq" id="6l9-9r-6Vp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

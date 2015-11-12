@@ -10,6 +10,11 @@
 #import "XDPopupListView.h"
 
 
-@interface CitiesViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,XDPopupListViewDataSource, XDPopupListViewDelegate>
+@interface CitiesViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,XDPopupListViewDataSource, XDPopupListViewDelegate,UITextFieldDelegate>{
+    
+    XDPopupListView *resulViewList;
+    
+}
 
 @end
+
