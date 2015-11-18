@@ -12,7 +12,7 @@
 
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSArray *imageUrls;
-@property (nonatomic) NSString *ulr;
+@property (nonatomic) NSString *url;
 @property (nonatomic) NSString *type;
 
 

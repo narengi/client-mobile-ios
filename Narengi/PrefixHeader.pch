@@ -30,5 +30,5 @@
 #import "HostObject.h"
 #import "GeoPointObject.h"
 #import "ServerResponse.h"
-
+#import "NSObject+NullCheck.h"
 

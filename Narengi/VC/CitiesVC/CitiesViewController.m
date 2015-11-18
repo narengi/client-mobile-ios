@@ -37,6 +37,8 @@
     [self.searchTextField addTarget:self action:@selector(textDidChanged:) forControlEvents:UIControlEventEditingChanged];
     self.allresults = [[NSArray alloc]initWithArray:[self allCountries]];
     [self setUpAutocompleteTable];
+    
+    [self getData];
 
     
 }
@@ -174,6 +176,15 @@
 }
 
 
+
+#pragma mark - data
+
+
+-(void)getData{
+
+    
+    
+}
 
 - (NSArray *)allCountries
 {

@@ -85,4 +85,22 @@ NarengiCore *sharedInstance;
     
 }
 
+-(NSArray *)parsAroudPlacesWith:(NSArray *)objects{
+
+    NSMutableArray *muTmpArr = [[NSMutableArray alloc] init];
+    [objects enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        AroundPlaceObject *aroundPlObj = [[AroundPlaceObject alloc] init];
+        aroundPlObj.title     = [[obj objectForKey:@"Title"] checkNull];
+        aroundPlObj.type      = [[obj objectForKey:@"Type"] checkNull];
+        aroundPlObj.url       = [[obj objectForKey:@"Url"] checkNull];
+        aroundPlObj.imageUrls = [[obj objectForKey:@"ImageUrls"] checkNull];
+        
+        [muTmpArr addObject:aroundPlObj];
+        
+    }];
+    
+    return [muTmpArr copy];
+}
+
 @end
