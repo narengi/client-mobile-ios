@@ -18,6 +18,7 @@
 #define IMG(imageName) [UIImage imageNamed:imageName]
 #define LANGUAGE [[NSUserDefaults standardUserDefaults] objectForKey:@"Language"]
 #define FARSI @"Farsi"
+#define BASEURL @""
 
 
 #import "UIViewController+Utilities.h"
@@ -28,4 +29,6 @@
 #import "AroundPlaceObject.h"
 #import "HostObject.h"
 #import "GeoPointObject.h"
+#import "ServerResponse.h"
+
 

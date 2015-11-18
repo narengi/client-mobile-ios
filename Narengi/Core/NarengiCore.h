@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ServerResponse.h"
 
 @interface NarengiCore : NSObject
 
 
 + (NarengiCore *)sharedInstance;
-
+-(ServerResponse *)sendRequestWithMethod:(NSString *)method andWithParametrs:(NSArray *)params andWithBody:(id)bodyDict;
 
 
 

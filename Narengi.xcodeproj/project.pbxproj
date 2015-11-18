@@ -21,6 +21,7 @@
 		7214FB651BF1D14C00824043 /* c4.png in Resources */ = {isa = PBXBuildFile; fileRef = 7214FB611BF1D14C00824043 /* c4.png */; };
 		7214FB671BF2121B00824043 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7214FB661BF2121B00824043 /* avatar.png */; };
 		722922F51BFCB4F800C5575C /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922F41BFCB4F800C5575C /* UserObject.m */; };
+		722922F81BFCEA3600C5575C /* ServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922F71BFCEA3600C5575C /* ServerResponse.m */; };
 		726DF1F31BE79937004796EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 726DF1F21BE79937004796EC /* main.m */; };
 		726DF1F61BE79937004796EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 726DF1F51BE79937004796EC /* AppDelegate.m */; };
 		726DF1FC1BE79937004796EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 726DF1FA1BE79937004796EC /* Main.storyboard */; };
@@ -86,6 +87,8 @@
 		7214FB661BF2121B00824043 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
 		722922F31BFCB4F800C5575C /* UserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserObject.h; path = Core/UserObject.h; sourceTree = "<group>"; };
 		722922F41BFCB4F800C5575C /* UserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserObject.m; path = Core/UserObject.m; sourceTree = "<group>"; };
+		722922F61BFCEA3600C5575C /* ServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerResponse.h; path = Core/ServerResponse.h; sourceTree = "<group>"; };
+		722922F71BFCEA3600C5575C /* ServerResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerResponse.m; path = Core/ServerResponse.m; sourceTree = "<group>"; };
 		726DF1EE1BE79937004796EC /* Narengi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Narengi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		726DF1F21BE79937004796EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		726DF1F41BE79937004796EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -301,6 +304,8 @@
 				722922F41BFCB4F800C5575C /* UserObject.m */,
 				729838B91BFCB1FC005BC5C3 /* GeoPointObject.h */,
 				729838BA1BFCB1FC005BC5C3 /* GeoPointObject.m */,
+				722922F61BFCEA3600C5575C /* ServerResponse.h */,
+				722922F71BFCEA3600C5575C /* ServerResponse.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -518,6 +523,7 @@
 				729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */,
 				7285DE601BF4B40600F92608 /* PageCell.m in Sources */,
 				722922F51BFCB4F800C5575C /* UserObject.m in Sources */,
+				722922F81BFCEA3600C5575C /* ServerResponse.m in Sources */,
 				72D5E5F91BF4D29200E950C1 /* NSString+Utils.m in Sources */,
 				7214FB5D1BF1C98A00824043 /* UIViewController+Utilities.m in Sources */,
 				72D5E5FB1BF4D2D700E950C1 /* XDPopupListView.m in Sources */,
