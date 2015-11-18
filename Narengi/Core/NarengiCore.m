@@ -68,18 +68,20 @@ NarengiCore *sharedInstance;
         if (response.statusCode == 200 ) {
             
             serverRes.hasErro = NO;
-            serverRes.backDataDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil ];
+            serverRes.backData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil ];
         
         }
         else
         {
             serverRes.hasErro = YES;
+            serverRes.backData = nil;
         }
         
     }
     else
     {
         serverRes.hasErro = YES;
+        serverRes.backData = nil;
     }
     return serverRes;
     
@@ -91,6 +93,7 @@ NarengiCore *sharedInstance;
     [objects enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         AroundPlaceObject *aroundPlObj = [[AroundPlaceObject alloc] init];
+        
         aroundPlObj.title     = [[obj objectForKey:@"Title"] checkNull];
         aroundPlObj.type      = [[obj objectForKey:@"Type"] checkNull];
         aroundPlObj.url       = [[obj objectForKey:@"Url"] checkNull];

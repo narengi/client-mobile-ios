@@ -17,7 +17,6 @@
 
 @interface HWViewPager : UICollectionView
 
-
 -(void) setPagerDelegate:(id<HWViewPagerDelegate>)pagerDelegate;
 
 @end

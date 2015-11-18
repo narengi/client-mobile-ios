@@ -22,7 +22,7 @@
 		7214FB671BF2121B00824043 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7214FB661BF2121B00824043 /* avatar.png */; };
 		722922F51BFCB4F800C5575C /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922F41BFCB4F800C5575C /* UserObject.m */; };
 		722922F81BFCEA3600C5575C /* ServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922F71BFCEA3600C5575C /* ServerResponse.m */; };
-		722922FB1BFCF81600C5575C /* NSObject+NullCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922FA1BFCF81600C5575C /* NSObject+NullCheck.m */; };
+		722922FE1BFCFA4500C5575C /* UIViewController+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922FD1BFCFA4500C5575C /* UIViewController+Additional.m */; };
 		726DF1F31BE79937004796EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 726DF1F21BE79937004796EC /* main.m */; };
 		726DF1F61BE79937004796EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 726DF1F51BE79937004796EC /* AppDelegate.m */; };
 		726DF1FC1BE79937004796EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 726DF1FA1BE79937004796EC /* Main.storyboard */; };
@@ -90,8 +90,8 @@
 		722922F41BFCB4F800C5575C /* UserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserObject.m; path = Core/UserObject.m; sourceTree = "<group>"; };
 		722922F61BFCEA3600C5575C /* ServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerResponse.h; path = Core/ServerResponse.h; sourceTree = "<group>"; };
 		722922F71BFCEA3600C5575C /* ServerResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerResponse.m; path = Core/ServerResponse.m; sourceTree = "<group>"; };
-		722922F91BFCF81600C5575C /* NSObject+NullCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+NullCheck.h"; path = "Core/NSObject+NullCheck.h"; sourceTree = "<group>"; };
-		722922FA1BFCF81600C5575C /* NSObject+NullCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+NullCheck.m"; path = "Core/NSObject+NullCheck.m"; sourceTree = "<group>"; };
+		722922FC1BFCFA4500C5575C /* UIViewController+Additional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Additional.h"; path = "Custom Classes/UIViewController+Additional.h"; sourceTree = "<group>"; };
+		722922FD1BFCFA4500C5575C /* UIViewController+Additional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Additional.m"; path = "Custom Classes/UIViewController+Additional.m"; sourceTree = "<group>"; };
 		726DF1EE1BE79937004796EC /* Narengi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Narengi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		726DF1F21BE79937004796EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		726DF1F41BE79937004796EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -200,6 +200,19 @@
 			name = MenuVC;
 			sourceTree = "<group>";
 		};
+		722922FF1BFCFA7400C5575C /* XDPopup */ = {
+			isa = PBXGroup;
+			children = (
+				7285DE581BF4AFD500F92608 /* HWViewPager.h */,
+				7285DE591BF4AFD500F92608 /* HWViewPager.m */,
+				72D5E5F51BF4D29200E950C1 /* NSString+Utils.h */,
+				72D5E5F61BF4D29200E950C1 /* NSString+Utils.m */,
+				72D5E5F71BF4D29200E950C1 /* XDPopupListView.h */,
+				72D5E5F81BF4D29200E950C1 /* XDPopupListView.m */,
+			);
+			name = XDPopup;
+			sourceTree = "<group>";
+		};
 		726DF1E51BE79936004796EC = {
 			isa = PBXGroup;
 			children = (
@@ -280,14 +293,11 @@
 		726DF2291BE79C1B004796EC /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
-				7285DE581BF4AFD500F92608 /* HWViewPager.h */,
-				7285DE591BF4AFD500F92608 /* HWViewPager.m */,
+				722922FF1BFCFA7400C5575C /* XDPopup */,
 				7285DE531BF494CD00F92608 /* NSObject+NullCheck.h */,
 				7285DE541BF494CD00F92608 /* NSObject+NullCheck.m */,
-				72D5E5F51BF4D29200E950C1 /* NSString+Utils.h */,
-				72D5E5F61BF4D29200E950C1 /* NSString+Utils.m */,
-				72D5E5F71BF4D29200E950C1 /* XDPopupListView.h */,
-				72D5E5F81BF4D29200E950C1 /* XDPopupListView.m */,
+				722922FC1BFCFA4500C5575C /* UIViewController+Additional.h */,
+				722922FD1BFCFA4500C5575C /* UIViewController+Additional.m */,
 			);
 			name = "Custom Classes";
 			sourceTree = "<group>";
@@ -309,8 +319,6 @@
 				729838BA1BFCB1FC005BC5C3 /* GeoPointObject.m */,
 				722922F61BFCEA3600C5575C /* ServerResponse.h */,
 				722922F71BFCEA3600C5575C /* ServerResponse.m */,
-				722922F91BFCF81600C5575C /* NSObject+NullCheck.h */,
-				722922FA1BFCF81600C5575C /* NSObject+NullCheck.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -523,7 +531,7 @@
 				72D5E5FF1BF4E2B000E950C1 /* AutoCompleteTableViewCell.m in Sources */,
 				726DF1F61BE79937004796EC /* AppDelegate.m in Sources */,
 				729838B81BFCB1CB005BC5C3 /* HostObject.m in Sources */,
-				722922FB1BFCF81600C5575C /* NSObject+NullCheck.m in Sources */,
+				722922FE1BFCFA4500C5575C /* UIViewController+Additional.m in Sources */,
 				7214FB571BF1C7CF00824043 /* RootViewController.m in Sources */,
 				7285DE551BF494CD00F92608 /* NSObject+NullCheck.m in Sources */,
 				729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */,

@@ -10,7 +10,7 @@
 
 @interface ServerResponse : NSObject
 
-@property(nonatomic) id backDataDict;
+@property(nonatomic) id backData;
 @property (nonatomic) BOOL hasErro;
 
 

@@ -7,3 +7,7 @@
 */
 
 "Menu" = "Menu";
+"LOADING" = "Reciving data...";
+"CHECKYOUINTERNET" = "Check your internet connection!";
+"SERVERERROR" = "Server error!";
+ 

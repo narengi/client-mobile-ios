@@ -153,7 +153,6 @@
     AutoCompleteTableViewCell *cell = [resulViewList.tableView dequeueReusableCellWithIdentifier:identifier] ;
     
     cell.enLabel.text =  self.resultArr[indexPath.row] ;
-    //cell.enLabel.text =  [[[self.stationsArr objectAtIndex:indexPath.row] enName] uppercaseString];
     
     return cell;
 }
@@ -183,6 +182,23 @@
 -(void)getData{
 
     
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+        
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithAPIMethod:@"search" andWithParametrs:nil andWithBody:nil];
+        dispatch_async(dispatch_get_main_queue(),^{
+            
+            if (!serverRs.hasErro) {
+                if (serverRs.backData !=nil ) {
+                   
+                    self.resultArr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData];
+                    [self.collectionView reloadData];
+                }
+                else{
+                }
+                
+            }
+        });
+    });
     
 }
 
