@@ -20,6 +20,7 @@
 		7214FB641BF1D14C00824043 /* c3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7214FB601BF1D14C00824043 /* c3.png */; };
 		7214FB651BF1D14C00824043 /* c4.png in Resources */ = {isa = PBXBuildFile; fileRef = 7214FB611BF1D14C00824043 /* c4.png */; };
 		7214FB671BF2121B00824043 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7214FB661BF2121B00824043 /* avatar.png */; };
+		722922F51BFCB4F800C5575C /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922F41BFCB4F800C5575C /* UserObject.m */; };
 		726DF1F31BE79937004796EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 726DF1F21BE79937004796EC /* main.m */; };
 		726DF1F61BE79937004796EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 726DF1F51BE79937004796EC /* AppDelegate.m */; };
 		726DF1FC1BE79937004796EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 726DF1FA1BE79937004796EC /* Main.storyboard */; };
@@ -31,6 +32,11 @@
 		7285DE5A1BF4AFD500F92608 /* HWViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE591BF4AFD500F92608 /* HWViewPager.m */; };
 		7285DE601BF4B40600F92608 /* PageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE5F1BF4B40600F92608 /* PageCell.m */; };
 		7285DE621BF4B6F100F92608 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7285DE611BF4B6F100F92608 /* image.jpg */; };
+		729838AF1BFCB018005BC5C3 /* NarengiCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838AE1BFCB018005BC5C3 /* NarengiCore.m */; };
+		729838B21BFCB04D005BC5C3 /* HouseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838B11BFCB04D005BC5C3 /* HouseObject.m */; };
+		729838B51BFCB098005BC5C3 /* AroundPlaceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838B41BFCB098005BC5C3 /* AroundPlaceObject.m */; };
+		729838B81BFCB1CB005BC5C3 /* HostObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838B71BFCB1CB005BC5C3 /* HostObject.m */; };
+		729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838BA1BFCB1FC005BC5C3 /* GeoPointObject.m */; };
 		72D5E5EE1BF4BB7500E950C1 /* PagerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D5E5ED1BF4BB7500E950C1 /* PagerCollectionViewCell.m */; };
 		72D5E5F91BF4D29200E950C1 /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D5E5F61BF4D29200E950C1 /* NSString+Utils.m */; };
 		72D5E5FB1BF4D2D700E950C1 /* XDPopupListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D5E5F81BF4D29200E950C1 /* XDPopupListView.m */; };
@@ -78,6 +84,8 @@
 		7214FB601BF1D14C00824043 /* c3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c3.png; sourceTree = "<group>"; };
 		7214FB611BF1D14C00824043 /* c4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c4.png; sourceTree = "<group>"; };
 		7214FB661BF2121B00824043 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
+		722922F31BFCB4F800C5575C /* UserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserObject.h; path = Core/UserObject.h; sourceTree = "<group>"; };
+		722922F41BFCB4F800C5575C /* UserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserObject.m; path = Core/UserObject.m; sourceTree = "<group>"; };
 		726DF1EE1BE79937004796EC /* Narengi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Narengi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		726DF1F21BE79937004796EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		726DF1F41BE79937004796EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -99,6 +107,16 @@
 		7285DE5E1BF4B40600F92608 /* PageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageCell.h; path = VC/CitiesVC/PageCell.h; sourceTree = "<group>"; };
 		7285DE5F1BF4B40600F92608 /* PageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageCell.m; path = VC/CitiesVC/PageCell.m; sourceTree = "<group>"; };
 		7285DE611BF4B6F100F92608 /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
+		729838AD1BFCB018005BC5C3 /* NarengiCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NarengiCore.h; path = Core/NarengiCore.h; sourceTree = "<group>"; };
+		729838AE1BFCB018005BC5C3 /* NarengiCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NarengiCore.m; path = Core/NarengiCore.m; sourceTree = "<group>"; };
+		729838B01BFCB04D005BC5C3 /* HouseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HouseObject.h; path = Core/HouseObject.h; sourceTree = "<group>"; };
+		729838B11BFCB04D005BC5C3 /* HouseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HouseObject.m; path = Core/HouseObject.m; sourceTree = "<group>"; };
+		729838B31BFCB098005BC5C3 /* AroundPlaceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AroundPlaceObject.h; path = Core/AroundPlaceObject.h; sourceTree = "<group>"; };
+		729838B41BFCB098005BC5C3 /* AroundPlaceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AroundPlaceObject.m; path = Core/AroundPlaceObject.m; sourceTree = "<group>"; };
+		729838B61BFCB1CB005BC5C3 /* HostObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HostObject.h; path = Core/HostObject.h; sourceTree = "<group>"; };
+		729838B71BFCB1CB005BC5C3 /* HostObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HostObject.m; path = Core/HostObject.m; sourceTree = "<group>"; };
+		729838B91BFCB1FC005BC5C3 /* GeoPointObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GeoPointObject.h; path = Core/GeoPointObject.h; sourceTree = "<group>"; };
+		729838BA1BFCB1FC005BC5C3 /* GeoPointObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GeoPointObject.m; path = Core/GeoPointObject.m; sourceTree = "<group>"; };
 		72D5E5EC1BF4BB7500E950C1 /* PagerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PagerCollectionViewCell.h; path = VC/CitiesVC/PagerCollectionViewCell.h; sourceTree = "<group>"; };
 		72D5E5ED1BF4BB7500E950C1 /* PagerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PagerCollectionViewCell.m; path = VC/CitiesVC/PagerCollectionViewCell.m; sourceTree = "<group>"; };
 		72D5E5F51BF4D29200E950C1 /* NSString+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utils.h"; sourceTree = "<group>"; };
@@ -215,6 +233,7 @@
 				726DF2021BE79937004796EC /* Info.plist */,
 				7214FB5B1BF1C98A00824043 /* UIViewController+Utilities.h */,
 				7214FB5C1BF1C98A00824043 /* UIViewController+Utilities.m */,
+				729838AC1BFCAFEA005BC5C3 /* Core */,
 				7214FB5E1BF1D14C00824043 /* c1.png */,
 				7214FB5F1BF1D14C00824043 /* c2.png */,
 				7214FB601BF1D14C00824043 /* c3.png */,
@@ -265,6 +284,25 @@
 				72D5E5F81BF4D29200E950C1 /* XDPopupListView.m */,
 			);
 			name = "Custom Classes";
+			sourceTree = "<group>";
+		};
+		729838AC1BFCAFEA005BC5C3 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				729838AD1BFCB018005BC5C3 /* NarengiCore.h */,
+				729838AE1BFCB018005BC5C3 /* NarengiCore.m */,
+				729838B01BFCB04D005BC5C3 /* HouseObject.h */,
+				729838B11BFCB04D005BC5C3 /* HouseObject.m */,
+				729838B31BFCB098005BC5C3 /* AroundPlaceObject.h */,
+				729838B41BFCB098005BC5C3 /* AroundPlaceObject.m */,
+				729838B61BFCB1CB005BC5C3 /* HostObject.h */,
+				729838B71BFCB1CB005BC5C3 /* HostObject.m */,
+				722922F31BFCB4F800C5575C /* UserObject.h */,
+				722922F41BFCB4F800C5575C /* UserObject.m */,
+				729838B91BFCB1FC005BC5C3 /* GeoPointObject.h */,
+				729838BA1BFCB1FC005BC5C3 /* GeoPointObject.m */,
+			);
+			name = Core;
 			sourceTree = "<group>";
 		};
 		F2630C2373634B62F5DE57B4 /* Frameworks */ = {
@@ -469,11 +507,17 @@
 				7285DE5A1BF4AFD500F92608 /* HWViewPager.m in Sources */,
 				7214FB5A1BF1C7E100824043 /* CitiesViewController.m in Sources */,
 				72D5E5EE1BF4BB7500E950C1 /* PagerCollectionViewCell.m in Sources */,
+				729838B21BFCB04D005BC5C3 /* HouseObject.m in Sources */,
+				729838B51BFCB098005BC5C3 /* AroundPlaceObject.m in Sources */,
+				729838AF1BFCB018005BC5C3 /* NarengiCore.m in Sources */,
 				72D5E5FF1BF4E2B000E950C1 /* AutoCompleteTableViewCell.m in Sources */,
 				726DF1F61BE79937004796EC /* AppDelegate.m in Sources */,
+				729838B81BFCB1CB005BC5C3 /* HostObject.m in Sources */,
 				7214FB571BF1C7CF00824043 /* RootViewController.m in Sources */,
 				7285DE551BF494CD00F92608 /* NSObject+NullCheck.m in Sources */,
+				729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */,
 				7285DE601BF4B40600F92608 /* PageCell.m in Sources */,
+				722922F51BFCB4F800C5575C /* UserObject.m in Sources */,
 				72D5E5F91BF4D29200E950C1 /* NSString+Utils.m in Sources */,
 				7214FB5D1BF1C98A00824043 /* UIViewController+Utilities.m in Sources */,
 				72D5E5FB1BF4D2D700E950C1 /* XDPopupListView.m in Sources */,

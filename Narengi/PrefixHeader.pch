@@ -23,4 +23,9 @@
 #import "UIViewController+Utilities.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "NSObject+NullCheck.h"
+#import "NarengiCore.h"
+#import "HouseObject.h"
+#import "AroundPlaceObject.h"
+#import "HostObject.h"
+#import "GeoPointObject.h"
 
