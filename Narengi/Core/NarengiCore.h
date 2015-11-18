@@ -13,7 +13,7 @@
 
 
 + (NarengiCore *)sharedInstance;
--(ServerResponse *)sendRequestWithMethod:(NSString *)method andWithParametrs:(NSArray *)params andWithBody:(id)bodyDict;
+-(ServerResponse *)sendRequestWithMethod:(NSString *)method andWithAPIMethod:(NSString *)apiMethod andWithParametrs:(NSArray *)params andWithBody:(id)body;
 
 
 

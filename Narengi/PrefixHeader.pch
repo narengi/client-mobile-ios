@@ -18,7 +18,7 @@
 #define IMG(imageName) [UIImage imageNamed:imageName]
 #define LANGUAGE [[NSUserDefaults standardUserDefaults] objectForKey:@"Language"]
 #define FARSI @"Farsi"
-#define BASEURL @""
+#define BASEURL @"http://149.202.20.233:3500/api/v1/"
 
 
 #import "UIViewController+Utilities.h"

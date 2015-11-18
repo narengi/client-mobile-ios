@@ -24,11 +24,11 @@ NarengiCore *sharedInstance;
 
 #pragma mark - Server
 
--(ServerResponse *)sendRequestWithMethod:(NSString *)method andWithParametrs:(NSArray *)params andWithBody:(id)bodyDict{
+-(ServerResponse *)sendRequestWithMethod:(NSString *)method andWithAPIMethod:(NSString *)apiMethod andWithParametrs:(NSArray *)params andWithBody:(id)body{
 
     ServerResponse *serverRes;
     
-    NSString *urlString = [NSString stringWithFormat:@"%@",BASEURL];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@",BASEURL,apiMethod];
     
     NSLog(@"URL:%@",urlString );
     
@@ -36,10 +36,28 @@ NarengiCore *sharedInstance;
     [request setHTTPMethod:method];
     
     
-    NSData *bodyData = [NSKeyedArchiver archivedDataWithRootObject:bodyDict];
-
-    [request setHTTPBody:[[[NSString alloc]initWithData:bodyData encoding:NSUTF8StringEncoding] dataUsingEncoding:NSUTF8StringEncoding]];
-   // [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    if (params != nil) {
+        
+        __block NSString *paramsStr = @"?";
+        [params enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            paramsStr = [paramsStr stringByAppendingString:obj];
+            if (idx < (params.count -1)) {
+                paramsStr = [paramsStr stringByAppendingString:@"&"];
+            }
+            
+            
+        }];
+        
+        urlString = [urlString stringByAppendingString:paramsStr];
+    }
+    
+    if (body != nil) {
+        
+        NSData *bodyData = [NSKeyedArchiver archivedDataWithRootObject:body];
+        
+        [request setHTTPBody:[[[NSString alloc]initWithData:bodyData encoding:NSUTF8StringEncoding] dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+    
     
     NSError *error = nil;
     NSHTTPURLResponse* response;
