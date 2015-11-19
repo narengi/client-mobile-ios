@@ -19,11 +19,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>JDStatusBarNotification.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>JNKeychain.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,27 +62,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>26522162AD414FAF7DD48C722A9D3465</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>53B37853DF3B11F20FCCC1C8109DEC6B</key>
+		<key>537DB9A12F9A77F5E4612A6B8BAEC1B2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5B71C92A9C78338C851ACA09BB349F75</key>
+		<key>664D98E7E9AA9E4037E90BA8564D9EA0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6F524C406BB97B484F3BFD807A73BD18</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>736E57AD5AEFAAF68D47AE4E8FCB8F68</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7AB28FAD67595672D6027F398AAF54BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -103,16 +103,6 @@
 			<true/>
 		</dict>
 		<key>9F12FB4A63E20F601CFB2E64A65B57C1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C4330ECEB340DEABD997DBE9749AD060</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FF5CFD6F2B044B2583AE363E38A9D0EF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

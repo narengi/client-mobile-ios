@@ -11,9 +11,6 @@
 @interface UIViewController (Additional)
 
 
--(void)noConnection;
--(void)successData;
--(void)serverError;
--(void)loading;
+
 
 @end

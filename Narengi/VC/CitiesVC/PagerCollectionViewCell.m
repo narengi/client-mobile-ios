@@ -7,7 +7,7 @@
 //
 
 #import "PagerCollectionViewCell.h"
-
+#import "PageCell.h"
 
 
 @interface PagerCollectionViewCell ()<UICollectionViewDataSource>
@@ -19,16 +19,16 @@
 
 #pragma mark - CollectionViewDelegate
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell * collectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"pageCellID" forIndexPath:indexPath];
     
-    
+    PageCell * collectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"pageCellID" forIndexPath:indexPath];
+    [collectionCell.backImageView sd_setImageWithURL:[NSURL URLWithString:@"http://149.202.20.233:3500/images/city/Tehran.jpg"]placeholderImage:nil];
     
     return collectionCell;
 }
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.row +1;
+    return self.imageUrls.count ;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {

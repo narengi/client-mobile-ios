@@ -27,7 +27,6 @@ PODS:
   - FMDB/standard (2.5):
     - FMDB/common
   - GoogleMaps (1.10.5)
-  - JDStatusBarNotification (1.5.2)
   - JNKeychain (0.1.2)
   - JSONModel (1.1.2)
   - MLPAutoCompleteTextField (1.5)
@@ -42,7 +41,6 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - FMDB
   - GoogleMaps
-  - JDStatusBarNotification
   - JNKeychain
   - JSONModel
   - MLPAutoCompleteTextField
@@ -55,7 +53,6 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 0ec00bfc230d7450997b60c127afdd0b9f24f3b6
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   GoogleMaps: da51c62c338c2d9c47cdad470a0d1e0e4b8544e4
-  JDStatusBarNotification: a36d09ccbb047217572b074a61e7ca10dddc5f0a
   JNKeychain: 3428e123958aca6672b55d615a8a45cdf7b82c71
   JSONModel: 216584d0311b053ff714f1d6cb700dbf890847bc
   MLPAutoCompleteTextField: ba4d507bbff2bd4f139d4197814fc8dd39caf77e

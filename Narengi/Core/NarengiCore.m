@@ -24,11 +24,11 @@ NarengiCore *sharedInstance;
 
 #pragma mark - Server
 
--(ServerResponse *)sendRequestWithMethod:(NSString *)method andWithAPIMethod:(NSString *)apiMethod andWithParametrs:(NSArray *)params andWithBody:(id)body{
+-(ServerResponse *)sendRequestWithMethod:(NSString *)method andWithService:(NSString *)service andWithParametrs:(NSArray *)params andWithBody:(id)body{
 
-    ServerResponse *serverRes;
+
     
-    NSString *urlString = [NSString stringWithFormat:@"%@%@",BASEURL,apiMethod];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@",BASEURL,service];
     
     NSLog(@"URL:%@",urlString );
     
@@ -63,12 +63,15 @@ NarengiCore *sharedInstance;
     NSHTTPURLResponse* response;
     NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
+    ServerResponse *serverRes = [[ServerResponse alloc] init];
     if (!error) {
         
         if (response.statusCode == 200 ) {
             
             serverRes.hasErro = NO;
             serverRes.backData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil ];
+            serverRes.totalCount = [[[response.allHeaderFields objectForKey:@"X-Total-Count"] checkNull] integerValue];
+            serverRes.link = [response.allHeaderFields objectForKey:@":Link"];
         
         }
         else
@@ -97,7 +100,12 @@ NarengiCore *sharedInstance;
         aroundPlObj.title     = [[obj objectForKey:@"Title"] checkNull];
         aroundPlObj.type      = [[obj objectForKey:@"Type"] checkNull];
         aroundPlObj.url       = [[obj objectForKey:@"Url"] checkNull];
-        aroundPlObj.imageUrls = [[obj objectForKey:@"ImageUrls"] checkNull];
+        
+        NSMutableArray *muArr = [[NSMutableArray alloc] init];
+        [[[obj objectForKey:@"ImageUrls"] checkNull] enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [muArr addObject:[NSURL URLWithString:obj]];
+        }];
+        aroundPlObj.imageUrls = [muArr copy];
         
         [muTmpArr addObject:aroundPlObj];
         

@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet HWViewPager *pages;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property NSInteger row;
+
+@property NSArray *imageUrls;
+
 @end

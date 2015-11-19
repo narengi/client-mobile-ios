@@ -10,8 +10,10 @@
 
 @interface ServerResponse : NSObject
 
-@property(nonatomic) id backData;
-@property (nonatomic) BOOL hasErro;
+@property (nonatomic) id        backData;
+@property (nonatomic) BOOL      hasErro;
+@property (nonatomic) NSString  *link;
+@property (nonatomic) NSInteger totalCount;
 
 
 @end

@@ -20,7 +20,7 @@
 
 #define LANGUAGEKEY(key) NSLocalizedStringFromTable(key , LANGUAGE, nil) 
 
-#define FARSI @"Farsi"
+#define FARSI @"Farsi"http://149.202.20.233:3500/api/v1/
 #define BASEURL @"http://149.202.20.233:3500/api/v1/"
 
 
@@ -34,4 +34,6 @@
 #import "GeoPointObject.h"
 #import "ServerResponse.h"
 #import "NSObject+NullCheck.h"
+#import "UIImageView+WebCache.h"
+#import "UIViewController+Additional.h"
 

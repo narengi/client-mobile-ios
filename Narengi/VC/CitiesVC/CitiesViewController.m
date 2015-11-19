@@ -16,10 +16,10 @@
 @interface CitiesViewController()
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic,strong) NSArray *nameArr;
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 @property (nonatomic,strong) NSArray *resultArr;
 @property (nonatomic,strong) NSArray *allresults;
+@property (nonatomic,strong) NSArray *aroundPArr;
 
 @end
 @implementation CitiesViewController
@@ -27,8 +27,9 @@
 
 -(void)viewDidLoad{
 
+    
+    //Register for nobfile
     [self registerCollectionCellWithName:@"CitiesCollectionViewCell" andWithId:@"citiesCellID" forCORT:self.collectionView];
-    self.nameArr = @[@"Abadan",@"Esfehan",@"Tehran",@"Tabriz"];
     
     [[NSNotificationCenter defaultCenter] addObserver:self  selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification  object:nil];
     
@@ -58,7 +59,7 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 5;
+    return self.aroundPArr.count;
 }
 
 
@@ -66,21 +67,16 @@
 {
 
     
-    if (indexPath.row == 4) {
-        
-        PagerCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"pagerCellID" forIndexPath:indexPath];
-        pagerCell.row = 5;
-        [pagerCell.pages reloadData];
-        return pagerCell;
-        
-    }
-    else{
+    AroundPlaceObject *aroundObj = self.aroundPArr[indexPath.row];
+    PagerCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"pagerCellID"
+                                                                                   forIndexPath:indexPath];
     
-        CitiesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"citiesCellID" forIndexPath:indexPath];
-        cell.backImg.image = IMG(([NSString stringWithFormat:@"c%ld",(long)indexPath.row+1]) );
-        cell.titleLabel.text = self.nameArr[indexPath.row];
-        return cell;
-    }
+    pagerCell.imageUrls       = aroundObj.imageUrls;
+    pagerCell.titleLabel.text = aroundObj.title;
+    
+    [pagerCell.pages reloadData];
+    
+    return pagerCell;
     
     
 }
@@ -103,7 +99,7 @@
                         layout:(UICollectionViewLayout *) collectionViewLayout
         insetForSectionAtIndex:(NSInteger) section {
     
-    return UIEdgeInsetsMake(0, 0, 0, 0); // top, left, bottom, right
+    return UIEdgeInsetsMake(0, 0, 0, 0);
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     
@@ -184,13 +180,13 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
-        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithAPIMethod:@"search" andWithParametrs:nil andWithBody:nil];
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:@"search" andWithParametrs:nil andWithBody:nil];
         dispatch_async(dispatch_get_main_queue(),^{
             
             if (!serverRs.hasErro) {
                 if (serverRs.backData !=nil ) {
                    
-                    self.resultArr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData];
+                    self.aroundPArr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData];
                     [self.collectionView reloadData];
                 }
                 else{
