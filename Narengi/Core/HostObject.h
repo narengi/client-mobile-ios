@@ -11,4 +11,5 @@
 @interface HostObject : NSObject
 
 @property (nonatomic) NSArray *houses;
+
 @end

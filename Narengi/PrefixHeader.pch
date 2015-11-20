@@ -36,4 +36,6 @@
 #import "NSObject+NullCheck.h"
 #import "UIImageView+WebCache.h"
 #import "UIViewController+Additional.h"
+#import "AttractionObject.h"
+#import "CityObject.h"
 

@@ -71,7 +71,7 @@ NarengiCore *sharedInstance;
             serverRes.hasErro = NO;
             serverRes.backData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil ];
             serverRes.totalCount = [[[response.allHeaderFields objectForKey:@"X-Total-Count"] checkNull] integerValue];
-            serverRes.link = [response.allHeaderFields objectForKey:@":Link"];
+            serverRes.link = [response.allHeaderFields objectForKey:@"Link"];
         
         }
         else
@@ -97,21 +97,67 @@ NarengiCore *sharedInstance;
         
         AroundPlaceObject *aroundPlObj = [[AroundPlaceObject alloc] init];
         
-        aroundPlObj.title     = [[obj objectForKey:@"Title"] checkNull];
-        aroundPlObj.type      = [[obj objectForKey:@"Type"] checkNull];
-        aroundPlObj.url       = [[obj objectForKey:@"Url"] checkNull];
         
-        NSMutableArray *muArr = [[NSMutableArray alloc] init];
-        [[[obj objectForKey:@"ImageUrls"] checkNull] enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [muArr addObject:[NSURL URLWithString:obj]];
-        }];
-        aroundPlObj.imageUrls = [muArr copy];
+        NSDictionary *dict = [obj objectForKey:@"Data"];
+        NSString *typeStr  = [obj objectForKey:@"Type"];
+        
+        if ([typeStr isEqualToString:@"House"]) {
+            
+            HouseObject *houseObj  = [[HouseObject alloc] init];
+            
+            houseObj.cityName  = [dict objectForKey:@"CityName"];
+            houseObj.cost      = [dict objectForKey:@"Cost"];
+            houseObj.imageUrls = [self parsAroudPlacesWith:[dict objectForKey:@"Images"]];
+            houseObj.rate      = [dict objectForKey:@"Rating"];
+            houseObj.summary   = [dict objectForKey:@"Summary"];
+            houseObj.url       = [dict objectForKey:@"URL"];
+            
+            aroundPlObj.houseObject = houseObj;
+            
+            
+        }
+        else if ([typeStr isEqualToString:@"Attraction"]) {
+            
+            AttractionObject *attractionObj = [[AttractionObject alloc] init];
+            
+            attractionObj.name         = [dict objectForKey:@"Name"];
+            attractionObj.imageUrls    = [self parsImageArray:[dict objectForKey:@"Images"]];
+            attractionObj.aroundHouses = [dict objectForKey:@"AroundHouses"];
+            attractionObj.url          = [dict objectForKey:@"URL"];
+            
+            aroundPlObj.attractionObject = attractionObj;
+            
+        }
+        else if ([typeStr isEqualToString:@"City"]) {
+            
+            CityObject *cityObj = [[CityObject alloc] init];
+            
+            cityObj.name       = [dict objectForKey:@"Name"];
+            cityObj.houseCount = [dict objectForKey:@"HouseCount"];
+            cityObj.imageUrls  = [self parsImageArray:[dict objectForKey:@"Images"]];
+            cityObj.url        = [dict objectForKey:@"URL"];
+            
+            aroundPlObj.cityObject = cityObj;
+        }
+        
+        aroundPlObj.type = [obj objectForKey:@"Type"];
         
         [muTmpArr addObject:aroundPlObj];
         
     }];
     
     return [muTmpArr copy];
+}
+
+-(NSArray *)parsImageArray:(NSArray *)images{
+
+    NSMutableArray *muArr = [[NSMutableArray alloc] init];
+    [images enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        [muArr addObject:[NSURL URLWithString:obj]];
+    }];
+    
+    return [muArr copy];
 }
 
 @end

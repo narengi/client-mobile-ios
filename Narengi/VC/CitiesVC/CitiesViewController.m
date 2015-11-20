@@ -106,6 +106,12 @@
     return 0;
 }
 
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    
+    
+    return 0;
+}
+
 #pragma mark - Orientation
 - (void)orientationChanged:(NSNotification*)note
 {

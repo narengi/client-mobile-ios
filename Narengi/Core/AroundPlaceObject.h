@@ -7,13 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AttractionObject.h"
+#import "CityObject.h"
+#import "HouseObject.h"
 
 @interface AroundPlaceObject : NSObject
 
-@property (nonatomic) NSString *title;
-@property (nonatomic) NSArray *imageUrls;
-@property (nonatomic) NSString *url;
-@property (nonatomic) NSString *type;
+@property (nonatomic) CityObject       *cityObject;
+@property (nonatomic) AttractionObject *attractionObject;
+@property (nonatomic) HouseObject      *houseObject;
+@property (nonatomic) NSString         *type;
 
 
 

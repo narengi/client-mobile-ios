@@ -21,7 +21,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     PageCell * collectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"pageCellID" forIndexPath:indexPath];
-    [collectionCell.backImageView sd_setImageWithURL:[NSURL URLWithString:@"http://149.202.20.233:3500/images/city/Tehran.jpg"]placeholderImage:nil];
+    [collectionCell.backImageView sd_setImageWithURL:self.imageUrls[indexPath.row] placeholderImage:nil];
     
     return collectionCell;
 }
@@ -32,6 +32,18 @@
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    
+    return 0;
+}
+- (UIEdgeInsets)collectionView:(UICollectionView *) collectionView
+                        layout:(UICollectionViewLayout *) collectionViewLayout
+        insetForSectionAtIndex:(NSInteger) section {
+    
+    return UIEdgeInsetsMake(0, 0, 0, 0);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    
     
     return 0;
 }

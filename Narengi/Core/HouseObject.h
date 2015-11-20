@@ -14,12 +14,14 @@
 
 @property (nonatomic) NSString       *ID;
 @property (nonatomic) GeoPointObject *geoObj;
-@property (nonatomic) NSString       *address;
-@property (nonatomic) NSString       *postalCode;
-@property (nonatomic) NSArray        *phoneNumbers;
-@property (nonatomic) NSString       *cityID;
 @property (nonatomic) NSString       *cityName;
 @property (nonatomic) NSArray        *imageUrls;
 @property (nonatomic) HostObject     *host;
+@property (nonatomic) NSString       *cost;
+@property (nonatomic) NSString       *rate;
+@property (nonatomic) NSString       *summary;
+@property (nonatomic) NSString       *url;
+
+
 
 @end

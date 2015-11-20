@@ -93,6 +93,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qbn-16-Owt">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="600" id="Blz-EM-qn9"/>
                                     <constraint firstAttribute="height" constant="600" id="yeH-5v-oaV"/>
@@ -114,6 +115,7 @@
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SPB-Xy-dtb" customClass="HWViewPager">
                                                     <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
                                                     <animations/>
+                                                    <color key="backgroundColor" red="0.29411764709999999" green="0.59215686270000001" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="200" id="IuF-Z9-RqA"/>
                                                         <constraint firstAttribute="width" constant="400" id="NqQ-nV-f0o"/>
@@ -132,7 +134,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="116" height="90"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="J1o-qG-q8i">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="J1o-qG-q8i">
                                                                         <rect key="frame" x="0.0" y="0.0" width="116" height="90"/>
                                                                         <animations/>
                                                                         <constraints>
@@ -188,6 +190,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <animations/>
+                                        <color key="backgroundColor" red="0.70588235290000001" green="0.0" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="lbd-ut-cbJ" firstAttribute="leading" secondItem="9hg-Sa-KKR" secondAttribute="leading" id="4Do-xc-5V1"/>
                                             <constraint firstAttribute="bottom" secondItem="bJm-aH-UBF" secondAttribute="bottom" constant="11" id="52n-yr-0oN"/>
