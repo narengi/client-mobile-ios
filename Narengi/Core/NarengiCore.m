@@ -106,8 +106,9 @@ NarengiCore *sharedInstance;
             HouseObject *houseObj  = [[HouseObject alloc] init];
             
             houseObj.cityName  = [dict objectForKey:@"CityName"];
+            houseObj.name      = [dict objectForKey:@"Name"];
             houseObj.cost      = [dict objectForKey:@"Cost"];
-            houseObj.imageUrls = [self parsAroudPlacesWith:[dict objectForKey:@"Images"]];
+            houseObj.imageUrls = [self parsImageArray:[dict objectForKey:@"Images"]];
             houseObj.rate      = [dict objectForKey:@"Rating"];
             houseObj.summary   = [dict objectForKey:@"Summary"];
             houseObj.url       = [dict objectForKey:@"URL"];

@@ -21,6 +21,7 @@
 @property (nonatomic) NSString       *rate;
 @property (nonatomic) NSString       *summary;
 @property (nonatomic) NSString       *url;
+@property (nonatomic) NSString       *name;
 
 
 

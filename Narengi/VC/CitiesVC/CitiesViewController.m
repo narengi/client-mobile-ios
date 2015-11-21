@@ -71,8 +71,30 @@
     PagerCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"pagerCellID"
                                                                                    forIndexPath:indexPath];
     
-    pagerCell.imageUrls       = aroundObj.imageUrls;
-    pagerCell.titleLabel.text = aroundObj.title;
+    if ([aroundObj.type isEqualToString:@"House"]) {
+        
+        pagerCell.priceLabel.text = aroundObj.houseObject.cost;
+        pagerCell.titleLabel.text = aroundObj.houseObject.name;
+        pagerCell.owner.text      = aroundObj.houseObject.cityName;
+        pagerCell.imageUrls       = aroundObj.houseObject.imageUrls;
+    }
+    
+    else if ([aroundObj.type isEqualToString:@"Attraction"]) {
+        
+        pagerCell.titleLabel.text = aroundObj.attractionObject.name;
+        pagerCell.priceLabel.text = @"";
+        pagerCell.owner.text      = @"";
+    }
+    
+    else if ([aroundObj.type isEqualToString:@"City"]) {
+        
+        pagerCell.titleLabel.text = aroundObj.cityObject.name;
+        pagerCell.priceLabel.text = [NSString stringWithFormat:@"%@ تعداد" ,aroundObj.cityObject.houseCount ];
+        pagerCell.owner.text      = @"";
+        pagerCell.imageUrls       = aroundObj.cityObject.imageUrls;
+    }
+    
+
     
     [pagerCell.pages reloadData];
     

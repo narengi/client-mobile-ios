@@ -15,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property NSArray *imageUrls;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *owner;
 
 @end
