@@ -265,7 +265,7 @@
                                     <constraint firstAttribute="height" constant="30" id="t8x-Mq-6xU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="8Ct-5M-3t5"/>
                                 </connections>

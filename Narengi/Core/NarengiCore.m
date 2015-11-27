@@ -30,7 +30,6 @@ NarengiCore *sharedInstance;
     
     NSString *urlString = [NSString stringWithFormat:@"%@%@",BASEURL,service];
     
-    NSLog(@"URL:%@",urlString );
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:urlString]];
     [request setHTTPMethod:method];
@@ -50,6 +49,10 @@ NarengiCore *sharedInstance;
         
         urlString = [urlString stringByAppendingString:paramsStr];
     }
+    
+    
+    NSLog(@"URL:%@",urlString );
+
     
     if (body != nil) {
         

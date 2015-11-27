@@ -20,6 +20,7 @@
 @property (nonatomic,strong) NSArray *resultArr;
 @property (nonatomic,strong) NSArray *allresults;
 @property (nonatomic,strong) NSArray *aroundPArr;
+@property (nonatomic) NSInteger curentRequestcount;
 
 @end
 @implementation CitiesViewController
@@ -176,7 +177,22 @@
     static NSString *identifier = @"ddd";
     AutoCompleteTableViewCell *cell = [resulViewList.tableView dequeueReusableCellWithIdentifier:identifier] ;
     
-    cell.enLabel.text =  self.resultArr[indexPath.row] ;
+    AroundPlaceObject *aroundObj = self.resultArr[indexPath.row];
+    
+    if ([aroundObj.type isEqualToString:@"House"]) {
+        
+        cell.enLabel.text = aroundObj.houseObject.name;
+    }
+    
+    else if ([aroundObj.type isEqualToString:@"Attraction"]) {
+        
+        cell.enLabel.text = aroundObj.attractionObject.name;
+    }
+    
+    else if ([aroundObj.type isEqualToString:@"City"]) {
+        
+         cell.enLabel.text = aroundObj.cityObject.name;
+    }
     
     return cell;
 }
@@ -495,9 +511,32 @@
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:self.searchTextField.frame.size.width] forKey:@"widthAutoCompleteTable"];
     
 
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+        
+       ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:@"search" andWithParametrs:@[[NSString stringWithFormat:@"term=%@",self.searchTextField.text]] andWithBody:nil];
 
-    NSPredicate *sPredicate = [NSPredicate predicateWithFormat:@"SELF contains[c] %@",self.searchTextField.text];
-   self.resultArr =  [self.allresults filteredArrayUsingPredicate:sPredicate];
+        self.curentRequestcount++;
+        dispatch_async(dispatch_get_main_queue(),^{
+            
+            self.curentRequestcount--;
+            if (self.curentRequestcount == 0) {
+                
+                if (!serverRs.hasErro) {
+                    
+                    if (serverRs.backData !=nil ) {
+                        
+                        self.resultArr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData];
+
+                    }
+                    else{
+                    }
+                }
+                
+            }
+        });
+    });
+
 
     
     [resulViewList show];
@@ -506,7 +545,11 @@
     
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
 
+    
+    return YES;
+}
 
 
 
