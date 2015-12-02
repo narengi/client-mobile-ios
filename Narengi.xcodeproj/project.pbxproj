@@ -15,11 +15,14 @@
 		7214FB571BF1C7CF00824043 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7214FB551BF1C7CF00824043 /* RootViewController.m */; };
 		7214FB5A1BF1C7E100824043 /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7214FB591BF1C7E100824043 /* CitiesViewController.m */; };
 		7214FB5D1BF1C98A00824043 /* UIViewController+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7214FB5C1BF1C98A00824043 /* UIViewController+Utilities.m */; };
-		7214FB621BF1D14C00824043 /* c1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7214FB5E1BF1D14C00824043 /* c1.png */; };
-		7214FB631BF1D14C00824043 /* c2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7214FB5F1BF1D14C00824043 /* c2.png */; };
-		7214FB641BF1D14C00824043 /* c3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7214FB601BF1D14C00824043 /* c3.png */; };
-		7214FB651BF1D14C00824043 /* c4.png in Resources */ = {isa = PBXBuildFile; fileRef = 7214FB611BF1D14C00824043 /* c4.png */; };
 		7214FB671BF2121B00824043 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7214FB661BF2121B00824043 /* avatar.png */; };
+		721E15201C0ED432006E394B /* AroundDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721E151F1C0ED432006E394B /* AroundDetailViewController.m */; };
+		721E15231C0EE212006E394B /* CityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 721E15211C0EE212006E394B /* CityCell.xib */; };
+		721E15261C0EE273006E394B /* AttractionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 721E15241C0EE273006E394B /* AttractionCell.xib */; };
+		721E15281C0EE282006E394B /* HouseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 721E15271C0EE282006E394B /* HouseCell.xib */; };
+		721E152B1C0EEAF6006E394B /* CityCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 721E152A1C0EEAF6006E394B /* CityCollectionViewCell.m */; };
+		721E152E1C0EF13A006E394B /* PagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 721E152C1C0EF13A006E394B /* PagerCell.xib */; };
+		721E15301C0EF746006E394B /* sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 721E152F1C0EF746006E394B /* sample.png */; };
 		722922F51BFCB4F800C5575C /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922F41BFCB4F800C5575C /* UserObject.m */; };
 		722922F81BFCEA3600C5575C /* ServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922F71BFCEA3600C5575C /* ServerResponse.m */; };
 		722922FE1BFCFA4500C5575C /* UIViewController+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922FD1BFCFA4500C5575C /* UIViewController+Additional.m */; };
@@ -33,7 +36,6 @@
 		7285DE551BF494CD00F92608 /* NSObject+NullCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE541BF494CD00F92608 /* NSObject+NullCheck.m */; };
 		7285DE5A1BF4AFD500F92608 /* HWViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE591BF4AFD500F92608 /* HWViewPager.m */; };
 		7285DE601BF4B40600F92608 /* PageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE5F1BF4B40600F92608 /* PageCell.m */; };
-		7285DE621BF4B6F100F92608 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7285DE611BF4B6F100F92608 /* image.jpg */; };
 		729838AF1BFCB018005BC5C3 /* NarengiCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838AE1BFCB018005BC5C3 /* NarengiCore.m */; };
 		729838B21BFCB04D005BC5C3 /* HouseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838B11BFCB04D005BC5C3 /* HouseObject.m */; };
 		729838B51BFCB098005BC5C3 /* AroundPlaceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838B41BFCB098005BC5C3 /* AroundPlaceObject.m */; };
@@ -83,11 +85,16 @@
 		7214FB591BF1C7E100824043 /* CitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CitiesViewController.m; path = VC/CitiesVC/CitiesViewController.m; sourceTree = "<group>"; };
 		7214FB5B1BF1C98A00824043 /* UIViewController+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Utilities.h"; path = "VC/UIViewController+Utilities.h"; sourceTree = "<group>"; };
 		7214FB5C1BF1C98A00824043 /* UIViewController+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Utilities.m"; path = "VC/UIViewController+Utilities.m"; sourceTree = "<group>"; };
-		7214FB5E1BF1D14C00824043 /* c1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c1.png; sourceTree = "<group>"; };
-		7214FB5F1BF1D14C00824043 /* c2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c2.png; sourceTree = "<group>"; };
-		7214FB601BF1D14C00824043 /* c3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c3.png; sourceTree = "<group>"; };
-		7214FB611BF1D14C00824043 /* c4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c4.png; sourceTree = "<group>"; };
 		7214FB661BF2121B00824043 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
+		721E151E1C0ED432006E394B /* AroundDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AroundDetailViewController.h; path = VC/Detail/AroundDetailViewController.h; sourceTree = "<group>"; };
+		721E151F1C0ED432006E394B /* AroundDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AroundDetailViewController.m; path = VC/Detail/AroundDetailViewController.m; sourceTree = "<group>"; };
+		721E15221C0EE212006E394B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CityCell.xib; sourceTree = "<group>"; };
+		721E15251C0EE273006E394B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AttractionCell.xib; sourceTree = "<group>"; };
+		721E15271C0EE282006E394B /* HouseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HouseCell.xib; sourceTree = "<group>"; };
+		721E15291C0EEAF6006E394B /* CityCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityCollectionViewCell.h; path = VC/CitiesVC/CityCollectionViewCell.h; sourceTree = "<group>"; };
+		721E152A1C0EEAF6006E394B /* CityCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityCollectionViewCell.m; path = VC/CitiesVC/CityCollectionViewCell.m; sourceTree = "<group>"; };
+		721E152D1C0EF13A006E394B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PagerCell.xib; sourceTree = "<group>"; };
+		721E152F1C0EF746006E394B /* sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample.png; sourceTree = "<group>"; };
 		722922F31BFCB4F800C5575C /* UserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserObject.h; path = Core/UserObject.h; sourceTree = "<group>"; };
 		722922F41BFCB4F800C5575C /* UserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserObject.m; path = Core/UserObject.m; sourceTree = "<group>"; };
 		722922F61BFCEA3600C5575C /* ServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerResponse.h; path = Core/ServerResponse.h; sourceTree = "<group>"; };
@@ -114,7 +121,6 @@
 		7285DE591BF4AFD500F92608 /* HWViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HWViewPager.m; path = "Custom Classes/HWViewPager.m"; sourceTree = "<group>"; };
 		7285DE5E1BF4B40600F92608 /* PageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageCell.h; path = VC/CitiesVC/PageCell.h; sourceTree = "<group>"; };
 		7285DE5F1BF4B40600F92608 /* PageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageCell.m; path = VC/CitiesVC/PageCell.m; sourceTree = "<group>"; };
-		7285DE611BF4B6F100F92608 /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
 		729838AD1BFCB018005BC5C3 /* NarengiCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NarengiCore.h; path = Core/NarengiCore.h; sourceTree = "<group>"; };
 		729838AE1BFCB018005BC5C3 /* NarengiCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NarengiCore.m; path = Core/NarengiCore.m; sourceTree = "<group>"; };
 		729838B01BFCB04D005BC5C3 /* HouseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HouseObject.h; path = Core/HouseObject.h; sourceTree = "<group>"; };
@@ -176,7 +182,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		7214FB4E1BF1C6F300824043 /* CitiesVC */ = {
+		7214FB4E1BF1C6F300824043 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				7214FB581BF1C7E100824043 /* CitiesViewController.h */,
@@ -191,8 +197,14 @@
 				72D5E5FC1BF4E2B000E950C1 /* AutoCompleteTableViewCell.h */,
 				72D5E5FD1BF4E2B000E950C1 /* AutoCompleteTableViewCell.m */,
 				72D5E5FE1BF4E2B000E950C1 /* AutocompleteCell.xib */,
+				721E15291C0EEAF6006E394B /* CityCollectionViewCell.h */,
+				721E152A1C0EEAF6006E394B /* CityCollectionViewCell.m */,
+				721E15211C0EE212006E394B /* CityCell.xib */,
+				721E15241C0EE273006E394B /* AttractionCell.xib */,
+				721E15271C0EE282006E394B /* HouseCell.xib */,
+				721E152C1C0EF13A006E394B /* PagerCell.xib */,
 			);
-			name = CitiesVC;
+			name = Main;
 			sourceTree = "<group>";
 		};
 		7214FB4F1BF1C70100824043 /* MenuVC */ = {
@@ -204,6 +216,15 @@
 				7214FB551BF1C7CF00824043 /* RootViewController.m */,
 			);
 			name = MenuVC;
+			sourceTree = "<group>";
+		};
+		721E151D1C0ED3F3006E394B /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				721E151E1C0ED432006E394B /* AroundDetailViewController.h */,
+				721E151F1C0ED432006E394B /* AroundDetailViewController.m */,
+			);
+			name = Detail;
 			sourceTree = "<group>";
 		};
 		722922FF1BFCFA7400C5575C /* XDPopup */ = {
@@ -247,22 +268,13 @@
 				726DF1F41BE79937004796EC /* AppDelegate.h */,
 				726DF1F51BE79937004796EC /* AppDelegate.m */,
 				726DF1FA1BE79937004796EC /* Main.storyboard */,
-				7285DE611BF4B6F100F92608 /* image.jpg */,
+				721E152F1C0EF746006E394B /* sample.png */,
 				726DF1FD1BE79937004796EC /* Assets.xcassets */,
 				726DF1FF1BE79937004796EC /* LaunchScreen.storyboard */,
 				7214FB4F1BF1C70100824043 /* MenuVC */,
-				7214FB4E1BF1C6F300824043 /* CitiesVC */,
-				7214FB461BF10F5B00824043 /* Farsi.strings */,
-				7214FB481BF10F6200824043 /* English.strings */,
-				7214FB4A1BF1102E00824043 /* PrefixHeader.pch */,
-				726DF2021BE79937004796EC /* Info.plist */,
-				7214FB5B1BF1C98A00824043 /* UIViewController+Utilities.h */,
-				7214FB5C1BF1C98A00824043 /* UIViewController+Utilities.m */,
+				7214FB4E1BF1C6F300824043 /* Main */,
+				721E151D1C0ED3F3006E394B /* Detail */,
 				729838AC1BFCAFEA005BC5C3 /* Core */,
-				7214FB5E1BF1D14C00824043 /* c1.png */,
-				7214FB5F1BF1D14C00824043 /* c2.png */,
-				7214FB601BF1D14C00824043 /* c3.png */,
-				7214FB611BF1D14C00824043 /* c4.png */,
 				7214FB661BF2121B00824043 /* avatar.png */,
 				726DF2291BE79C1B004796EC /* Custom Classes */,
 				726DF1F11BE79937004796EC /* Supporting Files */,
@@ -273,6 +285,10 @@
 		726DF1F11BE79937004796EC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7214FB461BF10F5B00824043 /* Farsi.strings */,
+				7214FB481BF10F6200824043 /* English.strings */,
+				7214FB4A1BF1102E00824043 /* PrefixHeader.pch */,
+				726DF2021BE79937004796EC /* Info.plist */,
 				726DF1F21BE79937004796EC /* main.m */,
 			);
 			name = "Supporting Files";
@@ -299,6 +315,8 @@
 		726DF2291BE79C1B004796EC /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7214FB5B1BF1C98A00824043 /* UIViewController+Utilities.h */,
+				7214FB5C1BF1C98A00824043 /* UIViewController+Utilities.m */,
 				722922FF1BFCFA7400C5575C /* XDPopup */,
 				7285DE531BF494CD00F92608 /* NSObject+NullCheck.h */,
 				7285DE541BF494CD00F92608 /* NSObject+NullCheck.m */,
@@ -447,19 +465,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7214FB651BF1D14C00824043 /* c4.png in Resources */,
 				726DF2011BE79937004796EC /* LaunchScreen.storyboard in Resources */,
+				721E152E1C0EF13A006E394B /* PagerCell.xib in Resources */,
 				726DF1FE1BE79937004796EC /* Assets.xcassets in Resources */,
 				7214FB491BF10F6200824043 /* English.strings in Resources */,
+				721E15231C0EE212006E394B /* CityCell.xib in Resources */,
+				721E15261C0EE273006E394B /* AttractionCell.xib in Resources */,
 				7214FB671BF2121B00824043 /* avatar.png in Resources */,
+				721E15281C0EE282006E394B /* HouseCell.xib in Resources */,
 				7214FB471BF10F5B00824043 /* Farsi.strings in Resources */,
-				7214FB641BF1D14C00824043 /* c3.png in Resources */,
-				7214FB621BF1D14C00824043 /* c1.png in Resources */,
+				721E15301C0EF746006E394B /* sample.png in Resources */,
 				726DF1FC1BE79937004796EC /* Main.storyboard in Resources */,
-				7214FB631BF1D14C00824043 /* c2.png in Resources */,
 				72D5E6001BF4E2B000E950C1 /* AutocompleteCell.xib in Resources */,
 				7214FB511BF1C79C00824043 /* CitiesCollectionViewCell.xib in Resources */,
-				7285DE621BF4B6F100F92608 /* image.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +558,7 @@
 				729838AF1BFCB018005BC5C3 /* NarengiCore.m in Sources */,
 				72D5E5FF1BF4E2B000E950C1 /* AutoCompleteTableViewCell.m in Sources */,
 				726DF1F61BE79937004796EC /* AppDelegate.m in Sources */,
+				721E15201C0ED432006E394B /* AroundDetailViewController.m in Sources */,
 				729838B81BFCB1CB005BC5C3 /* HostObject.m in Sources */,
 				722922FE1BFCFA4500C5575C /* UIViewController+Additional.m in Sources */,
 				7214FB571BF1C7CF00824043 /* RootViewController.m in Sources */,
@@ -552,6 +571,7 @@
 				72D5E5F91BF4D29200E950C1 /* NSString+Utils.m in Sources */,
 				7214FB5D1BF1C98A00824043 /* UIViewController+Utilities.m in Sources */,
 				72D5E5FB1BF4D2D700E950C1 /* XDPopupListView.m in Sources */,
+				721E152B1C0EEAF6006E394B /* CityCollectionViewCell.m in Sources */,
 				7214FB561BF1C7CF00824043 /* MenuViewController.m in Sources */,
 				7214FB4D1BF1C64100824043 /* CitiesCollectionViewCell.m in Sources */,
 				726DF1F31BE79937004796EC /* main.m in Sources */,
@@ -591,6 +611,30 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		721E15211C0EE212006E394B /* CityCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				721E15221C0EE212006E394B /* Base */,
+			);
+			name = CityCell.xib;
+			sourceTree = "<group>";
+		};
+		721E15241C0EE273006E394B /* AttractionCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				721E15251C0EE273006E394B /* Base */,
+			);
+			name = AttractionCell.xib;
+			sourceTree = "<group>";
+		};
+		721E152C1C0EF13A006E394B /* PagerCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				721E152D1C0EF13A006E394B /* Base */,
+			);
+			name = PagerCell.xib;
+			sourceTree = "<group>";
+		};
 		726DF1FA1BE79937004796EC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

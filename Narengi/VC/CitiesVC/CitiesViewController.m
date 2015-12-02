@@ -12,6 +12,8 @@
 #import "PageCell.h"
 #import "PagerCollectionViewCell.h"
 #import "AutoCompleteTableViewCell.h"
+#import "AroundDetailViewController.h"
+#import "CityCollectionViewCell.h"
 
 @interface CitiesViewController()
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
@@ -37,8 +39,9 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHideWithNotification:) name:UIKeyboardDidHideNotification object:nil];
     
     [self.searchTextField addTarget:self action:@selector(textDidChanged:) forControlEvents:UIControlEventEditingChanged];
-    self.allresults = [[NSArray alloc]initWithArray:[self allCountries]];
     [self setUpAutocompleteTable];
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:@"CityCell" bundle:nil] forCellWithReuseIdentifier:@"cityCellID"];
     
     [self getData];
 
@@ -53,6 +56,8 @@
     
     
 }
+
+#pragma mark - collectionView
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
@@ -69,39 +74,58 @@
 
     
     AroundPlaceObject *aroundObj = self.aroundPArr[indexPath.row];
-    PagerCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"pagerCellID"
-                                                                                   forIndexPath:indexPath];
+   
     
     if ([aroundObj.type isEqualToString:@"House"]) {
+        PagerCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"pagerCellID"
+                                                                                       forIndexPath:indexPath];
         
         pagerCell.priceLabel.text = aroundObj.houseObject.cost;
         pagerCell.titleLabel.text = aroundObj.houseObject.name;
         pagerCell.owner.text      = aroundObj.houseObject.cityName;
         pagerCell.imageUrls       = aroundObj.houseObject.imageUrls;
+        [pagerCell.pages reloadData];
+        
+        return pagerCell;
     }
     
     else if ([aroundObj.type isEqualToString:@"Attraction"]) {
+        PagerCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"pagerCellID"
+                                                                                       forIndexPath:indexPath];
         
         pagerCell.titleLabel.text = aroundObj.attractionObject.name;
         pagerCell.priceLabel.text = @"";
         pagerCell.owner.text      = @"";
+        [pagerCell.pages reloadData];
+        
+        return pagerCell;
     }
     
-    else if ([aroundObj.type isEqualToString:@"City"]) {
+    else  {
         
+        CityCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cityCellID"
+                                                                                       forIndexPath:indexPath];
         pagerCell.titleLabel.text = aroundObj.cityObject.name;
-        pagerCell.priceLabel.text = [NSString stringWithFormat:@"%@ تعداد" ,aroundObj.cityObject.houseCount ];
-        pagerCell.owner.text      = @"";
+      //  pagerCell.priceLabel.text = [NSString stringWithFormat:@"%@ تعداد" ,aroundObj.cityObject.houseCount ];
+      //  pagerCell.owner.text      = @"";
         pagerCell.imageUrls       = aroundObj.cityObject.imageUrls;
+        [pagerCell.pages reloadData];
+        
+        [pagerCell bringSubviewToFront:pagerCell.titleLabel];
+        [pagerCell bringSubviewToFront:pagerCell.descriptionLabel];
+        return pagerCell;
     }
     
 
     
-    [pagerCell.pages reloadData];
-    
-    return pagerCell;
+   
     
     
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+   // [self performSegueWithIdentifier:@"goToDetail" sender:self.aroundPArr[indexPath.row]];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -242,264 +266,7 @@
     
 }
 
-- (NSArray *)allCountries
-{
-    NSArray *countries =
-    @[
-      @"Abkhazia",
-      @"Afghanistan",
-      @"Aland",
-      @"Albania",
-      @"Algeria",
-      @"American Samoa",
-      @"Andorra",
-      @"Angola",
-      @"Anguilla",
-      @"Antarctica",
-      @"Antigua & Barbuda",
-      @"Argentina",
-      @"Armenia",
-      @"Aruba",
-      @"Australia",
-      @"Austria",
-      @"Azerbaijan",
-      @"Bahamas",
-      @"Bahrain",
-      @"Bangladesh",
-      @"Barbados",
-      @"Belarus",
-      @"Belgium",
-      @"Belize",
-      @"Benin",
-      @"Bermuda",
-      @"Bhutan",
-      @"Bolivia",
-      @"Bosnia & Herzegovina",
-      @"Botswana",
-      @"Brazil",
-      @"British Antarctic Territory",
-      @"British Virgin Islands",
-      @"Brunei",
-      @"Bulgaria",
-      @"Burkina Faso",
-      @"Burundi",
-      @"Cambodia",
-      @"Cameroon",
-      @"Canada",
-      @"Cape Verde",
-      @"Cayman Islands",
-      @"Central African Republic",
-      @"Chad",
-      @"Chile",
-      @"China",
-      @"Christmas Island",
-      @"Cocos Keeling Islands",
-      @"Colombia",
-      @"Commonwealth",
-      @"Comoros",
-      @"Cook Islands",
-      @"Costa Rica",
-      @"Cote d'Ivoire",
-      @"Croatia",
-      @"Cuba",
-      @"Cyprus",
-      @"Czech Republic",
-      @"Democratic Republic of the Congo",
-      @"Denmark",
-      @"Djibouti",
-      @"Dominica",
-      @"Dominican Republic",
-      @"East Timor",
-      @"Ecuador",
-      @"Egypt",
-      @"El Salvador",
-      @"England",
-      @"Equatorial Guinea",
-      @"Eritrea",
-      @"Estonia",
-      @"Ethiopia",
-      @"European Union",
-      @"Falkland Islands",
-      @"Faroes",
-      @"Fiji",
-      @"Finland",
-      @"France",
-      @"Gabon",
-      @"Gambia",
-      @"Georgia",
-      @"Germany",
-      @"Ghana",
-      @"Gibraltar",
-      @"GoSquared",
-      @"Greece",
-      @"Greenland",
-      @"Grenada",
-      @"Guam",
-      @"Guatemala",
-      @"Guernsey",
-      @"Guinea Bissau",
-      @"Guinea",
-      @"Guyana",
-      @"Haiti",
-      @"Honduras",
-      @"Hong Kong",
-      @"Hungary",
-      @"Iceland",
-      @"India",
-      @"Indonesia",
-      @"Iran",
-      @"Iraq",
-      @"Ireland",
-      @"Isle of Man",
-      @"Israel",
-      @"Italy",
-      @"Jamaica",
-      @"Japan",
-      @"Jersey",
-      @"Jordan",
-      @"Kazakhstan",
-      @"Kenya",
-      @"Kiribati",
-      @"Kosovo",
-      @"Kuwait",
-      @"Kyrgyzstan",
-      @"Laos",
-      @"Latvia",
-      @"Lebanon",
-      @"Lesotho",
-      @"Liberia",
-      @"Libya",
-      @"Liechtenstein",
-      @"Lithuania",
-      @"Luxembourg",
-      @"Macau",
-      @"Macedonia",
-      @"Madagascar",
-      @"Malawi",
-      @"Malaysia",
-      @"Maldives",
-      @"Mali",
-      @"Malta",
-      @"Mars",
-      @"Marshall Islands",
-      @"Mauritania",
-      @"Mauritius",
-      @"Mayotte",
-      @"Mexico",
-      @"Micronesia",
-      @"Moldova",
-      @"Monaco",
-      @"Mongolia",
-      @"Montenegro",
-      @"Montserrat",
-      @"Morocco",
-      @"Mozambique",
-      @"Myanmar",
-      @"Nagorno Karabakh",
-      @"Namibia",
-      @"NATO",
-      @"Nauru",
-      @"Nepal",
-      @"Netherlands Antilles",
-      @"Netherlands",
-      @"New Caledonia",
-      @"New Zealand",
-      @"Nicaragua",
-      @"Niger",
-      @"Nigeria",
-      @"Niue",
-      @"Norfolk Island",
-      @"North Korea",
-      @"Northern Cyprus",
-      @"Northern Mariana Islands",
-      @"Norway",
-      @"Olympics",
-      @"Oman",
-      @"Pakistan",
-      @"Palau",
-      @"Palestine",
-      @"Panama",
-      @"Papua New Guinea",
-      @"Paraguay",
-      @"Peru",
-      @"Philippines",
-      @"Pitcairn Islands",
-      @"Poland",
-      @"Portugal",
-      @"Puerto Rico",
-      @"Qatar",
-      @"Red Cross",
-      @"Republic of the Congo",
-      @"Romania",
-      @"Russia",
-      @"Rwanda",
-      @"Saint Barthelemy",
-      @"Saint Helena",
-      @"Saint Kitts & Nevis",
-      @"Saint Lucia",
-      @"Saint Vincent & the Grenadines",
-      @"Samoa",
-      @"San Marino",
-      @"Sao Tome & Principe",
-      @"Saudi Arabia",
-      @"Scotland",
-      @"Senegal",
-      @"Serbia",
-      @"Seychelles",
-      @"Sierra Leone",
-      @"Singapore",
-      @"Slovakia",
-      @"Slovenia",
-      @"Solomon Islands",
-      @"Somalia",
-      @"Somaliland",
-      @"South Africa",
-      @"South Georgia & the South Sandwich Islands",
-      @"South Korea",
-      @"South Ossetia",
-      @"South Sudan",
-      @"Spain",
-      @"Sri Lanka",
-      @"Sudan",
-      @"Suriname",
-      @"Swaziland",
-      @"Sweden",
-      @"Switzerland",
-      @"Syria",
-      @"Taiwan",
-      @"Tajikistan",
-      @"Tanzania",
-      @"Thailand",
-      @"Togo",
-      @"Tonga",
-      @"Trinidad & Tobago",
-      @"Tunisia",
-      @"Turkey",
-      @"Turkmenistan",
-      @"Turks & Caicos Islands",
-      @"Tuvalu",
-      @"Uganda",
-      @"Ukraine",
-      @"United Arab Emirates",
-      @"United Kingdom",
-      @"United Nations",
-      @"United States",
-      @"Uruguay",
-      @"US Virgin Islands",
-      @"Uzbekistan",
-      @"Vanuatu",
-      @"Vatican City",
-      @"Venezuela",
-      @"Vietnam",
-      @"Wales",
-      @"Western Sahara",
-      @"Yemen",
-      @"Zambia",
-      @"Zimbabwe"
-      ];
-    
-    return countries;
-}
+
 
 #pragma mark - textFiled
 
@@ -549,6 +316,20 @@
 
     
     return YES;
+}
+
+#pragma mark - Navigation
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+
+    if ([segue.identifier isEqualToString:@"goToDetail"]) {
+        
+        AroundDetailViewController *aroundDetailVc = segue.destinationViewController;
+        aroundDetailVc.aroundObject = sender;
+    }
+    
+    
 }
 
 
