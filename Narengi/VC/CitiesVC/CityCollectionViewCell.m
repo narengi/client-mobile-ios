@@ -8,6 +8,7 @@
 
 #import "CityCollectionViewCell.h"
 #import "PageCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 @implementation CityCollectionViewCell
@@ -46,6 +47,15 @@
     
     [self bringSubviewToFront:self.titleLabel];
     [self bringSubviewToFront:self.descriptionLabel];
+    
+    
+    self.titleLabel.backgroundColor = [UIColor redColor];
+    
+    self.titleLabel.shadowColor = kShadowColor1;
+    self.titleLabel.shadowOffset = kShadowOffset;
+    self.titleLabel.shadowBlur = kShadowBlur;
+    
+    
 
 }
 

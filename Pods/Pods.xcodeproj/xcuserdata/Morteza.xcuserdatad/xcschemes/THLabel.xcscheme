@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'BA01EC4021DF67E9D2B50A90'
-               BlueprintName = 'DZNEmptyDataSet'
+               BlueprintIdentifier = 'C1F9EC50CE2E1EC72F1C1CB5'
+               BlueprintName = 'THLabel'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libDZNEmptyDataSet.a'>
+               BuildableName = 'libTHLabel.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

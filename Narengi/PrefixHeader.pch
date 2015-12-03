@@ -20,6 +20,10 @@
 
 #define LANGUAGEKEY(key) NSLocalizedStringFromTable(key , LANGUAGE, nil) 
 
+#define kShadowColor1		[UIColor blackColor]
+#define kShadowOffset		CGSizeMake(0.0, UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 0.0 : 0.0)
+#define kShadowBlur			(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 10.0 : 5.0)
+
 #define FARSI @"Farsi"http://149.202.20.233:3500/api/v1/
 #define BASEURL @"http://149.202.20.233:3500/api/v1/"
 
@@ -38,4 +42,7 @@
 #import "UIViewController+Additional.h"
 #import "AttractionObject.h"
 #import "CityObject.h"
+
+#import "THLabel.h"
+
 

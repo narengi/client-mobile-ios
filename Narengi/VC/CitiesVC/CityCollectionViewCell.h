@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "HWViewPager.h"
 
+
 @interface CityCollectionViewCell : UICollectionViewCell <UICollectionViewDataSource,UICollectionViewDelegate>
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet THLabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (nonatomic,strong) UICollectionView *collectionView;
 
