@@ -252,15 +252,7 @@
 //    return cell;
 //}
 //
-//- (void)clickedListViewAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    
-//    if (resulViewList.isShowing) {
-//        
-//        self.searchTextField.text = [[self.resultArr objectAtIndex:indexPath.row] name];
-//
-//    }
-//}
+
 
 
 #pragma mark - data
@@ -300,49 +292,7 @@
 
 
 
-//#pragma mark - textFiled
-//
-//- (void)textDidChanged:(id)sender
-//{
-//    
-//
-//    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:self.searchTextField.frame.origin.x] forKey:@"PADDING"];
-//    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:self.searchTextField.frame.size.width] forKey:@"widthAutoCompleteTable"];
-//    
-//
-//    
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
-//        
-//       ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:@"search" andWithParametrs:@[[NSString stringWithFormat:@"term=%@",self.searchTextField.text]] andWithBody:nil];
-//
-//        self.curentRequestcount++;
-//        dispatch_async(dispatch_get_main_queue(),^{
-//            
-//            self.curentRequestcount--;
-//            if (self.curentRequestcount == 0) {
-//                
-//                if (!serverRs.hasErro) {
-//                    
-//                    if (serverRs.backData !=nil ) {
-//                        
-//                        self.resultArr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData];
-//
-//                    }
-//                    else{
-//                    }
-//                }
-//                
-//            }
-//        });
-//    });
-//
-//
-//    
-//    [resulViewList show];
-//    [resulViewList reloadListData];
-//    //self.resultArr = []
-//    
-//}
+
 
 
 #pragma mark - Navigation

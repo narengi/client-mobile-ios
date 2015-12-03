@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SearchTableViewCell.h"
 
-@interface SearchViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface SearchViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIView *searchViewContainer;
 
 

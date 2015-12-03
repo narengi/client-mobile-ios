@@ -31,8 +31,9 @@ NarengiCore *sharedInstance;
     NSString *urlString = [NSString stringWithFormat:@"%@%@",BASEURL,service];
     
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:urlString]];
-    [request setHTTPMethod:method];
+
+   // request.HTTPShouldHandleCookies = NO;
+
     
     
     if (params != nil) {
@@ -50,8 +51,16 @@ NarengiCore *sharedInstance;
         urlString = [urlString stringByAppendingString:paramsStr];
     }
     
+    NSString *escapedPath = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
     NSLog(@"URL:%@",urlString );
+
+
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:escapedPath]];
+    [request setHTTPMethod:method];
+    [request setTimeoutInterval:30];
+    
+    
 
     
     if (body != nil) {
@@ -71,6 +80,7 @@ NarengiCore *sharedInstance;
         
         if (response.statusCode == 200 ) {
             
+            NSLog(@"BackData: %@",[NSJSONSerialization JSONObjectWithData:data options:0 error:nil ]);
             serverRes.hasErro = NO;
             serverRes.backData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil ];
             serverRes.totalCount = [[[response.allHeaderFields objectForKey:@"X-Total-Count"] checkNull] integerValue];
