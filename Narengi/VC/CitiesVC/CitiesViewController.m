@@ -14,6 +14,10 @@
 #import "AutoCompleteTableViewCell.h"
 #import "AroundDetailViewController.h"
 #import "CityCollectionViewCell.h"
+#import "MainHomeCollectionViewCell.h"
+#import "AttractionCollectionViewCell.h"
+#import "ModalAnimator.h"
+#import "SearchViewController.h"
 
 @interface CitiesViewController()
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
@@ -23,6 +27,7 @@
 @property (nonatomic,strong) NSArray *allresults;
 @property (nonatomic,strong) NSArray *aroundPArr;
 @property (nonatomic) NSInteger curentRequestcount;
+@property (weak, nonatomic) IBOutlet UIView *searchContainerView;
 
 @end
 @implementation CitiesViewController
@@ -34,17 +39,43 @@
     //Register for nobfile
     [self registerCollectionCellWithName:@"CitiesCollectionViewCell" andWithId:@"citiesCellID" forCORT:self.collectionView];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self  selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification  object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHideWithNotification:) name:UIKeyboardDidHideNotification object:nil];
-    
-    [self.searchTextField addTarget:self action:@selector(textDidChanged:) forControlEvents:UIControlEventEditingChanged];
-    [self setUpAutocompleteTable];
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"CityCell" bundle:nil] forCellWithReuseIdentifier:@"cityCellID"];
     
+   
+    [self initSearchcontainerView];
     [self getData];
 
+    
+}
+
+-(void)initSearchcontainerView{
+
+    self.searchContainerView.layer.cornerRadius  = 15;
+    self.searchContainerView.layer.masksToBounds = YES;
+    
+    UITapGestureRecognizer *singleFingerTap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(handleSingleTap:)];
+    [self.view addGestureRecognizer:singleFingerTap];
+}
+
+-(void)handleSingleTap:(UITapGestureRecognizer *)recognizer{
+
+    
+    UIStoryboard *storyboard = self.storyboard;
+    SearchViewController *searchVc = (SearchViewController *)[storyboard instantiateViewControllerWithIdentifier:@"searchVCID"];
+    
+    searchVc.modalPresentationStyle = UIModalPresentationCustom;
+    searchVc.transitioningDelegate = self;
+    
+    searchVc.view.backgroundColor = [UIColor clearColor];
+    UIBlurEffect * blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    UIVisualEffectView *beView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    beView.frame = self.view.bounds;
+    [searchVc.view insertSubview:beView atIndex:0];
+    [self presentViewController:searchVc animated:YES completion:nil];
+    
     
 }
 - (IBAction)menuButtonClicked:(UIButton *)sender {
@@ -169,75 +200,67 @@
 }
 
 
-#pragma mark - XDPopupListView
-
--(void)setUpAutocompleteTable{
-    
-    resulViewList = [[XDPopupListView alloc] initWithBoundView:self.searchTextField dataSource:self delegate:self popupType:XDPopupListViewDropDown];
-    
-    [resulViewList.tableView  registerNib:[UINib nibWithNibName:@"AutocompleteCell"
-                                                        bundle:[NSBundle mainBundle]]
-                  forCellReuseIdentifier:@"ddd"];
-    
-
-    
-    [self.searchTextField addTarget:self action:@selector(textDidChanged:) forControlEvents:UIControlEventEditingChanged];
-}
-
-- (NSInteger)numberOfRowsInSection:(NSInteger)section
-{
-    return self.resultArr.count;
-}
-- (CGFloat)itemCellHeight:(NSIndexPath *)indexPath
-{
-    return 44.0f;
-}
-
-- (UITableViewCell *)itemCell:(NSIndexPath *)indexPath
-{
-    if (self.resultArr.count == 0) {
-        return nil;
-    }
-    static NSString *identifier = @"ddd";
-    AutoCompleteTableViewCell *cell = [resulViewList.tableView dequeueReusableCellWithIdentifier:identifier] ;
-    
-    AroundPlaceObject *aroundObj = self.resultArr[indexPath.row];
-    
-    if ([aroundObj.type isEqualToString:@"House"]) {
-        
-        cell.enLabel.text = aroundObj.houseObject.name;
-    }
-    
-    else if ([aroundObj.type isEqualToString:@"Attraction"]) {
-        
-        cell.enLabel.text = aroundObj.attractionObject.name;
-    }
-    
-    else if ([aroundObj.type isEqualToString:@"City"]) {
-        
-         cell.enLabel.text = aroundObj.cityObject.name;
-    }
-    
-    return cell;
-}
-
-- (void)clickedListViewAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    if (resulViewList.isShowing) {
-        
-        self.searchTextField.text = [[self.resultArr objectAtIndex:indexPath.row] name];
-
-    }
-}
-
-#pragma mark - Keyboard
-
-- (void)keyboardDidHideWithNotification:(NSNotification *)aNotification
-{
-    [resulViewList dismiss];
-}
-
+//#pragma mark - XDPopupListView
+//
+//-(void)setUpAutocompleteTable{
+//    
+//    resulViewList = [[XDPopupListView alloc] initWithBoundView:self.searchTextField dataSource:self delegate:self popupType:XDPopupListViewDropDown];
+//    
+//    [resulViewList.tableView  registerNib:[UINib nibWithNibName:@"AutocompleteCell"
+//                                                        bundle:[NSBundle mainBundle]]
+//                  forCellReuseIdentifier:@"ddd"];
+//    
+//
+//    
+//    [self.searchTextField addTarget:self action:@selector(textDidChanged:) forControlEvents:UIControlEventEditingChanged];
+//}
+//
+//- (NSInteger)numberOfRowsInSection:(NSInteger)section
+//{
+//    return self.resultArr.count;
+//}
+//- (CGFloat)itemCellHeight:(NSIndexPath *)indexPath
+//{
+//    return 44.0f;
+//}
+//
+//- (UITableViewCell *)itemCell:(NSIndexPath *)indexPath
+//{
+//    if (self.resultArr.count == 0) {
+//        return nil;
+//    }
+//    static NSString *identifier = @"ddd";
+//    AutoCompleteTableViewCell *cell = [resulViewList.tableView dequeueReusableCellWithIdentifier:identifier] ;
+//    
+//    AroundPlaceObject *aroundObj = self.resultArr[indexPath.row];
+//    
+//    if ([aroundObj.type isEqualToString:@"House"]) {
+//        
+//        cell.enLabel.text = aroundObj.houseObject.name;
+//    }
+//    
+//    else if ([aroundObj.type isEqualToString:@"Attraction"]) {
+//        
+//        cell.enLabel.text = aroundObj.attractionObject.name;
+//    }
+//    
+//    else if ([aroundObj.type isEqualToString:@"City"]) {
+//        
+//         cell.enLabel.text = aroundObj.cityObject.name;
+//    }
+//    
+//    return cell;
+//}
+//
+//- (void)clickedListViewAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    
+//    if (resulViewList.isShowing) {
+//        
+//        self.searchTextField.text = [[self.resultArr objectAtIndex:indexPath.row] name];
+//
+//    }
+//}
 
 
 #pragma mark - data
@@ -248,14 +271,23 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
-        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:@"search" andWithParametrs:nil andWithBody:nil];
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:@"search?filter[limit]=20&filter[skip]=0" andWithParametrs:nil andWithBody:nil];
         dispatch_async(dispatch_get_main_queue(),^{
             
             if (!serverRs.hasErro) {
                 if (serverRs.backData !=nil ) {
                    
                     self.aroundPArr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData];
-                    [self.collectionView reloadData];
+                    
+                    [UIView transitionWithView:self.collectionView
+                                      duration:0.35f
+                                       options:UIViewAnimationOptionTransitionCrossDissolve
+                                    animations:^(void)
+                     {
+                         [self.collectionView reloadData];
+                     }
+                                    completion:nil];
+                    
                 }
                 else{
                 }
@@ -268,55 +300,50 @@
 
 
 
-#pragma mark - textFiled
+//#pragma mark - textFiled
+//
+//- (void)textDidChanged:(id)sender
+//{
+//    
+//
+//    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:self.searchTextField.frame.origin.x] forKey:@"PADDING"];
+//    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:self.searchTextField.frame.size.width] forKey:@"widthAutoCompleteTable"];
+//    
+//
+//    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+//        
+//       ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:@"search" andWithParametrs:@[[NSString stringWithFormat:@"term=%@",self.searchTextField.text]] andWithBody:nil];
+//
+//        self.curentRequestcount++;
+//        dispatch_async(dispatch_get_main_queue(),^{
+//            
+//            self.curentRequestcount--;
+//            if (self.curentRequestcount == 0) {
+//                
+//                if (!serverRs.hasErro) {
+//                    
+//                    if (serverRs.backData !=nil ) {
+//                        
+//                        self.resultArr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData];
+//
+//                    }
+//                    else{
+//                    }
+//                }
+//                
+//            }
+//        });
+//    });
+//
+//
+//    
+//    [resulViewList show];
+//    [resulViewList reloadListData];
+//    //self.resultArr = []
+//    
+//}
 
-- (void)textDidChanged:(id)sender
-{
-    
-
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:self.searchTextField.frame.origin.x] forKey:@"PADDING"];
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:self.searchTextField.frame.size.width] forKey:@"widthAutoCompleteTable"];
-    
-
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
-        
-       ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:@"search" andWithParametrs:@[[NSString stringWithFormat:@"term=%@",self.searchTextField.text]] andWithBody:nil];
-
-        self.curentRequestcount++;
-        dispatch_async(dispatch_get_main_queue(),^{
-            
-            self.curentRequestcount--;
-            if (self.curentRequestcount == 0) {
-                
-                if (!serverRs.hasErro) {
-                    
-                    if (serverRs.backData !=nil ) {
-                        
-                        self.resultArr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData];
-
-                    }
-                    else{
-                    }
-                }
-                
-            }
-        });
-    });
-
-
-    
-    [resulViewList show];
-    [resulViewList reloadListData];
-    //self.resultArr = []
-    
-}
-
--(BOOL)textFieldShouldReturn:(UITextField *)textField{
-
-    
-    return YES;
-}
 
 #pragma mark - Navigation
 
@@ -331,6 +358,24 @@
     
     
 }
+
+#pragma mark - Transition
+
+
+- (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
+    
+    return [[ModalAnimator alloc] initWithShow:YES];
+    
+}
+
+
+- (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    
+    return [[ModalAnimator alloc] initWithShow:NO];
+    
+}
+
+
 
 
 

@@ -10,7 +10,6 @@
 		7214FB471BF10F5B00824043 /* Farsi.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7214FB461BF10F5B00824043 /* Farsi.strings */; };
 		7214FB491BF10F6200824043 /* English.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7214FB481BF10F6200824043 /* English.strings */; };
 		7214FB4D1BF1C64100824043 /* CitiesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7214FB4C1BF1C64100824043 /* CitiesCollectionViewCell.m */; };
-		7214FB511BF1C79C00824043 /* CitiesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7214FB501BF1C79C00824043 /* CitiesCollectionViewCell.xib */; };
 		7214FB561BF1C7CF00824043 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7214FB531BF1C7CF00824043 /* MenuViewController.m */; };
 		7214FB571BF1C7CF00824043 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7214FB551BF1C7CF00824043 /* RootViewController.m */; };
 		7214FB5A1BF1C7E100824043 /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7214FB591BF1C7E100824043 /* CitiesViewController.m */; };
@@ -23,6 +22,8 @@
 		721E152B1C0EEAF6006E394B /* CityCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 721E152A1C0EEAF6006E394B /* CityCollectionViewCell.m */; };
 		721E152E1C0EF13A006E394B /* PagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 721E152C1C0EF13A006E394B /* PagerCell.xib */; };
 		721E15301C0EF746006E394B /* sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 721E152F1C0EF746006E394B /* sample.png */; };
+		721E15331C0F51B0006E394B /* AttractionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 721E15321C0F51B0006E394B /* AttractionCollectionViewCell.m */; };
+		721E15361C0F51CA006E394B /* MainHomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 721E15351C0F51CA006E394B /* MainHomeCollectionViewCell.m */; };
 		722922F51BFCB4F800C5575C /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922F41BFCB4F800C5575C /* UserObject.m */; };
 		722922F81BFCEA3600C5575C /* ServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922F71BFCEA3600C5575C /* ServerResponse.m */; };
 		722922FE1BFCFA4500C5575C /* UIViewController+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922FD1BFCFA4500C5575C /* UIViewController+Additional.m */; };
@@ -48,6 +49,9 @@
 		72D5E5FB1BF4D2D700E950C1 /* XDPopupListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D5E5F81BF4D29200E950C1 /* XDPopupListView.m */; };
 		72D5E5FF1BF4E2B000E950C1 /* AutoCompleteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D5E5FD1BF4E2B000E950C1 /* AutoCompleteTableViewCell.m */; };
 		72D5E6001BF4E2B000E950C1 /* AutocompleteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D5E5FE1BF4E2B000E950C1 /* AutocompleteCell.xib */; };
+		72DFF0E01C10461B00884E04 /* ModalAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DFF0DF1C10461B00884E04 /* ModalAnimator.m */; };
+		72DFF0E31C1046C400884E04 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DFF0E21C1046C400884E04 /* SearchViewController.m */; };
+		72DFF0E61C106C2F00884E04 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DFF0E51C106C2F00884E04 /* SearchTableViewCell.m */; };
 		8806210A2432B6524B082D82 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184F4AA531303E30BD8254D8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -76,7 +80,6 @@
 		7214FB4A1BF1102E00824043 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		7214FB4B1BF1C64100824043 /* CitiesCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CitiesCollectionViewCell.h; path = VC/CitiesVC/CitiesCollectionViewCell.h; sourceTree = "<group>"; };
 		7214FB4C1BF1C64100824043 /* CitiesCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CitiesCollectionViewCell.m; path = VC/CitiesVC/CitiesCollectionViewCell.m; sourceTree = "<group>"; };
-		7214FB501BF1C79C00824043 /* CitiesCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CitiesCollectionViewCell.xib; path = VC/CitiesVC/CitiesCollectionViewCell.xib; sourceTree = "<group>"; };
 		7214FB521BF1C7CF00824043 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = VC/Menu/MenuViewController.h; sourceTree = "<group>"; };
 		7214FB531BF1C7CF00824043 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = VC/Menu/MenuViewController.m; sourceTree = "<group>"; };
 		7214FB541BF1C7CF00824043 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = VC/Menu/RootViewController.h; sourceTree = "<group>"; };
@@ -95,6 +98,10 @@
 		721E152A1C0EEAF6006E394B /* CityCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityCollectionViewCell.m; path = VC/CitiesVC/CityCollectionViewCell.m; sourceTree = "<group>"; };
 		721E152D1C0EF13A006E394B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PagerCell.xib; sourceTree = "<group>"; };
 		721E152F1C0EF746006E394B /* sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample.png; sourceTree = "<group>"; };
+		721E15311C0F51B0006E394B /* AttractionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttractionCollectionViewCell.h; path = VC/CitiesVC/AttractionCollectionViewCell.h; sourceTree = "<group>"; };
+		721E15321C0F51B0006E394B /* AttractionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttractionCollectionViewCell.m; path = VC/CitiesVC/AttractionCollectionViewCell.m; sourceTree = "<group>"; };
+		721E15341C0F51CA006E394B /* MainHomeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainHomeCollectionViewCell.h; path = VC/Detail/MainHomeCollectionViewCell.h; sourceTree = "<group>"; };
+		721E15351C0F51CA006E394B /* MainHomeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainHomeCollectionViewCell.m; path = VC/Detail/MainHomeCollectionViewCell.m; sourceTree = "<group>"; };
 		722922F31BFCB4F800C5575C /* UserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserObject.h; path = Core/UserObject.h; sourceTree = "<group>"; };
 		722922F41BFCB4F800C5575C /* UserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserObject.m; path = Core/UserObject.m; sourceTree = "<group>"; };
 		722922F61BFCEA3600C5575C /* ServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerResponse.h; path = Core/ServerResponse.h; sourceTree = "<group>"; };
@@ -144,6 +151,12 @@
 		72D5E5FC1BF4E2B000E950C1 /* AutoCompleteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoCompleteTableViewCell.h; sourceTree = "<group>"; };
 		72D5E5FD1BF4E2B000E950C1 /* AutoCompleteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoCompleteTableViewCell.m; sourceTree = "<group>"; };
 		72D5E5FE1BF4E2B000E950C1 /* AutocompleteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutocompleteCell.xib; sourceTree = "<group>"; };
+		72DFF0DE1C10461B00884E04 /* ModalAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalAnimator.h; sourceTree = "<group>"; };
+		72DFF0DF1C10461B00884E04 /* ModalAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalAnimator.m; sourceTree = "<group>"; };
+		72DFF0E11C1046C400884E04 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = VC/Search/SearchViewController.h; sourceTree = "<group>"; };
+		72DFF0E21C1046C400884E04 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = VC/Search/SearchViewController.m; sourceTree = "<group>"; };
+		72DFF0E41C106C2F00884E04 /* SearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchTableViewCell.h; path = VC/Search/SearchTableViewCell.h; sourceTree = "<group>"; };
+		72DFF0E51C106C2F00884E04 /* SearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchTableViewCell.m; path = VC/Search/SearchTableViewCell.m; sourceTree = "<group>"; };
 		82E3942A9DDE72785E55F3C3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,16 +206,23 @@
 				72D5E5ED1BF4BB7500E950C1 /* PagerCollectionViewCell.m */,
 				7285DE5E1BF4B40600F92608 /* PageCell.h */,
 				7285DE5F1BF4B40600F92608 /* PageCell.m */,
-				7214FB501BF1C79C00824043 /* CitiesCollectionViewCell.xib */,
 				72D5E5FC1BF4E2B000E950C1 /* AutoCompleteTableViewCell.h */,
 				72D5E5FD1BF4E2B000E950C1 /* AutoCompleteTableViewCell.m */,
-				72D5E5FE1BF4E2B000E950C1 /* AutocompleteCell.xib */,
 				721E15291C0EEAF6006E394B /* CityCollectionViewCell.h */,
 				721E152A1C0EEAF6006E394B /* CityCollectionViewCell.m */,
+				721E15311C0F51B0006E394B /* AttractionCollectionViewCell.h */,
+				721E15321C0F51B0006E394B /* AttractionCollectionViewCell.m */,
+				721E15341C0F51CA006E394B /* MainHomeCollectionViewCell.h */,
+				721E15351C0F51CA006E394B /* MainHomeCollectionViewCell.m */,
+				72DFF0E11C1046C400884E04 /* SearchViewController.h */,
+				72DFF0E21C1046C400884E04 /* SearchViewController.m */,
+				72DFF0E41C106C2F00884E04 /* SearchTableViewCell.h */,
+				72DFF0E51C106C2F00884E04 /* SearchTableViewCell.m */,
 				721E15211C0EE212006E394B /* CityCell.xib */,
 				721E15241C0EE273006E394B /* AttractionCell.xib */,
 				721E15271C0EE282006E394B /* HouseCell.xib */,
 				721E152C1C0EF13A006E394B /* PagerCell.xib */,
+				72D5E5FE1BF4E2B000E950C1 /* AutocompleteCell.xib */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -315,6 +335,8 @@
 		726DF2291BE79C1B004796EC /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
+				72DFF0DE1C10461B00884E04 /* ModalAnimator.h */,
+				72DFF0DF1C10461B00884E04 /* ModalAnimator.m */,
 				7214FB5B1BF1C98A00824043 /* UIViewController+Utilities.h */,
 				7214FB5C1BF1C98A00824043 /* UIViewController+Utilities.m */,
 				722922FF1BFCFA7400C5575C /* XDPopup */,
@@ -477,7 +499,6 @@
 				721E15301C0EF746006E394B /* sample.png in Resources */,
 				726DF1FC1BE79937004796EC /* Main.storyboard in Resources */,
 				72D5E6001BF4E2B000E950C1 /* AutocompleteCell.xib in Resources */,
-				7214FB511BF1C79C00824043 /* CitiesCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,9 +572,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7285DE5A1BF4AFD500F92608 /* HWViewPager.m in Sources */,
+				72DFF0E61C106C2F00884E04 /* SearchTableViewCell.m in Sources */,
 				7214FB5A1BF1C7E100824043 /* CitiesViewController.m in Sources */,
 				72D5E5EE1BF4BB7500E950C1 /* PagerCollectionViewCell.m in Sources */,
 				729838B21BFCB04D005BC5C3 /* HouseObject.m in Sources */,
+				721E15361C0F51CA006E394B /* MainHomeCollectionViewCell.m in Sources */,
 				729838B51BFCB098005BC5C3 /* AroundPlaceObject.m in Sources */,
 				729838AF1BFCB018005BC5C3 /* NarengiCore.m in Sources */,
 				72D5E5FF1BF4E2B000E950C1 /* AutoCompleteTableViewCell.m in Sources */,
@@ -565,13 +588,16 @@
 				7285DE551BF494CD00F92608 /* NSObject+NullCheck.m in Sources */,
 				72B19A131BFF6B3F007EDD86 /* AttractionObject.m in Sources */,
 				729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */,
+				721E15331C0F51B0006E394B /* AttractionCollectionViewCell.m in Sources */,
 				7285DE601BF4B40600F92608 /* PageCell.m in Sources */,
 				722922F51BFCB4F800C5575C /* UserObject.m in Sources */,
 				722922F81BFCEA3600C5575C /* ServerResponse.m in Sources */,
 				72D5E5F91BF4D29200E950C1 /* NSString+Utils.m in Sources */,
 				7214FB5D1BF1C98A00824043 /* UIViewController+Utilities.m in Sources */,
+				72DFF0E31C1046C400884E04 /* SearchViewController.m in Sources */,
 				72D5E5FB1BF4D2D700E950C1 /* XDPopupListView.m in Sources */,
 				721E152B1C0EEAF6006E394B /* CityCollectionViewCell.m in Sources */,
+				72DFF0E01C10461B00884E04 /* ModalAnimator.m in Sources */,
 				7214FB561BF1C7CF00824043 /* MenuViewController.m in Sources */,
 				7214FB4D1BF1C64100824043 /* CitiesCollectionViewCell.m in Sources */,
 				726DF1F31BE79937004796EC /* main.m in Sources */,
