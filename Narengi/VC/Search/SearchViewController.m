@@ -183,16 +183,24 @@
     }
 
     
+    // check term exist alreay or not 
+    NSInteger indexes = [muArr indexOfObjectPassingTest:^BOOL(NSString *obj, NSUInteger idx, BOOL *stop)
+    {
+        return [obj isEqualToString:textField.text];
+    }];
     
-    [muArr insertObject:textField.text atIndex:0];
-    if (muArr.count > 5 ){
-        muArr = [[NSMutableArray alloc]initWithArray:[muArr subarrayWithRange:NSMakeRange(0, 5)]];
-
+    if (indexes == NSNotFound ) {
+        
+        [muArr insertObject:textField.text atIndex:0];
+        if (muArr.count > 5 ){
+            muArr = [[NSMutableArray alloc]initWithArray:[muArr subarrayWithRange:NSMakeRange(0, 5)]];
+            
+        }
+        
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[muArr copy] forKey:@"searchHistory"];
     }
-
     
-    
-    [[NSUserDefaults standardUserDefaults] setObject:[muArr copy] forKey:@"searchHistory"];
     
     
     return YES;
