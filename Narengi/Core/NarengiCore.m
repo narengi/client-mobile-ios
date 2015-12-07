@@ -147,10 +147,11 @@ NarengiCore *sharedInstance;
             
             CityObject *cityObj = [[CityObject alloc] init];
             
-            cityObj.name       = [dict objectForKey:@"Name"];
-            cityObj.houseCount = [dict objectForKey:@"HouseCount"];
-            cityObj.imageUrls  = [self parsImageArray:[dict objectForKey:@"Images"]];
-            cityObj.url        = [dict objectForKey:@"URL"];
+            cityObj.name           = [dict objectForKey:@"Name"];
+            cityObj.houseCountText = [dict objectForKey:@"HouseCountText"];
+            cityObj.houseCount     = [dict objectForKey:@"HouseCount"];
+            cityObj.imageUrls      = [self parsImageArray:[dict objectForKey:@"Images"]];
+            cityObj.url            = [dict objectForKey:@"URL"];
             
             aroundPlObj.cityObject = cityObj;
         }

@@ -141,7 +141,9 @@
         
         CityCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cityCellID"
                                                                                        forIndexPath:indexPath];
-        pagerCell.titleLabel.text = aroundObj.cityObject.name;
+        pagerCell.titleLabel.text       = aroundObj.cityObject.name;
+        pagerCell.descriptionLabel.text = aroundObj.cityObject.houseCountText;
+        
         pagerCell.imageUrls       = aroundObj.cityObject.imageUrls;
         
         [pagerCell.pages reloadData];

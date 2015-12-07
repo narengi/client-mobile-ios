@@ -12,6 +12,7 @@
 
 
 @property (nonatomic) NSString       *name;
+@property (nonatomic) NSString       *houseCountText;
 @property (nonatomic) NSArray        *imageUrls;
 @property (nonatomic) GeoPointObject *geoObj;
 @property (nonatomic) NSNumber       *houseCount;

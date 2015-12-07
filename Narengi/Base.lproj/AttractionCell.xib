@@ -38,7 +38,7 @@
                         <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ubv-VY-dPx">
-                        <rect key="frame" x="16" y="116" width="275" height="21"/>
+                        <rect key="frame" x="16" y="102" width="275" height="21"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="Ess-3V-hFE"/>
@@ -56,7 +56,7 @@
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MuF-BX-gqc">
-                        <rect key="frame" x="8" y="140" width="291" height="21"/>
+                        <rect key="frame" x="8" y="128" width="291" height="21"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="aNl-qt-hDI"/>
@@ -72,8 +72,8 @@
             </view>
             <animations/>
             <constraints>
-                <constraint firstItem="MuF-BX-gqc" firstAttribute="top" secondItem="ubv-VY-dPx" secondAttribute="bottom" constant="3" id="9ha-DK-XcW"/>
-                <constraint firstItem="ubv-VY-dPx" firstAttribute="top" secondItem="zOe-hg-7fK" secondAttribute="bottom" constant="12" id="Bwj-lL-OEf"/>
+                <constraint firstItem="MuF-BX-gqc" firstAttribute="top" secondItem="ubv-VY-dPx" secondAttribute="bottom" constant="5" id="9ha-DK-XcW"/>
+                <constraint firstItem="ubv-VY-dPx" firstAttribute="top" secondItem="zOe-hg-7fK" secondAttribute="bottom" constant="-2" id="Bwj-lL-OEf"/>
                 <constraint firstAttribute="trailing" secondItem="ubv-VY-dPx" secondAttribute="trailing" constant="16" id="FXg-cU-bIW"/>
                 <constraint firstItem="zOe-hg-7fK" firstAttribute="centerY" secondItem="pl0-sk-tC0" secondAttribute="centerY" constant="-12.5" id="IHX-dp-NUd"/>
                 <constraint firstAttribute="trailing" secondItem="c20-QB-TEa" secondAttribute="trailing" id="R92-Es-wdw"/>
