@@ -134,10 +134,11 @@ NarengiCore *sharedInstance;
             
             AttractionObject *attractionObj = [[AttractionObject alloc] init];
             
-            attractionObj.name         = [dict objectForKey:@"Name"];
-            attractionObj.imageUrls    = [self parsImageArray:[dict objectForKey:@"Images"]];
-            attractionObj.aroundHouses = [dict objectForKey:@"AroundHouses"];
-            attractionObj.url          = [dict objectForKey:@"URL"];
+            attractionObj.name             = [dict objectForKey:@"Name"];
+            attractionObj.imageUrls        = [self parsImageArray:[dict objectForKey:@"Images"]];
+            attractionObj.aroundHousesText = [dict objectForKey:@"AroundHousesText"];
+            attractionObj.cityName         = [dict objectForKey:@"CityName"];
+            attractionObj.url              = [dict objectForKey:@"URL"];
             
             aroundPlObj.attractionObject = attractionObj;
             

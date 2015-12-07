@@ -13,15 +13,19 @@
 
 @interface AttractionCollectionViewCell : UICollectionViewCell <UICollectionViewDataSource,UICollectionViewDelegate>
 
-@property (weak, nonatomic) IBOutlet THLabel   *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel   *descriptionLabel;
+@property (weak, nonatomic) IBOutlet THLabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cityLabel;
+
 
 @property (strong, nonatomic) HWViewPager *pages;
-@property (nonatomic        ) NSArray     *imageUrls;
-@property (nonatomic        ) CGRect      frameC;
 
-@property (weak, nonatomic) IBOutlet UIView *belowContentView;
-@property (nonatomic,strong) UICollectionView  *collectionView;
+@property (nonatomic) NSArray *imageUrls;
+
+@property (nonatomic) CGRect frameC;
+
+@property (weak, nonatomic ) IBOutlet UIView  *belowContentView;
+@property (nonatomic,strong) UICollectionView *collectionView;
 
 
 @end

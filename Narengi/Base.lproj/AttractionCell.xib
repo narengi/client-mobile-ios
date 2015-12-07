@@ -41,7 +41,7 @@
                         <rect key="frame" x="16" y="116" width="275" height="21"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="Ess-3V-hFE"/>
+                            <constraint firstAttribute="height" constant="21" id="Ess-3V-hFE"/>
                             <constraint firstAttribute="width" constant="275" id="Juz-XB-hEQ"/>
                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="SnM-qv-jlJ"/>
                         </constraints>
@@ -49,6 +49,11 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <size key="shadowOffset" width="0.0" height="0.0"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="SnM-qv-jlJ"/>
+                            </mask>
+                        </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MuF-BX-gqc">
                         <rect key="frame" x="8" y="140" width="291" height="21"/>
@@ -84,7 +89,8 @@
             <size key="customSize" width="307" height="187"/>
             <connections>
                 <outlet property="belowContentView" destination="c20-QB-TEa" id="sk6-qA-Enq"/>
-                <outlet property="descriptionLabel" destination="ubv-VY-dPx" id="ZH1-13-4Rz"/>
+                <outlet property="cityLabel" destination="ubv-VY-dPx" id="SIn-xc-CRI"/>
+                <outlet property="descriptionLabel" destination="MuF-BX-gqc" id="rdK-Nn-uvJ"/>
                 <outlet property="titleLabel" destination="zOe-hg-7fK" id="f51-fa-LhH"/>
             </connections>
             <point key="canvasLocation" x="380.5" y="246.5"/>

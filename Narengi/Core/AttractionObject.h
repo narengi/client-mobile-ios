@@ -12,9 +12,10 @@
 
 
 @property (nonatomic) NSString       *name;
+@property (nonatomic) NSString       *cityName;
 @property (nonatomic) NSArray        *imageUrls;
 @property (nonatomic) GeoPointObject *geoObj;
-@property (nonatomic) NSArray        *aroundHouses;
+@property (nonatomic) NSString       *aroundHousesText;
 @property (nonatomic) NSArray        *url;
 
 @end

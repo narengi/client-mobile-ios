@@ -127,9 +127,11 @@
         AttractionCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"attractionCellID"
                                                                                        forIndexPath:indexPath];
         
-        pagerCell.titleLabel.text = aroundObj.attractionObject.name;
-        pagerCell.imageUrls       = aroundObj.attractionObject.imageUrls;
+        pagerCell.titleLabel.text       = aroundObj.attractionObject.name;
+        pagerCell.cityLabel.text        = aroundObj.attractionObject.cityName;
+        pagerCell.descriptionLabel.text = aroundObj.attractionObject.aroundHousesText;
         
+        pagerCell.imageUrls = aroundObj.attractionObject.imageUrls;
         [pagerCell.pages reloadData];
         
         return pagerCell;

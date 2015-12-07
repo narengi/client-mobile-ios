@@ -42,12 +42,10 @@
     
     [self bringSubviewToFront:self.titleLabel];
     [self bringSubviewToFront:self.descriptionLabel];
-    
-    
-    
-    self.titleLabel.shadowColor = kShadowColor1;
+        
+    self.titleLabel.shadowColor  = kShadowColor1;
     self.titleLabel.shadowOffset = kShadowOffset;
-    self.titleLabel.shadowBlur = kShadowBlur;
+    self.titleLabel.shadowBlur   = kShadowBlur;
     
     
     
