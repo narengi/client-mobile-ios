@@ -18,6 +18,8 @@
 #import "AttractionCollectionViewCell.h"
 #import "ModalAnimator.h"
 #import "SearchViewController.h"
+#import "HouseCollectionViewCell.h"
+
 
 @interface CitiesViewController()
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
@@ -42,6 +44,7 @@
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"CityCell" bundle:nil] forCellWithReuseIdentifier:@"cityCellID"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"AttractionCell" bundle:nil] forCellWithReuseIdentifier:@"attractionCellID"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"HouseCell" bundle:nil] forCellWithReuseIdentifier:@"houseCellID"];
 
    
     [self initSearchcontainerView];
@@ -109,14 +112,22 @@
    
     
     if ([aroundObj.type isEqualToString:@"House"]) {
-        PagerCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"pagerCellID"
+        
+        HouseCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"houseCellID"
                                                                                        forIndexPath:indexPath];
         
-        pagerCell.priceLabel.text = aroundObj.houseObject.cost;
-        pagerCell.titleLabel.text = aroundObj.houseObject.name;
-        pagerCell.owner.text      = aroundObj.houseObject.cityName;
-        pagerCell.imageUrls       = aroundObj.houseObject.imageUrls;
+        NSString *str = @"";
+        str = [str stringByAppendingString:aroundObj.houseObject.cost];
+        str = [str stringByAppendingString:@"     "];
         
+        pagerCell.priceLabel.text       = str;
+        pagerCell.descriptionLabel.text = aroundObj.houseObject.summary;
+        pagerCell.titleLabel.text       = aroundObj.houseObject.name;
+        pagerCell.featuresLabel.text    = aroundObj.houseObject.featureSummray;
+        pagerCell.priceLabel.layer.cornerRadius = 10;
+        pagerCell.priceLabel.layer.masksToBounds = YES;
+        
+        pagerCell.imageUrls       = aroundObj.houseObject.imageUrls;
         [pagerCell.pages reloadData];
         
         return pagerCell;

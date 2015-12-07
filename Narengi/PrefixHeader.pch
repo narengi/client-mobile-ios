@@ -44,5 +44,6 @@
 #import "CityObject.h"
 
 #import "THLabel.h"
+#import "CustomLabel.h"
 
 

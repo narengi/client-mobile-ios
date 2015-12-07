@@ -22,6 +22,7 @@
 @property (nonatomic) NSString       *summary;
 @property (nonatomic) NSString       *url;
 @property (nonatomic) NSString       *name;
+@property (nonatomic) NSString       *featureSummray;
 
 
 
