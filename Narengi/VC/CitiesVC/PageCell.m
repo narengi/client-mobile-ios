@@ -12,4 +12,12 @@
 
 
 
+
+
+-(void)awakeFromNib{
+
+    self.backImageView.backgroundColor  = [UIColor blackColor];
+    self.backgroundColor  = [UIColor blackColor];
+    self.backImageView.alpha = 0.8;
+}
 @end

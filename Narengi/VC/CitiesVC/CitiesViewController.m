@@ -41,7 +41,8 @@
     
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"CityCell" bundle:nil] forCellWithReuseIdentifier:@"cityCellID"];
-    
+    [self.collectionView registerNib:[UINib nibWithNibName:@"AttractionCell" bundle:nil] forCellWithReuseIdentifier:@"attractionCellID"];
+
    
     [self initSearchcontainerView];
     [self getData];
@@ -115,18 +116,20 @@
         pagerCell.titleLabel.text = aroundObj.houseObject.name;
         pagerCell.owner.text      = aroundObj.houseObject.cityName;
         pagerCell.imageUrls       = aroundObj.houseObject.imageUrls;
+        
         [pagerCell.pages reloadData];
         
         return pagerCell;
     }
     
     else if ([aroundObj.type isEqualToString:@"Attraction"]) {
-        PagerCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"pagerCellID"
+        
+        AttractionCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"attractionCellID"
                                                                                        forIndexPath:indexPath];
         
         pagerCell.titleLabel.text = aroundObj.attractionObject.name;
-        pagerCell.priceLabel.text = @"";
-        pagerCell.owner.text      = @"";
+        pagerCell.imageUrls       = aroundObj.attractionObject.imageUrls;
+        
         [pagerCell.pages reloadData];
         
         return pagerCell;
@@ -137,13 +140,10 @@
         CityCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cityCellID"
                                                                                        forIndexPath:indexPath];
         pagerCell.titleLabel.text = aroundObj.cityObject.name;
-      //  pagerCell.priceLabel.text = [NSString stringWithFormat:@"%@ تعداد" ,aroundObj.cityObject.houseCount ];
-      //  pagerCell.owner.text      = @"";
         pagerCell.imageUrls       = aroundObj.cityObject.imageUrls;
+        
         [pagerCell.pages reloadData];
         
-        [pagerCell bringSubviewToFront:pagerCell.titleLabel];
-        [pagerCell bringSubviewToFront:pagerCell.descriptionLabel];
         return pagerCell;
     }
     
@@ -164,11 +164,11 @@
     
     if([UIScreen mainScreen].bounds.size.width > [UIScreen mainScreen].bounds.size.height)
         
-        return CGSizeMake(([UIScreen mainScreen].bounds.size.width )/2, ([UIScreen mainScreen].bounds.size.width)/2 * 5 /7 );
+        return CGSizeMake(([UIScreen mainScreen].bounds.size.width )/2, ([UIScreen mainScreen].bounds.size.width)/2  * 5 /8 );
     else
     {
         
-        return CGSizeMake([UIScreen mainScreen].bounds.size.width, ([UIScreen mainScreen].bounds.size.width) * 5 /7 );
+        return CGSizeMake([UIScreen mainScreen].bounds.size.width, ([UIScreen mainScreen].bounds.size.width) * 5 /8 );
     }
     
 }
@@ -198,60 +198,6 @@
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:self.searchTextField.frame.size.width] forKey:@"widthAutoCompleteTable"];
     
 }
-
-
-//#pragma mark - XDPopupListView
-//
-//-(void)setUpAutocompleteTable{
-//    
-//    resulViewList = [[XDPopupListView alloc] initWithBoundView:self.searchTextField dataSource:self delegate:self popupType:XDPopupListViewDropDown];
-//    
-//    [resulViewList.tableView  registerNib:[UINib nibWithNibName:@"AutocompleteCell"
-//                                                        bundle:[NSBundle mainBundle]]
-//                  forCellReuseIdentifier:@"ddd"];
-//    
-//
-//    
-//    [self.searchTextField addTarget:self action:@selector(textDidChanged:) forControlEvents:UIControlEventEditingChanged];
-//}
-//
-//- (NSInteger)numberOfRowsInSection:(NSInteger)section
-//{
-//    return self.resultArr.count;
-//}
-//- (CGFloat)itemCellHeight:(NSIndexPath *)indexPath
-//{
-//    return 44.0f;
-//}
-//
-//- (UITableViewCell *)itemCell:(NSIndexPath *)indexPath
-//{
-//    if (self.resultArr.count == 0) {
-//        return nil;
-//    }
-//    static NSString *identifier = @"ddd";
-//    AutoCompleteTableViewCell *cell = [resulViewList.tableView dequeueReusableCellWithIdentifier:identifier] ;
-//    
-//    AroundPlaceObject *aroundObj = self.resultArr[indexPath.row];
-//    
-//    if ([aroundObj.type isEqualToString:@"House"]) {
-//        
-//        cell.enLabel.text = aroundObj.houseObject.name;
-//    }
-//    
-//    else if ([aroundObj.type isEqualToString:@"Attraction"]) {
-//        
-//        cell.enLabel.text = aroundObj.attractionObject.name;
-//    }
-//    
-//    else if ([aroundObj.type isEqualToString:@"City"]) {
-//        
-//         cell.enLabel.text = aroundObj.cityObject.name;
-//    }
-//    
-//    return cell;
-//}
-//
 
 
 

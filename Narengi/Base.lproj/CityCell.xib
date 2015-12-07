@@ -24,14 +24,14 @@
                         </constraints>
                     </view>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qV-zR-w0t" customClass="THLabel">
-                        <rect key="frame" x="48" y="83" width="211" height="21"/>
+                        <rect key="frame" x="16" y="52" width="275" height="52"/>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="jyS-HL-rbq"/>
-                            <constraint firstAttribute="width" constant="211" id="oR0-gc-oPv"/>
+                            <constraint firstAttribute="height" constant="52" id="jyS-HL-rbq"/>
+                            <constraint firstAttribute="width" constant="275" id="oR0-gc-oPv"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="39"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="0.49089421449999998" colorSpace="calibratedRGB"/>
                         <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -48,7 +48,7 @@
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <size key="shadowOffset" width="0.0" height="-2"/>
+                        <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
                 </subviews>
                 <animations/>
@@ -63,7 +63,7 @@
                 <constraint firstItem="WiP-pl-cUt" firstAttribute="leading" secondItem="uYJ-da-BE8" secondAttribute="leading" constant="16" id="K6x-kT-YKg"/>
                 <constraint firstAttribute="bottom" secondItem="Gbb-3Y-al2" secondAttribute="bottom" id="L4F-q6-lE9"/>
                 <constraint firstItem="WiP-pl-cUt" firstAttribute="top" secondItem="7qV-zR-w0t" secondAttribute="bottom" constant="12" id="NY2-Oi-AdB"/>
-                <constraint firstItem="7qV-zR-w0t" firstAttribute="centerY" secondItem="uYJ-da-BE8" secondAttribute="centerY" id="ack-B2-Tg6"/>
+                <constraint firstItem="7qV-zR-w0t" firstAttribute="centerY" secondItem="uYJ-da-BE8" secondAttribute="centerY" constant="-15.5" id="ack-B2-Tg6"/>
                 <constraint firstItem="7qV-zR-w0t" firstAttribute="centerX" secondItem="uYJ-da-BE8" secondAttribute="centerX" id="fX0-nx-SkM"/>
             </constraints>
             <size key="customSize" width="307" height="187"/>

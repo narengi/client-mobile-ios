@@ -23,11 +23,11 @@
     CGSize size ;
     if([UIScreen mainScreen].bounds.size.width > [UIScreen mainScreen].bounds.size.height)
         
-        size = CGSizeMake(([UIScreen mainScreen].bounds.size.width )/2, ([UIScreen mainScreen].bounds.size.width)/2 * 5 /7 );
+        size = CGSizeMake(([UIScreen mainScreen].bounds.size.width )/2, ([UIScreen mainScreen].bounds.size.width)/2 * 5 /8 );
     else
     {
         
-        size =CGSizeMake([UIScreen mainScreen].bounds.size.width, ([UIScreen mainScreen].bounds.size.width) * 5 /7 );
+        size =CGSizeMake([UIScreen mainScreen].bounds.size.width, ([UIScreen mainScreen].bounds.size.width) * 5 /8 );
     }
     self.pages =[[HWViewPager alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height) collectionViewLayout:layout];
     
@@ -49,7 +49,6 @@
     [self bringSubviewToFront:self.descriptionLabel];
     
     
-    self.titleLabel.backgroundColor = [UIColor redColor];
     
     self.titleLabel.shadowColor = kShadowColor1;
     self.titleLabel.shadowOffset = kShadowOffset;
@@ -101,11 +100,11 @@
     
     if([UIScreen mainScreen].bounds.size.width > [UIScreen mainScreen].bounds.size.height)
         
-        return CGSizeMake(([UIScreen mainScreen].bounds.size.width )/2, ([UIScreen mainScreen].bounds.size.width)/2 * 5 /7 );
+        return CGSizeMake(([UIScreen mainScreen].bounds.size.width )/2, ([UIScreen mainScreen].bounds.size.width)/2 * 5 /8 );
     else
     {
         
-        return CGSizeMake([UIScreen mainScreen].bounds.size.width, ([UIScreen mainScreen].bounds.size.width) * 5 /7 );
+        return CGSizeMake([UIScreen mainScreen].bounds.size.width, ([UIScreen mainScreen].bounds.size.width) * 5 /8 );
     }
     
 }

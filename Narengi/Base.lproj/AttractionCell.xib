@@ -7,18 +7,87 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="AbV-VE-ygU" customClass="AttractionCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="313" height="153"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="attractionCellID" id="pl0-sk-tC0" customClass="AttractionCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="307" height="187"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="313" height="153"/>
+                <rect key="frame" x="0.0" y="0.0" width="307" height="187"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c20-QB-TEa">
+                        <rect key="frame" x="0.0" y="0.0" width="307" height="187"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="187" id="eL4-t4-JiB"/>
+                            <constraint firstAttribute="width" constant="307" id="f89-Wa-cHL"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zOe-hg-7fK" customClass="THLabel">
+                        <rect key="frame" x="16" y="58" width="275" height="46"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="275" id="fNq-HJ-lV1"/>
+                            <constraint firstAttribute="height" constant="46" id="zf2-bx-nUb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="0.49089421449999998" colorSpace="calibratedRGB"/>
+                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ubv-VY-dPx">
+                        <rect key="frame" x="16" y="116" width="275" height="21"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="Ess-3V-hFE"/>
+                            <constraint firstAttribute="width" constant="275" id="Juz-XB-hEQ"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="SnM-qv-jlJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MuF-BX-gqc">
+                        <rect key="frame" x="8" y="140" width="291" height="21"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="aNl-qt-hDI"/>
+                            <constraint firstAttribute="width" constant="291" id="oIy-QQ-VTL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
                 <animations/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <animations/>
-            <size key="customSize" width="313" height="153"/>
-            <point key="canvasLocation" x="398.5" y="241.5"/>
+            <constraints>
+                <constraint firstItem="MuF-BX-gqc" firstAttribute="top" secondItem="ubv-VY-dPx" secondAttribute="bottom" constant="3" id="9ha-DK-XcW"/>
+                <constraint firstItem="ubv-VY-dPx" firstAttribute="top" secondItem="zOe-hg-7fK" secondAttribute="bottom" constant="12" id="Bwj-lL-OEf"/>
+                <constraint firstAttribute="trailing" secondItem="ubv-VY-dPx" secondAttribute="trailing" constant="16" id="FXg-cU-bIW"/>
+                <constraint firstItem="zOe-hg-7fK" firstAttribute="centerY" secondItem="pl0-sk-tC0" secondAttribute="centerY" constant="-12.5" id="IHX-dp-NUd"/>
+                <constraint firstAttribute="trailing" secondItem="c20-QB-TEa" secondAttribute="trailing" id="R92-Es-wdw"/>
+                <constraint firstItem="MuF-BX-gqc" firstAttribute="leading" secondItem="pl0-sk-tC0" secondAttribute="leading" constant="8" id="RGo-KE-M02"/>
+                <constraint firstItem="zOe-hg-7fK" firstAttribute="centerX" secondItem="pl0-sk-tC0" secondAttribute="centerX" id="VYa-Z0-trV"/>
+                <constraint firstItem="c20-QB-TEa" firstAttribute="leading" secondItem="pl0-sk-tC0" secondAttribute="leading" id="bDA-SW-zPk"/>
+                <constraint firstItem="ubv-VY-dPx" firstAttribute="leading" secondItem="pl0-sk-tC0" secondAttribute="leading" constant="16" id="bsn-82-4in"/>
+                <constraint firstItem="c20-QB-TEa" firstAttribute="top" secondItem="pl0-sk-tC0" secondAttribute="top" id="fuT-Op-DpH"/>
+                <constraint firstAttribute="bottom" secondItem="c20-QB-TEa" secondAttribute="bottom" id="l1Q-lt-Phh"/>
+                <constraint firstItem="MuF-BX-gqc" firstAttribute="centerX" secondItem="pl0-sk-tC0" secondAttribute="centerX" id="ogg-yy-OvN"/>
+                <constraint firstAttribute="trailing" secondItem="MuF-BX-gqc" secondAttribute="trailing" constant="8" id="uEg-NF-Bvn"/>
+            </constraints>
+            <size key="customSize" width="307" height="187"/>
+            <connections>
+                <outlet property="belowContentView" destination="c20-QB-TEa" id="sk6-qA-Enq"/>
+                <outlet property="descriptionLabel" destination="ubv-VY-dPx" id="ZH1-13-4Rz"/>
+                <outlet property="titleLabel" destination="zOe-hg-7fK" id="f51-fa-LhH"/>
+            </connections>
+            <point key="canvasLocation" x="380.5" y="246.5"/>
         </collectionViewCell>
     </objects>
 </document>

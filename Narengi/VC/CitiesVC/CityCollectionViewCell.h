@@ -11,13 +11,14 @@
 
 
 @interface CityCollectionViewCell : UICollectionViewCell <UICollectionViewDataSource,UICollectionViewDelegate>
-@property (weak, nonatomic) IBOutlet THLabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
-@property (nonatomic,strong) UICollectionView *collectionView;
+
+@property (weak, nonatomic) IBOutlet THLabel   *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel   *descriptionLabel;
+@property (nonatomic,strong) UICollectionView  *collectionView;
 
 @property (strong, nonatomic)  HWViewPager *pages;
-@property NSArray *imageUrls;
-@property CGRect frameC;
+@property (nonatomic) NSArray *imageUrls;
+@property (nonatomic) CGRect frameC;
 @property (weak, nonatomic) IBOutlet UIView *belowContentView;
 
 
