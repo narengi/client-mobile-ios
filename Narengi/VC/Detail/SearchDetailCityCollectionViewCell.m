@@ -19,11 +19,11 @@
     CGSize size ;
     if([UIScreen mainScreen].bounds.size.width > [UIScreen mainScreen].bounds.size.height)
         
-        size = CGSizeMake((([UIScreen mainScreen].bounds.size.width )/2)-16, 216);
+        size = CGSizeMake((([UIScreen mainScreen].bounds.size.width )/2)-16,  (([UIScreen mainScreen].bounds.size.width)/2 * 5 /8 )-26);
     else
     {
         
-        size =CGSizeMake([UIScreen mainScreen].bounds.size.width -16, 216);
+        size =CGSizeMake([UIScreen mainScreen].bounds.size.width -16, ( ([UIScreen mainScreen].bounds.size.width) * 5 /8 )-26);
     }
     self.pages =[[HWViewPager alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height) collectionViewLayout:layout];
     
@@ -40,6 +40,9 @@
     [self.containerView addSubview:self.pages];
     
     [self.pages registerNib:[UINib nibWithNibName:@"PagerCell" bundle:nil] forCellWithReuseIdentifier:@"pageCellID"];
+    
+    self.residentCountLabel.layer.cornerRadius  = 5;
+    self.residentCountLabel.layer.masksToBounds = YES;
     
     self.containerView.layer.cornerRadius  = 5;
     self.containerView.layer.masksToBounds = YES;
@@ -87,12 +90,13 @@
     
     if([UIScreen mainScreen].bounds.size.width > [UIScreen mainScreen].bounds.size.height)
         
-        return CGSizeMake((([UIScreen mainScreen].bounds.size.width )/2)-16, 216);
+        return CGSizeMake((([UIScreen mainScreen].bounds.size.width )/2)-16,  (([UIScreen mainScreen].bounds.size.width)/2 * 5 /8 )-26);
     else
     {
         
-        return CGSizeMake([UIScreen mainScreen].bounds.size.width -16, 216);
+       return  CGSizeMake([UIScreen mainScreen].bounds.size.width -16, ( ([UIScreen mainScreen].bounds.size.width) * 5 /8 )-26);
     }
+
     
 }
 @end

@@ -59,7 +59,7 @@
         
         NSString *str = @"";
         str = [str stringByAppendingString:aroundObj.houseObject.cost];
-        str = [str stringByAppendingString:@"     "];
+        str = [str stringByAppendingString:@"   "];
         
         pagerCell.priceLabel.text       = str;
         pagerCell.descriptionLabel.text = aroundObj.houseObject.featureSummray;
@@ -76,7 +76,12 @@
     }
     else if ([aroundObj.type isEqualToString:@"Attraction"]) {
         SearchDetailAttractionCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"attractionCellID" forIndexPath:indexPath];
+
+        pagerCell.titleLabel.text       = aroundObj.attractionObject.name;
+        pagerCell.descriptionLabel.text = aroundObj.attractionObject.aroundHousesText;
         
+        pagerCell.imageUrls = aroundObj.attractionObject.imageUrls;
+        [pagerCell.pages reloadData];
        return  pagerCell;
 
     }
@@ -85,8 +90,13 @@
         
         SearchDetailCityCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cityCellID" forIndexPath:indexPath];
         
+        
+        NSString *str = @"";
+        str = [str stringByAppendingString:aroundObj.cityObject.houseCountText];
+        str = [str stringByAppendingString:@"     "];
+        
         pagerCell.nameLabel.text       = aroundObj.cityObject.name;
-        pagerCell.residentCountLabel.text = aroundObj.cityObject.houseCountText;
+        pagerCell.residentCountLabel.text = str;
         
         pagerCell.imageUrls       = aroundObj.cityObject.imageUrls;
         
