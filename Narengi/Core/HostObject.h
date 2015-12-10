@@ -10,6 +10,7 @@
 
 @interface HostObject : NSObject
 
-@property (nonatomic) NSArray *houses;
+@property (nonatomic) NSString *displayName;
+@property (nonatomic) NSURL    *imageUrl;
 
 @end

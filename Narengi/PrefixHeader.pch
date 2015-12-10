@@ -46,4 +46,10 @@
 #import "THLabel.h"
 #import "CustomLabel.h"
 
+#import "CustomFaBoldLabel.h"
+#import "CustomFaLightLabel.h"
+#import "CustomFaMediumFontLabel.h"
+#import "CustomFaRegularLabel.h"
+
+
 

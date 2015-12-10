@@ -1,28 +1,31 @@
 //
-//  HouseCollectionViewCell.m
+//  SearchDetailHomeCollectionViewCell.m
 //  Narengi
 //
-//  Created by Morteza Hosseinizade on 12/7/15.
+//  Created by Morteza Hosseinizade on 12/10/15.
 //  Copyright © 2015 Morteza Hosseinizade. All rights reserved.
 //
 
-#import "HouseCollectionViewCell.h"
+#import "SearchDetailHomeCollectionViewCell.h"
 
-@implementation HouseCollectionViewCell
+@implementation SearchDetailHomeCollectionViewCell
+
 
 -(void)awakeFromNib{
-    
+
+    self.coverImg.layer.cornerRadius  = self.coverImg.frame.size.width/2;
+    self.coverImg.layer.masksToBounds = YES;
     
     UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
     
     CGSize size ;
     if([UIScreen mainScreen].bounds.size.width > [UIScreen mainScreen].bounds.size.height)
         
-        size = CGSizeMake(([UIScreen mainScreen].bounds.size.width )/2, ([UIScreen mainScreen].bounds.size.width)/2 * 5 /8 );
+        size = CGSizeMake((([UIScreen mainScreen].bounds.size.width )/2)-16, 128);
     else
     {
         
-        size =CGSizeMake([UIScreen mainScreen].bounds.size.width, ([UIScreen mainScreen].bounds.size.width) * 5 /8 );
+        size =CGSizeMake([UIScreen mainScreen].bounds.size.width -16, 128);
     }
     self.pages =[[HWViewPager alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height) collectionViewLayout:layout];
     
@@ -36,22 +39,17 @@
     [self.pages registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellIdentifier"];
     [self.pages setBackgroundColor:[UIColor whiteColor]];
     
-    [self.belowContentView addSubview:self.pages];
+    [self.containerView addSubview:self.pages];
     
     [self.pages registerNib:[UINib nibWithNibName:@"PagerCell" bundle:nil] forCellWithReuseIdentifier:@"pageCellID"];
     
-
+    self.containerView.layer.cornerRadius  = 5;
+    self.containerView.layer.masksToBounds = YES;
     
-    self.titleLabel.shadowColor  = kShadowColor1;
-    self.titleLabel.shadowOffset = kShadowOffset;
-    self.titleLabel.shadowBlur   = kShadowBlur;
-    
-
-
-    
+    self.coverImg.layer.borderWidth = 1;
+    self.coverImg.layer.borderColor = [UIColor whiteColor].CGColor;
     
 }
-
 
 #pragma mark - CollectionViewDelegate
 
@@ -94,12 +92,13 @@
     
     if([UIScreen mainScreen].bounds.size.width > [UIScreen mainScreen].bounds.size.height)
         
-        return CGSizeMake(([UIScreen mainScreen].bounds.size.width )/2, ([UIScreen mainScreen].bounds.size.width)/2 * 5 /8 );
+        return CGSizeMake((([UIScreen mainScreen].bounds.size.width )/2)-16, 128);
     else
     {
         
-        return CGSizeMake([UIScreen mainScreen].bounds.size.width, ([UIScreen mainScreen].bounds.size.width) * 5 /8 );
+        return CGSizeMake([UIScreen mainScreen].bounds.size.width -16, 128);
     }
     
 }
+
 @end

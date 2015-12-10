@@ -24,8 +24,6 @@
 
 @property (nonatomic) NSArray *imageUrls;
 
-@property (nonatomic) CGRect frameC;
-
 @property (weak, nonatomic ) IBOutlet UIView  *belowContentView;
 @property (nonatomic,strong) UICollectionView *collectionView;
 

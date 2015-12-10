@@ -126,6 +126,7 @@ NarengiCore *sharedInstance;
             houseObj.summary        = [dict objectForKey:@"Summary"];
             houseObj.featureSummray = [dict objectForKey:@"FeatureSummray"];
             houseObj.url            = [dict objectForKey:@"URL"];
+            houseObj.host = [self parsHost:[dict objectForKey:@"Host"]];
             
             aroundPlObj.houseObject = houseObj;
             
@@ -165,7 +166,15 @@ NarengiCore *sharedInstance;
     
     return [muTmpArr copy];
 }
+-(HostObject *)parsHost:(NSDictionary *)dict{
 
+    HostObject *hostObj = [[HostObject alloc] init];
+    
+    hostObj.imageUrl    = [NSURL URLWithString:[dict objectForKey:@"ImageUrl"]];
+    hostObj.displayName = [dict objectForKey:@"DisplayName"];
+    
+    return hostObj;
+}
 -(NSArray *)parsImageArray:(NSArray *)images{
 
     NSMutableArray *muArr = [[NSMutableArray alloc] init];

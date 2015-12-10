@@ -64,17 +64,23 @@
 
     
     UIStoryboard *storyboard = self.storyboard;
-    SearchViewController *searchVc = (SearchViewController *)[storyboard instantiateViewControllerWithIdentifier:@"searchVCID"];
+    UINavigationController *searchVc = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"searchNavVCID"];
     
     searchVc.modalPresentationStyle = UIModalPresentationCustom;
     searchVc.transitioningDelegate = self;
+    
+    searchVc.providesPresentationContextTransitionStyle = YES;
+    searchVc.definesPresentationContext = YES;
     
     searchVc.view.backgroundColor = [UIColor clearColor];
     UIBlurEffect * blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
     UIVisualEffectView *beView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
     beView.frame = self.view.bounds;
     [searchVc.view insertSubview:beView atIndex:0];
+    
     [self presentViewController:searchVc animated:YES completion:nil];
+    
+
     
     
 }
@@ -157,12 +163,7 @@
         
         return pagerCell;
     }
-    
-
-    
-   
-    
-    
+ 
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath

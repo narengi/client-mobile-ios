@@ -7,6 +7,7 @@
 //
 
 #import "SearchViewController.h"
+#import "SearchDetailViewController.h"
 
 @interface SearchViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchViewContainerTrailingSpace;
@@ -104,6 +105,7 @@
     
     if (self.isShowingHistory ) {
         cell.titleLabel.text = self.histoyArray[indexPath.row];
+        cell.Img.image = IMG(@"RecentSearches");
     }
     else{
     
@@ -119,10 +121,16 @@
         
         else if ([aroundObj.type isEqualToString:@"City"])
             cell.titleLabel.text = aroundObj.cityObject.name;
+        cell.Img.image = IMG(@"");
     }
     
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 #pragma mark - textFiled
@@ -200,11 +208,21 @@
         
         [[NSUserDefaults standardUserDefaults] setObject:[muArr copy] forKey:@"searchHistory"];
     }
+    [self performSegueWithIdentifier:@"goToSearchDetailVC" sender:nil];
+
     
     
     
     return YES;
     
+}
+
+#pragma mark - Navigation
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    SearchDetailViewController *searchDetailVc = segue.destinationViewController;
+    searchDetailVc.aroundPArr = self.resultArray;
 }
 
 @end

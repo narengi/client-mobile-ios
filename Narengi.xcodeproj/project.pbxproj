@@ -50,9 +50,6 @@
 		72DFF0E01C10461B00884E04 /* ModalAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DFF0DF1C10461B00884E04 /* ModalAnimator.m */; };
 		72DFF0E31C1046C400884E04 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DFF0E21C1046C400884E04 /* SearchViewController.m */; };
 		72DFF0E61C106C2F00884E04 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DFF0E51C106C2F00884E04 /* SearchTableViewCell.m */; };
-		72F274241C196B770048BF05 /* CityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F274231C196B770048BF05 /* CityDetailViewController.m */; };
-		72F274281C196BF00048BF05 /* HouseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F274271C196BF00048BF05 /* HouseDetailViewController.m */; };
-		72F2742B1C196C080048BF05 /* AttractionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F2742A1C196C080048BF05 /* AttractionDetailViewController.m */; };
 		72F2742E1C196DE30048BF05 /* SearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F2742D1C196DE30048BF05 /* SearchDetailViewController.m */; };
 		72F274301C196FA30048BF05 /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F2742F1C196FA30048BF05 /* CitiesViewController.m */; };
 		72F274331C1970F50048BF05 /* SearchDetailHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72F274311C1970F50048BF05 /* SearchDetailHomeCell.xib */; };
@@ -67,6 +64,9 @@
 		72F274491C1978700048BF05 /* CustomFaRegularLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F274481C1978700048BF05 /* CustomFaRegularLabel.m */; };
 		72F2744C1C19788A0048BF05 /* CustomFaBoldLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F2744B1C19788A0048BF05 /* CustomFaBoldLabel.m */; };
 		72F2744F1C1978B20048BF05 /* CustomFaLightLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F2744E1C1978B20048BF05 /* CustomFaLightLabel.m */; };
+		72F274521C199F970048BF05 /* SearchDetailCityCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F274511C199F970048BF05 /* SearchDetailCityCollectionViewCell.m */; };
+		72F274551C199FC30048BF05 /* SearchDetailHomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F274541C199FC30048BF05 /* SearchDetailHomeCollectionViewCell.m */; };
+		72F274581C199FDF0048BF05 /* SearchDetailAttractionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F274571C199FDF0048BF05 /* SearchDetailAttractionCollectionViewCell.m */; };
 		8806210A2432B6524B082D82 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184F4AA531303E30BD8254D8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -170,12 +170,6 @@
 		72DFF0E21C1046C400884E04 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = VC/Search/SearchViewController.m; sourceTree = "<group>"; };
 		72DFF0E41C106C2F00884E04 /* SearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchTableViewCell.h; path = VC/Search/SearchTableViewCell.h; sourceTree = "<group>"; };
 		72DFF0E51C106C2F00884E04 /* SearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchTableViewCell.m; path = VC/Search/SearchTableViewCell.m; sourceTree = "<group>"; };
-		72F274231C196B770048BF05 /* CityDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityDetailViewController.m; path = VC/Detail/CityDetailViewController.m; sourceTree = "<group>"; };
-		72F274251C196B960048BF05 /* CityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityDetailViewController.h; path = VC/Detail/CityDetailViewController.h; sourceTree = "<group>"; };
-		72F274261C196BF00048BF05 /* HouseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HouseDetailViewController.h; path = VC/Detail/HouseDetailViewController.h; sourceTree = "<group>"; };
-		72F274271C196BF00048BF05 /* HouseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HouseDetailViewController.m; path = VC/Detail/HouseDetailViewController.m; sourceTree = "<group>"; };
-		72F274291C196C080048BF05 /* AttractionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttractionDetailViewController.h; path = VC/Detail/AttractionDetailViewController.h; sourceTree = "<group>"; };
-		72F2742A1C196C080048BF05 /* AttractionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttractionDetailViewController.m; path = VC/Detail/AttractionDetailViewController.m; sourceTree = "<group>"; };
 		72F2742C1C196DE30048BF05 /* SearchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchDetailViewController.h; path = VC/Detail/SearchDetailViewController.h; sourceTree = "<group>"; };
 		72F2742D1C196DE30048BF05 /* SearchDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchDetailViewController.m; path = VC/Detail/SearchDetailViewController.m; sourceTree = "<group>"; };
 		72F2742F1C196FA30048BF05 /* CitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CitiesViewController.m; path = VC/CitiesVC/CitiesViewController.m; sourceTree = "<group>"; };
@@ -195,6 +189,12 @@
 		72F2744B1C19788A0048BF05 /* CustomFaBoldLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomFaBoldLabel.m; sourceTree = "<group>"; };
 		72F2744D1C1978B20048BF05 /* CustomFaLightLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomFaLightLabel.h; path = "Custom Classes/CustomFaLightLabel.h"; sourceTree = "<group>"; };
 		72F2744E1C1978B20048BF05 /* CustomFaLightLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomFaLightLabel.m; path = "Custom Classes/CustomFaLightLabel.m"; sourceTree = "<group>"; };
+		72F274501C199F970048BF05 /* SearchDetailCityCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchDetailCityCollectionViewCell.h; path = VC/Detail/SearchDetailCityCollectionViewCell.h; sourceTree = "<group>"; };
+		72F274511C199F970048BF05 /* SearchDetailCityCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchDetailCityCollectionViewCell.m; path = VC/Detail/SearchDetailCityCollectionViewCell.m; sourceTree = "<group>"; };
+		72F274531C199FC30048BF05 /* SearchDetailHomeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchDetailHomeCollectionViewCell.h; path = VC/Detail/SearchDetailHomeCollectionViewCell.h; sourceTree = "<group>"; };
+		72F274541C199FC30048BF05 /* SearchDetailHomeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchDetailHomeCollectionViewCell.m; path = VC/Detail/SearchDetailHomeCollectionViewCell.m; sourceTree = "<group>"; };
+		72F274561C199FDF0048BF05 /* SearchDetailAttractionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchDetailAttractionCollectionViewCell.h; path = VC/Detail/SearchDetailAttractionCollectionViewCell.h; sourceTree = "<group>"; };
+		72F274571C199FDF0048BF05 /* SearchDetailAttractionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchDetailAttractionCollectionViewCell.m; path = VC/Detail/SearchDetailAttractionCollectionViewCell.m; sourceTree = "<group>"; };
 		82E3942A9DDE72785E55F3C3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -278,17 +278,17 @@
 		721E151D1C0ED3F3006E394B /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				72F274251C196B960048BF05 /* CityDetailViewController.h */,
-				72F274231C196B770048BF05 /* CityDetailViewController.m */,
-				72F274261C196BF00048BF05 /* HouseDetailViewController.h */,
-				72F274271C196BF00048BF05 /* HouseDetailViewController.m */,
-				72F274291C196C080048BF05 /* AttractionDetailViewController.h */,
-				72F2742A1C196C080048BF05 /* AttractionDetailViewController.m */,
 				72F2742C1C196DE30048BF05 /* SearchDetailViewController.h */,
 				72F2742D1C196DE30048BF05 /* SearchDetailViewController.m */,
 				72F274311C1970F50048BF05 /* SearchDetailHomeCell.xib */,
+				72F274531C199FC30048BF05 /* SearchDetailHomeCollectionViewCell.h */,
+				72F274541C199FC30048BF05 /* SearchDetailHomeCollectionViewCell.m */,
 				72F274341C19710E0048BF05 /* SearchDetailCityCell.xib */,
+				72F274501C199F970048BF05 /* SearchDetailCityCollectionViewCell.h */,
+				72F274511C199F970048BF05 /* SearchDetailCityCollectionViewCell.m */,
 				72F274371C19712E0048BF05 /* SearchDetaillAttractionCell.xib */,
+				72F274561C199FDF0048BF05 /* SearchDetailAttractionCollectionViewCell.h */,
+				72F274571C199FDF0048BF05 /* SearchDetailAttractionCollectionViewCell.m */,
 			);
 			name = Detail;
 			sourceTree = "<group>";
@@ -512,6 +512,7 @@
 				TargetAttributes = {
 					726DF1ED1BE79937004796EC = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = SDSK767787;
 					};
 					726DF2061BE79937004796EC = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -639,6 +640,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72F274521C199F970048BF05 /* SearchDetailCityCollectionViewCell.m in Sources */,
 				72F274301C196FA30048BF05 /* CitiesViewController.m in Sources */,
 				7285DE5A1BF4AFD500F92608 /* HWViewPager.m in Sources */,
 				72DFF0E61C106C2F00884E04 /* SearchTableViewCell.m in Sources */,
@@ -647,6 +649,7 @@
 				721E15361C0F51CA006E394B /* MainHomeCollectionViewCell.m in Sources */,
 				729838B51BFCB098005BC5C3 /* AroundPlaceObject.m in Sources */,
 				729838AF1BFCB018005BC5C3 /* NarengiCore.m in Sources */,
+				72F274551C199FC30048BF05 /* SearchDetailHomeCollectionViewCell.m in Sources */,
 				726DF1F61BE79937004796EC /* AppDelegate.m in Sources */,
 				729838B81BFCB1CB005BC5C3 /* HostObject.m in Sources */,
 				722922FE1BFCFA4500C5575C /* UIViewController+Additional.m in Sources */,
@@ -654,8 +657,6 @@
 				72F2742E1C196DE30048BF05 /* SearchDetailViewController.m in Sources */,
 				7285DE551BF494CD00F92608 /* NSObject+NullCheck.m in Sources */,
 				72F274461C19782A0048BF05 /* CustomFaMediumFontLabel.m in Sources */,
-				72F2742B1C196C080048BF05 /* AttractionDetailViewController.m in Sources */,
-				72F274281C196BF00048BF05 /* HouseDetailViewController.m in Sources */,
 				72B19A131BFF6B3F007EDD86 /* AttractionObject.m in Sources */,
 				72F2744F1C1978B20048BF05 /* CustomFaLightLabel.m in Sources */,
 				729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */,
@@ -666,9 +667,9 @@
 				72D7FE651C15C59D00BD39A5 /* CustomLabel.m in Sources */,
 				722922F81BFCEA3600C5575C /* ServerResponse.m in Sources */,
 				72D5E5F91BF4D29200E950C1 /* NSString+Utils.m in Sources */,
-				72F274241C196B770048BF05 /* CityDetailViewController.m in Sources */,
 				7214FB5D1BF1C98A00824043 /* UIViewController+Utilities.m in Sources */,
 				72DFF0E31C1046C400884E04 /* SearchViewController.m in Sources */,
+				72F274581C199FDF0048BF05 /* SearchDetailAttractionCollectionViewCell.m in Sources */,
 				72D5E5FB1BF4D2D700E950C1 /* XDPopupListView.m in Sources */,
 				721E152B1C0EEAF6006E394B /* CityCollectionViewCell.m in Sources */,
 				72DFF0E01C10461B00884E04 /* ModalAnimator.m in Sources */,
@@ -867,6 +868,7 @@
 			baseConfigurationReference = 82E3942A9DDE72785E55F3C3 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Narengi/PrefixHeader.pch";
 				INFOPLIST_FILE = Narengi/Info.plist;
@@ -882,6 +884,8 @@
 			baseConfigurationReference = 42D03D1EAFA376592485440D /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ali Abbasinasab (7K7Y748RDA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ali Abbasinasab (7K7Y748RDA)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Narengi/PrefixHeader.pch";
 				INFOPLIST_FILE = Narengi/Info.plist;
@@ -889,6 +893,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.narengi.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "adf64616-9b33-444d-bc2b-829aee273821";
 			};
 			name = Release;
 		};
