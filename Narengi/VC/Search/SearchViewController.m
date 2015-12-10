@@ -25,8 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-   
-    
     self.searchViewContainer.layer.cornerRadius  = 15;
     self.searchViewContainer.layer.masksToBounds = YES;
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
@@ -39,7 +37,6 @@
     self.histoyArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"searchHistory"];
     self.isShowingHistory = YES;
    
-    // Do any additional setup after loading the view.
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -67,12 +64,7 @@
                          [self.searchTextField becomeFirstResponder];
                      }];
     
-    
 }
-
-
-
-
 
 - (IBAction)dismiss:(UIButton *)sender {
     
@@ -137,34 +129,42 @@
 - (void)textDidChanged:(id)sender
 {
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
-        
-        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:[NSString stringWithFormat: @"search?term=%@&filter[limit]=20&filter[skip]=0",self.searchTextField.text ] andWithParametrs:nil andWithBody:nil];
-        
-        self.curentRequestcount++;
-        dispatch_async(dispatch_get_main_queue(),^{
+    if (self.searchTextField.text.length == 0) {
+     
+        self.isShowingHistory = YES;
+        [self.tableView reloadData];
+    }
+    else{
+        self.isShowingHistory = NO;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
             
-            self.curentRequestcount--;
-            self.resultArray = @[];
-            if (self.curentRequestcount == 0) {
+            ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:[NSString stringWithFormat: @"search?term=%@&filter[limit]=20&filter[skip]=0",self.searchTextField.text ] andWithParametrs:nil andWithBody:nil];
+            
+            self.curentRequestcount++;
+            dispatch_async(dispatch_get_main_queue(),^{
                 
-                //  [self.tableView reloadData];
-                if (!serverRs.hasErro) {
+                self.curentRequestcount--;
+                self.resultArray = @[];
+                if (self.curentRequestcount == 0 && !self.isShowingHistory) {
                     
-                    self.isShowingHistory = NO;
-                    if (serverRs.backData !=nil ) {
+                    if (!serverRs.hasErro) {
                         
-                        self.resultArray = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData];
-                        [self.tableView reloadData];
-                        
+                        if (serverRs.backData !=nil ) {
+                            
+                            self.resultArray = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData];
+                            [self.tableView reloadData];
+                            
+                        }
+                        else{
+                            //show erro if nedded
+                        }
                     }
-                    else{
-                    }
+                    
                 }
-                
-            }
+            });
         });
-    });
+    }
+    
     
     
 }
