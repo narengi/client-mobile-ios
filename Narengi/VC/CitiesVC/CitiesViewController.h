@@ -12,7 +12,6 @@
 
 @interface CitiesViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UITextFieldDelegate,UIViewControllerTransitioningDelegate,UINavigationControllerDelegate>{
     
-//    XDPopupListView *resulViewList;
     
 }
 

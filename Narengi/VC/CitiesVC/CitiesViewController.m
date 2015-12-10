@@ -11,8 +11,6 @@
 #import "CitiesCollectionViewCell.h"
 #import "PageCell.h"
 #import "PagerCollectionViewCell.h"
-#import "AutoCompleteTableViewCell.h"
-#import "AroundDetailViewController.h"
 #import "CityCollectionViewCell.h"
 #import "MainHomeCollectionViewCell.h"
 #import "AttractionCollectionViewCell.h"
@@ -22,11 +20,9 @@
 
 
 @interface CitiesViewController()
+
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UITextField *searchTextField;
-@property (nonatomic,strong) NSArray *resultArr;
-@property (nonatomic,strong) NSArray *allresults;
 @property (nonatomic,strong) NSArray *aroundPArr;
 @property (nonatomic) NSInteger curentRequestcount;
 @property (weak, nonatomic) IBOutlet UIView *searchContainerView;
@@ -210,8 +206,6 @@
 {
     [self.collectionView reloadData];
     
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:self.searchTextField.frame.size.width] forKey:@"widthAutoCompleteTable"];
-    
 }
 
 
@@ -263,8 +257,7 @@
 
     if ([segue.identifier isEqualToString:@"goToDetail"]) {
         
-        AroundDetailViewController *aroundDetailVc = segue.destinationViewController;
-        aroundDetailVc.aroundObject = sender;
+
     }
     
     

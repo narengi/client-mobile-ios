@@ -23,6 +23,7 @@
 @implementation SearchViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
 
     self.searchViewContainer.layer.cornerRadius  = 15;
@@ -76,7 +77,7 @@
                          [self.view layoutIfNeeded];
                          [self dismissViewControllerAnimated:YES completion:nil];
                          
-                     }];
+    }];
     
 }
 
@@ -135,6 +136,7 @@
         [self.tableView reloadData];
     }
     else{
+        
         self.isShowingHistory = NO;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
             
@@ -164,8 +166,6 @@
             });
         });
     }
-    
-    
     
 }
 

@@ -23,21 +23,21 @@
                             <constraint firstAttribute="width" constant="307" id="f89-Wa-cHL"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zOe-hg-7fK" customClass="THLabel">
-                        <rect key="frame" x="16" y="58" width="275" height="46"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zOe-hg-7fK" customClass="CustomFaBoldLabel">
+                        <rect key="frame" x="16" y="55" width="275" height="52"/>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="275" id="fNq-HJ-lV1"/>
-                            <constraint firstAttribute="height" constant="46" id="zf2-bx-nUb"/>
+                            <constraint firstAttribute="height" constant="52" id="zf2-bx-nUb"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="0.49089421449999998" colorSpace="calibratedRGB"/>
                         <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ubv-VY-dPx">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ubv-VY-dPx" customClass="CustomFaMediumFontLabel">
                         <rect key="frame" x="16" y="102" width="275" height="21"/>
                         <animations/>
                         <constraints>
@@ -45,7 +45,7 @@
                             <constraint firstAttribute="width" constant="275" id="Juz-XB-hEQ"/>
                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="SnM-qv-jlJ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <size key="shadowOffset" width="0.0" height="0.0"/>
@@ -55,7 +55,7 @@
                             </mask>
                         </variation>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MuF-BX-gqc">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MuF-BX-gqc" customClass="CustomFaLightLabel">
                         <rect key="frame" x="8" y="128" width="291" height="21"/>
                         <animations/>
                         <constraints>
@@ -73,7 +73,7 @@
             <animations/>
             <constraints>
                 <constraint firstItem="MuF-BX-gqc" firstAttribute="top" secondItem="ubv-VY-dPx" secondAttribute="bottom" constant="5" id="9ha-DK-XcW"/>
-                <constraint firstItem="ubv-VY-dPx" firstAttribute="top" secondItem="zOe-hg-7fK" secondAttribute="bottom" constant="-2" id="Bwj-lL-OEf"/>
+                <constraint firstItem="ubv-VY-dPx" firstAttribute="top" secondItem="zOe-hg-7fK" secondAttribute="bottom" constant="-5" id="Bwj-lL-OEf"/>
                 <constraint firstAttribute="trailing" secondItem="ubv-VY-dPx" secondAttribute="trailing" constant="16" id="FXg-cU-bIW"/>
                 <constraint firstItem="zOe-hg-7fK" firstAttribute="centerY" secondItem="pl0-sk-tC0" secondAttribute="centerY" constant="-12.5" id="IHX-dp-NUd"/>
                 <constraint firstAttribute="trailing" secondItem="c20-QB-TEa" secondAttribute="trailing" id="R92-Es-wdw"/>
