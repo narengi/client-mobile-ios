@@ -32,4 +32,23 @@
 }
 
 
+-(void)changeLeftIcontoBack{
+
+    UIImage *buttonImage = [UIImage imageNamed:@"BackBtnOrange"];
+    UIButton *addbutton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [addbutton setImage:buttonImage forState:UIControlStateNormal];
+    addbutton.frame = CGRectMake(0, 0, 32, 32);
+    UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:addbutton];
+    self.navigationItem.leftBarButtonItem = customBarItem;
+    [addbutton addTarget:self action:@selector(Back) forControlEvents:UIControlEventTouchUpInside];
+}
+-(void)Back {
+    
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    
+}
+
+
 @end

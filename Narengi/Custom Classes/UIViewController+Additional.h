@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (Additional)
+@interface UIViewController (Additional)<UIGestureRecognizerDelegate>
 
 -(void)changeRightIcontoMap;
+-(void)changeLeftIcontoBack;
+
 
 @end

@@ -16,12 +16,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) NSInteger curentRequestcount;
 
-
-
-
-//for the results to be shown with two table delegates
-
-
 @end
 
 @implementation SearchDetailViewController
@@ -38,6 +32,7 @@
     [self reloadCollctionWithanimation];
     
     self.collectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    [self changeLeftIcontoBack];
     
     
 }
@@ -45,7 +40,7 @@
 -(void)initSearchBar{
 
 
-    UISearchBar *searchbar =[[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
+    UISearchBar *searchbar =[[UISearchBar alloc] initWithFrame:CGRectMake(-10, 0, 120, 30)];
     self.navigationItem.titleView = searchbar;
     searchbar.delegate = self;
     
@@ -54,8 +49,6 @@
     searchbar.tintColor = [UIColor redColor];
     
     [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setTextAlignment:NSTextAlignmentRight];
-
-
 
 }
 
@@ -199,8 +192,8 @@
     
 }
 
-#pragma mark -search
 
+#pragma mark -search
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
 
