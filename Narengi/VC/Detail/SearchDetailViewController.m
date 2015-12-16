@@ -99,6 +99,7 @@
         pagerCell.residentCountLabel.text = str;
         
         pagerCell.imageUrls       = aroundObj.cityObject.imageUrls;
+        pagerCell.desciptionLabel.text = aroundObj.cityObject.summary;
         
         [pagerCell.pages reloadData];
         

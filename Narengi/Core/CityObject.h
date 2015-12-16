@@ -17,5 +17,6 @@
 @property (nonatomic) GeoPointObject *geoObj;
 @property (nonatomic) NSNumber       *houseCount;
 @property (nonatomic) NSArray        *url;
+@property (nonatomic) NSString       *summary;
 
 @end

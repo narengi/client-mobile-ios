@@ -43,11 +43,12 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maL-49-Bcr" customClass="CustomFaRegularLabel">
-                        <rect key="frame" x="17" y="165" width="401" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maL-49-Bcr" customClass="CustomFaRegularLabel">
+                        <rect key="frame" x="17" y="154" width="401" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="401" id="LEI-Dd-30f"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="X6m-Zh-jyk"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="bm5-5d-9a2"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -94,7 +95,7 @@
                 <constraint firstItem="hN9-Rd-mOY" firstAttribute="leading" secondItem="X7I-ij-FWJ" secondAttribute="leading" constant="23" id="oeO-5T-v6L"/>
                 <constraint firstAttribute="bottom" secondItem="a3T-QC-StM" secondAttribute="bottom" id="pkC-nc-0sG"/>
                 <constraint firstAttribute="trailing" secondItem="maL-49-Bcr" secondAttribute="trailing" constant="16" id="s9X-DF-hAJ"/>
-                <constraint firstItem="maL-49-Bcr" firstAttribute="top" secondItem="65P-f5-GPf" secondAttribute="bottom" constant="23" id="ubb-Aw-Jyk"/>
+                <constraint firstItem="maL-49-Bcr" firstAttribute="top" secondItem="65P-f5-GPf" secondAttribute="bottom" constant="12" id="ubb-Aw-Jyk"/>
                 <constraint firstItem="a3T-QC-StM" firstAttribute="top" secondItem="Bl1-6B-KE3" secondAttribute="bottom" constant="13" id="weB-B6-8gr"/>
             </constraints>
             <size key="customSize" width="434" height="243"/>

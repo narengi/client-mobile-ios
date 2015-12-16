@@ -154,6 +154,7 @@ NarengiCore *sharedInstance;
             cityObj.houseCount     = [dict objectForKey:@"HouseCount"];
             cityObj.imageUrls      = [self parsImageArray:[dict objectForKey:@"Images"]];
             cityObj.url            = [dict objectForKey:@"URL"];
+            cityObj.summary        = [dict objectForKey:@"Summary"];
             
             aroundPlObj.cityObject = cityObj;
         }
