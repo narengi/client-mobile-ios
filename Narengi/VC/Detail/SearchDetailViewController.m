@@ -35,7 +35,7 @@
     [self.collectionView registerNib:[UINib nibWithNibName:@"SearchDetailCityCell" bundle:nil] forCellWithReuseIdentifier:@"cityCellID"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"SearchDetaillAttractionCell" bundle:nil] forCellWithReuseIdentifier:@"attractionCellID"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"SearchDetailHomeCell" bundle:nil] forCellWithReuseIdentifier:@"homeCellID"];
-    [self.collectionView reloadData];
+    [self reloadCollctionWithanimation];
     
     self.collectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     
@@ -186,14 +186,57 @@
 }
 
 
+-(void)reloadCollctionWithanimation{
+
+    [UIView transitionWithView:self.collectionView
+                      duration:0.35f
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^(void)
+     {
+         [self.collectionView reloadData];
+     }
+                    completion:nil];
+    
+}
+
 #pragma mark -search
 
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
 
-    
+    [self getDataWithText:searchText];
 }
 
+-(void)getDataWithText:(NSString *)text{
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+        
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:[NSString stringWithFormat: @"search?term=%@&filter[limit]=20&filter[skip]=0",text ] andWithParametrs:nil andWithBody:nil];
+        
+        self.curentRequestcount++;
+        dispatch_async(dispatch_get_main_queue(),^{
+            
+            self.curentRequestcount--;
+            self.aroundPArr = @[];
+            if (self.curentRequestcount == 0 ) {
+                
+                if (!serverRs.hasErro) {
+                    
+                    if (serverRs.backData !=nil ) {
+                        
+                        self.aroundPArr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData];
+                        [self reloadCollctionWithanimation];
+                        
+                    }
+                    else{
+                        //show erro if nedded
+                    }
+                }
+                
+            }
+        });
+    });
+}
 
 
 

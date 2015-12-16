@@ -136,6 +136,20 @@
     
 }
 
+-(void)reloadCollctionWithanimation{
+    
+    [UIView transitionWithView:self.tableView
+                      duration:0.35f
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^(void)
+     {
+         [self.tableView reloadData];
+     }
+                    completion:nil];
+    
+}
+
+
 #pragma mark - textFiled
 
 - (void)textDidChanged:(id)sender
@@ -144,7 +158,7 @@
     if (self.searchTextField.text.length == 0) {
      
         self.isShowingHistory = YES;
-        [self.tableView reloadData];
+        [self reloadCollctionWithanimation];
     }
     else{
         
@@ -165,7 +179,7 @@
                         if (serverRs.backData !=nil ) {
                             
                             self.resultArray = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData];
-                            [self.tableView reloadData];
+                           [self reloadCollctionWithanimation];
                             
                         }
                         else{
