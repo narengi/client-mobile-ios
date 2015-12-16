@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchDetailViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface SearchDetailViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UISearchBarDelegate>
 
 @property (nonatomic,strong) NSArray *aroundPArr;
 

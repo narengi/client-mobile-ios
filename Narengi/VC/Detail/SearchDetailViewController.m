@@ -16,6 +16,12 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) NSInteger curentRequestcount;
 
+
+
+
+//for the results to be shown with two table delegates
+
+
 @end
 
 @implementation SearchDetailViewController
@@ -23,16 +29,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
+    
+    [self initSearchBar];
     [self changeRightIcontoMap];
     [self.collectionView registerNib:[UINib nibWithNibName:@"SearchDetailCityCell" bundle:nil] forCellWithReuseIdentifier:@"cityCellID"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"SearchDetaillAttractionCell" bundle:nil] forCellWithReuseIdentifier:@"attractionCellID"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"SearchDetailHomeCell" bundle:nil] forCellWithReuseIdentifier:@"homeCellID"];
     [self.collectionView reloadData];
     
+    self.collectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    
     
 }
 
+-(void)initSearchBar{
+
+
+    UISearchBar *searchbar =[[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
+    self.navigationItem.titleView = searchbar;
+    searchbar.delegate = self;
+    
+    searchbar.layer.cornerRadius = 20;
+    searchbar.searchBarStyle = UISearchBarStyleMinimal;
+    searchbar.tintColor = [UIColor redColor];
+    
+    [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setTextAlignment:NSTextAlignmentRight];
+
+
+
+}
 
 
 -(void)viewWillAppear:(BOOL)animated
@@ -159,6 +184,17 @@
     
     return 0;
 }
+
+
+#pragma mark -search
+
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+
+    
+}
+
+
 
 
 @end
