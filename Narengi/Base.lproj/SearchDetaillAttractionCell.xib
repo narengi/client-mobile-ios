@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -16,7 +16,6 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qeb-Z8-ES3">
                         <rect key="frame" x="8" y="13" width="399" height="137"/>
-                        <animations/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="137" id="eU0-N3-H51"/>
@@ -25,7 +24,6 @@
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5C-ha-PmQ">
                         <rect key="frame" x="14" y="156" width="40" height="40"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="Vwz-oN-0vR"/>
                             <constraint firstAttribute="height" constant="40" id="yiL-UT-Bqk"/>
@@ -34,7 +32,6 @@
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AttractionIcon" translatesAutoresizingMaskIntoConstraints="NO" id="cqw-61-iLX">
                         <rect key="frame" x="382" y="158" width="25" height="25"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="25" id="E7Q-WX-Hu5"/>
                             <constraint firstAttribute="height" constant="25" id="Ixz-3K-BEh"/>
@@ -42,7 +39,6 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PvI-r5-mNO" customClass="CustomFaMediumFontLabel">
                         <rect key="frame" x="63" y="158" width="313" height="25"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="3d4-dp-Coz"/>
                             <constraint firstAttribute="width" constant="313" id="F3U-tE-Xo7"/>
@@ -53,7 +49,6 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="جاذبه  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LxF-NT-d2W" customClass="CustomFaMediumFontLabel">
                         <rect key="frame" x="349" y="118" width="48" height="25"/>
-                        <animations/>
                         <color key="backgroundColor" red="0.12549019610000001" green="0.6705882353" blue="0.36862745099999999" alpha="0.73416385139999996" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="1Al-xo-dQo"/>
@@ -65,7 +60,6 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YTH-t7-Nh8">
                         <rect key="frame" x="14" y="130" width="60" height="14"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="E1D-PF-9Tl"/>
                             <constraint firstAttribute="height" constant="14" id="SNR-g2-36M"/>
@@ -73,7 +67,6 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="or7-FG-uuo" customClass="CustomFaRegularLabel">
                         <rect key="frame" x="8" y="191" width="399" height="23"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="MBS-JZ-4kp"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="23" id="wRj-Bl-go9"/>
@@ -84,7 +77,6 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nq-ZR-c5A">
                         <rect key="frame" x="0.0" y="232" width="415" height="1"/>
-                        <animations/>
                         <color key="backgroundColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="415" id="JoQ-Kz-Rvc"/>
@@ -95,10 +87,8 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <animations/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="T5C-ha-PmQ" firstAttribute="top" secondItem="YTH-t7-Nh8" secondAttribute="bottom" constant="12" id="20k-Ie-PcM"/>
