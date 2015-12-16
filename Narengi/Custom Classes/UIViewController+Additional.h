@@ -10,7 +10,6 @@
 
 @interface UIViewController (Additional)
 
-
-
+-(void)changeRightIcontoMap;
 
 @end

@@ -25,6 +25,8 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:@"Farsi" forKey:@"Language"];
     [GMSServices provideAPIKey:@"AIzaSyA4nLUSU6-DrxN51XV06Vhmojw6SosMFoI"];
+    [self initNavigationBarTheme];
+
 
     return YES;
 }
@@ -49,6 +51,20 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+
+-(void)initNavigationBarTheme{
+    
+    [[UINavigationBar appearance] setBarTintColor: [UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor blackColor], NSForegroundColorAttributeName,
+      [UIFont fontWithName:@"IRANSansMobileFaNum-Medium" size:15.0], NSFontAttributeName,nil]];
+    
+   
+    
 }
 
 @end
