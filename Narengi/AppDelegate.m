@@ -20,7 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
+//    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     [[NSUserDefaults standardUserDefaults] setObject:@"Farsi" forKey:@"Language"];
     [GMSServices provideAPIKey:@"AIzaSyA4nLUSU6-DrxN51XV06Vhmojw6SosMFoI"];

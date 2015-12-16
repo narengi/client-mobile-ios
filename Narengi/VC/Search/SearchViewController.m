@@ -45,6 +45,9 @@
 
 {
     [super viewWillAppear:YES];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     
 }
 

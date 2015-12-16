@@ -23,11 +23,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+
+    
     [self.collectionView registerNib:[UINib nibWithNibName:@"SearchDetailCityCell" bundle:nil] forCellWithReuseIdentifier:@"cityCellID"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"SearchDetaillAttractionCell" bundle:nil] forCellWithReuseIdentifier:@"attractionCellID"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"SearchDetailHomeCell" bundle:nil] forCellWithReuseIdentifier:@"homeCellID"];
     [self.collectionView reloadData];
     
+    
+}
+
+
+
+-(void)viewWillAppear:(BOOL)animated
+
+{
+    [super viewWillAppear:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+
     
 }
 

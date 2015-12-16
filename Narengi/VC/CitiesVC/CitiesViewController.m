@@ -45,6 +45,10 @@
    
     [self initSearchcontainerView];
     [self getData];
+    
+    self.edgesForExtendedLayout=UIRectEdgeNone;
+    self.extendedLayoutIncludesOpaqueBars=NO;
+    self.automaticallyAdjustsScrollViewInsets=NO;
 
     
 }
