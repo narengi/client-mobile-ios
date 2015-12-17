@@ -29,7 +29,6 @@ PODS:
   - GoogleMaps (1.10.5)
   - JNKeychain (0.1.2)
   - JSONModel (1.1.2)
-  - MLPAutoCompleteTextField (1.5)
   - REFrostedViewController (2.4.8)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
@@ -44,7 +43,6 @@ DEPENDENCIES:
   - GoogleMaps
   - JNKeychain
   - JSONModel
-  - MLPAutoCompleteTextField
   - REFrostedViewController
   - SDWebImage
   - SVProgressHUD
@@ -57,7 +55,6 @@ SPEC CHECKSUMS:
   GoogleMaps: da51c62c338c2d9c47cdad470a0d1e0e4b8544e4
   JNKeychain: 3428e123958aca6672b55d615a8a45cdf7b82c71
   JSONModel: 216584d0311b053ff714f1d6cb700dbf890847bc
-  MLPAutoCompleteTextField: ba4d507bbff2bd4f139d4197814fc8dd39caf77e
   REFrostedViewController: a893b4979ba1f200c547aef9ff4c3fd5a18f5923
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1

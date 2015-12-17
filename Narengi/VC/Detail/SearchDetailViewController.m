@@ -102,6 +102,7 @@
         
         pagerCell.imageUrls       = aroundObj.houseObject.imageUrls;
         [pagerCell.pages reloadData];
+        pagerCell.rateImg.image = IMG(([NSString stringWithFormat:@"%f",aroundObj.houseObject.roundedRate]));
         
         return pagerCell;
 

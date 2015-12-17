@@ -28,14 +28,7 @@ NarengiCore *sharedInstance;
 
 
     
-    NSString *urlString = [NSString stringWithFormat:@"%@%@",BASEURL,service];
-    
-    
-
-   // request.HTTPShouldHandleCookies = NO;
-
-    
-    
+    NSString *urlString = [NSString stringWithFormat:@"%@%@",BASEURL,service];    
     if (params != nil) {
         
         __block NSString *paramsStr = @"?";
@@ -58,10 +51,8 @@ NarengiCore *sharedInstance;
 
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:escapedPath]];
     [request setHTTPMethod:method];
-    [request setTimeoutInterval:30];
+  //  [request setTimeoutInterval:30];
     
-    
-
     
     if (body != nil) {
         
@@ -123,6 +114,8 @@ NarengiCore *sharedInstance;
             houseObj.cost           = [dict objectForKey:@"Cost"];
             houseObj.imageUrls      = [self parsImageArray:[dict objectForKey:@"Images"]];
             houseObj.rate           = [dict objectForKey:@"Rating"];
+            houseObj.roundedRate    = [self roundRate:houseObj.rate];
+            
             houseObj.summary        = [dict objectForKey:@"Summary"];
             houseObj.featureSummray = [dict objectForKey:@"FeatureSummray"];
             houseObj.url            = [dict objectForKey:@"URL"];
@@ -186,5 +179,18 @@ NarengiCore *sharedInstance;
     
     return [muArr copy];
 }
+
+
+-(float)roundRate:(NSString *)valueStr {
+    
+    float value = [valueStr floatValue]/20;
+    const float roundingValue = 0.5;
+    int mulitpler = floor(value / roundingValue);
+    
+    return mulitpler * roundingValue;
+    
+}
+
+
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XDPopupListView.h"
 
 
 @interface CitiesViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UITextFieldDelegate,UIViewControllerTransitioningDelegate,UINavigationControllerDelegate>{

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		720B92A11C22A9AB00D1468A /* HWViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = 720B92A01C22A9AB00D1468A /* HWViewPager.m */; };
 		7214FB471BF10F5B00824043 /* Farsi.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7214FB461BF10F5B00824043 /* Farsi.strings */; };
 		7214FB491BF10F6200824043 /* English.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7214FB481BF10F6200824043 /* English.strings */; };
 		7214FB4D1BF1C64100824043 /* CitiesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7214FB4C1BF1C64100824043 /* CitiesCollectionViewCell.m */; };
@@ -31,7 +32,6 @@
 		726DF20C1BE79937004796EC /* NarengiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 726DF20B1BE79937004796EC /* NarengiTests.m */; };
 		726DF2171BE79937004796EC /* NarengiUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 726DF2161BE79937004796EC /* NarengiUITests.m */; };
 		7285DE551BF494CD00F92608 /* NSObject+NullCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE541BF494CD00F92608 /* NSObject+NullCheck.m */; };
-		7285DE5A1BF4AFD500F92608 /* HWViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE591BF4AFD500F92608 /* HWViewPager.m */; };
 		7285DE601BF4B40600F92608 /* PageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE5F1BF4B40600F92608 /* PageCell.m */; };
 		729838AF1BFCB018005BC5C3 /* NarengiCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838AE1BFCB018005BC5C3 /* NarengiCore.m */; };
 		729838B21BFCB04D005BC5C3 /* HouseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838B11BFCB04D005BC5C3 /* HouseObject.m */; };
@@ -41,8 +41,6 @@
 		72B19A131BFF6B3F007EDD86 /* AttractionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B19A121BFF6B3F007EDD86 /* AttractionObject.m */; };
 		72B19A161BFF6C6D007EDD86 /* CityObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B19A151BFF6C6D007EDD86 /* CityObject.m */; };
 		72D5E5EE1BF4BB7500E950C1 /* PagerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D5E5ED1BF4BB7500E950C1 /* PagerCollectionViewCell.m */; };
-		72D5E5F91BF4D29200E950C1 /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D5E5F61BF4D29200E950C1 /* NSString+Utils.m */; };
-		72D5E5FB1BF4D2D700E950C1 /* XDPopupListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D5E5F81BF4D29200E950C1 /* XDPopupListView.m */; };
 		72D7FE621C15B6E000BD39A5 /* HouseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D7FE611C15B6E000BD39A5 /* HouseCollectionViewCell.m */; };
 		72D7FE651C15C59D00BD39A5 /* CustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D7FE641C15C59D00BD39A5 /* CustomLabel.m */; };
 		72DFF0E01C10461B00884E04 /* ModalAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DFF0DF1C10461B00884E04 /* ModalAnimator.m */; };
@@ -88,6 +86,8 @@
 /* Begin PBXFileReference section */
 		184F4AA531303E30BD8254D8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D03D1EAFA376592485440D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		720B929F1C22A9AB00D1468A /* HWViewPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HWViewPager.h; path = "Custom Classes/HWViewPager.h"; sourceTree = "<group>"; };
+		720B92A01C22A9AB00D1468A /* HWViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HWViewPager.m; path = "Custom Classes/HWViewPager.m"; sourceTree = "<group>"; };
 		7214FB461BF10F5B00824043 /* Farsi.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Farsi.strings; sourceTree = "<group>"; };
 		7214FB481BF10F6200824043 /* English.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = English.strings; sourceTree = "<group>"; };
 		7214FB4A1BF1102E00824043 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -132,8 +132,6 @@
 		726DF2181BE79937004796EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7285DE531BF494CD00F92608 /* NSObject+NullCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+NullCheck.h"; path = "Custom Classes/NSObject+NullCheck.h"; sourceTree = "<group>"; };
 		7285DE541BF494CD00F92608 /* NSObject+NullCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+NullCheck.m"; path = "Custom Classes/NSObject+NullCheck.m"; sourceTree = "<group>"; };
-		7285DE581BF4AFD500F92608 /* HWViewPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HWViewPager.h; path = "Custom Classes/HWViewPager.h"; sourceTree = "<group>"; };
-		7285DE591BF4AFD500F92608 /* HWViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HWViewPager.m; path = "Custom Classes/HWViewPager.m"; sourceTree = "<group>"; };
 		7285DE5E1BF4B40600F92608 /* PageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageCell.h; path = VC/CitiesVC/PageCell.h; sourceTree = "<group>"; };
 		7285DE5F1BF4B40600F92608 /* PageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageCell.m; path = VC/CitiesVC/PageCell.m; sourceTree = "<group>"; };
 		729838AD1BFCB018005BC5C3 /* NarengiCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NarengiCore.h; path = Core/NarengiCore.h; sourceTree = "<group>"; };
@@ -152,10 +150,6 @@
 		72B19A151BFF6C6D007EDD86 /* CityObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityObject.m; path = Core/CityObject.m; sourceTree = "<group>"; };
 		72D5E5EC1BF4BB7500E950C1 /* PagerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PagerCollectionViewCell.h; path = VC/CitiesVC/PagerCollectionViewCell.h; sourceTree = "<group>"; };
 		72D5E5ED1BF4BB7500E950C1 /* PagerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PagerCollectionViewCell.m; path = VC/CitiesVC/PagerCollectionViewCell.m; sourceTree = "<group>"; };
-		72D5E5F51BF4D29200E950C1 /* NSString+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utils.h"; sourceTree = "<group>"; };
-		72D5E5F61BF4D29200E950C1 /* NSString+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utils.m"; sourceTree = "<group>"; };
-		72D5E5F71BF4D29200E950C1 /* XDPopupListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDPopupListView.h; sourceTree = "<group>"; };
-		72D5E5F81BF4D29200E950C1 /* XDPopupListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDPopupListView.m; sourceTree = "<group>"; };
 		72D7FE601C15B6E000BD39A5 /* HouseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HouseCollectionViewCell.h; path = VC/CitiesVC/HouseCollectionViewCell.h; sourceTree = "<group>"; };
 		72D7FE611C15B6E000BD39A5 /* HouseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HouseCollectionViewCell.m; path = VC/CitiesVC/HouseCollectionViewCell.m; sourceTree = "<group>"; };
 		72D7FE631C15C59D00BD39A5 /* CustomLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomLabel.h; path = "Custom Classes/CustomLabel.h"; sourceTree = "<group>"; };
@@ -289,19 +283,6 @@
 			name = Detail;
 			sourceTree = "<group>";
 		};
-		722922FF1BFCFA7400C5575C /* XDPopup */ = {
-			isa = PBXGroup;
-			children = (
-				7285DE581BF4AFD500F92608 /* HWViewPager.h */,
-				7285DE591BF4AFD500F92608 /* HWViewPager.m */,
-				72D5E5F51BF4D29200E950C1 /* NSString+Utils.h */,
-				72D5E5F61BF4D29200E950C1 /* NSString+Utils.m */,
-				72D5E5F71BF4D29200E950C1 /* XDPopupListView.h */,
-				72D5E5F81BF4D29200E950C1 /* XDPopupListView.m */,
-			);
-			name = XDPopup;
-			sourceTree = "<group>";
-		};
 		726DF1E51BE79936004796EC = {
 			isa = PBXGroup;
 			children = (
@@ -380,6 +361,8 @@
 		726DF2291BE79C1B004796EC /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
+				720B929F1C22A9AB00D1468A /* HWViewPager.h */,
+				720B92A01C22A9AB00D1468A /* HWViewPager.m */,
 				72DFF0DE1C10461B00884E04 /* ModalAnimator.h */,
 				72D7FE631C15C59D00BD39A5 /* CustomLabel.h */,
 				72D7FE641C15C59D00BD39A5 /* CustomLabel.m */,
@@ -394,7 +377,6 @@
 				72F2744B1C19788A0048BF05 /* CustomFaBoldLabel.m */,
 				72F2744D1C1978B20048BF05 /* CustomFaLightLabel.h */,
 				72F2744E1C1978B20048BF05 /* CustomFaLightLabel.m */,
-				722922FF1BFCFA7400C5575C /* XDPopup */,
 				7285DE531BF494CD00F92608 /* NSObject+NullCheck.h */,
 				7285DE541BF494CD00F92608 /* NSObject+NullCheck.m */,
 				722922FC1BFCFA4500C5575C /* UIViewController+Additional.h */,
@@ -634,8 +616,8 @@
 			files = (
 				72F274521C199F970048BF05 /* SearchDetailCityCollectionViewCell.m in Sources */,
 				72F274301C196FA30048BF05 /* CitiesViewController.m in Sources */,
-				7285DE5A1BF4AFD500F92608 /* HWViewPager.m in Sources */,
 				72DFF0E61C106C2F00884E04 /* SearchTableViewCell.m in Sources */,
+				720B92A11C22A9AB00D1468A /* HWViewPager.m in Sources */,
 				72D5E5EE1BF4BB7500E950C1 /* PagerCollectionViewCell.m in Sources */,
 				729838B21BFCB04D005BC5C3 /* HouseObject.m in Sources */,
 				721E15361C0F51CA006E394B /* MainHomeCollectionViewCell.m in Sources */,
@@ -658,11 +640,9 @@
 				722922F51BFCB4F800C5575C /* UserObject.m in Sources */,
 				72D7FE651C15C59D00BD39A5 /* CustomLabel.m in Sources */,
 				722922F81BFCEA3600C5575C /* ServerResponse.m in Sources */,
-				72D5E5F91BF4D29200E950C1 /* NSString+Utils.m in Sources */,
 				7214FB5D1BF1C98A00824043 /* UIViewController+Utilities.m in Sources */,
 				72DFF0E31C1046C400884E04 /* SearchViewController.m in Sources */,
 				72F274581C199FDF0048BF05 /* SearchDetailAttractionCollectionViewCell.m in Sources */,
-				72D5E5FB1BF4D2D700E950C1 /* XDPopupListView.m in Sources */,
 				721E152B1C0EEAF6006E394B /* CityCollectionViewCell.m in Sources */,
 				72DFF0E01C10461B00884E04 /* ModalAnimator.m in Sources */,
 				7214FB561BF1C7CF00824043 /* MenuViewController.m in Sources */,

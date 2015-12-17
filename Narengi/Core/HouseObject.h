@@ -19,6 +19,7 @@
 @property (nonatomic) HostObject     *host;
 @property (nonatomic) NSString       *cost;
 @property (nonatomic) NSString       *rate;
+@property (nonatomic) float          roundedRate;
 @property (nonatomic) NSString       *summary;
 @property (nonatomic) NSString       *url;
 @property (nonatomic) NSString       *name;

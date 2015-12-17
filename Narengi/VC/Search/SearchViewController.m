@@ -225,6 +225,7 @@
         
         [[NSUserDefaults standardUserDefaults] setObject:[muArr copy] forKey:@"searchHistory"];
     }
+    
     [self performSegueWithIdentifier:@"goToSearchDetailVC" sender:nil];
 
     

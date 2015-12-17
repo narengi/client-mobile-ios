@@ -19,6 +19,6 @@
     self.backImageView.backgroundColor = [UIColor blackColor];
     self.backgroundColor               = [UIColor blackColor];
     
-    self.backImageView.alpha = 0.75;
+    self.backImageView.alpha = 0.65;
 }
 @end
