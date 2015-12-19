@@ -10,7 +10,9 @@
 
 @interface SearchDetailViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UISearchBarDelegate>
 
-@property (nonatomic,strong) NSArray *aroundPArr;
+@property (nonatomic,strong) NSArray  *aroundPArr;
+@property (nonatomic,strong) NSString *termrStr;
+
 
 
 @end

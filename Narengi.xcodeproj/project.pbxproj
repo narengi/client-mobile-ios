@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		720B92A11C22A9AB00D1468A /* HWViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = 720B92A01C22A9AB00D1468A /* HWViewPager.m */; };
+		720B92A41C253B3100D1468A /* SearchSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 720B92A31C253B3100D1468A /* SearchSectionView.m */; };
+		720B92AA1C253B8E00D1468A /* SearchSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 720B92A81C253B8E00D1468A /* SearchSection.xib */; };
 		7214FB471BF10F5B00824043 /* Farsi.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7214FB461BF10F5B00824043 /* Farsi.strings */; };
 		7214FB491BF10F6200824043 /* English.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7214FB481BF10F6200824043 /* English.strings */; };
 		7214FB4D1BF1C64100824043 /* CitiesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7214FB4C1BF1C64100824043 /* CitiesCollectionViewCell.m */; };
@@ -88,6 +90,9 @@
 		42D03D1EAFA376592485440D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		720B929F1C22A9AB00D1468A /* HWViewPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HWViewPager.h; path = "Custom Classes/HWViewPager.h"; sourceTree = "<group>"; };
 		720B92A01C22A9AB00D1468A /* HWViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HWViewPager.m; path = "Custom Classes/HWViewPager.m"; sourceTree = "<group>"; };
+		720B92A21C253B3100D1468A /* SearchSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchSectionView.h; path = VC/Search/SearchSectionView.h; sourceTree = "<group>"; };
+		720B92A31C253B3100D1468A /* SearchSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchSectionView.m; path = VC/Search/SearchSectionView.m; sourceTree = "<group>"; };
+		720B92A91C253B8E00D1468A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchSection.xib; sourceTree = "<group>"; };
 		7214FB461BF10F5B00824043 /* Farsi.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Farsi.strings; sourceTree = "<group>"; };
 		7214FB481BF10F6200824043 /* English.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = English.strings; sourceTree = "<group>"; };
 		7214FB4A1BF1102E00824043 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -250,6 +255,9 @@
 				721E152C1C0EF13A006E394B /* PagerCell.xib */,
 				7285DE5E1BF4B40600F92608 /* PageCell.h */,
 				7285DE5F1BF4B40600F92608 /* PageCell.m */,
+				720B92A81C253B8E00D1468A /* SearchSection.xib */,
+				720B92A21C253B3100D1468A /* SearchSectionView.h */,
+				720B92A31C253B3100D1468A /* SearchSectionView.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -534,6 +542,7 @@
 				72F274361C19710E0048BF05 /* SearchDetailCityCell.xib in Resources */,
 				7214FB491BF10F6200824043 /* English.strings in Resources */,
 				72F274411C1976E90048BF05 /* IRANSansMobile(FaNum)_Light.ttf in Resources */,
+				720B92AA1C253B8E00D1468A /* SearchSection.xib in Resources */,
 				72F274391C19712E0048BF05 /* SearchDetaillAttractionCell.xib in Resources */,
 				721E15231C0EE212006E394B /* CityCell.xib in Resources */,
 				72F274401C1976E90048BF05 /* IRANSansMobile(FaNum)_Bold.ttf in Resources */,
@@ -616,6 +625,7 @@
 			files = (
 				72F274521C199F970048BF05 /* SearchDetailCityCollectionViewCell.m in Sources */,
 				72F274301C196FA30048BF05 /* CitiesViewController.m in Sources */,
+				720B92A41C253B3100D1468A /* SearchSectionView.m in Sources */,
 				72DFF0E61C106C2F00884E04 /* SearchTableViewCell.m in Sources */,
 				720B92A11C22A9AB00D1468A /* HWViewPager.m in Sources */,
 				72D5E5EE1BF4BB7500E950C1 /* PagerCollectionViewCell.m in Sources */,
@@ -686,6 +696,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		720B92A81C253B8E00D1468A /* SearchSection.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				720B92A91C253B8E00D1468A /* Base */,
+			);
+			name = SearchSection.xib;
+			sourceTree = "<group>";
+		};
 		721E15211C0EE212006E394B /* CityCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

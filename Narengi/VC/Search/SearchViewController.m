@@ -8,6 +8,7 @@
 
 #import "SearchViewController.h"
 #import "SearchDetailViewController.h"
+#import "SearchSectionView.h"
 
 @interface SearchViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchViewContainerTrailingSpace;
@@ -18,6 +19,7 @@
 @property (nonatomic,strong) NSArray *resultArray;
 @property (nonatomic,strong) NSArray *histoyArray;
 @property (nonatomic) BOOL isShowingHistory;
+
 
 @end
 
@@ -89,12 +91,17 @@
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 
 {
-    return 1;
+    if (self.isShowingHistory)
+        return 1;
+    
+    else
+        return 1;
+    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (self.isShowingHistory )
+    if (self.isShowingHistory)
         return  self.histoyArray.count;
     
     else
@@ -133,7 +140,25 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.isShowingHistory) {
+        
+        [self performSegueWithIdentifier:@"goToSearchDetailVC" sender:self.searchTextField.text];
+    }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+
+    return 30;
+}
+
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+
+    SearchSectionView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"SearchSection" owner:self options:nil] objectAtIndex:0];
+    headerView.titleLabel.text = @"تاریخچه";
     
+    return headerView;
 }
 
 -(void)reloadCollctionWithanimation{
@@ -239,8 +264,18 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    SearchDetailViewController *searchDetailVc = segue.destinationViewController;
-    searchDetailVc.aroundPArr = self.resultArray;
+    if ([segue.identifier isEqualToString:@"goToSearchDetailVC"]) {
+        
+        SearchDetailViewController *searchDetailVc = segue.destinationViewController;
+        searchDetailVc.aroundPArr = self.resultArray;
+        
+        if (self.isShowingHistory) {
+            searchDetailVc.termrStr = sender;
+        }
+    }
+    
 }
+
+
 
 @end

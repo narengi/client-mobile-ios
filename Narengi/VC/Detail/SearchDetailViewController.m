@@ -26,9 +26,11 @@
     
     [self initSearchBar];
     [self changeRightIcontoMap];
+    
     [self.collectionView registerNib:[UINib nibWithNibName:@"SearchDetailCityCell" bundle:nil] forCellWithReuseIdentifier:@"cityCellID"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"SearchDetaillAttractionCell" bundle:nil] forCellWithReuseIdentifier:@"attractionCellID"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"SearchDetailHomeCell" bundle:nil] forCellWithReuseIdentifier:@"homeCellID"];
+    
     [self reloadCollctionWithanimation];
     
     self.collectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
@@ -196,6 +198,11 @@
 
 #pragma mark -search
 
+-(void)serachWithTerm{
+
+    [self getDataWithText:self.termrStr];
+    
+}
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
 
     [self getDataWithText:searchText];
