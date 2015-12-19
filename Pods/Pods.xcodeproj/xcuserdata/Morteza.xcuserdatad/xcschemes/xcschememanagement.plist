@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JDStatusBarNotification.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>JNKeychain.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,17 +62,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>01E6EC1E38B0A0B2A7561001F4B36CB0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>047B8EA0A216F2C58734E05A2EBB29E7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>09FA060F1A0492FB25232F489AC4E573</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1F6992D1231EB1EDA91274826211A4DC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3A2A2ED8908CD3B9304823E996CB2B63</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,17 +82,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5E5D9ADFA4278CCC21724634D494B72A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>64479944AF683B1FEDDD2A03210556C2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>736E57AD5AEFAAF68D47AE4E8FCB8F68</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7FB14EE0BFA095A68E64B2FD1EB570D9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,12 +97,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>9C641B38F5DAB9F3DA247DC2ACD67929</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9F12FB4A63E20F601CFB2E64A65B57C1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D4CFC9468CA3406DBA62FDA19AD90DE6</key>
+		<key>DC12782A53D8BFDCEBBACBFFDFDBA90E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FF5CFD6F2B044B2583AE363E38A9D0EF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

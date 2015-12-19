@@ -8,3 +8,5 @@ pod 'AFNetworking'
 pod 'REFrostedViewController'
 pod 'GoogleMaps'
 pod 'THLabel', '~> 1.4'
+pod 'JDStatusBarNotification'
+

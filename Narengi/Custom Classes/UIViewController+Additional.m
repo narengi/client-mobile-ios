@@ -7,7 +7,8 @@
 //
 
 #import "UIViewController+Additional.h"
- 
+#import "JDStatusBarNotification.h"
+
 @implementation UIViewController (Additional)
 
 
@@ -47,6 +48,15 @@
     
     [self.navigationController popViewControllerAnimated:YES];
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    
+}
+
+#pragma mark - alerts and notifications
+
+-(void)noConnection{
+    
+    
+    [JDStatusBarNotification showWithStatus:@"اتصال به اینترنت را چک کنید!" dismissAfter:1 styleName:JDStatusBarStyleError];
     
 }
 

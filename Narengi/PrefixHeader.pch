@@ -52,4 +52,6 @@
 #import "CustomFaRegularLabel.h"
 
 
+#define REACHABILITY if(![Reachability reachabilityForInternetConnection].isReachable){[self noConnection]; return;}
+
 
