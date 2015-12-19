@@ -51,6 +51,9 @@
 #import "CustomFaMediumFontLabel.h"
 #import "CustomFaRegularLabel.h"
 
+#import "Reachability.h"
+
+
 
 #define REACHABILITY if(![Reachability reachabilityForInternetConnection].isReachable){[self noConnection]; return;}
 

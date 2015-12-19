@@ -12,6 +12,7 @@
 
 -(void)changeRightIcontoMap;
 -(void)changeLeftIcontoBack;
+-(void)noConnection;
 
 
 @end

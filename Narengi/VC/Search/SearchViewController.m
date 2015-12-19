@@ -134,6 +134,8 @@
         cell.Img.image = IMG(@"");
     }
     
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
     
     return cell;
 }
@@ -142,7 +144,7 @@
 {
     if (self.isShowingHistory) {
         
-        [self performSegueWithIdentifier:@"goToSearchDetailVC" sender:self.searchTextField.text];
+        [self performSegueWithIdentifier:@"goToSearchDetailVC" sender:self.histoyArray[indexPath.row]];
     }
 }
 

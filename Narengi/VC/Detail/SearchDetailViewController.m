@@ -21,8 +21,8 @@
 @implementation SearchDetailViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
     
+    [super viewDidLoad];
     
     [self initSearchBar];
     [self changeRightIcontoMap];
@@ -35,6 +35,8 @@
     
     self.collectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [self changeLeftIcontoBack];
+    
+    [self serachWithTerm];
     
     
 }
@@ -200,19 +202,21 @@
 
 -(void)serachWithTerm{
 
-    [self getDataWithText:self.termrStr];
+    [self getDataWithText];
     
 }
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
 
-    [self getDataWithText:searchText];
+    self.termrStr = searchText;
+    [self getDataWithText];
 }
 
--(void)getDataWithText:(NSString *)text{
+-(void)getDataWithText{
 
+    REACHABILITY
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
-        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:[NSString stringWithFormat: @"search?term=%@&filter[limit]=20&filter[skip]=0",text ] andWithParametrs:nil andWithBody:nil];
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:[NSString stringWithFormat: @"search?term=%@&filter[limit]=20&filter[skip]=0",self.termrStr ] andWithParametrs:nil andWithBody:nil];
         
         self.curentRequestcount++;
         dispatch_async(dispatch_get_main_queue(),^{

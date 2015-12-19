@@ -30,6 +30,7 @@ PODS:
   - JDStatusBarNotification (1.5.3)
   - JNKeychain (0.1.2)
   - JSONModel (1.1.2)
+  - Reachability (3.2)
   - REFrostedViewController (2.4.8)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
@@ -45,6 +46,7 @@ DEPENDENCIES:
   - JDStatusBarNotification
   - JNKeychain
   - JSONModel
+  - Reachability
   - REFrostedViewController
   - SDWebImage
   - SVProgressHUD
@@ -58,6 +60,7 @@ SPEC CHECKSUMS:
   JDStatusBarNotification: 29413865af11c862c17180610b0f46a21118b412
   JNKeychain: 3428e123958aca6672b55d615a8a45cdf7b82c71
   JSONModel: 216584d0311b053ff714f1d6cb700dbf890847bc
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   REFrostedViewController: a893b4979ba1f200c547aef9ff4c3fd5a18f5923
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
