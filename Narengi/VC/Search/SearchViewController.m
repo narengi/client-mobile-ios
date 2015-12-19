@@ -95,7 +95,7 @@
         return 1;
     
     else
-        return 1;
+        return self.resultArray.count;
     
 }
 
@@ -105,7 +105,7 @@
         return  self.histoyArray.count;
     
     else
-        return self.resultArray.count;
+        return [self.resultArray[section] count];
 
 }
 
@@ -119,7 +119,7 @@
     }
     else{
     
-        AroundPlaceObject *aroundObj = self.resultArray[indexPath.row];
+        AroundPlaceObject *aroundObj = self.resultArray[indexPath.section][indexPath.row];
         
         if ([aroundObj.type isEqualToString:@"House"])
             cell.titleLabel.text = aroundObj.houseObject.name;
@@ -158,7 +158,25 @@
 {
 
     SearchSectionView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"SearchSection" owner:self options:nil] objectAtIndex:0];
-    headerView.titleLabel.text = @"تاریخچه";
+    if (self.isShowingHistory) {
+        headerView.titleLabel.text = @"تاریخچه";
+    }
+    else{
+        
+        AroundPlaceObject *aroundObj = self.resultArray[section][0];
+        
+        if ([aroundObj.type isEqualToString:@"House"])
+            headerView.titleLabel.text = @"خانه‌ها";
+        
+        
+        else if ([aroundObj.type isEqualToString:@"Attraction"])
+            headerView.titleLabel.text = @"جاذبه‌ها";
+        
+        
+        else if ([aroundObj.type isEqualToString:@"City"])
+            headerView.titleLabel.text = @"شهرها";
+    }
+    
     
     return headerView;
 }
@@ -192,7 +210,7 @@
         self.isShowingHistory = NO;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
             
-            ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:[NSString stringWithFormat: @"search?term=%@&filter[limit]=20&filter[skip]=0",self.searchTextField.text ] andWithParametrs:nil andWithBody:nil];
+            ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:@"suggestion" andWithParametrs:@[@"filter[selection][city]=4",@"filter[selection][attraction]=4",@"filter[selection][house]=4",[NSString stringWithFormat:@"term =%@",self.searchTextField.text]] andWithBody:nil];
             
             self.curentRequestcount++;
             dispatch_async(dispatch_get_main_queue(),^{
@@ -205,7 +223,7 @@
                         
                         if (serverRs.backData !=nil ) {
                             
-                            self.resultArray = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData];
+                            self.resultArray = [[NarengiCore sharedInstance] parsSuggestions:serverRs.backData];
                            [self reloadCollctionWithanimation];
                             
                         }
@@ -253,7 +271,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:[muArr copy] forKey:@"searchHistory"];
     }
     
-    [self performSegueWithIdentifier:@"goToSearchDetailVC" sender:nil];
+    [self performSegueWithIdentifier:@"goToSearchDetailVC" sender:textField.text];
 
     
     
@@ -266,14 +284,11 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    
     if ([segue.identifier isEqualToString:@"goToSearchDetailVC"]) {
         
         SearchDetailViewController *searchDetailVc = segue.destinationViewController;
-        searchDetailVc.aroundPArr = self.resultArray;
-        
-        if (self.isShowingHistory) {
-            searchDetailVc.termrStr = sender;
-        }
+        searchDetailVc.termrStr = sender;
     }
     
 }

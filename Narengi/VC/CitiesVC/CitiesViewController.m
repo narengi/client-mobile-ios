@@ -233,7 +233,7 @@
             if (!serverRs.hasErro) {
                 if (serverRs.backData !=nil ) {
                    
-                    self.aroundPArr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData];
+                    self.aroundPArr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData andwithType:nil];
                     
                     [UIView transitionWithView:self.collectionView
                                       duration:0.35f

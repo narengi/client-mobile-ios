@@ -229,7 +229,7 @@
                     
                     if (serverRs.backData !=nil ) {
                         
-                        self.aroundPArr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData];
+                        self.aroundPArr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData andwithType:nil];
                         [self reloadCollctionWithanimation];
                         
                     }

@@ -51,7 +51,7 @@ NarengiCore *sharedInstance;
 
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:escapedPath]];
     [request setHTTPMethod:method];
-  //  [request setTimeoutInterval:30];
+    [request setTimeoutInterval:25];
     
     
     if (body != nil) {
@@ -94,16 +94,26 @@ NarengiCore *sharedInstance;
     
 }
 
--(NSArray *)parsAroudPlacesWith:(NSArray *)objects{
+-(NSArray *)parsAroudPlacesWith:(NSArray *)objects andwithType:(NSString *)type{
 
     NSMutableArray *muTmpArr = [[NSMutableArray alloc] init];
     [objects enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         AroundPlaceObject *aroundPlObj = [[AroundPlaceObject alloc] init];
         
+        NSDictionary *dict;
+        NSString *typeStr;
         
-        NSDictionary *dict = [obj objectForKey:@"Data"];
-        NSString *typeStr  = [obj objectForKey:@"Type"];
+        if (type != nil) {
+            typeStr = type;
+            dict = obj;
+        }
+        else{
+            
+           dict    = [obj objectForKey:@"Data"];
+           typeStr = [obj objectForKey:@"Type"];
+        }
+
         
         if ([typeStr isEqualToString:@"House"]) {
             
@@ -152,13 +162,24 @@ NarengiCore *sharedInstance;
             aroundPlObj.cityObject = cityObj;
         }
         
-        aroundPlObj.type = [obj objectForKey:@"Type"];
+        aroundPlObj.type = typeStr;
         
         [muTmpArr addObject:aroundPlObj];
         
     }];
     
     return [muTmpArr copy];
+}
+
+-(NSArray *)parsSuggestions:(NSDictionary *)dict{
+
+    NSMutableArray *suggestarr = [[NSMutableArray alloc] init];
+    [suggestarr addObject:[self parsAroudPlacesWith:[dict objectForKey:@"house"] andwithType:@"House"]];
+    [suggestarr addObject:[self parsAroudPlacesWith:[dict objectForKey:@"city"] andwithType:@"City"]];
+    [suggestarr addObject:[self parsAroudPlacesWith:[dict objectForKey:@"attraction"] andwithType:@"Attraction"]];
+    
+    return [suggestarr copy];
+    
 }
 -(HostObject *)parsHost:(NSDictionary *)dict{
 
