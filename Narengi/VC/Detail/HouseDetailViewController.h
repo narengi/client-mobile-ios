@@ -10,4 +10,6 @@
 
 @interface HouseDetailViewController : UIViewController
 
+@property (nonatomic,strong) NSURL *url;
+
 @end

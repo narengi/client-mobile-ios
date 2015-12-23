@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72004BE51C2A91AB00F9F6FB /* AroundDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72004BDE1C2A91AB00F9F6FB /* AroundDetailViewController.m */; };
+		72004BE61C2A91AB00F9F6FB /* AttractionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72004BE01C2A91AB00F9F6FB /* AttractionDetailViewController.m */; };
+		72004BE71C2A91AB00F9F6FB /* CityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72004BE21C2A91AB00F9F6FB /* CityDetailViewController.m */; };
+		72004BE81C2A91AB00F9F6FB /* HouseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72004BE41C2A91AB00F9F6FB /* HouseDetailViewController.m */; };
 		720B92A11C22A9AB00D1468A /* HWViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = 720B92A01C22A9AB00D1468A /* HWViewPager.m */; };
 		720B92A41C253B3100D1468A /* SearchSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 720B92A31C253B3100D1468A /* SearchSectionView.m */; };
 		720B92AA1C253B8E00D1468A /* SearchSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 720B92A81C253B8E00D1468A /* SearchSection.xib */; };
@@ -88,6 +92,14 @@
 /* Begin PBXFileReference section */
 		184F4AA531303E30BD8254D8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D03D1EAFA376592485440D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		72004BDD1C2A91AB00F9F6FB /* AroundDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AroundDetailViewController.h; path = VC/Detail/AroundDetailViewController.h; sourceTree = "<group>"; };
+		72004BDE1C2A91AB00F9F6FB /* AroundDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AroundDetailViewController.m; path = VC/Detail/AroundDetailViewController.m; sourceTree = "<group>"; };
+		72004BDF1C2A91AB00F9F6FB /* AttractionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttractionDetailViewController.h; path = VC/Detail/AttractionDetailViewController.h; sourceTree = "<group>"; };
+		72004BE01C2A91AB00F9F6FB /* AttractionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttractionDetailViewController.m; path = VC/Detail/AttractionDetailViewController.m; sourceTree = "<group>"; };
+		72004BE11C2A91AB00F9F6FB /* CityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityDetailViewController.h; path = VC/Detail/CityDetailViewController.h; sourceTree = "<group>"; };
+		72004BE21C2A91AB00F9F6FB /* CityDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityDetailViewController.m; path = VC/Detail/CityDetailViewController.m; sourceTree = "<group>"; };
+		72004BE31C2A91AB00F9F6FB /* HouseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HouseDetailViewController.h; path = VC/Detail/HouseDetailViewController.h; sourceTree = "<group>"; };
+		72004BE41C2A91AB00F9F6FB /* HouseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HouseDetailViewController.m; path = VC/Detail/HouseDetailViewController.m; sourceTree = "<group>"; };
 		720B929F1C22A9AB00D1468A /* HWViewPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HWViewPager.h; path = "Custom Classes/HWViewPager.h"; sourceTree = "<group>"; };
 		720B92A01C22A9AB00D1468A /* HWViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HWViewPager.m; path = "Custom Classes/HWViewPager.m"; sourceTree = "<group>"; };
 		720B92A21C253B3100D1468A /* SearchSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchSectionView.h; path = VC/Search/SearchSectionView.h; sourceTree = "<group>"; };
@@ -228,6 +240,21 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		72004BE91C2A91D000F9F6FB /* detail */ = {
+			isa = PBXGroup;
+			children = (
+				72004BE11C2A91AB00F9F6FB /* CityDetailViewController.h */,
+				72004BE21C2A91AB00F9F6FB /* CityDetailViewController.m */,
+				72004BDD1C2A91AB00F9F6FB /* AroundDetailViewController.h */,
+				72004BDE1C2A91AB00F9F6FB /* AroundDetailViewController.m */,
+				72004BDF1C2A91AB00F9F6FB /* AttractionDetailViewController.h */,
+				72004BE01C2A91AB00F9F6FB /* AttractionDetailViewController.m */,
+				72004BE31C2A91AB00F9F6FB /* HouseDetailViewController.h */,
+				72004BE41C2A91AB00F9F6FB /* HouseDetailViewController.m */,
+			);
+			name = detail;
+			sourceTree = "<group>";
+		};
 		7214FB4E1BF1C6F300824043 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,7 +300,7 @@
 			name = MenuVC;
 			sourceTree = "<group>";
 		};
-		721E151D1C0ED3F3006E394B /* Detail */ = {
+		721E151D1C0ED3F3006E394B /* SearchDetail */ = {
 			isa = PBXGroup;
 			children = (
 				72F2742C1C196DE30048BF05 /* SearchDetailViewController.h */,
@@ -288,7 +315,7 @@
 				72F274561C199FDF0048BF05 /* SearchDetailAttractionCollectionViewCell.h */,
 				72F274571C199FDF0048BF05 /* SearchDetailAttractionCollectionViewCell.m */,
 			);
-			name = Detail;
+			name = SearchDetail;
 			sourceTree = "<group>";
 		};
 		726DF1E51BE79936004796EC = {
@@ -323,7 +350,8 @@
 				726DF1FF1BE79937004796EC /* LaunchScreen.storyboard */,
 				7214FB4F1BF1C70100824043 /* MenuVC */,
 				7214FB4E1BF1C6F300824043 /* Main */,
-				721E151D1C0ED3F3006E394B /* Detail */,
+				721E151D1C0ED3F3006E394B /* SearchDetail */,
+				72004BE91C2A91D000F9F6FB /* detail */,
 				729838AC1BFCAFEA005BC5C3 /* Core */,
 				726DF2291BE79C1B004796EC /* Custom Classes */,
 				726DF1F11BE79937004796EC /* Supporting Files */,
@@ -629,12 +657,14 @@
 				72DFF0E61C106C2F00884E04 /* SearchTableViewCell.m in Sources */,
 				720B92A11C22A9AB00D1468A /* HWViewPager.m in Sources */,
 				72D5E5EE1BF4BB7500E950C1 /* PagerCollectionViewCell.m in Sources */,
+				72004BE71C2A91AB00F9F6FB /* CityDetailViewController.m in Sources */,
 				729838B21BFCB04D005BC5C3 /* HouseObject.m in Sources */,
 				721E15361C0F51CA006E394B /* MainHomeCollectionViewCell.m in Sources */,
 				729838B51BFCB098005BC5C3 /* AroundPlaceObject.m in Sources */,
 				729838AF1BFCB018005BC5C3 /* NarengiCore.m in Sources */,
 				72F274551C199FC30048BF05 /* SearchDetailHomeCollectionViewCell.m in Sources */,
 				726DF1F61BE79937004796EC /* AppDelegate.m in Sources */,
+				72004BE61C2A91AB00F9F6FB /* AttractionDetailViewController.m in Sources */,
 				729838B81BFCB1CB005BC5C3 /* HostObject.m in Sources */,
 				722922FE1BFCFA4500C5575C /* UIViewController+Additional.m in Sources */,
 				7214FB571BF1C7CF00824043 /* RootViewController.m in Sources */,
@@ -653,10 +683,12 @@
 				7214FB5D1BF1C98A00824043 /* UIViewController+Utilities.m in Sources */,
 				72DFF0E31C1046C400884E04 /* SearchViewController.m in Sources */,
 				72F274581C199FDF0048BF05 /* SearchDetailAttractionCollectionViewCell.m in Sources */,
+				72004BE81C2A91AB00F9F6FB /* HouseDetailViewController.m in Sources */,
 				721E152B1C0EEAF6006E394B /* CityCollectionViewCell.m in Sources */,
 				72DFF0E01C10461B00884E04 /* ModalAnimator.m in Sources */,
 				7214FB561BF1C7CF00824043 /* MenuViewController.m in Sources */,
 				7214FB4D1BF1C64100824043 /* CitiesCollectionViewCell.m in Sources */,
+				72004BE51C2A91AB00F9F6FB /* AroundDetailViewController.m in Sources */,
 				726DF1F31BE79937004796EC /* main.m in Sources */,
 				72F2744C1C19788A0048BF05 /* CustomFaBoldLabel.m in Sources */,
 				72B19A161BFF6C6D007EDD86 /* CityObject.m in Sources */,

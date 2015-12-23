@@ -94,7 +94,7 @@ NarengiCore *sharedInstance;
     
 }
 
--(NSArray *)parsAroudPlacesWith:(NSArray *)objects andwithType:(NSString *)type{
+-(NSArray *)parsAroudPlacesWith:(NSArray *)objects andwithType:(NSString *)type andIsDetail:(BOOL)isDetail{
 
     NSMutableArray *muTmpArr = [[NSMutableArray alloc] init];
     [objects enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -103,15 +103,19 @@ NarengiCore *sharedInstance;
         
         NSDictionary *dict;
         NSString *typeStr;
+        NSString *urlStr;
         
         if (type != nil) {
             typeStr = type;
             dict = obj;
+            dict = [obj objectForKey:@"URL"];
         }
         else{
             
            dict    = [obj objectForKey:@"Data"];
            typeStr = [obj objectForKey:@"Type"];
+           urlStr  = [[obj objectForKey:@"Data"] objectForKey:@"URL"];
+            
         }
 
         
@@ -159,10 +163,17 @@ NarengiCore *sharedInstance;
             cityObj.url            = [dict objectForKey:@"URL"];
             cityObj.summary        = [dict objectForKey:@"Summary"];
             
+            if (isDetail) {
+                
+                cityObj.houses      = [self parsAroudPlacesWith:[dict objectForKey:@"Houses"] andwithType:@"House" andIsDetail:NO];
+                cityObj.attractions = [self parsAroudPlacesWith:[dict objectForKey:@"attraction"] andwithType:@"Attraction" andIsDetail:NO];
+            }
+            
             aroundPlObj.cityObject = cityObj;
         }
         
-        aroundPlObj.type = typeStr;
+        aroundPlObj.type   = typeStr;
+        aroundPlObj.urlStr = urlStr;
         
         [muTmpArr addObject:aroundPlObj];
         
@@ -174,9 +185,9 @@ NarengiCore *sharedInstance;
 -(NSArray *)parsSuggestions:(NSDictionary *)dict{
 
     NSMutableArray *suggestarr = [[NSMutableArray alloc] init];
-    [suggestarr addObject:[self parsAroudPlacesWith:[dict objectForKey:@"house"] andwithType:@"House"]];
-    [suggestarr addObject:[self parsAroudPlacesWith:[dict objectForKey:@"city"] andwithType:@"City"]];
-    [suggestarr addObject:[self parsAroudPlacesWith:[dict objectForKey:@"attraction"] andwithType:@"Attraction"]];
+    [suggestarr addObject:[self parsAroudPlacesWith:[dict objectForKey:@"house"] andwithType:@"House" andIsDetail:NO]];
+    [suggestarr addObject:[self parsAroudPlacesWith:[dict objectForKey:@"city"] andwithType:@"City" andIsDetail:NO]];
+    [suggestarr addObject:[self parsAroudPlacesWith:[dict objectForKey:@"attraction"] andwithType:@"Attraction" andIsDetail:NO]];
     
     return [suggestarr copy];
     

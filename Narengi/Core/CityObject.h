@@ -19,4 +19,7 @@
 @property (nonatomic) NSArray        *url;
 @property (nonatomic) NSString       *summary;
 
+@property (nonatomic) NSArray        *houses;
+@property (nonatomic) NSArray        *attractions;
+
 @end

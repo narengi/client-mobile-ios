@@ -13,6 +13,7 @@
 -(void)changeRightIcontoMap;
 -(void)changeLeftIcontoBack;
 -(void)noConnection;
+-(void)goTodetailWithUrl:(NSString *)urlStr andWithType:(NSString *)type;
 
 
 @end

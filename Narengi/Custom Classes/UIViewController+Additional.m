@@ -8,6 +8,9 @@
 
 #import "UIViewController+Additional.h"
 #import "JDStatusBarNotification.h"
+#import "CityDetailViewController.h"
+#import "AttractionDetailViewController.h"
+#import "HouseDetailViewController.h"
 
 @implementation UIViewController (Additional)
 
@@ -57,6 +60,43 @@
     
     
     [JDStatusBarNotification showWithStatus:@"اتصال به اینترنت را چک کنید!" dismissAfter:1 styleName:JDStatusBarStyleError];
+    
+}
+
+#pragma mark -Navigation
+
+-(void)goTodetailWithUrl:(NSString *)urlStr andWithType:(NSString *)type{
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+
+    NSURL *url = [ NSURL URLWithString:urlStr];
+    
+    id destinationVC;
+    
+    if ([type isEqualToString:@"House"]) {
+        
+        destinationVC = (HouseDetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"houseDetailVCID"];
+        ((HouseDetailViewController *)destinationVC).url  = url;
+        
+    }
+    else if ([type isEqualToString:@"Attraction"]) {
+        
+        destinationVC = (AttractionDetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"attractionDetailVCID"];
+        ((AttractionDetailViewController *)destinationVC).url  = url;
+        
+    }
+    else  {
+        
+        destinationVC = (CityDetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"cityDetailVCID"];
+        ((CityDetailViewController *)destinationVC).url  = url;
+        
+        
+    }
+    
+    
+    [self.navigationController pushViewController:destinationVC animated:YES];
+
+    
     
 }
 

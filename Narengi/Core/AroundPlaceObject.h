@@ -17,6 +17,7 @@
 @property (nonatomic) AttractionObject *attractionObject;
 @property (nonatomic) HouseObject      *houseObject;
 @property (nonatomic) NSString         *type;
+@property (nonatomic) NSString         *urlStr;
 
 
 

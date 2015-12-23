@@ -176,7 +176,9 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-   // [self performSegueWithIdentifier:@"goToDetail" sender:self.aroundPArr[indexPath.row]];
+    AroundPlaceObject *aroundObj = self.aroundPArr[indexPath.row];
+
+    [self goTodetailWithUrl:aroundObj.urlStr andWithType:aroundObj.type];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -233,7 +235,7 @@
             if (!serverRs.hasErro) {
                 if (serverRs.backData !=nil ) {
                    
-                    self.aroundPArr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData andwithType:nil];
+                    self.aroundPArr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData andwithType:nil andIsDetail:NO];
                     
                     [UIView transitionWithView:self.collectionView
                                       duration:0.35f

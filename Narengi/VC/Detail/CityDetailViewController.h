@@ -10,4 +10,6 @@
 
 @interface CityDetailViewController : UIViewController
 
+@property (nonatomic,strong) NSURL *url;
+
 @end

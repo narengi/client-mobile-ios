@@ -10,4 +10,7 @@
 
 @interface AttractionDetailViewController : UIViewController
 
+
+@property (nonatomic,strong) NSURL *url;
+
 @end

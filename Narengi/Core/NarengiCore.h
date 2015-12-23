@@ -15,7 +15,7 @@
 + (NarengiCore *)sharedInstance;
 -(ServerResponse *)sendRequestWithMethod:(NSString *)method andWithService:(NSString *)service andWithParametrs:(NSArray *)params andWithBody:(id)body;
 
--(NSArray *)parsAroudPlacesWith:(NSArray *)objects andwithType:(NSString *)type;
+-(NSArray *)parsAroudPlacesWith:(NSArray *)objects andwithType:(NSString *)type andIsDetail:(BOOL)isDetail;
 -(NSArray *)parsSuggestions:(NSDictionary *)dict;
 
 @end
