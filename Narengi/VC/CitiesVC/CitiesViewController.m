@@ -45,16 +45,36 @@
    
     [self initSearchcontainerView];
     
-
-    
     self.edgesForExtendedLayout=UIRectEdgeNone;
     self.extendedLayoutIncludesOpaqueBars=NO;
     self.automaticallyAdjustsScrollViewInsets=NO;
+    
+    
+    UITapGestureRecognizer *lpgr = [[UITapGestureRecognizer alloc]
+                                    initWithTarget:self action:@selector(handleSingleClickOnCollectionView:)];
+    lpgr.delegate = self;
+    [self.collectionView addGestureRecognizer:lpgr];
     
     REACHABILITY
     [self getData];
 
     
+}
+-(void)viewWillAppear:(BOOL)animated{
+
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
+}
+
+-(void)handleSingleClickOnCollectionView:(UITapGestureRecognizer *)gestureRecognizer
+{
+    CGPoint p = [gestureRecognizer locationInView:self.collectionView];
+    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:p];
+    
+    AroundPlaceObject *aroundObj = self.aroundPArr[indexPath.row];
+    
+    [self goTodetailWithUrl:aroundObj.urlStr andWithType:aroundObj.type];
+
 }
 
 -(void)initSearchcontainerView{
@@ -174,12 +194,6 @@
  
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    AroundPlaceObject *aroundObj = self.aroundPArr[indexPath.row];
-
-    [self goTodetailWithUrl:aroundObj.urlStr andWithType:aroundObj.type];
-}
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -229,7 +243,7 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
-        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:@"search?filter[limit]=20&filter[skip]=0" andWithParametrs:nil andWithBody:nil];
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:@"search?filter[limit]=40&filter[skip]=0" andWithParametrs:nil andWithBody:nil];
         dispatch_async(dispatch_get_main_queue(),^{
             
             if (!serverRs.hasErro) {

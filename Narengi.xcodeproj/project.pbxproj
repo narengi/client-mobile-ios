@@ -14,6 +14,7 @@
 		720B92A11C22A9AB00D1468A /* HWViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = 720B92A01C22A9AB00D1468A /* HWViewPager.m */; };
 		720B92A41C253B3100D1468A /* SearchSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 720B92A31C253B3100D1468A /* SearchSectionView.m */; };
 		720B92AA1C253B8E00D1468A /* SearchSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 720B92A81C253B8E00D1468A /* SearchSection.xib */; };
+		721355371C2B22AF00AD0BDE /* AttractionSmallCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 721355361C2B22AF00AD0BDE /* AttractionSmallCollectionViewCell.m */; };
 		7214FB471BF10F5B00824043 /* Farsi.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7214FB461BF10F5B00824043 /* Farsi.strings */; };
 		7214FB491BF10F6200824043 /* English.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7214FB481BF10F6200824043 /* English.strings */; };
 		7214FB4D1BF1C64100824043 /* CitiesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7214FB4C1BF1C64100824043 /* CitiesCollectionViewCell.m */; };
@@ -105,6 +106,8 @@
 		720B92A21C253B3100D1468A /* SearchSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchSectionView.h; path = VC/Search/SearchSectionView.h; sourceTree = "<group>"; };
 		720B92A31C253B3100D1468A /* SearchSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchSectionView.m; path = VC/Search/SearchSectionView.m; sourceTree = "<group>"; };
 		720B92A91C253B8E00D1468A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchSection.xib; sourceTree = "<group>"; };
+		721355351C2B22AF00AD0BDE /* AttractionSmallCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttractionSmallCollectionViewCell.h; path = VC/Detail/AttractionSmallCollectionViewCell.h; sourceTree = "<group>"; };
+		721355361C2B22AF00AD0BDE /* AttractionSmallCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttractionSmallCollectionViewCell.m; path = VC/Detail/AttractionSmallCollectionViewCell.m; sourceTree = "<group>"; };
 		7214FB461BF10F5B00824043 /* Farsi.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Farsi.strings; sourceTree = "<group>"; };
 		7214FB481BF10F6200824043 /* English.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = English.strings; sourceTree = "<group>"; };
 		7214FB4A1BF1102E00824043 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -245,6 +248,8 @@
 			children = (
 				72004BE11C2A91AB00F9F6FB /* CityDetailViewController.h */,
 				72004BE21C2A91AB00F9F6FB /* CityDetailViewController.m */,
+				721355351C2B22AF00AD0BDE /* AttractionSmallCollectionViewCell.h */,
+				721355361C2B22AF00AD0BDE /* AttractionSmallCollectionViewCell.m */,
 				72004BDD1C2A91AB00F9F6FB /* AroundDetailViewController.h */,
 				72004BDE1C2A91AB00F9F6FB /* AroundDetailViewController.m */,
 				72004BDF1C2A91AB00F9F6FB /* AttractionDetailViewController.h */,
@@ -691,6 +696,7 @@
 				72004BE51C2A91AB00F9F6FB /* AroundDetailViewController.m in Sources */,
 				726DF1F31BE79937004796EC /* main.m in Sources */,
 				72F2744C1C19788A0048BF05 /* CustomFaBoldLabel.m in Sources */,
+				721355371C2B22AF00AD0BDE /* AttractionSmallCollectionViewCell.m in Sources */,
 				72B19A161BFF6C6D007EDD86 /* CityObject.m in Sources */,
 				72D7FE621C15B6E000BD39A5 /* HouseCollectionViewCell.m in Sources */,
 			);

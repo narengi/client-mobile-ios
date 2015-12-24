@@ -40,6 +40,7 @@
     
     self.histoyArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"searchHistory"];
     self.isShowingHistory = YES;
+    
    
 }
 
@@ -145,6 +146,11 @@
     if (self.isShowingHistory) {
         
         [self performSegueWithIdentifier:@"goToSearchDetailVC" sender:self.histoyArray[indexPath.row]];
+    }
+    else{
+    
+        AroundPlaceObject *aroundObj = self.resultArray[indexPath.section][indexPath.row];
+        [self goTodetailWithUrl:aroundObj.urlStr andWithType:aroundObj.type];
     }
 }
 

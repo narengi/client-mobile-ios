@@ -30,6 +30,9 @@
         size =CGSizeMake([UIScreen mainScreen].bounds.size.width, ([UIScreen mainScreen].bounds.size.width) * 5 /8 );
     }
     self.pages =[[HWViewPager alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height) collectionViewLayout:layout];
+    self.pages.allowsSelection = YES;
+    [self.pages setPagerDelegate:self];
+
     
     self.pages.showsHorizontalScrollIndicator = NO;
     self.pages.showsVerticalScrollIndicator   = NO;
@@ -38,6 +41,7 @@
     [self.pages setDataSource:self];
     [self.pages setDelegate:self];
     
+        [self.pages setPagerDelegate:self];
     [self.pages registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellIdentifier"];
     [self.pages setBackgroundColor:[UIColor whiteColor]];
     
@@ -49,10 +53,10 @@
     [self bringSubviewToFront:self.descriptionLabel];
     
     
-    
-    self.titleLabel.shadowColor = kShadowColor1;
+
+    self.titleLabel.shadowColor  = kShadowColor1;
     self.titleLabel.shadowOffset = kShadowOffset;
-    self.titleLabel.shadowBlur = kShadowBlur;
+    self.titleLabel.shadowBlur   = kShadowBlur;
     
     
 
@@ -106,6 +110,11 @@
         
         return CGSizeMake([UIScreen mainScreen].bounds.size.width, ([UIScreen mainScreen].bounds.size.width) * 5 /8 );
     }
+    
+}
+
+-(void)pagerDidSelectedPage:(NSInteger)selectedPage
+{
     
 }
 

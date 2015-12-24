@@ -10,7 +10,7 @@
 #import "HWViewPager.h"
 
 
-@interface CityCollectionViewCell : UICollectionViewCell <UICollectionViewDataSource,UICollectionViewDelegate>
+@interface CityCollectionViewCell : UICollectionViewCell <UICollectionViewDataSource,UICollectionViewDelegate,HWViewPagerDelegate>
 
 @property (weak, nonatomic) IBOutlet THLabel   *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel   *descriptionLabel;

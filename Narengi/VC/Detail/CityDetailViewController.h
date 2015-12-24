@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CityDetailViewController : UIViewController
+#import "HWViewPager.h"
+
+@interface CityDetailViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDataSource,UIGestureRecognizerDelegate>
+
 
 @property (nonatomic,strong) NSURL *url;
 

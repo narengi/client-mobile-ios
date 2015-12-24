@@ -108,7 +108,7 @@ NarengiCore *sharedInstance;
         if (type != nil) {
             typeStr = type;
             dict = obj;
-            dict = [obj objectForKey:@"URL"];
+            urlStr = [obj objectForKey:@"URL"];
         }
         else{
             
@@ -166,7 +166,9 @@ NarengiCore *sharedInstance;
             if (isDetail) {
                 
                 cityObj.houses      = [self parsAroudPlacesWith:[dict objectForKey:@"Houses"] andwithType:@"House" andIsDetail:NO];
-                cityObj.attractions = [self parsAroudPlacesWith:[dict objectForKey:@"attraction"] andwithType:@"Attraction" andIsDetail:NO];
+                
+                
+                cityObj.attractions = [self parsAroudPlacesWith:[dict objectForKey:@"Attractions"] andwithType:@"Attraction" andIsDetail:NO];
             }
             
             aroundPlObj.cityObject = cityObj;

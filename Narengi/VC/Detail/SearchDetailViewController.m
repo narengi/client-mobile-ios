@@ -36,11 +36,35 @@
     self.collectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [self changeLeftIcontoBack];
     
+    UITapGestureRecognizer *lpgr = [[UITapGestureRecognizer alloc]
+                                    initWithTarget:self action:@selector(handleSingleClickOnCollectionView:)];
+    lpgr.delegate = self;
+    [self.collectionView addGestureRecognizer:lpgr];
     [self serachWithTerm];
     
     
 }
 
+
+-(void)viewWillAppear:(BOOL)animated{
+
+    [super viewWillAppear:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+
+-(void)handleSingleClickOnCollectionView:(UITapGestureRecognizer *)gestureRecognizer
+{
+    CGPoint p = [gestureRecognizer locationInView:self.collectionView];
+    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:p];
+    
+    AroundPlaceObject *aroundObj = self.aroundPArr[indexPath.row];
+    
+    [self goTodetailWithUrl:aroundObj.urlStr andWithType:aroundObj.type];
+    
+}
 -(void)initSearchBar{
 
 
@@ -56,16 +80,6 @@
 
 }
 
-
--(void)viewWillAppear:(BOOL)animated
-
-{
-    [super viewWillAppear:YES];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-
-    
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -147,10 +161,6 @@
 
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -229,7 +239,7 @@
                     
                     if (serverRs.backData !=nil ) {
                         
-                        self.aroundPArr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData andwithType:nil];
+                        self.aroundPArr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData andwithType:nil andIsDetail:NO];
                         [self reloadCollctionWithanimation];
                         
                     }
