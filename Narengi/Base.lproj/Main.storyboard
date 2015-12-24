@@ -444,7 +444,7 @@
                                                     <constraint firstAttribute="width" constant="600" id="sGE-pF-8uM"/>
                                                 </constraints>
                                             </view>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RWN-eE-bbB">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RWN-eE-bbB">
                                                 <rect key="frame" x="0.0" y="753" width="600" height="147"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="600" id="Rxm-rJ-553"/>

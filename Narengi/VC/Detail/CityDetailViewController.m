@@ -42,6 +42,8 @@ CGFloat const distance_W_LabelHeader = 35.0;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *spaceToNav;
 @property (weak, nonatomic) IBOutlet UIView *collectionHeaderView;
 
+@property (nonatomic) BOOL isForFisrttime;
+@property (nonatomic) CGFloat spaceToNavPreviousValue;
 
 @end
 
@@ -75,6 +77,8 @@ CGFloat const distance_W_LabelHeader = 35.0;
     
     
     [self.houseCollection registerNib:[UINib nibWithNibName:@"SearchDetailHomeCell" bundle:nil] forCellWithReuseIdentifier:@"homeCellID"];
+    self.isForFisrttime = YES;
+    self.spaceToNavPreviousValue = self.spaceToNav.constant;
 
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -88,12 +92,21 @@ CGFloat const distance_W_LabelHeader = 35.0;
 - (void)viewDidLayoutSubviews
 {
  
-    if (self.scrollViewContentHeightsize == 0) {
-        [self.houseCollection layoutIfNeeded];
-        self.scrollViewContentHeightsize = self.houseCollection.frame.origin.y + 2;
-    }
+ 
+    
     self.spaceToNav.constant = self.imageCollectionView.frame.size.height;
     [self.collectionHeaderView layoutIfNeeded];
+    
+    if (self.spaceToNavPreviousValue != self.spaceToNav.constant ) {
+     
+        [self.houseCollection layoutIfNeeded];
+        self.scrollViewContentHeightsize = self.spaceToNav.constant + 154;
+        self.spaceToNavPreviousValue = self.spaceToNav.constant;
+    }
+    
+    
+    
+    
 }
 
 -(void)changeContentSize :(NSArray *)arr{
@@ -113,6 +126,8 @@ CGFloat const distance_W_LabelHeader = 35.0;
     self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width,self.scrollViewContentHeightsize);
     self.houseCollectionHeightConstrain.constant = collectionContent;
     [self.houseCollection layoutIfNeeded];
+    
+    self.isForFisrttime = NO;
     
     
 }
@@ -308,7 +323,6 @@ CGFloat const distance_W_LabelHeader = 35.0;
                         change:(NSDictionary *)change
                        context:(void *)context
 {
-    // Make sure we are observing this value.
     if (context != (__bridge void *)self) {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
         return;
@@ -342,9 +356,6 @@ CGFloat const distance_W_LabelHeader = 35.0;
         headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0);
         
         self.imageCollectionView.layer.transform = headerTransform;
-        
-
-
         
     }
 
