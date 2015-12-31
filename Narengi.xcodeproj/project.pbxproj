@@ -255,8 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				727F89A01C3516A600519CDD /* city */,
-				72004BDF1C2A91AB00F9F6FB /* AttractionDetailViewController.h */,
-				72004BE01C2A91AB00F9F6FB /* AttractionDetailViewController.m */,
+				727F89AD1C355F6E00519CDD /* attraction */,
 				72004BE31C2A91AB00F9F6FB /* HouseDetailViewController.h */,
 				72004BE41C2A91AB00F9F6FB /* HouseDetailViewController.m */,
 			);
@@ -445,6 +444,15 @@
 				721355361C2B22AF00AD0BDE /* AttractionSmallCollectionViewCell.m */,
 			);
 			name = city;
+			sourceTree = "<group>";
+		};
+		727F89AD1C355F6E00519CDD /* attraction */ = {
+			isa = PBXGroup;
+			children = (
+				72004BDF1C2A91AB00F9F6FB /* AttractionDetailViewController.h */,
+				72004BE01C2A91AB00F9F6FB /* AttractionDetailViewController.m */,
+			);
+			name = attraction;
 			sourceTree = "<group>";
 		};
 		729838AC1BFCAFEA005BC5C3 /* Core */ = {

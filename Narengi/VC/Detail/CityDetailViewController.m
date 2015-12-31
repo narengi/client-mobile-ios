@@ -14,9 +14,10 @@
 #import "CityDetailHouseCollectionReusableView.h"
 
 
-CGFloat const offset_HeaderStop = 40.0;
-CGFloat const offset_B_LabelHeader = 95.0;
+CGFloat const offset_HeaderStop      = 40.0;
+CGFloat const offset_B_LabelHeader   = 95.0;
 CGFloat const distance_W_LabelHeader = 35.0;
+
 @interface CityDetailViewController ()
 
 @property (nonatomic,strong) CityObject *cityObject;
@@ -103,9 +104,7 @@ CGFloat const distance_W_LabelHeader = 35.0;
 
 - (void)viewDidLayoutSubviews
 {
- 
- 
-    
+     
     self.spaceToNav.constant = self.imageCollectionView.frame.size.height;
     [self.collectionHeaderView layoutIfNeeded];
     

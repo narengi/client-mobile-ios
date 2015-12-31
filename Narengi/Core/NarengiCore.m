@@ -153,6 +153,13 @@ NarengiCore *sharedInstance;
             attractionObj.cityName         = [dict objectForKey:@"CityName"];
             attractionObj.url              = [dict objectForKey:@"URL"];
             
+            if (isDetail) {
+                
+                attractionObj.housesArr      = [self parsAroudPlacesWith:[dict objectForKey:@"Houses"] andwithType:@"House" andIsDetail:NO];
+                
+                attractionObj.housesUrl      = [dict objectForKey:@"HousesUrl"];
+            }
+            
             aroundPlObj.attractionObject = attractionObj;
             
         }

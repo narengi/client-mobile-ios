@@ -17,5 +17,8 @@
 @property (nonatomic) GeoPointObject *geoObj;
 @property (nonatomic) NSString       *aroundHousesText;
 @property (nonatomic) NSArray        *url;
+@property (nonatomic) NSArray        *housesArr;
+
+@property (nonatomic) NSString       *housesUrl;
 
 @end

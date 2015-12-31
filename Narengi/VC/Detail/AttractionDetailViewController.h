@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AttractionDetailViewController : UIViewController
+@interface AttractionDetailViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDataSource,UIGestureRecognizerDelegate>
+
 
 
 @property (nonatomic,strong) NSURL *url;
