@@ -165,6 +165,7 @@
 
     SearchSectionView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"SearchSection" owner:self options:nil] objectAtIndex:0];
     if (self.isShowingHistory) {
+        
         headerView.titleLabel.text = @"تاریخچه";
     }
     else{
@@ -208,6 +209,7 @@
     
     if (self.searchTextField.text.length == 0) {
      
+        self.histoyArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"searchHistory"];
         self.isShowingHistory = YES;
         [self reloadCollctionWithanimation];
     }
@@ -278,9 +280,6 @@
     }
     
     [self performSegueWithIdentifier:@"goToSearchDetailVC" sender:textField.text];
-
-    
-    
     
     return YES;
     

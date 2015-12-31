@@ -168,7 +168,7 @@ NarengiCore *sharedInstance;
                 cityObj.houses      = [self parsAroudPlacesWith:[dict objectForKey:@"Houses"] andwithType:@"House" andIsDetail:NO];
                 
                 
-                cityObj.attractions = [self parsAroudPlacesWith:[dict objectForKey:@"Attractions"] andwithType:@"Attraction" andIsDetail:NO];
+                cityObj.attractions = [self parsAroudPlacesWith:[dict objectForKey:@"Attraction"] andwithType:@"Attraction" andIsDetail:NO];
             }
             
             aroundPlObj.cityObject = cityObj;
