@@ -599,11 +599,72 @@
                         <outlet property="spaceToNav" destination="0of-MR-yWV" id="Vnl-1a-gz9"/>
                         <outlet property="titleLabel" destination="Pbo-PY-ako" id="nT1-V3-PxG"/>
                         <outlet property="viewContentLayoutConstrain" destination="7Wr-X9-kYD" id="Htb-sr-Goc"/>
+                        <segue destination="GFL-0C-pkC" kind="show" id="Ew5-Z7-hjR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LX9-qe-Z5O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="677" y="618"/>
+        </scene>
+        <!--City Detail Attraction List View Controller-->
+        <scene sceneID="SQv-WE-EmH">
+            <objects>
+                <viewController id="GFL-0C-pkC" customClass="CityDetailAttractionListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jK8-QC-BPi"/>
+                        <viewControllerLayoutGuide type="bottom" id="CSM-fq-uny"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xne-0L-mz5">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Fyi-iZ-UfR">
+                                <rect key="frame" x="0.0" y="64" width="200" height="136"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="CVl-tC-M3E"/>
+                                    <constraint firstAttribute="height" constant="136" id="jKY-Bf-1Fz"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="x2D-Nm-CQv">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="f6m-jo-aAZ">
+                                        <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="GFL-0C-pkC" id="pfE-Hk-mw5"/>
+                                    <outlet property="delegate" destination="GFL-0C-pkC" id="JE9-5f-Pae"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Fyi-iZ-UfR" firstAttribute="leading" secondItem="xne-0L-mz5" secondAttribute="leading" id="Zcq-uB-2t3"/>
+                            <constraint firstAttribute="trailing" secondItem="Fyi-iZ-UfR" secondAttribute="trailing" id="bm9-WG-7SU"/>
+                            <constraint firstItem="CSM-fq-uny" firstAttribute="top" secondItem="Fyi-iZ-UfR" secondAttribute="bottom" id="ofP-EM-POe"/>
+                            <constraint firstItem="Fyi-iZ-UfR" firstAttribute="top" secondItem="jK8-QC-BPi" secondAttribute="bottom" id="pBK-cJ-g1q"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="200" height="200"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Fyi-iZ-UfR" id="CjM-K2-IEQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tep-lX-rYs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="671" y="1676"/>
         </scene>
         <!--Attraction Detail View Controller-->
         <scene sceneID="HFa-MW-S32">

@@ -27,7 +27,6 @@
     [GMSServices provideAPIKey:@"AIzaSyA4nLUSU6-DrxN51XV06Vhmojw6SosMFoI"];
     [self initNavigationBarTheme];
 
-
     return YES;
 }
 

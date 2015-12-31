@@ -52,33 +52,39 @@ CGFloat const distance_W_LabelHeader = 35.0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self getData];
     
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = self.containerView.bounds;
-    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
-    [self.containerView.layer insertSublayer:gradient atIndex:0];
+    //initial Craps
     
-   [self.imageCollectionView registerNib:[UINib nibWithNibName:@"PagerCell" bundle:nil] forCellWithReuseIdentifier:@"pageCellID"];
+    self.edgesForExtendedLayout               = UIRectEdgeNone;
+    self.extendedLayoutIncludesOpaqueBars     = NO;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    
+    //GradientLayer
+    [self insertGradientToView:self.containerView];
+    
+    //scrollView delegate
+    void *context = (__bridge void *)self;
+    [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:context];
+
+    //register Nibs
+    [self.imageCollectionView registerNib:[UINib nibWithNibName:@"PagerCell" bundle:nil] forCellWithReuseIdentifier:@"pageCellID"];
     self.imageCollectionView.pagingEnabled = YES;
     self.attractionCollectionView.pagingEnabled  = NO;
     
-    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    [self.houseCollection registerNib:[UINib nibWithNibName:@"SearchDetailHomeCell" bundle:nil] forCellWithReuseIdentifier:@"homeCellID"];
+    
+    self.isForFisrttime = YES;
     
     self.navigationView.alpha = 0;
     _headerFade                     = 130.0f;
-    
-    void *context = (__bridge void *)self;
-    [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:context];
-    
-    self.edgesForExtendedLayout=UIRectEdgeNone;
-    self.extendedLayoutIncludesOpaqueBars=NO;
-    self.automaticallyAdjustsScrollViewInsets=NO;
-    
-    
-    [self.houseCollection registerNib:[UINib nibWithNibName:@"SearchDetailHomeCell" bundle:nil] forCellWithReuseIdentifier:@"homeCellID"];
-    self.isForFisrttime = YES;
     self.spaceToNavPreviousValue = self.spaceToNav.constant;
+    
+    
+    //Get Data For firstTime
+    [self addParametrsToURL];
+    [self getData];
+    
 
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -139,6 +145,11 @@ CGFloat const distance_W_LabelHeader = 35.0;
 }
 
 #pragma mark - Data
+-(void) addParametrsToURL{
+    
+    self.url =[self fixUrr:self.url withParametrs:@[@{@"filter[house]":@"10"},@{@"filter[attraction]":@"5"}]];
+
+}
 
 -(void)getData{
 

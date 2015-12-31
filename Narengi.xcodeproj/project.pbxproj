@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		72004BE51C2A91AB00F9F6FB /* AroundDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72004BDE1C2A91AB00F9F6FB /* AroundDetailViewController.m */; };
 		72004BE61C2A91AB00F9F6FB /* AttractionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72004BE01C2A91AB00F9F6FB /* AttractionDetailViewController.m */; };
 		72004BE71C2A91AB00F9F6FB /* CityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72004BE21C2A91AB00F9F6FB /* CityDetailViewController.m */; };
 		72004BE81C2A91AB00F9F6FB /* HouseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72004BE41C2A91AB00F9F6FB /* HouseDetailViewController.m */; };
@@ -38,6 +37,7 @@
 		726DF2011BE79937004796EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 726DF1FF1BE79937004796EC /* LaunchScreen.storyboard */; };
 		726DF20C1BE79937004796EC /* NarengiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 726DF20B1BE79937004796EC /* NarengiTests.m */; };
 		726DF2171BE79937004796EC /* NarengiUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 726DF2161BE79937004796EC /* NarengiUITests.m */; };
+		727F899F1C35169B00519CDD /* CityDetailAttractionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 727F899E1C35169B00519CDD /* CityDetailAttractionListViewController.m */; };
 		7285DE551BF494CD00F92608 /* NSObject+NullCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE541BF494CD00F92608 /* NSObject+NullCheck.m */; };
 		7285DE601BF4B40600F92608 /* PageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE5F1BF4B40600F92608 /* PageCell.m */; };
 		729838AF1BFCB018005BC5C3 /* NarengiCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838AE1BFCB018005BC5C3 /* NarengiCore.m */; };
@@ -93,8 +93,6 @@
 /* Begin PBXFileReference section */
 		184F4AA531303E30BD8254D8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D03D1EAFA376592485440D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		72004BDD1C2A91AB00F9F6FB /* AroundDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AroundDetailViewController.h; path = VC/Detail/AroundDetailViewController.h; sourceTree = "<group>"; };
-		72004BDE1C2A91AB00F9F6FB /* AroundDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AroundDetailViewController.m; path = VC/Detail/AroundDetailViewController.m; sourceTree = "<group>"; };
 		72004BDF1C2A91AB00F9F6FB /* AttractionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttractionDetailViewController.h; path = VC/Detail/AttractionDetailViewController.h; sourceTree = "<group>"; };
 		72004BE01C2A91AB00F9F6FB /* AttractionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttractionDetailViewController.m; path = VC/Detail/AttractionDetailViewController.m; sourceTree = "<group>"; };
 		72004BE11C2A91AB00F9F6FB /* CityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityDetailViewController.h; path = VC/Detail/CityDetailViewController.h; sourceTree = "<group>"; };
@@ -150,6 +148,8 @@
 		726DF2121BE79937004796EC /* NarengiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NarengiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		726DF2161BE79937004796EC /* NarengiUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NarengiUITests.m; sourceTree = "<group>"; };
 		726DF2181BE79937004796EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		727F899D1C35169B00519CDD /* CityDetailAttractionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityDetailAttractionListViewController.h; path = VC/Detail/CityDetailAttractionListViewController.h; sourceTree = "<group>"; };
+		727F899E1C35169B00519CDD /* CityDetailAttractionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityDetailAttractionListViewController.m; path = VC/Detail/CityDetailAttractionListViewController.m; sourceTree = "<group>"; };
 		7285DE531BF494CD00F92608 /* NSObject+NullCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+NullCheck.h"; path = "Custom Classes/NSObject+NullCheck.h"; sourceTree = "<group>"; };
 		7285DE541BF494CD00F92608 /* NSObject+NullCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+NullCheck.m"; path = "Custom Classes/NSObject+NullCheck.m"; sourceTree = "<group>"; };
 		7285DE5E1BF4B40600F92608 /* PageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageCell.h; path = VC/CitiesVC/PageCell.h; sourceTree = "<group>"; };
@@ -246,12 +246,7 @@
 		72004BE91C2A91D000F9F6FB /* detail */ = {
 			isa = PBXGroup;
 			children = (
-				72004BE11C2A91AB00F9F6FB /* CityDetailViewController.h */,
-				72004BE21C2A91AB00F9F6FB /* CityDetailViewController.m */,
-				721355351C2B22AF00AD0BDE /* AttractionSmallCollectionViewCell.h */,
-				721355361C2B22AF00AD0BDE /* AttractionSmallCollectionViewCell.m */,
-				72004BDD1C2A91AB00F9F6FB /* AroundDetailViewController.h */,
-				72004BDE1C2A91AB00F9F6FB /* AroundDetailViewController.m */,
+				727F89A01C3516A600519CDD /* city */,
 				72004BDF1C2A91AB00F9F6FB /* AttractionDetailViewController.h */,
 				72004BE01C2A91AB00F9F6FB /* AttractionDetailViewController.m */,
 				72004BE31C2A91AB00F9F6FB /* HouseDetailViewController.h */,
@@ -424,6 +419,19 @@
 				722922FD1BFCFA4500C5575C /* UIViewController+Additional.m */,
 			);
 			name = "Custom Classes";
+			sourceTree = "<group>";
+		};
+		727F89A01C3516A600519CDD /* city */ = {
+			isa = PBXGroup;
+			children = (
+				72004BE11C2A91AB00F9F6FB /* CityDetailViewController.h */,
+				72004BE21C2A91AB00F9F6FB /* CityDetailViewController.m */,
+				727F899D1C35169B00519CDD /* CityDetailAttractionListViewController.h */,
+				727F899E1C35169B00519CDD /* CityDetailAttractionListViewController.m */,
+				721355351C2B22AF00AD0BDE /* AttractionSmallCollectionViewCell.h */,
+				721355361C2B22AF00AD0BDE /* AttractionSmallCollectionViewCell.m */,
+			);
+			name = city;
 			sourceTree = "<group>";
 		};
 		729838AC1BFCAFEA005BC5C3 /* Core */ = {
@@ -667,6 +675,7 @@
 				721E15361C0F51CA006E394B /* MainHomeCollectionViewCell.m in Sources */,
 				729838B51BFCB098005BC5C3 /* AroundPlaceObject.m in Sources */,
 				729838AF1BFCB018005BC5C3 /* NarengiCore.m in Sources */,
+				727F899F1C35169B00519CDD /* CityDetailAttractionListViewController.m in Sources */,
 				72F274551C199FC30048BF05 /* SearchDetailHomeCollectionViewCell.m in Sources */,
 				726DF1F61BE79937004796EC /* AppDelegate.m in Sources */,
 				72004BE61C2A91AB00F9F6FB /* AttractionDetailViewController.m in Sources */,
@@ -693,7 +702,6 @@
 				72DFF0E01C10461B00884E04 /* ModalAnimator.m in Sources */,
 				7214FB561BF1C7CF00824043 /* MenuViewController.m in Sources */,
 				7214FB4D1BF1C64100824043 /* CitiesCollectionViewCell.m in Sources */,
-				72004BE51C2A91AB00F9F6FB /* AroundDetailViewController.m in Sources */,
 				726DF1F31BE79937004796EC /* main.m in Sources */,
 				72F2744C1C19788A0048BF05 /* CustomFaBoldLabel.m in Sources */,
 				721355371C2B22AF00AD0BDE /* AttractionSmallCollectionViewCell.m in Sources */,

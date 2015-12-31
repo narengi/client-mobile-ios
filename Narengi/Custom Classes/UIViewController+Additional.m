@@ -102,5 +102,58 @@
     
 }
 
+#pragma mark - url
+
+-(NSURL*)fixUrr:(NSURL *)url withParametrs:(NSArray *)parametrs{
+
+    NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithURL:[NSURL URLWithString:url.absoluteString]resolvingAgainstBaseURL:YES];
+    
+    NSMutableArray *muArr = [[NSMutableArray alloc ]initWithArray: urlComponents.queryItems];
+    
+    for (NSDictionary *parametr in parametrs) {
+     
+        NSURLQueryItem *item = [[NSURLQueryItem alloc] initWithName:[parametr objectForKey:@"name"] value:[parametr objectForKey:@"name"]];
+        [muArr addObject:item];
+
+    }
+    
+    urlComponents.queryItems = [muArr copy];
+    
+    return urlComponents.URL;
+}
+
+
+
+
+#pragma mark - Gradiant
+
+-(void)insertGradientToView:(UIView *)view{
+ 
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = view.bounds;
+    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
+    
+    [view.layer insertSublayer:gradient atIndex:0];
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end
