@@ -50,8 +50,7 @@
 
     [super viewWillAppear:YES];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
 
@@ -226,7 +225,7 @@
     REACHABILITY
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
-        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:[NSString stringWithFormat: @"search?term=%@&filter[limit]=20&filter[skip]=0",self.termrStr ] andWithParametrs:nil andWithBody:nil];
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:[NSString stringWithFormat: @"search?term=%@&filter[limit]=20&filter[skip]=0",self.termrStr ] andWithParametrs:nil andWithBody:nil andIsFullPath:NO];
         
         self.curentRequestcount++;
         dispatch_async(dispatch_get_main_queue(),^{

@@ -10,6 +10,9 @@
 #import "PageCell.h"
 #import "AttractionSmallCollectionViewCell.h"
 #import "SearchDetailHomeCollectionViewCell.h"
+#import "CityDetailAttractionListViewController.h"
+#import "CityDetailHouseCollectionReusableView.h"
+
 
 CGFloat const offset_HeaderStop = 40.0;
 CGFloat const offset_B_LabelHeader = 95.0;
@@ -69,6 +72,9 @@ CGFloat const distance_W_LabelHeader = 35.0;
 
     //register Nibs
     [self.imageCollectionView registerNib:[UINib nibWithNibName:@"PagerCell" bundle:nil] forCellWithReuseIdentifier:@"pageCellID"];
+    
+    [self.houseCollection  registerNib:[CityDetailHouseCollectionReusableView nib] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"cityDetailHouseCollectionRV"];
+    
     self.imageCollectionView.pagingEnabled = YES;
     self.attractionCollectionView.pagingEnabled  = NO;
     
@@ -129,7 +135,7 @@ CGFloat const distance_W_LabelHeader = 35.0;
     self.scrollViewContentHeightsize = content;
     self.ViewContentLayoutConstrain.constant = self.scrollViewContentHeightsize;
     [self.parentView layoutIfNeeded];
-    self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width,self.scrollViewContentHeightsize);
+    self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width,self.scrollViewContentHeightsize+40);
     self.houseCollectionHeightConstrain.constant = collectionContent;
     [self.houseCollection layoutIfNeeded];
     
@@ -147,18 +153,16 @@ CGFloat const distance_W_LabelHeader = 35.0;
 #pragma mark - Data
 -(void) addParametrsToURL{
     
-    self.url =[self fixUrr:self.url withParametrs:@[@{@"filter[house]":@"10"},@{@"filter[attraction]":@"5"}]];
+    self.url =[self fixUrr:self.url withParametrs:@[@{@"name":@"filter[house]",@"value":@"10"},@{@"name":@"filter[attraction]",@"value":@"10"}]];
 
 }
 
 -(void)getData{
 
-    NSString *str = self.url.absoluteString;
-    NSString *serviceStr  = [[str componentsSeparatedByString:@"v1/"] objectAtIndex:1];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
-        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:serviceStr andWithParametrs:nil andWithBody:nil];
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:self.url.absoluteString andWithParametrs:nil andWithBody:nil andIsFullPath:YES];
 
         
         dispatch_async(dispatch_get_main_queue(),^{
@@ -277,7 +281,7 @@ CGFloat const distance_W_LabelHeader = 35.0;
         insetForSectionAtIndex:(NSInteger) section {
     
     if (collectionView == self.attractionCollectionView) {
-        return UIEdgeInsetsMake(0, 30, 0, 30);
+        return UIEdgeInsetsMake(0, 20, 0, 20);
     }
     
     else{
@@ -290,7 +294,7 @@ CGFloat const distance_W_LabelHeader = 35.0;
     
     
     if (collectionView == self.attractionCollectionView) {
-        return 30;
+        return 20;
     }
     else{
         return 0;
@@ -319,13 +323,33 @@ CGFloat const distance_W_LabelHeader = 35.0;
 
 }
 
-#pragma mark - navigation
 
-- (IBAction)backButtonClicked:(UIButton *)sender {
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    if (collectionView ==  self.houseCollection) {
+        return CGSizeMake(0., 40);
+    }
+    else{
+        return CGSizeMake(0., 0);
+    }
     
-    [self.navigationController popViewControllerAnimated:YES];
-    self.navigationController.interactivePopGestureRecognizer.delegate = self;
 }
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionReusableView* cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                                        withReuseIdentifier:@"cityDetailHouseCollectionRV"
+                                                                               forIndexPath:indexPath];
+    
+    
+    CityDetailHouseCollectionReusableView* header_view = (CityDetailHouseCollectionReusableView*) cell;
+    
+    
+    
+    return header_view;
+}
+
 
 #pragma mark - scrollViewDelegate
 
@@ -389,8 +413,36 @@ CGFloat const distance_W_LabelHeader = 35.0;
 
         }];
     }
+}
+
+
+#pragma mark - navigation
+
+- (IBAction)backButtonClicked:(UIButton *)sender {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+}
+
+- (IBAction)moreAttractionButtonclicked:(UIButton *)sender {
+    
+    [self performSegueWithIdentifier:@"goToattractionsOfCity" sender:[NSURL URLWithString: self.cityObject.attractionsUrl ]];
+    
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"goToattractionsOfCity"]) {
+        
+        CityDetailAttractionListViewController *vc = segue.destinationViewController;
+        vc.url = sender;
+        vc.cityObj = self.cityObject;
+    }
+    
     
     
 }
+
+
 
 @end

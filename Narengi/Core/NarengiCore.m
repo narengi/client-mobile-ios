@@ -24,7 +24,7 @@ NarengiCore *sharedInstance;
 
 #pragma mark - Server
 
--(ServerResponse *)sendRequestWithMethod:(NSString *)method andWithService:(NSString *)service andWithParametrs:(NSArray *)params andWithBody:(id)body{
+-(ServerResponse *)sendRequestWithMethod:(NSString *)method andWithService:(NSString *)service andWithParametrs:(NSArray *)params andWithBody:(id)body andIsFullPath:(BOOL) fullPath{
 
 
     
@@ -46,7 +46,11 @@ NarengiCore *sharedInstance;
     
     NSString *escapedPath = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
-    NSLog(@"URL:%@",urlString );
+    if (fullPath) {
+        escapedPath = service ;
+    }
+
+    NSLog(@"URL:%@",escapedPath );
 
 
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:escapedPath]];

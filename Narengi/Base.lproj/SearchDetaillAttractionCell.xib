@@ -66,7 +66,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="or7-FG-uuo" customClass="CustomFaRegularLabel">
-                        <rect key="frame" x="8" y="191" width="399" height="23"/>
+                        <rect key="frame" x="14" y="191" width="391" height="23"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="MBS-JZ-4kp"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="23" id="wRj-Bl-go9"/>
@@ -99,12 +99,12 @@
                 <constraint firstAttribute="trailing" secondItem="1nq-ZR-c5A" secondAttribute="trailing" id="TPs-3F-dHP"/>
                 <constraint firstItem="1nq-ZR-c5A" firstAttribute="leading" secondItem="KCr-UI-jLa" secondAttribute="leading" id="VzY-Db-vY5"/>
                 <constraint firstAttribute="trailing" secondItem="cqw-61-iLX" secondAttribute="trailing" constant="8" id="Zom-sS-O3s"/>
-                <constraint firstItem="or7-FG-uuo" firstAttribute="leading" secondItem="KCr-UI-jLa" secondAttribute="leading" constant="8" id="asT-SD-heR"/>
+                <constraint firstItem="or7-FG-uuo" firstAttribute="leading" secondItem="KCr-UI-jLa" secondAttribute="leading" constant="14" id="asT-SD-heR"/>
                 <constraint firstItem="PvI-r5-mNO" firstAttribute="top" secondItem="Qeb-Z8-ES3" secondAttribute="bottom" constant="8" id="eRb-eI-DWr"/>
                 <constraint firstItem="PvI-r5-mNO" firstAttribute="leading" secondItem="T5C-ha-PmQ" secondAttribute="trailing" constant="9" id="fGI-Ip-u76"/>
                 <constraint firstAttribute="bottom" secondItem="1nq-ZR-c5A" secondAttribute="bottom" id="hkZ-qI-lNd"/>
                 <constraint firstItem="T5C-ha-PmQ" firstAttribute="top" secondItem="Qeb-Z8-ES3" secondAttribute="bottom" constant="6" id="j0D-Nh-lAV"/>
-                <constraint firstAttribute="trailing" secondItem="or7-FG-uuo" secondAttribute="trailing" constant="8" id="mhf-wH-APm"/>
+                <constraint firstAttribute="trailing" secondItem="or7-FG-uuo" secondAttribute="trailing" constant="10" id="mhf-wH-APm"/>
                 <constraint firstItem="YTH-t7-Nh8" firstAttribute="leading" secondItem="KCr-UI-jLa" secondAttribute="leading" constant="14" id="nII-E7-gvb"/>
                 <constraint firstItem="T5C-ha-PmQ" firstAttribute="leading" secondItem="KCr-UI-jLa" secondAttribute="leading" constant="14" id="pO2-zt-bjV"/>
                 <constraint firstItem="Qeb-Z8-ES3" firstAttribute="top" secondItem="KCr-UI-jLa" secondAttribute="top" constant="13" id="sSt-ES-Coq"/>

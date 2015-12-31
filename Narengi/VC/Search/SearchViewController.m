@@ -218,7 +218,7 @@
         self.isShowingHistory = NO;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
             
-            ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:@"suggestion" andWithParametrs:@[@"filter[selection][city]=4",@"filter[selection][attraction]=4",@"filter[selection][house]=4",[NSString stringWithFormat:@"term =%@",self.searchTextField.text]] andWithBody:nil];
+            ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:@"suggestion" andWithParametrs:@[@"filter[selection][city]=4",@"filter[selection][attraction]=4",@"filter[selection][house]=4",[NSString stringWithFormat:@"term =%@",self.searchTextField.text]] andWithBody:nil andIsFullPath:NO];
             
             self.curentRequestcount++;
             dispatch_async(dispatch_get_main_queue(),^{

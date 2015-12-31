@@ -112,7 +112,7 @@
     
     for (NSDictionary *parametr in parametrs) {
      
-        NSURLQueryItem *item = [[NSURLQueryItem alloc] initWithName:[parametr objectForKey:@"name"] value:[parametr objectForKey:@"name"]];
+        NSURLQueryItem *item = [[NSURLQueryItem alloc] initWithName:[parametr objectForKey:@"name"] value:[parametr objectForKey:@"value"]];
         [muArr addObject:item];
 
     }

@@ -38,6 +38,9 @@
 		726DF20C1BE79937004796EC /* NarengiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 726DF20B1BE79937004796EC /* NarengiTests.m */; };
 		726DF2171BE79937004796EC /* NarengiUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 726DF2161BE79937004796EC /* NarengiUITests.m */; };
 		727F899F1C35169B00519CDD /* CityDetailAttractionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 727F899E1C35169B00519CDD /* CityDetailAttractionListViewController.m */; };
+		727F89A31C3543FA00519CDD /* CityDetailButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 727F89A21C3543FA00519CDD /* CityDetailButton.m */; };
+		727F89A91C35491000519CDD /* CityDetailAttractionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 727F89A71C35491000519CDD /* CityDetailAttractionHeader.xib */; };
+		727F89AC1C354E1D00519CDD /* CityDetailHouseCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 727F89AB1C354E1D00519CDD /* CityDetailHouseCollectionReusableView.m */; };
 		7285DE551BF494CD00F92608 /* NSObject+NullCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE541BF494CD00F92608 /* NSObject+NullCheck.m */; };
 		7285DE601BF4B40600F92608 /* PageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE5F1BF4B40600F92608 /* PageCell.m */; };
 		729838AF1BFCB018005BC5C3 /* NarengiCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838AE1BFCB018005BC5C3 /* NarengiCore.m */; };
@@ -150,6 +153,11 @@
 		726DF2181BE79937004796EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		727F899D1C35169B00519CDD /* CityDetailAttractionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityDetailAttractionListViewController.h; path = VC/Detail/CityDetailAttractionListViewController.h; sourceTree = "<group>"; };
 		727F899E1C35169B00519CDD /* CityDetailAttractionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityDetailAttractionListViewController.m; path = VC/Detail/CityDetailAttractionListViewController.m; sourceTree = "<group>"; };
+		727F89A11C3543FA00519CDD /* CityDetailButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityDetailButton.h; path = "Custom Classes/CityDetailButton.h"; sourceTree = "<group>"; };
+		727F89A21C3543FA00519CDD /* CityDetailButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityDetailButton.m; path = "Custom Classes/CityDetailButton.m"; sourceTree = "<group>"; };
+		727F89A81C35491000519CDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CityDetailAttractionHeader.xib; sourceTree = "<group>"; };
+		727F89AA1C354E1D00519CDD /* CityDetailHouseCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityDetailHouseCollectionReusableView.h; path = VC/Detail/CityDetailHouseCollectionReusableView.h; sourceTree = "<group>"; };
+		727F89AB1C354E1D00519CDD /* CityDetailHouseCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityDetailHouseCollectionReusableView.m; path = VC/Detail/CityDetailHouseCollectionReusableView.m; sourceTree = "<group>"; };
 		7285DE531BF494CD00F92608 /* NSObject+NullCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+NullCheck.h"; path = "Custom Classes/NSObject+NullCheck.h"; sourceTree = "<group>"; };
 		7285DE541BF494CD00F92608 /* NSObject+NullCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+NullCheck.m"; path = "Custom Classes/NSObject+NullCheck.m"; sourceTree = "<group>"; };
 		7285DE5E1BF4B40600F92608 /* PageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageCell.h; path = VC/CitiesVC/PageCell.h; sourceTree = "<group>"; };
@@ -417,6 +425,8 @@
 				7285DE541BF494CD00F92608 /* NSObject+NullCheck.m */,
 				722922FC1BFCFA4500C5575C /* UIViewController+Additional.h */,
 				722922FD1BFCFA4500C5575C /* UIViewController+Additional.m */,
+				727F89A11C3543FA00519CDD /* CityDetailButton.h */,
+				727F89A21C3543FA00519CDD /* CityDetailButton.m */,
 			);
 			name = "Custom Classes";
 			sourceTree = "<group>";
@@ -428,6 +438,9 @@
 				72004BE21C2A91AB00F9F6FB /* CityDetailViewController.m */,
 				727F899D1C35169B00519CDD /* CityDetailAttractionListViewController.h */,
 				727F899E1C35169B00519CDD /* CityDetailAttractionListViewController.m */,
+				727F89A71C35491000519CDD /* CityDetailAttractionHeader.xib */,
+				727F89AA1C354E1D00519CDD /* CityDetailHouseCollectionReusableView.h */,
+				727F89AB1C354E1D00519CDD /* CityDetailHouseCollectionReusableView.m */,
 				721355351C2B22AF00AD0BDE /* AttractionSmallCollectionViewCell.h */,
 				721355361C2B22AF00AD0BDE /* AttractionSmallCollectionViewCell.m */,
 			);
@@ -583,6 +596,7 @@
 				72F274361C19710E0048BF05 /* SearchDetailCityCell.xib in Resources */,
 				7214FB491BF10F6200824043 /* English.strings in Resources */,
 				72F274411C1976E90048BF05 /* IRANSansMobile(FaNum)_Light.ttf in Resources */,
+				727F89A91C35491000519CDD /* CityDetailAttractionHeader.xib in Resources */,
 				720B92AA1C253B8E00D1468A /* SearchSection.xib in Resources */,
 				72F274391C19712E0048BF05 /* SearchDetaillAttractionCell.xib in Resources */,
 				721E15231C0EE212006E394B /* CityCell.xib in Resources */,
@@ -671,6 +685,7 @@
 				720B92A11C22A9AB00D1468A /* HWViewPager.m in Sources */,
 				72D5E5EE1BF4BB7500E950C1 /* PagerCollectionViewCell.m in Sources */,
 				72004BE71C2A91AB00F9F6FB /* CityDetailViewController.m in Sources */,
+				727F89AC1C354E1D00519CDD /* CityDetailHouseCollectionReusableView.m in Sources */,
 				729838B21BFCB04D005BC5C3 /* HouseObject.m in Sources */,
 				721E15361C0F51CA006E394B /* MainHomeCollectionViewCell.m in Sources */,
 				729838B51BFCB098005BC5C3 /* AroundPlaceObject.m in Sources */,
@@ -697,6 +712,7 @@
 				7214FB5D1BF1C98A00824043 /* UIViewController+Utilities.m in Sources */,
 				72DFF0E31C1046C400884E04 /* SearchViewController.m in Sources */,
 				72F274581C199FDF0048BF05 /* SearchDetailAttractionCollectionViewCell.m in Sources */,
+				727F89A31C3543FA00519CDD /* CityDetailButton.m in Sources */,
 				72004BE81C2A91AB00F9F6FB /* HouseDetailViewController.m in Sources */,
 				721E152B1C0EEAF6006E394B /* CityCollectionViewCell.m in Sources */,
 				72DFF0E01C10461B00884E04 /* ModalAnimator.m in Sources */,
@@ -788,6 +804,14 @@
 				726DF2001BE79937004796EC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		727F89A71C35491000519CDD /* CityDetailAttractionHeader.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				727F89A81C35491000519CDD /* Base */,
+			);
+			name = CityDetailAttractionHeader.xib;
 			sourceTree = "<group>";
 		};
 		72F274311C1970F50048BF05 /* SearchDetailHomeCell.xib */ = {

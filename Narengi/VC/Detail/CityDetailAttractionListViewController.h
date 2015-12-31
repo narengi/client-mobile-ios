@@ -10,6 +10,7 @@
 
 @interface CityDetailAttractionListViewController : UIViewController
 
-@property (nonatomic,strong) NSString *urlStr;
+@property (nonatomic,strong) NSURL *url;
+@property (nonatomic,strong) CityObject *cityObj;
 
 @end
