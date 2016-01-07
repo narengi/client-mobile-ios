@@ -8,8 +8,13 @@
 
 #import "HouseDetailViewController.h"
 #import "PageCell.h"
+#import "HomeFacilityCollectionViewCell.h"
+#import "OwnerTableViewCell.h"
+#import "CommentSectionHeaderView.h"
+#import "CommentTableViewCell.h"
+#import "PropertyView.h"
 
-@interface HouseDetailViewController ()
+@interface HouseDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
 @property (weak, nonatomic) IBOutlet UIImageView *mapViewImg;
@@ -24,6 +29,9 @@
 
 @property (weak, nonatomic) IBOutlet UIView *priceLabelcontainer;
 @property (weak, nonatomic) IBOutlet UIView *navigationView;
+@property (weak, nonatomic) IBOutlet UIView *propertyView;
+
+
 @property (weak, nonatomic) IBOutlet UITableView *commentsTableView;
 @property (weak, nonatomic) IBOutlet UITableView *ownerTableView;
 
@@ -32,10 +40,12 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
+
 @property (nonatomic) CGFloat   headerFade;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *commentTableHeightconstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ownerTableViewHeightConstraint;
 
-
-
+@property (nonatomic,strong) NSArray     *ownerDesArr;
 @property (nonatomic,strong) HouseObject *houseObj;
 
 @end
@@ -50,16 +60,32 @@
     [self.imagesCollectionView registerNib:[UINib nibWithNibName:@"PagerCell" bundle:nil] forCellWithReuseIdentifier:@"pageCellID"];
     self.imagesCollectionView.pagingEnabled = YES;
     
+    [self.commentsTableView registerNib:[UINib nibWithNibName:@"CommentCell" bundle:nil]  forCellReuseIdentifier:@"commentCellID"];
+     [self.ownerTableView registerNib:[UINib nibWithNibName:@"OwnerDesCell" bundle:nil]  forCellReuseIdentifier:@"ownerCellID"];
+    
     //scrollView delegate
     void *context = (__bridge void *)self;
     [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:context];
+    
+    self.ownerDesArr = @[@"پروفایل مالک",@"ارتباط با مالک",@"خدمات و خدمت‌های اضافی",@"شرایط و قوانین"];
     
     //Get Data For firstTime
     [self addParametrsToURL];
     [self getData];
     
-    
+    [self loadPorperties];
 
+
+
+}
+
+-(void)loadPorperties{
+
+     PropertyView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"PropertyView" owner:self options:nil] objectAtIndex:0];
+    
+    [self.propertyView addSubview:headerView];
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,6 +102,12 @@
 
 - (void)viewDidLayoutSubviews
 {
+    self.scrollView.contentSize = CGSizeMake(375, 1200);
+    self.commentTableHeightconstraint.constant = 70*3;
+    self.ownerTableViewHeightConstraint.constant  = 60*4;
+    
+    [self.commentsTableView layoutIfNeeded];
+    [self.ownerTableView layoutIfNeeded];
 }
 -(void)changeContentSize :(NSArray *)arr{
 }
@@ -148,7 +180,7 @@
 #pragma mark - Data
 -(void) addParametrsToURL{
     
-    self.url =[self fixUrr:self.url withParametrs:@[@{@"name":@"filter[house]",@"value":@"10"}]];
+    self.url =[self fixUrr:self.url withParametrs:@[@{@"name":@"filter[review]",@"value":@"3"},@{@"name":@"ilter[feature]",@"value":@"4"}]];
     
 }
 
@@ -201,7 +233,7 @@
     
     //if (collectionView == self.imagesCollectionView){
         PageCell * collectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"pageCellID" forIndexPath:indexPath];
-        [collectionCell.backImageView sd_setImageWithURL:self.houseObj.imageUrls[indexPath.row] placeholderImage:nil];
+       // [collectionCell.backImageView sd_setImageWithURL:self.houseObj.imageUrls[indexPath.row] placeholderImage:nil];
         
         return collectionCell;
         
@@ -220,13 +252,14 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
-    
-    if (collectionView == self.imagesCollectionView){
-        return self.houseObj.imageUrls.count ;
-    }
-    else{
-        return self.houseObj.imageUrls.count;
-    }
+   
+//    if (collectionView == self.imagesCollectionView){
+//        return self.houseObj.imageUrls.count ;
+//    }
+//    else{
+//        return self.houseObj.imageUrls.count;
+//    }
+    return 0;
 }
 
 
@@ -287,14 +320,45 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    
+    if (tableView == self.commentsTableView) {
+        return 10;
+    }
+    else{
+        return 4;
+    }
+    
+    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    return cell;
+    if (tableView == self.commentsTableView) {
+        CommentTableViewCell *commentCell = [tableView dequeueReusableCellWithIdentifier:@"commentCellID" forIndexPath:indexPath];
+        return commentCell;
+    }
+    else{
+        
+        OwnerTableViewCell *ownerDesCell = [tableView dequeueReusableCellWithIdentifier:@"ownerCellID" forIndexPath:indexPath];
+        
+        ownerDesCell.label.text = self.ownerDesArr[indexPath.row];
+        return ownerDesCell;
+        
+    }
+
+
 }
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if (tableView == self.commentsTableView) {
+        return 60;
+    }
+    else{
+        return 71;
+    }
+}
+
 
 
 @end

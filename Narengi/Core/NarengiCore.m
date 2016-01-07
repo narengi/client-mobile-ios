@@ -140,7 +140,10 @@ NarengiCore *sharedInstance;
             houseObj.host = [self parsHost:[dict objectForKey:@"Host"]];
             
             aroundPlObj.houseObject = houseObj;
-            
+            if (isDetail) {
+                houseObj.commentsArr = [self parsComments:[dict objectForKey:@"Reviews"]];
+                houseObj.facilityArr = [self parsFacilities:[dict objectForKey:@"FeatureList"]];
+            }
             
         }
         else if ([typeStr isEqualToString:@"Attraction"]) {
@@ -178,7 +181,6 @@ NarengiCore *sharedInstance;
                 
                 cityObj.houses      = [self parsAroudPlacesWith:[dict objectForKey:@"Houses"] andwithType:@"House" andIsDetail:NO];
                 
-                
                 cityObj.attractions = [self parsAroudPlacesWith:[dict objectForKey:@"Attraction"] andwithType:@"Attraction" andIsDetail:NO];
                 
                 cityObj.housesUrl      = [dict objectForKey:@"HousesUrl"];
@@ -196,6 +198,54 @@ NarengiCore *sharedInstance;
     }];
     
     return [muTmpArr copy];
+}
+            
+-(NSArray *)parsComments:(NSArray *)comments{
+
+    NSMutableArray *muArr = [[NSMutableArray alloc] init];
+    [comments enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        CommentObject *commentObj = [[CommentObject alloc] init];
+        
+        NSAttributedString * nameAtStr = [[NSAttributedString alloc] initWithString:[obj objectForKey:@"reviewer"] attributes:@{NSForegroundColorAttributeName:RGB(0, 150, 50, 1)}];
+        
+        NSAttributedString * messageAtStr = [[NSAttributedString alloc] initWithString:[obj objectForKey:@"Message"]attributes:@{NSForegroundColorAttributeName:RGB(118, 118, 118, 1)}];
+        
+        NSMutableAttributedString *atText =
+        [[NSMutableAttributedString alloc]
+         initWithAttributedString: nameAtStr];
+        
+        [atText appendAttributedString:messageAtStr];
+
+        commentObj.attributeStr = atText;
+        commentObj.writerName   = [obj objectForKey:@"reviewer"];
+        commentObj.message      = [obj objectForKey:@"Message"];
+        
+        [muArr addObject:commentObj];
+    }];
+    
+    return muArr.copy;
+}
+
+-(NSArray *)parsFacilities:(NSArray*) facilities{
+
+    NSMutableArray *muArr = [[NSMutableArray alloc] init];
+    [facilities enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        FacilityObject *facilityObj = [[FacilityObject alloc] init];
+        
+        facilityObj.name      = [[obj objectForKey:@"name"] checkNull];
+        facilityObj.type      = [[obj objectForKey:@"type"] checkNull];
+        facilityObj.available = [[obj objectForKey:@"available"] boolValue];
+        facilityObj.iconUrl   = [[NSURL URLWithString:[obj objectForKey:@"imageUrl"]] checkNull];
+        
+        if (facilityObj.available) {
+        
+            [muArr addObject:facilityObj];
+        }
+    }];
+    
+    return muArr.copy;
 }
 
 -(NSArray *)parsSuggestions:(NSDictionary *)dict{

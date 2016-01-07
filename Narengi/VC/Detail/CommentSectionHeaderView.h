@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CommentSectionHeaderView : UIView
+@property (weak, nonatomic) IBOutlet UIImageView *rateImg;
+@property (weak, nonatomic) IBOutlet UILabel *rateCountLabel;
 
 @end

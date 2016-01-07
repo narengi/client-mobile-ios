@@ -59,6 +59,9 @@
 		72D4E5C71C3E62FA00AC3D0D /* FacilityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D4E5C51C3E62FA00AC3D0D /* FacilityCell.xib */; };
 		72D4E5CA1C3E634100AC3D0D /* CommentSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D4E5C81C3E634100AC3D0D /* CommentSectionView.xib */; };
 		72D4E5CD1C3E635E00AC3D0D /* OwnerDesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D4E5CB1C3E635E00AC3D0D /* OwnerDesCell.xib */; };
+		72D4E5D01C3E683C00AC3D0D /* CommentObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D4E5CF1C3E683C00AC3D0D /* CommentObject.m */; };
+		72D4E5D31C3E6C1B00AC3D0D /* CommentSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D4E5D21C3E6C1B00AC3D0D /* CommentSectionHeaderView.m */; };
+		72D4E5D61C3EA94E00AC3D0D /* FacilityObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D4E5D51C3EA94E00AC3D0D /* FacilityObject.m */; };
 		72D5E5EE1BF4BB7500E950C1 /* PagerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D5E5ED1BF4BB7500E950C1 /* PagerCollectionViewCell.m */; };
 		72D7FE621C15B6E000BD39A5 /* HouseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D7FE611C15B6E000BD39A5 /* HouseCollectionViewCell.m */; };
 		72D7FE651C15C59D00BD39A5 /* CustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D7FE641C15C59D00BD39A5 /* CustomLabel.m */; };
@@ -198,6 +201,12 @@
 		72D4E5C61C3E62FA00AC3D0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FacilityCell.xib; sourceTree = "<group>"; };
 		72D4E5C91C3E634100AC3D0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CommentSectionView.xib; sourceTree = "<group>"; };
 		72D4E5CC1C3E635E00AC3D0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OwnerDesCell.xib; sourceTree = "<group>"; };
+		72D4E5CE1C3E683C00AC3D0D /* CommentObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentObject.h; path = Core/CommentObject.h; sourceTree = "<group>"; };
+		72D4E5CF1C3E683C00AC3D0D /* CommentObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentObject.m; path = Core/CommentObject.m; sourceTree = "<group>"; };
+		72D4E5D11C3E6C1A00AC3D0D /* CommentSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentSectionHeaderView.h; path = VC/Detail/CommentSectionHeaderView.h; sourceTree = "<group>"; };
+		72D4E5D21C3E6C1B00AC3D0D /* CommentSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentSectionHeaderView.m; path = VC/Detail/CommentSectionHeaderView.m; sourceTree = "<group>"; };
+		72D4E5D41C3EA94E00AC3D0D /* FacilityObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacilityObject.h; path = Core/FacilityObject.h; sourceTree = "<group>"; };
+		72D4E5D51C3EA94E00AC3D0D /* FacilityObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacilityObject.m; path = Core/FacilityObject.m; sourceTree = "<group>"; };
 		72D5E5EC1BF4BB7500E950C1 /* PagerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PagerCollectionViewCell.h; path = VC/CitiesVC/PagerCollectionViewCell.h; sourceTree = "<group>"; };
 		72D5E5ED1BF4BB7500E950C1 /* PagerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PagerCollectionViewCell.m; path = VC/CitiesVC/PagerCollectionViewCell.m; sourceTree = "<group>"; };
 		72D7FE601C15B6E000BD39A5 /* HouseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HouseCollectionViewCell.h; path = VC/CitiesVC/HouseCollectionViewCell.h; sourceTree = "<group>"; };
@@ -497,6 +506,10 @@
 				72B19A121BFF6B3F007EDD86 /* AttractionObject.m */,
 				72B19A141BFF6C6D007EDD86 /* CityObject.h */,
 				72B19A151BFF6C6D007EDD86 /* CityObject.m */,
+				72D4E5CE1C3E683C00AC3D0D /* CommentObject.h */,
+				72D4E5CF1C3E683C00AC3D0D /* CommentObject.m */,
+				72D4E5D41C3EA94E00AC3D0D /* FacilityObject.h */,
+				72D4E5D51C3EA94E00AC3D0D /* FacilityObject.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -506,19 +519,21 @@
 			children = (
 				72004BE31C2A91AB00F9F6FB /* HouseDetailViewController.h */,
 				72004BE41C2A91AB00F9F6FB /* HouseDetailViewController.m */,
+				72D4E5BF1C3E62B800AC3D0D /* PropertyView.xib */,
 				72D4E5B31C3E61FB00AC3D0D /* PropertyView.h */,
 				72D4E5B41C3E61FB00AC3D0D /* PropertyView.m */,
-				72D4E5B61C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.h */,
-				72D4E5B71C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.m */,
+				72D4E5C21C3E62D500AC3D0D /* CommentCell.xib */,
 				72D4E5B91C3E625A00AC3D0D /* CommentTableViewCell.h */,
 				72D4E5BA1C3E625A00AC3D0D /* CommentTableViewCell.m */,
+				72D4E5C81C3E634100AC3D0D /* CommentSectionView.xib */,
+				72D4E5D11C3E6C1A00AC3D0D /* CommentSectionHeaderView.h */,
+				72D4E5D21C3E6C1B00AC3D0D /* CommentSectionHeaderView.m */,
+				72D4E5C51C3E62FA00AC3D0D /* FacilityCell.xib */,
+				72D4E5B61C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.h */,
+				72D4E5B71C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.m */,
+				72D4E5CB1C3E635E00AC3D0D /* OwnerDesCell.xib */,
 				72D4E5BC1C3E627B00AC3D0D /* OwnerTableViewCell.h */,
 				72D4E5BD1C3E627B00AC3D0D /* OwnerTableViewCell.m */,
-				72D4E5BF1C3E62B800AC3D0D /* PropertyView.xib */,
-				72D4E5C21C3E62D500AC3D0D /* CommentCell.xib */,
-				72D4E5C81C3E634100AC3D0D /* CommentSectionView.xib */,
-				72D4E5C51C3E62FA00AC3D0D /* FacilityCell.xib */,
-				72D4E5CB1C3E635E00AC3D0D /* OwnerDesCell.xib */,
 			);
 			name = House;
 			sourceTree = "<group>";
@@ -745,6 +760,7 @@
 				727F89AC1C354E1D00519CDD /* CityDetailHouseCollectionReusableView.m in Sources */,
 				729838B21BFCB04D005BC5C3 /* HouseObject.m in Sources */,
 				721E15361C0F51CA006E394B /* MainHomeCollectionViewCell.m in Sources */,
+				72D4E5D61C3EA94E00AC3D0D /* FacilityObject.m in Sources */,
 				729838B51BFCB098005BC5C3 /* AroundPlaceObject.m in Sources */,
 				729838AF1BFCB018005BC5C3 /* NarengiCore.m in Sources */,
 				727F899F1C35169B00519CDD /* CityDetailAttractionListViewController.m in Sources */,
@@ -756,8 +772,10 @@
 				7214FB571BF1C7CF00824043 /* RootViewController.m in Sources */,
 				72F2742E1C196DE30048BF05 /* SearchDetailViewController.m in Sources */,
 				72D4E5BE1C3E627B00AC3D0D /* OwnerTableViewCell.m in Sources */,
+				72D4E5D31C3E6C1B00AC3D0D /* CommentSectionHeaderView.m in Sources */,
 				72D4E5B81C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.m in Sources */,
 				7285DE551BF494CD00F92608 /* NSObject+NullCheck.m in Sources */,
+				72D4E5D01C3E683C00AC3D0D /* CommentObject.m in Sources */,
 				72F274461C19782A0048BF05 /* CustomFaMediumFontLabel.m in Sources */,
 				72B19A131BFF6B3F007EDD86 /* AttractionObject.m in Sources */,
 				72F2744F1C1978B20048BF05 /* CustomFaLightLabel.m in Sources */,

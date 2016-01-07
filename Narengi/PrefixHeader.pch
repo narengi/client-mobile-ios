@@ -42,6 +42,8 @@
 #import "UIViewController+Additional.h"
 #import "AttractionObject.h"
 #import "CityObject.h"
+#import "CommentObject.h"
+#import "FacilityObject.h"
 
 #import "THLabel.h"
 #import "CustomLabel.h"

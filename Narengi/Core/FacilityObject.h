@@ -10,4 +10,9 @@
 
 @interface FacilityObject : NSObject
 
+@property (nonatomic) NSString *name;
+@property (nonatomic) NSString *type;
+@property (nonatomic) BOOL     available;
+@property (nonatomic) NSURL    *iconUrl;
+
 @end

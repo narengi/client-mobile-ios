@@ -26,6 +26,8 @@
 @property (nonatomic) NSString       *featureSummray;
 
 
+@property (nonatomic) NSArray        *commentsArr;
+@property (nonatomic) NSArray        *facilityArr;
 
 
 

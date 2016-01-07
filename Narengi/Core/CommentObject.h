@@ -10,4 +10,11 @@
 
 @interface CommentObject : NSObject
 
+
+@property (nonatomic) NSAttributedString *attributeStr;
+@property (nonatomic) NSString           *writerName;
+@property (nonatomic) NSString           *message;
+@property (nonatomic) NSURL              *imageUrl;
+
+
 @end

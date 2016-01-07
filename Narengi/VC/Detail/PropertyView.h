@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface PropertyView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *bedCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *guestCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *roomcountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 
 @end
