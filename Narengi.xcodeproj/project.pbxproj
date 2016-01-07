@@ -50,6 +50,15 @@
 		729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838BA1BFCB1FC005BC5C3 /* GeoPointObject.m */; };
 		72B19A131BFF6B3F007EDD86 /* AttractionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B19A121BFF6B3F007EDD86 /* AttractionObject.m */; };
 		72B19A161BFF6C6D007EDD86 /* CityObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B19A151BFF6C6D007EDD86 /* CityObject.m */; };
+		72D4E5B51C3E61FB00AC3D0D /* PropertyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D4E5B41C3E61FB00AC3D0D /* PropertyView.m */; };
+		72D4E5B81C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D4E5B71C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.m */; };
+		72D4E5BB1C3E625A00AC3D0D /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D4E5BA1C3E625A00AC3D0D /* CommentTableViewCell.m */; };
+		72D4E5BE1C3E627B00AC3D0D /* OwnerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D4E5BD1C3E627B00AC3D0D /* OwnerTableViewCell.m */; };
+		72D4E5C11C3E62B800AC3D0D /* PropertyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D4E5BF1C3E62B800AC3D0D /* PropertyView.xib */; };
+		72D4E5C41C3E62D500AC3D0D /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D4E5C21C3E62D500AC3D0D /* CommentCell.xib */; };
+		72D4E5C71C3E62FA00AC3D0D /* FacilityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D4E5C51C3E62FA00AC3D0D /* FacilityCell.xib */; };
+		72D4E5CA1C3E634100AC3D0D /* CommentSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D4E5C81C3E634100AC3D0D /* CommentSectionView.xib */; };
+		72D4E5CD1C3E635E00AC3D0D /* OwnerDesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D4E5CB1C3E635E00AC3D0D /* OwnerDesCell.xib */; };
 		72D5E5EE1BF4BB7500E950C1 /* PagerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D5E5ED1BF4BB7500E950C1 /* PagerCollectionViewCell.m */; };
 		72D7FE621C15B6E000BD39A5 /* HouseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D7FE611C15B6E000BD39A5 /* HouseCollectionViewCell.m */; };
 		72D7FE651C15C59D00BD39A5 /* CustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D7FE641C15C59D00BD39A5 /* CustomLabel.m */; };
@@ -176,6 +185,19 @@
 		72B19A121BFF6B3F007EDD86 /* AttractionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttractionObject.m; path = Core/AttractionObject.m; sourceTree = "<group>"; };
 		72B19A141BFF6C6D007EDD86 /* CityObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityObject.h; path = Core/CityObject.h; sourceTree = "<group>"; };
 		72B19A151BFF6C6D007EDD86 /* CityObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityObject.m; path = Core/CityObject.m; sourceTree = "<group>"; };
+		72D4E5B31C3E61FB00AC3D0D /* PropertyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PropertyView.h; path = VC/Detail/PropertyView.h; sourceTree = "<group>"; };
+		72D4E5B41C3E61FB00AC3D0D /* PropertyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PropertyView.m; path = VC/Detail/PropertyView.m; sourceTree = "<group>"; };
+		72D4E5B61C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeFacilityCollectionViewCell.h; path = VC/Detail/HomeFacilityCollectionViewCell.h; sourceTree = "<group>"; };
+		72D4E5B71C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeFacilityCollectionViewCell.m; path = VC/Detail/HomeFacilityCollectionViewCell.m; sourceTree = "<group>"; };
+		72D4E5B91C3E625A00AC3D0D /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentTableViewCell.h; path = VC/Detail/CommentTableViewCell.h; sourceTree = "<group>"; };
+		72D4E5BA1C3E625A00AC3D0D /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentTableViewCell.m; path = VC/Detail/CommentTableViewCell.m; sourceTree = "<group>"; };
+		72D4E5BC1C3E627B00AC3D0D /* OwnerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OwnerTableViewCell.h; path = VC/Detail/OwnerTableViewCell.h; sourceTree = "<group>"; };
+		72D4E5BD1C3E627B00AC3D0D /* OwnerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OwnerTableViewCell.m; path = VC/Detail/OwnerTableViewCell.m; sourceTree = "<group>"; };
+		72D4E5C01C3E62B800AC3D0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PropertyView.xib; sourceTree = "<group>"; };
+		72D4E5C31C3E62D500AC3D0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CommentCell.xib; sourceTree = "<group>"; };
+		72D4E5C61C3E62FA00AC3D0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FacilityCell.xib; sourceTree = "<group>"; };
+		72D4E5C91C3E634100AC3D0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CommentSectionView.xib; sourceTree = "<group>"; };
+		72D4E5CC1C3E635E00AC3D0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OwnerDesCell.xib; sourceTree = "<group>"; };
 		72D5E5EC1BF4BB7500E950C1 /* PagerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PagerCollectionViewCell.h; path = VC/CitiesVC/PagerCollectionViewCell.h; sourceTree = "<group>"; };
 		72D5E5ED1BF4BB7500E950C1 /* PagerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PagerCollectionViewCell.m; path = VC/CitiesVC/PagerCollectionViewCell.m; sourceTree = "<group>"; };
 		72D7FE601C15B6E000BD39A5 /* HouseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HouseCollectionViewCell.h; path = VC/CitiesVC/HouseCollectionViewCell.h; sourceTree = "<group>"; };
@@ -256,8 +278,7 @@
 			children = (
 				727F89A01C3516A600519CDD /* city */,
 				727F89AD1C355F6E00519CDD /* attraction */,
-				72004BE31C2A91AB00F9F6FB /* HouseDetailViewController.h */,
-				72004BE41C2A91AB00F9F6FB /* HouseDetailViewController.m */,
+				72D4E5B21C3E5F2D00AC3D0D /* House */,
 			);
 			name = detail;
 			sourceTree = "<group>";
@@ -480,6 +501,28 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
+		72D4E5B21C3E5F2D00AC3D0D /* House */ = {
+			isa = PBXGroup;
+			children = (
+				72004BE31C2A91AB00F9F6FB /* HouseDetailViewController.h */,
+				72004BE41C2A91AB00F9F6FB /* HouseDetailViewController.m */,
+				72D4E5B31C3E61FB00AC3D0D /* PropertyView.h */,
+				72D4E5B41C3E61FB00AC3D0D /* PropertyView.m */,
+				72D4E5B61C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.h */,
+				72D4E5B71C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.m */,
+				72D4E5B91C3E625A00AC3D0D /* CommentTableViewCell.h */,
+				72D4E5BA1C3E625A00AC3D0D /* CommentTableViewCell.m */,
+				72D4E5BC1C3E627B00AC3D0D /* OwnerTableViewCell.h */,
+				72D4E5BD1C3E627B00AC3D0D /* OwnerTableViewCell.m */,
+				72D4E5BF1C3E62B800AC3D0D /* PropertyView.xib */,
+				72D4E5C21C3E62D500AC3D0D /* CommentCell.xib */,
+				72D4E5C81C3E634100AC3D0D /* CommentSectionView.xib */,
+				72D4E5C51C3E62FA00AC3D0D /* FacilityCell.xib */,
+				72D4E5CB1C3E635E00AC3D0D /* OwnerDesCell.xib */,
+			);
+			name = House;
+			sourceTree = "<group>";
+		};
 		F2630C2373634B62F5DE57B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -595,15 +638,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72D4E5CD1C3E635E00AC3D0D /* OwnerDesCell.xib in Resources */,
 				726DF2011BE79937004796EC /* LaunchScreen.storyboard in Resources */,
 				721E152E1C0EF13A006E394B /* PagerCell.xib in Resources */,
 				72F274431C1976E90048BF05 /* IRANSansMobile(FaNum)_UltraLight.ttf in Resources */,
 				72F2743F1C1976E90048BF05 /* IRANSans-Mobile(FaNum).ttf in Resources */,
 				726DF1FE1BE79937004796EC /* Assets.xcassets in Resources */,
 				72F274331C1970F50048BF05 /* SearchDetailHomeCell.xib in Resources */,
+				72D4E5C41C3E62D500AC3D0D /* CommentCell.xib in Resources */,
+				72D4E5CA1C3E634100AC3D0D /* CommentSectionView.xib in Resources */,
 				72F274361C19710E0048BF05 /* SearchDetailCityCell.xib in Resources */,
 				7214FB491BF10F6200824043 /* English.strings in Resources */,
 				72F274411C1976E90048BF05 /* IRANSansMobile(FaNum)_Light.ttf in Resources */,
+				72D4E5C71C3E62FA00AC3D0D /* FacilityCell.xib in Resources */,
+				72D4E5C11C3E62B800AC3D0D /* PropertyView.xib in Resources */,
 				727F89A91C35491000519CDD /* CityDetailAttractionHeader.xib in Resources */,
 				720B92AA1C253B8E00D1468A /* SearchSection.xib in Resources */,
 				72F274391C19712E0048BF05 /* SearchDetaillAttractionCell.xib in Resources */,
@@ -693,6 +741,7 @@
 				720B92A11C22A9AB00D1468A /* HWViewPager.m in Sources */,
 				72D5E5EE1BF4BB7500E950C1 /* PagerCollectionViewCell.m in Sources */,
 				72004BE71C2A91AB00F9F6FB /* CityDetailViewController.m in Sources */,
+				72D4E5BB1C3E625A00AC3D0D /* CommentTableViewCell.m in Sources */,
 				727F89AC1C354E1D00519CDD /* CityDetailHouseCollectionReusableView.m in Sources */,
 				729838B21BFCB04D005BC5C3 /* HouseObject.m in Sources */,
 				721E15361C0F51CA006E394B /* MainHomeCollectionViewCell.m in Sources */,
@@ -706,6 +755,8 @@
 				722922FE1BFCFA4500C5575C /* UIViewController+Additional.m in Sources */,
 				7214FB571BF1C7CF00824043 /* RootViewController.m in Sources */,
 				72F2742E1C196DE30048BF05 /* SearchDetailViewController.m in Sources */,
+				72D4E5BE1C3E627B00AC3D0D /* OwnerTableViewCell.m in Sources */,
+				72D4E5B81C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.m in Sources */,
 				7285DE551BF494CD00F92608 /* NSObject+NullCheck.m in Sources */,
 				72F274461C19782A0048BF05 /* CustomFaMediumFontLabel.m in Sources */,
 				72B19A131BFF6B3F007EDD86 /* AttractionObject.m in Sources */,
@@ -713,6 +764,7 @@
 				729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */,
 				721E15331C0F51B0006E394B /* AttractionCollectionViewCell.m in Sources */,
 				72F274491C1978700048BF05 /* CustomFaRegularLabel.m in Sources */,
+				72D4E5B51C3E61FB00AC3D0D /* PropertyView.m in Sources */,
 				7285DE601BF4B40600F92608 /* PageCell.m in Sources */,
 				722922F51BFCB4F800C5575C /* UserObject.m in Sources */,
 				72D7FE651C15C59D00BD39A5 /* CustomLabel.m in Sources */,
@@ -820,6 +872,46 @@
 				727F89A81C35491000519CDD /* Base */,
 			);
 			name = CityDetailAttractionHeader.xib;
+			sourceTree = "<group>";
+		};
+		72D4E5BF1C3E62B800AC3D0D /* PropertyView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72D4E5C01C3E62B800AC3D0D /* Base */,
+			);
+			name = PropertyView.xib;
+			sourceTree = "<group>";
+		};
+		72D4E5C21C3E62D500AC3D0D /* CommentCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72D4E5C31C3E62D500AC3D0D /* Base */,
+			);
+			name = CommentCell.xib;
+			sourceTree = "<group>";
+		};
+		72D4E5C51C3E62FA00AC3D0D /* FacilityCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72D4E5C61C3E62FA00AC3D0D /* Base */,
+			);
+			name = FacilityCell.xib;
+			sourceTree = "<group>";
+		};
+		72D4E5C81C3E634100AC3D0D /* CommentSectionView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72D4E5C91C3E634100AC3D0D /* Base */,
+			);
+			name = CommentSectionView.xib;
+			sourceTree = "<group>";
+		};
+		72D4E5CB1C3E635E00AC3D0D /* OwnerDesCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72D4E5CC1C3E635E00AC3D0D /* Base */,
+			);
+			name = OwnerDesCell.xib;
 			sourceTree = "<group>";
 		};
 		72F274311C1970F50048BF05 /* SearchDetailHomeCell.xib */ = {
