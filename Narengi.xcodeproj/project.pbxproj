@@ -62,6 +62,7 @@
 		72D4E5D01C3E683C00AC3D0D /* CommentObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D4E5CF1C3E683C00AC3D0D /* CommentObject.m */; };
 		72D4E5D31C3E6C1B00AC3D0D /* CommentSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D4E5D21C3E6C1B00AC3D0D /* CommentSectionHeaderView.m */; };
 		72D4E5D61C3EA94E00AC3D0D /* FacilityObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D4E5D51C3EA94E00AC3D0D /* FacilityObject.m */; };
+		72D4E5FC1C3F20C000AC3D0D /* CustomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D4E5FB1C3F20C000AC3D0D /* CustomScrollView.m */; };
 		72D5E5EE1BF4BB7500E950C1 /* PagerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D5E5ED1BF4BB7500E950C1 /* PagerCollectionViewCell.m */; };
 		72D7FE621C15B6E000BD39A5 /* HouseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D7FE611C15B6E000BD39A5 /* HouseCollectionViewCell.m */; };
 		72D7FE651C15C59D00BD39A5 /* CustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D7FE641C15C59D00BD39A5 /* CustomLabel.m */; };
@@ -207,6 +208,8 @@
 		72D4E5D21C3E6C1B00AC3D0D /* CommentSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentSectionHeaderView.m; path = VC/Detail/CommentSectionHeaderView.m; sourceTree = "<group>"; };
 		72D4E5D41C3EA94E00AC3D0D /* FacilityObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacilityObject.h; path = Core/FacilityObject.h; sourceTree = "<group>"; };
 		72D4E5D51C3EA94E00AC3D0D /* FacilityObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacilityObject.m; path = Core/FacilityObject.m; sourceTree = "<group>"; };
+		72D4E5FA1C3F20C000AC3D0D /* CustomScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomScrollView.h; sourceTree = "<group>"; };
+		72D4E5FB1C3F20C000AC3D0D /* CustomScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomScrollView.m; sourceTree = "<group>"; };
 		72D5E5EC1BF4BB7500E950C1 /* PagerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PagerCollectionViewCell.h; path = VC/CitiesVC/PagerCollectionViewCell.h; sourceTree = "<group>"; };
 		72D5E5ED1BF4BB7500E950C1 /* PagerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PagerCollectionViewCell.m; path = VC/CitiesVC/PagerCollectionViewCell.m; sourceTree = "<group>"; };
 		72D7FE601C15B6E000BD39A5 /* HouseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HouseCollectionViewCell.h; path = VC/CitiesVC/HouseCollectionViewCell.h; sourceTree = "<group>"; };
@@ -534,6 +537,8 @@
 				72D4E5CB1C3E635E00AC3D0D /* OwnerDesCell.xib */,
 				72D4E5BC1C3E627B00AC3D0D /* OwnerTableViewCell.h */,
 				72D4E5BD1C3E627B00AC3D0D /* OwnerTableViewCell.m */,
+				72D4E5FA1C3F20C000AC3D0D /* CustomScrollView.h */,
+				72D4E5FB1C3F20C000AC3D0D /* CustomScrollView.m */,
 			);
 			name = House;
 			sourceTree = "<group>";
@@ -779,6 +784,7 @@
 				72F274461C19782A0048BF05 /* CustomFaMediumFontLabel.m in Sources */,
 				72B19A131BFF6B3F007EDD86 /* AttractionObject.m in Sources */,
 				72F2744F1C1978B20048BF05 /* CustomFaLightLabel.m in Sources */,
+				72D4E5FC1C3F20C000AC3D0D /* CustomScrollView.m in Sources */,
 				729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */,
 				721E15331C0F51B0006E394B /* AttractionCollectionViewCell.m in Sources */,
 				72F274491C1978700048BF05 /* CustomFaRegularLabel.m in Sources */,

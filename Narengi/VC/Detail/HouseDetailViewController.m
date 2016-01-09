@@ -13,8 +13,9 @@
 #import "CommentSectionHeaderView.h"
 #import "CommentTableViewCell.h"
 #import "PropertyView.h"
+#import "HWViewPager.h"
 
-@interface HouseDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface HouseDetailViewController ()<UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate,UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
 @property (weak, nonatomic) IBOutlet UIImageView *mapViewImg;
@@ -34,14 +35,17 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *commentsTableView;
 @property (weak, nonatomic) IBOutlet UITableView *ownerTableView;
+@property (weak, nonatomic) IBOutlet HWViewPager *image2CollectionView;
 
-@property (weak, nonatomic) IBOutlet UICollectionView *imagesCollectionView;
+@property (weak, nonatomic) IBOutlet HWViewPager *imagesCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionView *facilitiesCollectionView;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *conView;
 
 
 @property (nonatomic) CGFloat   headerFade;
+@property (nonatomic) BOOL   dragging;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *commentTableHeightconstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *ownerTableViewHeightConstraint;
 
@@ -55,11 +59,22 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    self.edgesForExtendedLayout               = UIRectEdgeNone;
+    self.extendedLayoutIncludesOpaqueBars     = NO;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    
+    self.scrollView.clipsToBounds = YES;
 
     //register Nibs
     [self.imagesCollectionView registerNib:[UINib nibWithNibName:@"PagerCell" bundle:nil] forCellWithReuseIdentifier:@"pageCellID"];
     self.imagesCollectionView.pagingEnabled = YES;
     
+    [self.image2CollectionView registerNib:[UINib nibWithNibName:@"PagerCell" bundle:nil] forCellWithReuseIdentifier:@"pageCellID"];
+    self.image2CollectionView.pagingEnabled = YES;
+
+
     [self.commentsTableView registerNib:[UINib nibWithNibName:@"CommentCell" bundle:nil]  forCellReuseIdentifier:@"commentCellID"];
      [self.ownerTableView registerNib:[UINib nibWithNibName:@"OwnerDesCell" bundle:nil]  forCellReuseIdentifier:@"ownerCellID"];
     
@@ -75,9 +90,41 @@
     
     [self loadPorperties];
 
-
+//    
+//    UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panRecognized:)];
+//    [panRecognizer setDelegate:self];
+//    [self.view addGestureRecognizer:panRecognizer]; // add to the view you want to detect swipe on
+    
+    
+    
+//    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+//    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+//    
+//    // Setting the swipe direction.
+//    [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+//    [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
+//
+//
+//    
+//    // Adding the swipe gesture on image view
+//    [self.scrollView addGestureRecognizer:swipeLeft];
+//    [self.scrollView addGestureRecognizer:swipeRight];
 
 }
+
+
+//-(void)panRecognized:(UIPanGestureRecognizer *)sender
+//{
+//    CGPoint touchLocation = [sender locationInView:self.view];
+//    if (touchLocation.y< 200) {
+//        self.scrollView.userInteractionEnabled = NO;
+//    }
+//    else{
+//        self.scrollView.userInteractionEnabled = YES;
+//    }
+//
+//}
+
 
 -(void)loadPorperties{
 
@@ -125,8 +172,7 @@
         return;
     }
     
-    if ((object == self.scrollView) &&
-        ([keyPath isEqualToString:@"contentOffset"] == YES)) {
+    if ((object == self.scrollView) && ([keyPath isEqualToString:@"contentOffset"] == YES)) {
         [self scrollViewDidScrollWithOffset:self.scrollView.contentOffset.y];
         return;
     }
@@ -136,12 +182,32 @@
     [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
 }
 
+
+
 - (void)scrollViewDidScrollWithOffset:(CGFloat)scrollOffset
 {
     
     CATransform3D headerTransform = CATransform3DIdentity;
     
     
+//
+//    if (scrollOffset == 0)
+//    {
+//        //[self.view bringSubviewToFront:self.imagesCollectionView];
+//        //[self.scrollView bringSubviewToFront:self.conView];
+//    }
+//    else{
+//        
+//        [self.view sendSubviewToBack:self.imagesCollectionView];
+//
+//    }
+    
+    if (scrollOffset == 0) {
+        self.image2CollectionView.alpha = 1;
+    }
+    else{
+        self.image2CollectionView.alpha = 0;
+    }
     if (scrollOffset < 0) {
         
         CGFloat headerScaleFactor = -(scrollOffset) / self.imagesCollectionView.bounds.size.height;
@@ -180,7 +246,7 @@
 #pragma mark - Data
 -(void) addParametrsToURL{
     
-    self.url =[self fixUrr:self.url withParametrs:@[@{@"name":@"filter[review]",@"value":@"3"},@{@"name":@"ilter[feature]",@"value":@"4"}]];
+    self.url =[self fixUrr:self.url withParametrs:@[@{@"name":@"filter[review]",@"value":@"3"},@{@"name":@"filter[feature]",@"value":@"1000"}]];
     
 }
 
@@ -199,10 +265,10 @@
                 
                 if (serverRs.backData !=nil ) {
                     
-                    AroundPlaceObject *obj  = [[[NarengiCore sharedInstance] parsAroudPlacesWith:@[serverRs.backData] andwithType:@"Attraction" andIsDetail:YES] firstObject];
-                 //   self.attractionObject = obj.attractionObject;
+                    AroundPlaceObject *obj  = [[[NarengiCore sharedInstance] parsAroudPlacesWith:@[serverRs.backData] andwithType:@"House" andIsDetail:YES] firstObject];
+                    self.houseObj = obj.houseObject;
                     
-                   // [self setDataForView];
+                    [self setDataForView];
                 }
                 else{
                     //show erro if nedded
@@ -215,9 +281,11 @@
 -(void)setDataForView{
     
     
-    self.titleLabel.text = self.houseObj.name;
+    self.titleLabel.text    = self.houseObj.name;
+    self.cityNameLabel.text = self.houseObj.cityName;
     self.descriptionLabel.text = @"این یه جازبه باحال از خیلی وقت پیش که داریم کم کم نابودش میکنیم راحت بشیم.";
     [self.imagesCollectionView reloadData];
+     [self.image2CollectionView reloadData];
     [self.facilitiesCollectionView reloadData];
     [self.commentsTableView reloadData];
     [self.ownerTableView reloadData];
@@ -231,17 +299,18 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    //if (collectionView == self.imagesCollectionView){
+    if (collectionView == self.imagesCollectionView ||(collectionView == self.image2CollectionView) ){
         PageCell * collectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"pageCellID" forIndexPath:indexPath];
-       // [collectionCell.backImageView sd_setImageWithURL:self.houseObj.imageUrls[indexPath.row] placeholderImage:nil];
+        [collectionCell.backImageView sd_setImageWithURL:self.houseObj.imageUrls[indexPath.row] placeholderImage:nil];
         
         return collectionCell;
         
-    //}
-
-    
-    
-    
+    }
+    else
+    {
+        return nil;
+    }
+ 
     
 }
 
@@ -253,13 +322,12 @@
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
    
-//    if (collectionView == self.imagesCollectionView){
-//        return self.houseObj.imageUrls.count ;
-//    }
-//    else{
-//        return self.houseObj.imageUrls.count;
-//    }
-    return 0;
+    if (collectionView == self.imagesCollectionView || (collectionView == self.image2CollectionView) ){
+        return self.houseObj.imageUrls.count ;
+    }
+    else{
+        return 0;
+    }
 }
 
 
@@ -288,7 +356,7 @@
 {
     
     
-    if (collectionView == self.imagesCollectionView){
+    if (collectionView == self.imagesCollectionView || (collectionView == self.image2CollectionView )){
         return CGSizeMake([UIScreen mainScreen].bounds.size.width ,[UIScreen mainScreen].bounds.size.width);
     }
     else{
@@ -297,7 +365,27 @@
     
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 
+//    if (collectionView == self.image2CollectionView) {
+//            [self.imagesCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
+//    }
+
+
+    
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    
+    CGFloat pageWidth = self.image2CollectionView.frame.size.width;
+    NSInteger currentPage = self.image2CollectionView.contentOffset.x / pageWidth;
+    
+    [self.imagesCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:currentPage inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
+    
+    
+}
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
@@ -322,7 +410,7 @@
 {
     
     if (tableView == self.commentsTableView) {
-        return 10;
+        return self.houseObj.commentsArr.count;
     }
     else{
         return 4;
@@ -335,6 +423,9 @@
     
     if (tableView == self.commentsTableView) {
         CommentTableViewCell *commentCell = [tableView dequeueReusableCellWithIdentifier:@"commentCellID" forIndexPath:indexPath];
+        CommentObject *commentObj =  self.houseObj.commentsArr[indexPath.row];
+        commentCell.titleLabel.attributedText = commentObj.attributeStr;
+        
         return commentCell;
     }
     else{

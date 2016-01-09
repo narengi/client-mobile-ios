@@ -207,7 +207,7 @@ NarengiCore *sharedInstance;
         
         CommentObject *commentObj = [[CommentObject alloc] init];
         
-        NSAttributedString * nameAtStr = [[NSAttributedString alloc] initWithString:[obj objectForKey:@"reviewer"] attributes:@{NSForegroundColorAttributeName:RGB(0, 150, 50, 1)}];
+        NSAttributedString * nameAtStr = [[NSAttributedString alloc] initWithString:[[obj objectForKey:@"reviewer"] stringByAppendingString:@": "] attributes:@{NSForegroundColorAttributeName:RGB(0, 150, 50, 1)}];
         
         NSAttributedString * messageAtStr = [[NSAttributedString alloc] initWithString:[obj objectForKey:@"Message"]attributes:@{NSForegroundColorAttributeName:RGB(118, 118, 118, 1)}];
         

@@ -1,14 +1,14 @@
 //
-//  CommentSectionHeaderView.m
+//  CustomScrollView.m
 //  Narengi
 //
-//  Created by Morteza Hosseinizade on 1/7/16.
+//  Created by Morteza Hosseinizade on 1/8/16.
 //  Copyright © 2016 Morteza Hosseinizade. All rights reserved.
 //
 
-#import "CommentSectionHeaderView.h"
+#import "CustomScrollView.h"
 
-@implementation CommentSectionHeaderView
+@implementation CustomScrollView
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -17,6 +17,5 @@
     // Drawing code
 }
 */
-
 
 @end
