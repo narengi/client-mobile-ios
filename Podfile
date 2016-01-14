@@ -1,7 +1,5 @@
-pod 'JSONModel'
 pod 'SDWebImage'
 pod 'SVProgressHUD'
-pod 'JNKeychain'
 pod 'FMDB'
 pod 'DZNEmptyDataSet'
 pod 'AFNetworking'
@@ -10,4 +8,6 @@ pod 'GoogleMaps'
 pod 'THLabel', '~> 1.4'
 pod 'JDStatusBarNotification'
 pod 'Reachability'
+pod 'MZFormSheetPresentationController', '~> 2.1'
+
 

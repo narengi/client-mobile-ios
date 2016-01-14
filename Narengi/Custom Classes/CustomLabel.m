@@ -10,14 +10,24 @@
 
 @implementation CustomLabel
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+-(void)awakeFromNib
+{
+    CGFloat fontSize = self.font.pointSize;
+    self.font = [UIFont fontWithName:@"IRANSansMobileFaNum" size:fontSize-3];
 
+    
+}
+
+
+- (void)drawTextInRect:(CGRect)rect {
+    UIEdgeInsets insets = {0, 10, 0, 10};
+    [super drawTextInRect:UIEdgeInsetsInsetRect(rect, insets)];
+}
+
+//-(CGSize)intrinsicContentSize{
+//    CGSize contentSize = [super intrinsicContentSize];
+//    return CGSizeMake(contentSize.width + 20, contentSize.height);
+//}
 
 
 @end

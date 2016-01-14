@@ -30,6 +30,14 @@
 		722922F51BFCB4F800C5575C /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922F41BFCB4F800C5575C /* UserObject.m */; };
 		722922F81BFCEA3600C5575C /* ServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922F71BFCEA3600C5575C /* ServerResponse.m */; };
 		722922FE1BFCFA4500C5575C /* UIViewController+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922FD1BFCFA4500C5575C /* UIViewController+Additional.m */; };
+		726A3A321C47A2CF002C4D11 /* MoreFacilityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 726A3A301C47A2CF002C4D11 /* MoreFacilityCell.xib */; };
+		726A3A351C47A382002C4D11 /* MoreFacilityCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 726A3A341C47A382002C4D11 /* MoreFacilityCollectionViewCell.m */; };
+		726A3A381C47C2F5002C4D11 /* IranButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 726A3A371C47C2F5002C4D11 /* IranButton.m */; };
+		726A3A3B1C47E07E002C4D11 /* FacilitiesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 726A3A3A1C47E07E002C4D11 /* FacilitiesTableViewCell.m */; };
+		726A3A3E1C47E14E002C4D11 /* FacilitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 726A3A3D1C47E14E002C4D11 /* FacilitiesViewController.m */; };
+		726A3A411C47EA51002C4D11 /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 726A3A401C47EA51002C4D11 /* CommentsViewController.m */; };
+		726A3A441C47EA6B002C4D11 /* CommentDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 726A3A431C47EA6B002C4D11 /* CommentDetailTableViewCell.m */; };
+		726A3A461C47EA7D002C4D11 /* CommentDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 726A3A451C47EA7D002C4D11 /* CommentDetailCell.xib */; };
 		726DF1F31BE79937004796EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 726DF1F21BE79937004796EC /* main.m */; };
 		726DF1F61BE79937004796EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 726DF1F51BE79937004796EC /* AppDelegate.m */; };
 		726DF1FC1BE79937004796EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 726DF1FA1BE79937004796EC /* Main.storyboard */; };
@@ -150,6 +158,20 @@
 		722922F71BFCEA3600C5575C /* ServerResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerResponse.m; path = Core/ServerResponse.m; sourceTree = "<group>"; };
 		722922FC1BFCFA4500C5575C /* UIViewController+Additional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Additional.h"; path = "Custom Classes/UIViewController+Additional.h"; sourceTree = "<group>"; };
 		722922FD1BFCFA4500C5575C /* UIViewController+Additional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Additional.m"; path = "Custom Classes/UIViewController+Additional.m"; sourceTree = "<group>"; };
+		726A3A311C47A2CF002C4D11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MoreFacilityCell.xib; sourceTree = "<group>"; };
+		726A3A331C47A382002C4D11 /* MoreFacilityCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoreFacilityCollectionViewCell.h; path = VC/Detail/MoreFacilityCollectionViewCell.h; sourceTree = "<group>"; };
+		726A3A341C47A382002C4D11 /* MoreFacilityCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoreFacilityCollectionViewCell.m; path = VC/Detail/MoreFacilityCollectionViewCell.m; sourceTree = "<group>"; };
+		726A3A361C47C2F5002C4D11 /* IranButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IranButton.h; sourceTree = "<group>"; };
+		726A3A371C47C2F5002C4D11 /* IranButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IranButton.m; sourceTree = "<group>"; };
+		726A3A391C47E07E002C4D11 /* FacilitiesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacilitiesTableViewCell.h; path = VC/Detail/FacilitiesTableViewCell.h; sourceTree = "<group>"; };
+		726A3A3A1C47E07E002C4D11 /* FacilitiesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacilitiesTableViewCell.m; path = VC/Detail/FacilitiesTableViewCell.m; sourceTree = "<group>"; };
+		726A3A3C1C47E14E002C4D11 /* FacilitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacilitiesViewController.h; path = VC/Detail/FacilitiesViewController.h; sourceTree = "<group>"; };
+		726A3A3D1C47E14E002C4D11 /* FacilitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacilitiesViewController.m; path = VC/Detail/FacilitiesViewController.m; sourceTree = "<group>"; };
+		726A3A3F1C47EA51002C4D11 /* CommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentsViewController.h; path = VC/Detail/CommentsViewController.h; sourceTree = "<group>"; };
+		726A3A401C47EA51002C4D11 /* CommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentsViewController.m; path = VC/Detail/CommentsViewController.m; sourceTree = "<group>"; };
+		726A3A421C47EA6B002C4D11 /* CommentDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentDetailTableViewCell.h; path = VC/Detail/CommentDetailTableViewCell.h; sourceTree = "<group>"; };
+		726A3A431C47EA6B002C4D11 /* CommentDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentDetailTableViewCell.m; path = VC/Detail/CommentDetailTableViewCell.m; sourceTree = "<group>"; };
+		726A3A451C47EA7D002C4D11 /* CommentDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentDetailCell.xib; sourceTree = "<group>"; };
 		726DF1EE1BE79937004796EC /* Narengi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Narengi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		726DF1F21BE79937004796EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		726DF1F41BE79937004796EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -439,6 +461,8 @@
 			children = (
 				720B929F1C22A9AB00D1468A /* HWViewPager.h */,
 				720B92A01C22A9AB00D1468A /* HWViewPager.m */,
+				726A3A361C47C2F5002C4D11 /* IranButton.h */,
+				726A3A371C47C2F5002C4D11 /* IranButton.m */,
 				72DFF0DE1C10461B00884E04 /* ModalAnimator.h */,
 				72D7FE631C15C59D00BD39A5 /* CustomLabel.h */,
 				72D7FE641C15C59D00BD39A5 /* CustomLabel.m */,
@@ -534,11 +558,23 @@
 				72D4E5C51C3E62FA00AC3D0D /* FacilityCell.xib */,
 				72D4E5B61C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.h */,
 				72D4E5B71C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.m */,
+				726A3A301C47A2CF002C4D11 /* MoreFacilityCell.xib */,
+				726A3A331C47A382002C4D11 /* MoreFacilityCollectionViewCell.h */,
+				726A3A341C47A382002C4D11 /* MoreFacilityCollectionViewCell.m */,
 				72D4E5CB1C3E635E00AC3D0D /* OwnerDesCell.xib */,
 				72D4E5BC1C3E627B00AC3D0D /* OwnerTableViewCell.h */,
 				72D4E5BD1C3E627B00AC3D0D /* OwnerTableViewCell.m */,
 				72D4E5FA1C3F20C000AC3D0D /* CustomScrollView.h */,
 				72D4E5FB1C3F20C000AC3D0D /* CustomScrollView.m */,
+				726A3A391C47E07E002C4D11 /* FacilitiesTableViewCell.h */,
+				726A3A3A1C47E07E002C4D11 /* FacilitiesTableViewCell.m */,
+				726A3A3C1C47E14E002C4D11 /* FacilitiesViewController.h */,
+				726A3A3D1C47E14E002C4D11 /* FacilitiesViewController.m */,
+				726A3A3F1C47EA51002C4D11 /* CommentsViewController.h */,
+				726A3A401C47EA51002C4D11 /* CommentsViewController.m */,
+				726A3A451C47EA7D002C4D11 /* CommentDetailCell.xib */,
+				726A3A421C47EA6B002C4D11 /* CommentDetailTableViewCell.h */,
+				726A3A431C47EA6B002C4D11 /* CommentDetailTableViewCell.m */,
 			);
 			name = House;
 			sourceTree = "<group>";
@@ -666,12 +702,14 @@
 				726DF1FE1BE79937004796EC /* Assets.xcassets in Resources */,
 				72F274331C1970F50048BF05 /* SearchDetailHomeCell.xib in Resources */,
 				72D4E5C41C3E62D500AC3D0D /* CommentCell.xib in Resources */,
+				726A3A461C47EA7D002C4D11 /* CommentDetailCell.xib in Resources */,
 				72D4E5CA1C3E634100AC3D0D /* CommentSectionView.xib in Resources */,
 				72F274361C19710E0048BF05 /* SearchDetailCityCell.xib in Resources */,
 				7214FB491BF10F6200824043 /* English.strings in Resources */,
 				72F274411C1976E90048BF05 /* IRANSansMobile(FaNum)_Light.ttf in Resources */,
 				72D4E5C71C3E62FA00AC3D0D /* FacilityCell.xib in Resources */,
 				72D4E5C11C3E62B800AC3D0D /* PropertyView.xib in Resources */,
+				726A3A321C47A2CF002C4D11 /* MoreFacilityCell.xib in Resources */,
 				727F89A91C35491000519CDD /* CityDetailAttractionHeader.xib in Resources */,
 				720B92AA1C253B8E00D1468A /* SearchSection.xib in Resources */,
 				72F274391C19712E0048BF05 /* SearchDetaillAttractionCell.xib in Resources */,
@@ -754,11 +792,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				726A3A381C47C2F5002C4D11 /* IranButton.m in Sources */,
 				72F274521C199F970048BF05 /* SearchDetailCityCollectionViewCell.m in Sources */,
 				72F274301C196FA30048BF05 /* CitiesViewController.m in Sources */,
 				720B92A41C253B3100D1468A /* SearchSectionView.m in Sources */,
 				72DFF0E61C106C2F00884E04 /* SearchTableViewCell.m in Sources */,
 				720B92A11C22A9AB00D1468A /* HWViewPager.m in Sources */,
+				726A3A411C47EA51002C4D11 /* CommentsViewController.m in Sources */,
+				726A3A3E1C47E14E002C4D11 /* FacilitiesViewController.m in Sources */,
 				72D5E5EE1BF4BB7500E950C1 /* PagerCollectionViewCell.m in Sources */,
 				72004BE71C2A91AB00F9F6FB /* CityDetailViewController.m in Sources */,
 				72D4E5BB1C3E625A00AC3D0D /* CommentTableViewCell.m in Sources */,
@@ -786,6 +827,7 @@
 				72F2744F1C1978B20048BF05 /* CustomFaLightLabel.m in Sources */,
 				72D4E5FC1C3F20C000AC3D0D /* CustomScrollView.m in Sources */,
 				729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */,
+				726A3A441C47EA6B002C4D11 /* CommentDetailTableViewCell.m in Sources */,
 				721E15331C0F51B0006E394B /* AttractionCollectionViewCell.m in Sources */,
 				72F274491C1978700048BF05 /* CustomFaRegularLabel.m in Sources */,
 				72D4E5B51C3E61FB00AC3D0D /* PropertyView.m in Sources */,
@@ -794,8 +836,10 @@
 				72D7FE651C15C59D00BD39A5 /* CustomLabel.m in Sources */,
 				722922F81BFCEA3600C5575C /* ServerResponse.m in Sources */,
 				7214FB5D1BF1C98A00824043 /* UIViewController+Utilities.m in Sources */,
+				726A3A351C47A382002C4D11 /* MoreFacilityCollectionViewCell.m in Sources */,
 				72DFF0E31C1046C400884E04 /* SearchViewController.m in Sources */,
 				72F274581C199FDF0048BF05 /* SearchDetailAttractionCollectionViewCell.m in Sources */,
+				726A3A3B1C47E07E002C4D11 /* FacilitiesTableViewCell.m in Sources */,
 				727F89A31C3543FA00519CDD /* CityDetailButton.m in Sources */,
 				72004BE81C2A91AB00F9F6FB /* HouseDetailViewController.m in Sources */,
 				721E152B1C0EEAF6006E394B /* CityCollectionViewCell.m in Sources */,
@@ -872,6 +916,14 @@
 				721E152D1C0EF13A006E394B /* Base */,
 			);
 			name = PagerCell.xib;
+			sourceTree = "<group>";
+		};
+		726A3A301C47A2CF002C4D11 /* MoreFacilityCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				726A3A311C47A2CF002C4D11 /* Base */,
+			);
+			name = MoreFacilityCell.xib;
 			sourceTree = "<group>";
 		};
 		726DF1FA1BE79937004796EC /* Main.storyboard */ = {

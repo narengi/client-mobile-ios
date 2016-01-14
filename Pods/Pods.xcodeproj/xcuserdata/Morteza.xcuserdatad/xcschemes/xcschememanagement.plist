@@ -24,12 +24,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>JNKeychain.xcscheme</key>
+		<key>MZAppearance.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>JSONModel.xcscheme</key>
+		<key>MZFormSheetPresentationController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -67,7 +67,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>09FA060F1A0492FB25232F489AC4E573</key>
+		<key>1C6C814244A57E8B14D771ABA4391225</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1DAC2FF166EBB39D93C76C245CCD170C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1ECF7C6EBC2800898D630CDD667C6527</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>34440D436B6519A357FFA66228EB4C96</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,12 +92,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>67D70E269AEE6BF55481DD4A5960B26C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6B51DD3C86F57EB2B621E3D393C8777E</key>
+		<key>5BFD851AA71864E634AF96941DB3270D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,22 +102,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>82CE79DB8D5540FA1E691FC91CC33A41</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>844287E96B46FEE21F6758263EE7E871</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>89A2E2D5C5CCA58B7AD8B928EFB9B9AB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8CC4BCE317B77FAE64A65F14F8314B7B</key>
+		<key>888741AE1AB17FB8F8BE63297FDB8B39</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,7 +112,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E9CA6B7FB3C36E79740F59A51AFB5764</key>
+		<key>A2EBB3B4F0537F28FDE1DA4D60DF8BD5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF0459E90BD81D7698943CBE4D9FB8C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

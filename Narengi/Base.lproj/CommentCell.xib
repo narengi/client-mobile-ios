@@ -15,9 +15,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0i-uN-3M0" customClass="CustomFaRegularLabel">
-                        <rect key="frame" x="8" y="9" width="304" height="46"/>
+                        <rect key="frame" x="8" y="9" width="292" height="46"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="304" id="38g-Tb-DUe"/>
+                            <constraint firstAttribute="width" constant="292" id="38g-Tb-DUe"/>
                             <constraint firstAttribute="height" constant="46" id="tv4-Db-ktw"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -25,11 +25,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1t-xL-fek">
-                        <rect key="frame" x="0.0" y="62" width="320" height="1"/>
+                        <rect key="frame" x="0.0" y="62" width="300" height="1"/>
                         <color key="backgroundColor" red="0.63921568630000003" green="0.63921568630000003" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="WsY-dV-0PE"/>
-                            <constraint firstAttribute="width" constant="320" id="tU3-0i-Ku1"/>
+                            <constraint firstAttribute="width" constant="300" id="tU3-0i-Ku1"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -39,13 +39,14 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="Z0i-uN-3M0" secondAttribute="bottom" constant="8" id="4an-0g-IHU"/>
                     <constraint firstItem="O1t-xL-fek" firstAttribute="leading" secondItem="9eD-Uv-EKD" secondAttribute="leading" id="Gd3-kr-i15"/>
-                    <constraint firstAttribute="trailing" secondItem="Z0i-uN-3M0" secondAttribute="trailing" constant="8" id="S0h-OR-AzZ"/>
+                    <constraint firstAttribute="trailing" secondItem="Z0i-uN-3M0" secondAttribute="trailing" constant="20" id="S0h-OR-AzZ"/>
                     <constraint firstItem="Z0i-uN-3M0" firstAttribute="leading" secondItem="9eD-Uv-EKD" secondAttribute="leading" constant="8" id="Xz4-ej-eNJ"/>
                     <constraint firstAttribute="bottom" secondItem="O1t-xL-fek" secondAttribute="bottom" id="Zx2-56-4au"/>
-                    <constraint firstAttribute="trailing" secondItem="O1t-xL-fek" secondAttribute="trailing" id="dnR-VY-CwJ"/>
+                    <constraint firstAttribute="trailing" secondItem="O1t-xL-fek" secondAttribute="trailing" constant="20" id="dnR-VY-CwJ"/>
                     <constraint firstItem="Z0i-uN-3M0" firstAttribute="top" secondItem="9eD-Uv-EKD" secondAttribute="top" constant="9" id="uOT-Mi-OS6"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="titleLabel" destination="Z0i-uN-3M0" id="esf-UK-BKs"/>
             </connections>

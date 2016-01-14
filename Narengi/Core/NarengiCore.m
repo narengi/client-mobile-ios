@@ -141,8 +141,23 @@ NarengiCore *sharedInstance;
             
             aroundPlObj.houseObject = houseObj;
             if (isDetail) {
-                houseObj.commentsArr = [self parsComments:[dict objectForKey:@"Reviews"]];
-                houseObj.facilityArr = [self parsFacilities:[dict objectForKey:@"FeatureList"]];
+                houseObj.commentsArr     = [self parsComments:[dict objectForKey:@"Reviews"]];
+                houseObj.facilityArr     = [self parsFacilities:[dict objectForKey:@"FeatureList"]];
+                houseObj.shownFacilities = [self parsShownFacilities:houseObj.facilityArr];
+                
+                houseObj.type         = [dict objectForKey:@"type"];
+                houseObj.bedroomCount = [[[dict objectForKey:@"bedroomCount"] checkNull] stringValue];
+                houseObj.guestCount   = [[[dict objectForKey:@"guestCount"] checkNull] stringValue];
+                houseObj.bedCount     = [[[dict objectForKey:@"bedCount"] checkNull ] stringValue];
+                houseObj.reviewCount  = [[[dict objectForKey:@"reviewsCount"] checkNull] stringValue];
+                
+                if ([[houseObj.shownFacilities lastObject] isKindOfClass:[NSString class]]) {
+                    
+                    houseObj.canShowMoreFacility = YES;
+                }
+                else
+                    houseObj.canShowMoreFacility = NO;
+                
             }
             
         }
@@ -185,6 +200,7 @@ NarengiCore *sharedInstance;
                 
                 cityObj.housesUrl      = [dict objectForKey:@"HousesUrl"];
                 cityObj.attractionsUrl = [dict objectForKey:@"AttractionsUrl"];
+
             }
             
             aroundPlObj.cityObject = cityObj;
@@ -222,6 +238,7 @@ NarengiCore *sharedInstance;
         commentObj.message      = [obj objectForKey:@"Message"];
         
         [muArr addObject:commentObj];
+        
     }];
     
     return muArr.copy;
@@ -243,9 +260,35 @@ NarengiCore *sharedInstance;
         
             [muArr addObject:facilityObj];
         }
+        
     }];
     
     return muArr.copy;
+}
+-(NSArray *)parsShownFacilities:(NSArray*) facilities{
+    
+    NSInteger capicity;
+    
+    if ([UIScreen mainScreen].bounds.size.width == 320)
+        capicity = 4;
+    
+    else
+        capicity = 5;
+    
+    if (facilities.count <= capicity){
+        return facilities;
+    }
+    
+    else{
+        
+        NSMutableArray *muArr = [[NSMutableArray alloc] init];
+        NSArray *subRangeArr = [facilities subarrayWithRange:NSMakeRange(0, capicity-1)];
+        [muArr addObjectsFromArray:subRangeArr];
+        [muArr addObject:[NSString stringWithFormat:@"%ld +",facilities.count - capicity+ 1]];
+        
+        return [muArr copy];
+    }
+    
 }
 
 -(NSArray *)parsSuggestions:(NSDictionary *)dict{
@@ -263,6 +306,7 @@ NarengiCore *sharedInstance;
     HostObject *hostObj = [[HostObject alloc] init];
     
     hostObj.imageUrl    = [NSURL URLWithString:[dict objectForKey:@"ImageUrl"]];
+
     hostObj.displayName = [dict objectForKey:@"DisplayName"];
     
     return hostObj;

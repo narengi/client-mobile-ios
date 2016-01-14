@@ -27,7 +27,17 @@
 
 
 @property (nonatomic) NSArray        *commentsArr;
-@property (nonatomic) NSArray        *facilityArr;
+
+@property (nonatomic) NSArray *facilityArr;
+@property (nonatomic) NSArray *shownFacilities;
+@property (nonatomic) BOOL    canShowMoreFacility;
+
+
+@property (nonatomic) NSString *type;
+@property (nonatomic) NSString *bedroomCount;
+@property (nonatomic) NSString *guestCount;
+@property (nonatomic) NSString *bedCount;
+@property (nonatomic) NSString *reviewCount;
 
 
 

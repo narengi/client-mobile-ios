@@ -26,4 +26,6 @@
 @property (nonatomic) NSString *attractionsUrl;
 @property (nonatomic) NSString *housesUrl;
 
+
+
 @end

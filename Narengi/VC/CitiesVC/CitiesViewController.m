@@ -45,9 +45,9 @@
    
     [self initSearchcontainerView];
     
-    self.edgesForExtendedLayout=UIRectEdgeNone;
-    self.extendedLayoutIncludesOpaqueBars=NO;
-    self.automaticallyAdjustsScrollViewInsets=NO;
+    self.edgesForExtendedLayout               = UIRectEdgeNone;
+    self.extendedLayoutIncludesOpaqueBars     = NO;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     
     UITapGestureRecognizer *lpgr = [[UITapGestureRecognizer alloc]

@@ -9,11 +9,14 @@
 #import "HouseDetailViewController.h"
 #import "PageCell.h"
 #import "HomeFacilityCollectionViewCell.h"
+#import "MoreFacilityCollectionViewCell.h"
 #import "OwnerTableViewCell.h"
 #import "CommentSectionHeaderView.h"
 #import "CommentTableViewCell.h"
 #import "PropertyView.h"
 #import "HWViewPager.h"
+#import "MZFormSheetPresentationViewController.h"
+#import "FacilitiesViewController.h"
 
 @interface HouseDetailViewController ()<UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate,UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 
@@ -27,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rateCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *reviewCountLabel;
 
 @property (weak, nonatomic) IBOutlet UIView *priceLabelcontainer;
 @property (weak, nonatomic) IBOutlet UIView *navigationView;
@@ -46,11 +50,21 @@
 
 @property (nonatomic) CGFloat   headerFade;
 @property (nonatomic) BOOL   dragging;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewHeightConstraint;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *commentTableHeightconstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *ownerTableViewHeightConstraint;
 
 @property (nonatomic,strong) NSArray     *ownerDesArr;
 @property (nonatomic,strong) HouseObject *houseObj;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *bedCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *guestCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *roomcountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+
 
 @end
 
@@ -67,16 +81,10 @@
     
     self.scrollView.clipsToBounds = YES;
 
-    //register Nibs
-    [self.imagesCollectionView registerNib:[UINib nibWithNibName:@"PagerCell" bundle:nil] forCellWithReuseIdentifier:@"pageCellID"];
-    self.imagesCollectionView.pagingEnabled = YES;
+    [self registerNibFiles];
     
-    [self.image2CollectionView registerNib:[UINib nibWithNibName:@"PagerCell" bundle:nil] forCellWithReuseIdentifier:@"pageCellID"];
-    self.image2CollectionView.pagingEnabled = YES;
+    [self.facilitiesCollectionView setTransform:CGAffineTransformMakeScale(-1, 1)];
 
-
-    [self.commentsTableView registerNib:[UINib nibWithNibName:@"CommentCell" bundle:nil]  forCellReuseIdentifier:@"commentCellID"];
-     [self.ownerTableView registerNib:[UINib nibWithNibName:@"OwnerDesCell" bundle:nil]  forCellReuseIdentifier:@"ownerCellID"];
     
     //scrollView delegate
     void *context = (__bridge void *)self;
@@ -88,51 +96,28 @@
     [self addParametrsToURL];
     [self getData];
     
-    [self loadPorperties];
 
-//    
-//    UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panRecognized:)];
-//    [panRecognizer setDelegate:self];
-//    [self.view addGestureRecognizer:panRecognizer]; // add to the view you want to detect swipe on
-    
-    
-    
-//    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
-//    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
-//    
-//    // Setting the swipe direction.
-//    [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
-//    [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
-//
-//
-//    
-//    // Adding the swipe gesture on image view
-//    [self.scrollView addGestureRecognizer:swipeLeft];
-//    [self.scrollView addGestureRecognizer:swipeRight];
 
 }
 
 
-//-(void)panRecognized:(UIPanGestureRecognizer *)sender
-//{
-//    CGPoint touchLocation = [sender locationInView:self.view];
-//    if (touchLocation.y< 200) {
-//        self.scrollView.userInteractionEnabled = NO;
-//    }
-//    else{
-//        self.scrollView.userInteractionEnabled = YES;
-//    }
-//
-//}
+-(void)registerNibFiles{
 
-
--(void)loadPorperties{
-
-     PropertyView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"PropertyView" owner:self options:nil] objectAtIndex:0];
+    //register Nibs for collection
+    [self.imagesCollectionView registerNib:[UINib nibWithNibName:@"PagerCell" bundle:nil] forCellWithReuseIdentifier:@"pageCellID"];
+    self.imagesCollectionView.pagingEnabled = YES;
     
-    [self.propertyView addSubview:headerView];
-
+    [self.image2CollectionView registerNib:[UINib nibWithNibName:@"PagerCell" bundle:nil] forCellWithReuseIdentifier:@"pageCellID"];
+    self.image2CollectionView.pagingEnabled = YES;
     
+    [self.facilitiesCollectionView registerNib:[UINib nibWithNibName:@"FacilityCell" bundle:nil] forCellWithReuseIdentifier:@"facilityCell"];
+    [self.facilitiesCollectionView registerNib:[UINib nibWithNibName:@"MoreFacilityCell" bundle:nil] forCellWithReuseIdentifier:@"moreFacilityCell"];
+    self.facilitiesCollectionView.scrollEnabled = NO;
+    
+    //register Nibs for Tableviews
+    [self.commentsTableView registerNib:[UINib nibWithNibName:@"CommentCell" bundle:nil]  forCellReuseIdentifier:@"commentCellID"];
+    [self.ownerTableView registerNib:[UINib nibWithNibName:@"OwnerDesCell" bundle:nil]  forCellReuseIdentifier:@"ownerCellID"];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -149,12 +134,7 @@
 
 - (void)viewDidLayoutSubviews
 {
-    self.scrollView.contentSize = CGSizeMake(375, 1200);
-    self.commentTableHeightconstraint.constant = 70*3;
-    self.ownerTableViewHeightConstraint.constant  = 60*4;
     
-    [self.commentsTableView layoutIfNeeded];
-    [self.ownerTableView layoutIfNeeded];
 }
 -(void)changeContentSize :(NSArray *)arr{
 }
@@ -188,19 +168,7 @@
 {
     
     CATransform3D headerTransform = CATransform3DIdentity;
-    
-    
-//
-//    if (scrollOffset == 0)
-//    {
-//        //[self.view bringSubviewToFront:self.imagesCollectionView];
-//        //[self.scrollView bringSubviewToFront:self.conView];
-//    }
-//    else{
-//        
-//        [self.view sendSubviewToBack:self.imagesCollectionView];
-//
-//    }
+
     
     if (scrollOffset == 0) {
         self.image2CollectionView.alpha = 1;
@@ -278,19 +246,56 @@
     });
     
 }
+
+
+-(void)loadPorperties{
+    
+    self.typeLabel.text       = self.houseObj.type;
+    self.roomcountLabel.text  = [self.houseObj.bedroomCount stringByAppendingString:@" اتاق خواب"];
+    self.guestCountLabel.text = [self.houseObj.guestCount stringByAppendingString:@" مهمان"];
+    self.bedCountLabel.text   = [self.houseObj.bedroomCount stringByAppendingString:@" تخت"];
+
+}
+
 -(void)setDataForView{
     
     
-    self.titleLabel.text    = self.houseObj.name;
-    self.cityNameLabel.text = self.houseObj.cityName;
-    self.descriptionLabel.text = @"این یه جازبه باحال از خیلی وقت پیش که داریم کم کم نابودش میکنیم راحت بشیم.";
+    self.titleLabel.text       = self.houseObj.name;
+    self.cityNameLabel.text    = self.houseObj.cityName;
+    self.descriptionLabel.text = self.houseObj.summary;
+    self.reviewCountLabel.text = [NSString stringWithFormat:@"( %@ رای )",self.houseObj.reviewCount];
+
+    
+    self.startsImg.image = IMG(([NSString stringWithFormat:@"%f",self.houseObj.roundedRate]));
+    self.avatarImg.layer.cornerRadius  = 40;
+    self.avatarImg.layer.masksToBounds = YES;
+    self.avatarImg.layer.borderWidth = 4;
+    self.avatarImg.layer.borderColor = [UIColor whiteColor].CGColor;
+    [self.avatarImg sd_setImageWithURL:self.houseObj.host.imageUrl placeholderImage:nil];
+
+   
+    [self loadPorperties];
+
     [self.imagesCollectionView reloadData];
-     [self.image2CollectionView reloadData];
+    [self.image2CollectionView reloadData];
     [self.facilitiesCollectionView reloadData];
     [self.commentsTableView reloadData];
     [self.ownerTableView reloadData];
     
-   // [self changeContentSize:self.attractionObject.housesArr];
+    
+    
+    self.commentTableHeightconstraint.constant = (70*self.houseObj.commentsArr.count)+(self.houseObj.commentsArr.count/self.houseObj.commentsArr.count*80);
+    self.ownerTableViewHeightConstraint.constant  = 60*4;
+    
+    [self.commentsTableView layoutIfNeeded];
+    [self.ownerTableView layoutIfNeeded];
+    
+    self.contentViewHeightConstraint.constant = self.ownerTableView.frame.origin.y + (60*4)+60;
+    [self.conView layoutIfNeeded];
+    
+    self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, self.contentViewHeightConstraint.constant+50);
+
+    
     
 }
 
@@ -308,6 +313,38 @@
     }
     else
     {
+
+        
+        if (self.houseObj.canShowMoreFacility) {
+         
+            if (indexPath.row < self.houseObj.shownFacilities.count-1) {
+                HomeFacilityCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"facilityCell" forIndexPath:indexPath];
+                
+                FacilityObject *facilityObj = self.houseObj.shownFacilities[indexPath.row];
+                cell.titleLabel.text = facilityObj.name;
+                
+                return cell;
+            }
+            else{
+
+                MoreFacilityCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"moreFacilityCell" forIndexPath:indexPath];
+                
+                cell.titleLabel.text = self.houseObj.shownFacilities[indexPath.row];;
+                
+                return cell;
+            }
+
+        }
+        else{
+            HomeFacilityCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"facilityCell" forIndexPath:indexPath];
+            
+            FacilityObject *facilityObj = self.houseObj.shownFacilities[indexPath.row];
+            cell.titleLabel.text = facilityObj.name;
+            
+            return cell;
+            
+        }
+
         return nil;
     }
  
@@ -326,7 +363,7 @@
         return self.houseObj.imageUrls.count ;
     }
     else{
-        return 0;
+        return self.houseObj.facilityArr.count;
     }
 }
 
@@ -360,20 +397,24 @@
         return CGSizeMake([UIScreen mainScreen].bounds.size.width ,[UIScreen mainScreen].bounds.size.width);
     }
     else{
-        return CGSizeMake([UIScreen mainScreen].bounds.size.width, ([UIScreen mainScreen].bounds.size.width) * 5 /8 );
+        return CGSizeMake([UIScreen mainScreen].bounds.size.width/self.houseObj.shownFacilities.count, 75 );
     }
     
 }
 
--(void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-
-//    if (collectionView == self.image2CollectionView) {
-//            [self.imagesCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
-//    }
-
-
+    if (collectionView == self.facilitiesCollectionView) {
+        
+        if ([self.houseObj.shownFacilities[indexPath.row] isKindOfClass:[NSString class]]) {
+            
+            //show facility modal
+            
+            [self showFacilities];
+            
+        }
+    }
     
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
@@ -419,6 +460,26 @@
     
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (tableView == self.commentsTableView) {
+        return 80;
+    }
+    else{
+        return 0;
+    }
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+
+    CommentSectionHeaderView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"CommentSectionView" owner:self options:nil] objectAtIndex:0];
+    headerView.rateImg.image = IMG(([NSString stringWithFormat:@"big%f",self.houseObj.roundedRate]));
+    headerView.rateCountLabel.text = [NSString stringWithFormat:@"بر اساس %@ رای",self.houseObj.reviewCount];
+    
+    return headerView;
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (tableView == self.commentsTableView) {
@@ -433,23 +494,53 @@
         OwnerTableViewCell *ownerDesCell = [tableView dequeueReusableCellWithIdentifier:@"ownerCellID" forIndexPath:indexPath];
         
         ownerDesCell.label.text = self.ownerDesArr[indexPath.row];
+        ownerDesCell.img.image = IMG(([NSString stringWithFormat:@"ownerProfile%ld",(long)indexPath.row]));
         return ownerDesCell;
         
     }
 
 
 }
--(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (tableView == self.commentsTableView) {
-        return 60;
+        return 70;
     }
     else{
-        return 71;
+        return 60;
     }
 }
 
+
+#pragma mark - facilities
+
+-(void)showFacilities{
+
+    
+    UIStoryboard *storybord =[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    FacilitiesViewController *vc = [storybord instantiateViewControllerWithIdentifier:@"facilitiesVCID"];
+    
+    vc.facilitiesArr = self.houseObj.facilityArr;
+    
+    MZFormSheetPresentationViewController *formSheet = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:vc];
+    
+    
+    formSheet.presentationController.contentViewSize = CGSizeMake(300, [UIScreen mainScreen].bounds.size.height - 60);
+    
+    formSheet.presentationController.portraitTopInset = 10;
+    
+    formSheet.allowDismissByPanningPresentedView = YES;
+    formSheet.contentViewCornerRadius = 8.0;
+    
+    
+    formSheet.willPresentContentViewControllerHandler = ^(UIViewController *presentedFSViewController){
+    };
+    formSheet.didDismissContentViewControllerHandler = ^(UIViewController *presentedFSViewController){
+        
+    };
+    
+    [self presentViewController:formSheet animated:YES completion:nil];
+}
 
 
 @end

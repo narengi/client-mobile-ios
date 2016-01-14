@@ -10,4 +10,12 @@
 
 @implementation HomeFacilityCollectionViewCell
 
+-(void)awakeFromNib
+{
+    
+    [self.titleLabel setTransform:CGAffineTransformMakeScale(-1, 1)];
+    [self.img setTransform:CGAffineTransformMakeScale(-1, 1)];
+
+
+}
 @end
