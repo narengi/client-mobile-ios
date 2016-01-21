@@ -11,6 +11,7 @@
 #import "CityDetailViewController.h"
 #import "AttractionDetailViewController.h"
 #import "HouseDetailViewController.h"
+#import "ProfileViewController.h"
 
 @implementation UIViewController (Additional)
 
@@ -87,11 +88,17 @@
         ((AttractionDetailViewController *)destinationVC).url  = url;
         
     }
-    else  {
+    else if ([type isEqualToString:@"City"]) {
         
         destinationVC = (CityDetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"cityDetailVCID"];
         ((CityDetailViewController *)destinationVC).url  = url;
         
+        
+    }
+    else{
+        
+        destinationVC = (ProfileViewController *)[storyboard instantiateViewControllerWithIdentifier:@"prodileVCID"];
+        ((ProfileViewController *)destinationVC).url  = url;
         
     }
     

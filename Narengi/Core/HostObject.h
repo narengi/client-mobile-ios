@@ -11,6 +11,15 @@
 @interface HostObject : NSObject
 
 @property (nonatomic) NSString *displayName;
-@property (nonatomic) NSURL    *imageUrl;
+@property (nonatomic) NSURL *imageUrl;
+@property (nonatomic) NSString *hostURL;
+
+//detail
+@property (nonatomic) NSString *locationText;
+@property (nonatomic) NSString *career;
+@property (nonatomic) NSString *memberFrom;
+@property (nonatomic) NSString *descriptionStr;
+@property (nonatomic) NSArray  *commentsArr;
+@property (nonatomic) NSArray  *houseArr;
 
 @end

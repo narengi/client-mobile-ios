@@ -138,7 +138,7 @@ NarengiCore *sharedInstance;
             houseObj.summary        = [dict objectForKey:@"Summary"];
             houseObj.featureSummray = [dict objectForKey:@"FeatureSummray"];
             houseObj.url            = [dict objectForKey:@"URL"];
-            houseObj.host = [self parsHost:[dict objectForKey:@"Host"]];
+            houseObj.host = [self parsHost:[dict objectForKey:@"Host"] isDetail:NO];
             
             aroundPlObj.houseObject = houseObj;
             if (isDetail) {
@@ -306,13 +306,22 @@ NarengiCore *sharedInstance;
     return [suggestarr copy];
     
 }
--(HostObject *)parsHost:(NSDictionary *)dict{
+-(HostObject *)parsHost:(NSDictionary *)dict isDetail:(BOOL)isDetail{
 
     HostObject *hostObj = [[HostObject alloc] init];
     
-    hostObj.imageUrl    = [NSURL URLWithString:[dict objectForKey:@"ImageUrl"]];
-
+    hostObj.imageUrl    = [dict objectForKey:@"ImageUrl"];
     hostObj.displayName = [dict objectForKey:@"DisplayName"];
+    hostObj.hostURL     = [dict objectForKey:@"HostURL"];
+    
+    if (isDetail) {
+        
+        hostObj.locationText   = [dict objectForKey:@"LocationText"];
+        hostObj.career         = [dict objectForKey:@"Job"];
+        hostObj.memberFrom     = [dict objectForKey:@"MemberFrom"];
+        hostObj.descriptionStr = [dict objectForKey:@"Description"];
+        
+    }
     
     return hostObj;
 }

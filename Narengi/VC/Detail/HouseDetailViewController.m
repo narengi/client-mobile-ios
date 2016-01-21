@@ -15,7 +15,6 @@
 #import "CommentTableViewCell.h"
 #import "PropertyView.h"
 #import "HWViewPager.h"
-#import "MZFormSheetPresentationViewController.h"
 #import "FacilitiesViewController.h"
 #import "CommentsViewController.h"
 
@@ -516,7 +515,16 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self showCommentDetails];
+    if (tableView == self.commentsTableView) {
+    
+        [self showCommentDetails];
+    }else
+    {
+        if (indexPath.row == 0) {
+            [self goTodetailWithUrl:self.houseObj.host.hostURL andWithType:@"Profile"];
+        }
+    }
+    
 }
 
 #pragma mark - facilities

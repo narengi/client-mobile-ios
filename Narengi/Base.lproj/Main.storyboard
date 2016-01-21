@@ -1536,10 +1536,10 @@
             </objects>
             <point key="canvasLocation" x="2530" y="776"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="HpT-ms-Pf7">
             <objects>
-                <viewController id="LxZ-zm-Rhc" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="prodileVCID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LxZ-zm-Rhc" customClass="ProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="igd-6S-LZZ"/>
                         <viewControllerLayoutGuide type="bottom" id="x3E-CS-qbB"/>
@@ -1732,6 +1732,10 @@
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="LxZ-zm-Rhc" id="DA8-hc-3By"/>
+                                                    <outlet property="delegate" destination="LxZ-zm-Rhc" id="o3d-jN-Heo"/>
+                                                </connections>
                                             </collectionView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1782,6 +1786,20 @@
                             <constraint firstAttribute="trailing" secondItem="Yi0-9R-ErT" secondAttribute="trailing" id="sCb-ad-m5D"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="avatarImg" destination="JFu-4k-0nm" id="q9N-cF-GMp"/>
+                        <outlet property="cityNameLabel" destination="gJA-sd-7J9" id="WQ5-2Y-pUR"/>
+                        <outlet property="commentTableHeightconstraint" destination="sEj-0J-nCJ" id="Aih-gx-VK5"/>
+                        <outlet property="commentsTableView" destination="cl1-GW-pHc" id="AzV-KT-Hb8"/>
+                        <outlet property="conView" destination="vpy-cf-Tk4" id="h74-c7-R01"/>
+                        <outlet property="contentViewHeightConstraint" destination="c1q-vj-9kD" id="8lp-KZ-D57"/>
+                        <outlet property="descriptionLabel" destination="hzd-Hc-22C" id="2tZ-td-TtB"/>
+                        <outlet property="houseCollectionView" destination="RQf-rr-rLX" id="Su7-qA-BmC"/>
+                        <outlet property="jobLabel" destination="ZGG-4W-Lg4" id="uso-fJ-Vyg"/>
+                        <outlet property="memberagaeLabel" destination="4e2-r8-LKO" id="Fhz-Hj-CZO"/>
+                        <outlet property="nameLabel" destination="Ix0-Ne-umo" id="uOv-Fq-kUr"/>
+                        <outlet property="scrollView" destination="Yi0-9R-ErT" id="Reb-21-kF1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y3f-ZK-7wd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
