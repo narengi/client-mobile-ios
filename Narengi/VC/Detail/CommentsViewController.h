@@ -10,4 +10,7 @@
 
 @interface CommentsViewController : UIViewController
 
+@property (nonatomic,strong) NSString *houseIDStr;
+
+
 @end

@@ -14,7 +14,9 @@
 @property (nonatomic) NSAttributedString *attributeStr;
 @property (nonatomic) NSString           *writerName;
 @property (nonatomic) NSString           *message;
+@property (nonatomic) NSString           *dateStr;
 @property (nonatomic) NSURL              *imageUrl;
-
+@property (nonatomic) NSString           *rate;
+@property (nonatomic) float              roundedRate;
 
 @end

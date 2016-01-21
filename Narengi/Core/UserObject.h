@@ -14,6 +14,17 @@
 @property (nonatomic) NSString *displayName;
 @property (nonatomic) NSString *cellNumber;
 @property (nonatomic) NSString *Email;
+@property (nonatomic) NSString *hostURL;
+
+
+//detail
+@property (nonatomic) NSString *locationText;
+@property (nonatomic) NSString *career;
+@property (nonatomic) NSString *memberFrom;
+@property (nonatomic) NSString *descriptionStr;
+@property (nonatomic) NSArray  *commentsArr;
+@property (nonatomic) NSArray  *houseArr;
+
 
 
 @end

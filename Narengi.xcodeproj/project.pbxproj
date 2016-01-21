@@ -77,6 +77,8 @@
 		72DFF0E01C10461B00884E04 /* ModalAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DFF0DF1C10461B00884E04 /* ModalAnimator.m */; };
 		72DFF0E31C1046C400884E04 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DFF0E21C1046C400884E04 /* SearchViewController.m */; };
 		72DFF0E61C106C2F00884E04 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DFF0E51C106C2F00884E04 /* SearchTableViewCell.m */; };
+		72EA4D731C50F6750053456F /* CustomMarginLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EA4D721C50F6750053456F /* CustomMarginLabel.m */; };
+		72EA4D761C51051C0053456F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EA4D751C51051C0053456F /* ProfileViewController.m */; };
 		72F2742E1C196DE30048BF05 /* SearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F2742D1C196DE30048BF05 /* SearchDetailViewController.m */; };
 		72F274301C196FA30048BF05 /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F2742F1C196FA30048BF05 /* CitiesViewController.m */; };
 		72F274331C1970F50048BF05 /* SearchDetailHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72F274311C1970F50048BF05 /* SearchDetailHomeCell.xib */; };
@@ -244,6 +246,10 @@
 		72DFF0E21C1046C400884E04 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = VC/Search/SearchViewController.m; sourceTree = "<group>"; };
 		72DFF0E41C106C2F00884E04 /* SearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchTableViewCell.h; path = VC/Search/SearchTableViewCell.h; sourceTree = "<group>"; };
 		72DFF0E51C106C2F00884E04 /* SearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchTableViewCell.m; path = VC/Search/SearchTableViewCell.m; sourceTree = "<group>"; };
+		72EA4D711C50F6750053456F /* CustomMarginLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomMarginLabel.h; path = "Custom Classes/CustomMarginLabel.h"; sourceTree = "<group>"; };
+		72EA4D721C50F6750053456F /* CustomMarginLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomMarginLabel.m; path = "Custom Classes/CustomMarginLabel.m"; sourceTree = "<group>"; };
+		72EA4D741C51051C0053456F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = VC/Profile/ProfileViewController.h; sourceTree = "<group>"; };
+		72EA4D751C51051C0053456F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = VC/Profile/ProfileViewController.m; sourceTree = "<group>"; };
 		72F2742C1C196DE30048BF05 /* SearchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchDetailViewController.h; path = VC/Detail/SearchDetailViewController.h; sourceTree = "<group>"; };
 		72F2742D1C196DE30048BF05 /* SearchDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchDetailViewController.m; path = VC/Detail/SearchDetailViewController.m; sourceTree = "<group>"; };
 		72F2742F1C196FA30048BF05 /* CitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CitiesViewController.m; path = VC/CitiesVC/CitiesViewController.m; sourceTree = "<group>"; };
@@ -410,6 +416,8 @@
 				726DF1FA1BE79937004796EC /* Main.storyboard */,
 				726DF1FD1BE79937004796EC /* Assets.xcassets */,
 				726DF1FF1BE79937004796EC /* LaunchScreen.storyboard */,
+				72EA4D741C51051C0053456F /* ProfileViewController.h */,
+				72EA4D751C51051C0053456F /* ProfileViewController.m */,
 				7214FB4F1BF1C70100824043 /* MenuVC */,
 				7214FB4E1BF1C6F300824043 /* Main */,
 				721E151D1C0ED3F3006E394B /* SearchDetail */,
@@ -483,6 +491,8 @@
 				722922FD1BFCFA4500C5575C /* UIViewController+Additional.m */,
 				727F89A11C3543FA00519CDD /* CityDetailButton.h */,
 				727F89A21C3543FA00519CDD /* CityDetailButton.m */,
+				72EA4D711C50F6750053456F /* CustomMarginLabel.h */,
+				72EA4D721C50F6750053456F /* CustomMarginLabel.m */,
 			);
 			name = "Custom Classes";
 			sourceTree = "<group>";
@@ -795,6 +805,7 @@
 				726A3A381C47C2F5002C4D11 /* IranButton.m in Sources */,
 				72F274521C199F970048BF05 /* SearchDetailCityCollectionViewCell.m in Sources */,
 				72F274301C196FA30048BF05 /* CitiesViewController.m in Sources */,
+				72EA4D731C50F6750053456F /* CustomMarginLabel.m in Sources */,
 				720B92A41C253B3100D1468A /* SearchSectionView.m in Sources */,
 				72DFF0E61C106C2F00884E04 /* SearchTableViewCell.m in Sources */,
 				720B92A11C22A9AB00D1468A /* HWViewPager.m in Sources */,
@@ -835,6 +846,7 @@
 				722922F51BFCB4F800C5575C /* UserObject.m in Sources */,
 				72D7FE651C15C59D00BD39A5 /* CustomLabel.m in Sources */,
 				722922F81BFCEA3600C5575C /* ServerResponse.m in Sources */,
+				72EA4D761C51051C0053456F /* ProfileViewController.m in Sources */,
 				7214FB5D1BF1C98A00824043 /* UIViewController+Utilities.m in Sources */,
 				726A3A351C47A382002C4D11 /* MoreFacilityCollectionViewCell.m in Sources */,
 				72DFF0E31C1046C400884E04 /* SearchViewController.m in Sources */,

@@ -18,4 +18,6 @@
 -(NSArray *)parsAroudPlacesWith:(NSArray *)objects andwithType:(NSString *)type andIsDetail:(BOOL)isDetail;
 -(NSArray *)parsSuggestions:(NSDictionary *)dict;
 
+-(NSArray *)parsComments:(NSArray *)comments;
+
 @end

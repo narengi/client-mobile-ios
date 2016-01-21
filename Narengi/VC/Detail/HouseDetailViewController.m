@@ -17,6 +17,7 @@
 #import "HWViewPager.h"
 #import "MZFormSheetPresentationViewController.h"
 #import "FacilitiesViewController.h"
+#import "CommentsViewController.h"
 
 @interface HouseDetailViewController ()<UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate,UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 
@@ -49,7 +50,6 @@
 
 
 @property (nonatomic) CGFloat   headerFade;
-@property (nonatomic) BOOL   dragging;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewHeightConstraint;
 
@@ -417,6 +417,8 @@
     }
     
 }
+
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     
@@ -512,6 +514,11 @@
 }
 
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self showCommentDetails];
+}
+
 #pragma mark - facilities
 
 -(void)showFacilities{
@@ -542,5 +549,33 @@
     [self presentViewController:formSheet animated:YES completion:nil];
 }
 
+
+-(void)showCommentDetails{
+
+    UIStoryboard *storybord =[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    CommentsViewController *vc = [storybord instantiateViewControllerWithIdentifier:@"commentsVC"];
+    
+    vc.houseIDStr = @"1";
+    
+    MZFormSheetPresentationViewController *formSheet = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:vc];
+    
+    
+    formSheet.presentationController.contentViewSize = CGSizeMake(300, [UIScreen mainScreen].bounds.size.height - 60);
+    
+    formSheet.presentationController.portraitTopInset = 10;
+    
+    formSheet.allowDismissByPanningPresentedView = YES;
+    formSheet.contentViewCornerRadius = 8.0;
+    
+    
+    formSheet.willPresentContentViewControllerHandler = ^(UIViewController *presentedFSViewController){
+    };
+    formSheet.didDismissContentViewControllerHandler = ^(UIViewController *presentedFSViewController){
+        
+    };
+    
+    [self presentViewController:formSheet animated:YES completion:nil];
+    
+}
 
 @end

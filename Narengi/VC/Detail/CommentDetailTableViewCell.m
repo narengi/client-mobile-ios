@@ -13,9 +13,9 @@
 - (void)awakeFromNib {
     
     
-    self.avatarImg.layer.cornerRadius  = 18;
+    self.avatarImg.layer.cornerRadius  = 14.5;
     self.avatarImg.layer.masksToBounds = YES;
-    self.avatarImg.layer.borderWidth = 2;
+    self.avatarImg.layer.borderWidth = 1;
     self.avatarImg.layer.borderColor = [UIColor whiteColor].CGColor;
 }
 

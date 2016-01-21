@@ -14,25 +14,25 @@
                 <rect key="frame" x="0.0" y="0.0" width="401" height="92"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nQF-JH-fpe">
-                        <rect key="frame" x="357" y="17" width="36" height="36"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nQF-JH-fpe">
+                        <rect key="frame" x="361" y="17" width="29" height="29"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="36" id="2un-rF-nhY"/>
-                            <constraint firstAttribute="width" constant="36" id="i9y-6I-QMa"/>
+                            <constraint firstAttribute="height" constant="29" id="2un-rF-nhY"/>
+                            <constraint firstAttribute="width" constant="29" id="i9y-6I-QMa"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJR-4P-3pz" customClass="CustomFaMediumFontLabel">
-                        <rect key="frame" x="8" y="59" width="385" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJR-4P-3pz" customClass="CustomFaRegularLabel">
+                        <rect key="frame" x="13" y="59" width="371" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="4wC-LP-mdd"/>
-                            <constraint firstAttribute="width" constant="385" id="sRu-EZ-Xg5"/>
+                            <constraint firstAttribute="width" constant="371" id="sRu-EZ-Xg5"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jt6-hn-PJE" customClass="CustomFaMediumFontLabel">
-                        <rect key="frame" x="81" y="37" width="269" height="16"/>
+                        <rect key="frame" x="81" y="34" width="269" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="269" id="5xB-Ca-7lV"/>
                             <constraint firstAttribute="height" constant="16" id="O3O-Nd-Fnr"/>
@@ -49,7 +49,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOu-Sy-g41" customClass="CustomFaMediumFontLabel">
-                        <rect key="frame" x="81" y="17" width="269" height="21"/>
+                        <rect key="frame" x="81" y="14" width="269" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="3ua-y4-msy"/>
                             <constraint firstAttribute="width" constant="269" id="QIl-gc-A3B"/>
@@ -58,22 +58,36 @@
                         <color key="textColor" red="0.08235294118" green="0.59999999999999998" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPl-sH-qB0">
+                        <rect key="frame" x="0.0" y="91" width="385" height="1"/>
+                        <color key="backgroundColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="385" id="7AM-tX-Lhk"/>
+                            <constraint firstAttribute="height" constant="1" id="ZZX-VM-oLq"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="nQF-JH-fpe" firstAttribute="leading" secondItem="jt6-hn-PJE" secondAttribute="trailing" constant="7" id="4he-jB-336"/>
+                    <constraint firstItem="nQF-JH-fpe" firstAttribute="leading" secondItem="jt6-hn-PJE" secondAttribute="trailing" constant="11" id="4he-jB-336"/>
                     <constraint firstItem="nQF-JH-fpe" firstAttribute="top" secondItem="Tj6-mb-ej4" secondAttribute="top" constant="17" id="64K-il-fJn"/>
-                    <constraint firstItem="JJR-4P-3pz" firstAttribute="top" secondItem="jt6-hn-PJE" secondAttribute="bottom" constant="6" id="9ez-wV-D5Z"/>
-                    <constraint firstAttribute="trailing" secondItem="nQF-JH-fpe" secondAttribute="trailing" constant="8" id="NUc-sB-Ndb"/>
-                    <constraint firstItem="jt6-hn-PJE" firstAttribute="top" secondItem="Tj6-mb-ej4" secondAttribute="top" constant="37" id="S26-cB-0tj"/>
+                    <constraint firstItem="JJR-4P-3pz" firstAttribute="top" secondItem="jt6-hn-PJE" secondAttribute="bottom" constant="9" id="9ez-wV-D5Z"/>
+                    <constraint firstAttribute="bottom" secondItem="fPl-sH-qB0" secondAttribute="bottom" id="Jdc-zn-goP"/>
+                    <constraint firstAttribute="trailing" secondItem="nQF-JH-fpe" secondAttribute="trailing" constant="11" id="NUc-sB-Ndb"/>
+                    <constraint firstItem="jt6-hn-PJE" firstAttribute="top" secondItem="Tj6-mb-ej4" secondAttribute="top" constant="34" id="S26-cB-0tj"/>
                     <constraint firstItem="qHq-JM-P8N" firstAttribute="leading" secondItem="Tj6-mb-ej4" secondAttribute="leading" constant="13" id="SgO-xa-FVq"/>
                     <constraint firstItem="qHq-JM-P8N" firstAttribute="top" secondItem="Tj6-mb-ej4" secondAttribute="top" constant="29" id="TIv-1O-wyE"/>
+                    <constraint firstItem="fPl-sH-qB0" firstAttribute="leading" secondItem="Tj6-mb-ej4" secondAttribute="leading" id="Vbg-9E-CaT"/>
                     <constraint firstItem="IOu-Sy-g41" firstAttribute="leading" secondItem="qHq-JM-P8N" secondAttribute="trailing" constant="8" id="bsW-hU-rbG"/>
-                    <constraint firstAttribute="trailing" secondItem="JJR-4P-3pz" secondAttribute="trailing" constant="8" id="ckF-EW-ieH"/>
-                    <constraint firstItem="JJR-4P-3pz" firstAttribute="leading" secondItem="Tj6-mb-ej4" secondAttribute="leading" constant="8" id="dDd-d3-yj4"/>
+                    <constraint firstAttribute="trailing" secondItem="JJR-4P-3pz" secondAttribute="trailing" constant="17" id="ckF-EW-ieH"/>
+                    <constraint firstItem="JJR-4P-3pz" firstAttribute="leading" secondItem="Tj6-mb-ej4" secondAttribute="leading" constant="13" id="dDd-d3-yj4"/>
                     <constraint firstAttribute="bottom" secondItem="JJR-4P-3pz" secondAttribute="bottom" constant="12" id="kXS-oT-fh2"/>
+                    <constraint firstAttribute="trailing" secondItem="fPl-sH-qB0" secondAttribute="trailing" constant="16" id="kme-dM-nLg"/>
                     <constraint firstItem="jt6-hn-PJE" firstAttribute="leading" secondItem="qHq-JM-P8N" secondAttribute="trailing" constant="8" id="qbr-8I-Zug"/>
-                    <constraint firstItem="nQF-JH-fpe" firstAttribute="leading" secondItem="IOu-Sy-g41" secondAttribute="trailing" constant="7" id="uCN-Si-gRW"/>
-                    <constraint firstItem="IOu-Sy-g41" firstAttribute="top" secondItem="Tj6-mb-ej4" secondAttribute="top" constant="17" id="wUb-H4-tKK"/>
+                    <constraint firstItem="nQF-JH-fpe" firstAttribute="leading" secondItem="IOu-Sy-g41" secondAttribute="trailing" constant="11" id="uCN-Si-gRW"/>
+                    <constraint firstItem="IOu-Sy-g41" firstAttribute="top" secondItem="Tj6-mb-ej4" secondAttribute="top" constant="14" id="wUb-H4-tKK"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

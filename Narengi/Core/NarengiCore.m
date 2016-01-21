@@ -130,6 +130,7 @@ NarengiCore *sharedInstance;
             houseObj.cityName       = [dict objectForKey:@"CityName"];
             houseObj.name           = [dict objectForKey:@"Name"];
             houseObj.cost           = [dict objectForKey:@"Cost"];
+            houseObj.ID             = [[dict objectForKey:@"id"] checkNull];
             houseObj.imageUrls      = [self parsImageArray:[dict objectForKey:@"Images"]];
             houseObj.rate           = [dict objectForKey:@"Rating"];
             houseObj.roundedRate    = [self roundRate:houseObj.rate];
@@ -236,7 +237,11 @@ NarengiCore *sharedInstance;
         commentObj.attributeStr = atText;
         commentObj.writerName   = [obj objectForKey:@"reviewer"];
         commentObj.message      = [obj objectForKey:@"Message"];
-        
+        commentObj.dateStr      = [obj objectForKey:@"date"];
+        commentObj.imageUrl     = [NSURL URLWithString:[obj objectForKey:@"ImageUrl"] ];
+        commentObj.rate         = [[obj objectForKey:@"rate"] stringValue];
+        commentObj.roundedRate  = [self roundRate:commentObj.rate];
+
         [muArr addObject:commentObj];
         
     }];
