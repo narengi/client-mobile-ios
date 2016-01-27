@@ -141,6 +141,7 @@ NarengiCore *sharedInstance;
             houseObj.host = [self parsHost:[dict objectForKey:@"Host"] isDetail:NO];
             
             aroundPlObj.houseObject = houseObj;
+            
             if (isDetail) {
                 houseObj.commentsArr     = [self parsComments:[dict objectForKey:@"Reviews"]];
                 houseObj.facilityArr     = [self parsFacilities:[dict objectForKey:@"FeatureList"]];
@@ -320,6 +321,9 @@ NarengiCore *sharedInstance;
         hostObj.career         = [dict objectForKey:@"Job"];
         hostObj.memberFrom     = [dict objectForKey:@"MemberFrom"];
         hostObj.descriptionStr = [dict objectForKey:@"Description"];
+        hostObj.commentsArr    = [self parsComments:[dict objectForKey:@"reviews"] ];
+        hostObj.houseArr       = [self parsAroudPlacesWith:[dict objectForKey:@"Houses"] andwithType:@"House" andIsDetail:NO];
+        hostObj.descriptionStr = [dict objectForKey:@"Summary"];
         
     }
     

@@ -30,6 +30,7 @@
 		722922F51BFCB4F800C5575C /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922F41BFCB4F800C5575C /* UserObject.m */; };
 		722922F81BFCEA3600C5575C /* ServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922F71BFCEA3600C5575C /* ServerResponse.m */; };
 		722922FE1BFCFA4500C5575C /* UIViewController+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922FD1BFCFA4500C5575C /* UIViewController+Additional.m */; };
+		725DE6421C5948E50001E5DC /* ProfileCommentsHeadeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 725DE6401C5948E50001E5DC /* ProfileCommentsHeadeView.xib */; };
 		726A3A321C47A2CF002C4D11 /* MoreFacilityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 726A3A301C47A2CF002C4D11 /* MoreFacilityCell.xib */; };
 		726A3A351C47A382002C4D11 /* MoreFacilityCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 726A3A341C47A382002C4D11 /* MoreFacilityCollectionViewCell.m */; };
 		726A3A381C47C2F5002C4D11 /* IranButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 726A3A371C47C2F5002C4D11 /* IranButton.m */; };
@@ -160,6 +161,7 @@
 		722922F71BFCEA3600C5575C /* ServerResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerResponse.m; path = Core/ServerResponse.m; sourceTree = "<group>"; };
 		722922FC1BFCFA4500C5575C /* UIViewController+Additional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Additional.h"; path = "Custom Classes/UIViewController+Additional.h"; sourceTree = "<group>"; };
 		722922FD1BFCFA4500C5575C /* UIViewController+Additional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Additional.m"; path = "Custom Classes/UIViewController+Additional.m"; sourceTree = "<group>"; };
+		725DE6411C5948E50001E5DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProfileCommentsHeadeView.xib; sourceTree = "<group>"; };
 		726A3A311C47A2CF002C4D11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MoreFacilityCell.xib; sourceTree = "<group>"; };
 		726A3A331C47A382002C4D11 /* MoreFacilityCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoreFacilityCollectionViewCell.h; path = VC/Detail/MoreFacilityCollectionViewCell.h; sourceTree = "<group>"; };
 		726A3A341C47A382002C4D11 /* MoreFacilityCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoreFacilityCollectionViewCell.m; path = VC/Detail/MoreFacilityCollectionViewCell.m; sourceTree = "<group>"; };
@@ -386,6 +388,16 @@
 			name = SearchDetail;
 			sourceTree = "<group>";
 		};
+		725DE63F1C5947080001E5DC /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				72EA4D741C51051C0053456F /* ProfileViewController.h */,
+				72EA4D751C51051C0053456F /* ProfileViewController.m */,
+				725DE6401C5948E50001E5DC /* ProfileCommentsHeadeView.xib */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
 		726DF1E51BE79936004796EC = {
 			isa = PBXGroup;
 			children = (
@@ -416,8 +428,7 @@
 				726DF1FA1BE79937004796EC /* Main.storyboard */,
 				726DF1FD1BE79937004796EC /* Assets.xcassets */,
 				726DF1FF1BE79937004796EC /* LaunchScreen.storyboard */,
-				72EA4D741C51051C0053456F /* ProfileViewController.h */,
-				72EA4D751C51051C0053456F /* ProfileViewController.m */,
+				725DE63F1C5947080001E5DC /* Profile */,
 				7214FB4F1BF1C70100824043 /* MenuVC */,
 				7214FB4E1BF1C6F300824043 /* Main */,
 				721E151D1C0ED3F3006E394B /* SearchDetail */,
@@ -708,6 +719,7 @@
 				726DF2011BE79937004796EC /* LaunchScreen.storyboard in Resources */,
 				721E152E1C0EF13A006E394B /* PagerCell.xib in Resources */,
 				72F274431C1976E90048BF05 /* IRANSansMobile(FaNum)_UltraLight.ttf in Resources */,
+				725DE6421C5948E50001E5DC /* ProfileCommentsHeadeView.xib in Resources */,
 				72F2743F1C1976E90048BF05 /* IRANSans-Mobile(FaNum).ttf in Resources */,
 				726DF1FE1BE79937004796EC /* Assets.xcassets in Resources */,
 				72F274331C1970F50048BF05 /* SearchDetailHomeCell.xib in Resources */,
@@ -928,6 +940,14 @@
 				721E152D1C0EF13A006E394B /* Base */,
 			);
 			name = PagerCell.xib;
+			sourceTree = "<group>";
+		};
+		725DE6401C5948E50001E5DC /* ProfileCommentsHeadeView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				725DE6411C5948E50001E5DC /* Base */,
+			);
+			name = ProfileCommentsHeadeView.xib;
 			sourceTree = "<group>";
 		};
 		726A3A301C47A2CF002C4D11 /* MoreFacilityCell.xib */ = {

@@ -24,15 +24,22 @@
 @property (weak, nonatomic) IBOutlet UILabel *jobLabel;
 @property (weak, nonatomic) IBOutlet UITableView      *commentsTableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *houseCollectionView;
+
+@property (nonatomic) CGFloat   headerFade;
+
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *conView;
+@property (weak, nonatomic) IBOutlet UIView *navigationView;
+
 @property (weak, nonatomic) IBOutlet CustomFaRegularLabel *memberagaeLabel;
+@property (weak, nonatomic) IBOutlet CustomFaRegularLabel *titleLabel;
 
 
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewHeightConstraint;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *commentTableHeightconstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *houseCollectinViewHeight;
 
 @property (nonatomic,strong) HostObject *hostObj;
 
@@ -48,20 +55,93 @@
     [self.commentsTableView registerNib:[UINib nibWithNibName:@"CommentCell" bundle:nil]  forCellReuseIdentifier:@"commentCellID"];
     [self.houseCollectionView registerNib:[UINib nibWithNibName:@"SearchDetailHomeCell" bundle:nil] forCellWithReuseIdentifier:@"homeCellID"];
     [self.houseCollectionView  registerNib:[CityDetailHouseCollectionReusableView nib] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"cityDetailHouseCollectionRV"];
+    
+    
+    //scrollView delegate
+    void *context = (__bridge void *)self;
+    [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:context];
+    _headerFade                     = 130.0f;
+    self.navigationView.alpha = 0;
+
+    
     [self addParametrsToURL];
     [self getData];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     
+    [[UIApplication sharedApplication] setStatusBarStyle:self.navigationView.alpha == 1?UIStatusBarStyleDefault:UIStatusBarStyleLightContent];
+
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
+
+#pragma mark - scrollViewDelegate
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if (context != (__bridge void *)self) {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+        return;
+    }
     
-//    [[UIApplication sharedApplication] setStatusBarStyle:self.navigationView.alpha == 1?UIStatusBarStyleDefault:UIStatusBarStyleLightContent];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    if ((object == self.scrollView) && ([keyPath isEqualToString:@"contentOffset"] == YES)) {
+        [self scrollViewDidScrollWithOffset:self.scrollView.contentOffset.y];
+        return;
+    }
+}
+- (void)dealloc
+{
+    [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
+}
+
+
+
+- (void)scrollViewDidScrollWithOffset:(CGFloat)scrollOffset
+{
+    
+    CATransform3D headerTransform = CATransform3DIdentity;
+    
+    
+    if (scrollOffset < 0) {
+        
+        CGFloat headerScaleFactor = -(scrollOffset) / self.avatarImg.bounds.size.height;
+        
+        CGFloat headerSizevariation = ((self.avatarImg.bounds.size.height * (1.0 + headerScaleFactor)) - self.avatarImg.bounds.size.height)/2.0;
+        headerTransform = CATransform3DTranslate(headerTransform, 0, headerSizevariation, 0);
+        headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0);
+        
+        self.avatarImg.layer.transform = headerTransform;
+        
+    }
+    
+    
+    if(scrollOffset > _headerFade && self.navigationView.alpha == 0.0){ //make the header appear
+        self.navigationView.alpha = 0;
+        self.navigationView.hidden = NO;
+        [UIView animateWithDuration:0.3 animations:^{
+            self.navigationView.alpha = 1;
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+            
+        }];
+    }
+    else if(scrollOffset < _headerFade &&  self.navigationView.alpha == 1.0){ //make the header disappear
+        [UIView animateWithDuration:0.3 animations:^{
+            self.navigationView.alpha = 0;
+        } completion: ^(BOOL finished) {
+            self.navigationView.hidden = YES;
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+            
+        }];
+    }
     
 }
 
@@ -102,25 +182,27 @@
 
 -(void)setDataForView{
     
-    
+    self.commentsTableView.scrollEnabled = NO;
     self.nameLabel.text        = self.hostObj.displayName;
     self.cityNameLabel.text    = self.hostObj.locationText;
     self.descriptionLabel.text = self.hostObj.descriptionStr;
     self.jobLabel.text         = self.hostObj.career;
     self.memberagaeLabel.text  = self.hostObj.memberFrom;
+    self.titleLabel.text       = self.hostObj.displayName;
 
     [self.avatarImg sd_setImageWithURL:self.hostObj.imageUrl placeholderImage:nil];
+    self.avatarImg.layer.masksToBounds = YES;
     
         
     [self.commentsTableView reloadData];
+    [self.houseCollectionView reloadData];
     
-    
-    
-    self.commentTableHeightconstraint.constant = (70*self.hostObj.commentsArr.count);
+    self.commentTableHeightconstraint.constant = (70*self.hostObj.commentsArr.count)+(self.hostObj.commentsArr.count > 0 ? 40 : 0);
+    self.houseCollectinViewHeight.constant = ((([UIScreen mainScreen].bounds.size.width) * 5 /8)*self.hostObj.houseArr.count)+(self.hostObj.houseArr.count > 0 ? 40 : 0);;
     
     [self.commentsTableView layoutIfNeeded];
     
-//    self.contentViewHeightConstraint.constant = self.ownerTableView.frame.origin.y + (60*4)+60;
+    self.contentViewHeightConstraint.constant = self.commentsTableView.frame.origin.y + self.houseCollectinViewHeight.constant + self.commentTableHeightconstraint.constant;
     [self.conView layoutIfNeeded];
     
     self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, self.contentViewHeightConstraint.constant+50);
@@ -137,38 +219,31 @@
 {
     
     return self.hostObj.commentsArr.count;
-
-    
     
 }
 
-//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-//{
-//    if (tableView == self.commentsTableView) {
-//        return 80;
-//    }
-//    else{
-//        return 0;
-//    }
-//}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
 
-//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    
-//    CommentSectionHeaderView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"CommentSectionView" owner:self options:nil] objectAtIndex:0];
-//    headerView.rateImg.image = IMG(([NSString stringWithFormat:@"big%f",self.houseObj.roundedRate]));
-//    headerView.rateCountLabel.text = [NSString stringWithFormat:@"بر اساس %@ رای",self.houseObj.reviewCount];
-//    
-//    return headerView;
-//}
+    return 40;
+
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    
+    UIView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"ProfileCommentsHeadeView" owner:self options:nil] objectAtIndex:0];
+    
+    return headerView;
+}
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-        CommentTableViewCell *commentCell = [tableView dequeueReusableCellWithIdentifier:@"commentCellID" forIndexPath:indexPath];
-        CommentObject *commentObj =  self.hostObj.commentsArr[indexPath.row];
-        commentCell.titleLabel.attributedText = commentObj.attributeStr;
-        
-        return commentCell;
+    CommentTableViewCell *commentCell = [tableView dequeueReusableCellWithIdentifier:@"commentCellID" forIndexPath:indexPath];
+    CommentObject *commentObj =  self.hostObj.commentsArr[indexPath.row];
+    commentCell.titleLabel.attributedText = commentObj.attributeStr;
+    
+    return commentCell;
 
     
     
@@ -300,6 +375,11 @@
     
     
     return header_view;
+}
+- (IBAction)backButtonClicked:(UIButton *)sender {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
 }
 
 @end
