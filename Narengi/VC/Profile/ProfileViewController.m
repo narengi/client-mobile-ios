@@ -60,7 +60,7 @@
     //scrollView delegate
     void *context = (__bridge void *)self;
     [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:context];
-    _headerFade                     = 130.0f;
+    _headerFade                     = [UIScreen mainScreen].bounds.size.width/2;
     self.navigationView.alpha = 0;
 
     
@@ -305,7 +305,7 @@
     pagerCell.priceLabel.text       = str;
     pagerCell.descriptionLabel.text = houseObj.featureSummray;
     pagerCell.titleLabel.text       = houseObj.name;
-    [pagerCell.coverImg sd_setImageWithURL:houseObj.host.imageUrl placeholderImage:nil];
+    pagerCell.coverImg.alpha        = 0;
     pagerCell.priceLabel.layer.cornerRadius = 10;
     pagerCell.priceLabel.layer.masksToBounds = YES;
     

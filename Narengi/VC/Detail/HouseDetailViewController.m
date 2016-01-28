@@ -63,6 +63,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *guestCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *roomcountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *navTitleLabel;
 
 
 @end
@@ -90,6 +91,8 @@
     [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:context];
     
     self.ownerDesArr = @[@"پروفایل مالک",@"ارتباط با مالک",@"خدمات و خدمت‌های اضافی",@"شرایط و قوانین"];
+    self.navigationView.alpha = 0;
+    self.headerFade = [UIScreen mainScreen].bounds.size.width;
     
     //Get Data For firstTime
     [self addParametrsToURL];
@@ -260,8 +263,10 @@
     
     
     self.titleLabel.text       = self.houseObj.name;
+    self.navTitleLabel.text    = self.houseObj.name;
     self.cityNameLabel.text    = self.houseObj.cityName;
     self.descriptionLabel.text = self.houseObj.summary;
+    
     self.reviewCountLabel.text = [NSString stringWithFormat:@"( %@ رای )",self.houseObj.reviewCount];
 
     
@@ -584,6 +589,11 @@
     
     [self presentViewController:formSheet animated:YES completion:nil];
     
+}
+
+- (IBAction)backButtonClicked:(UIButton *)sender {
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
