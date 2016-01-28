@@ -288,7 +288,8 @@
     
     
     
-    self.commentTableHeightconstraint.constant = (70*self.houseObj.commentsArr.count)+(self.houseObj.commentsArr.count/self.houseObj.commentsArr.count*80);
+    self.commentTableHeightconstraint.constant = (70*self.houseObj.commentsArr.count)+(self.houseObj.commentsArr.count > 0 ? 80 : 0);
+    
     self.ownerTableViewHeightConstraint.constant  = 60*4;
     
     [self.commentsTableView layoutIfNeeded];

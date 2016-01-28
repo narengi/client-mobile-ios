@@ -84,7 +84,7 @@ CGFloat const distance_W_LabelHeader = 35.0;
     self.isForFisrttime = YES;
     
     self.navigationView.alpha = 0;
-    _headerFade                     = 130.0f;
+    _headerFade                     = [UIScreen mainScreen].bounds.size.width;
     self.spaceToNavPreviousValue = self.spaceToNav.constant;
     
     
@@ -92,8 +92,25 @@ CGFloat const distance_W_LabelHeader = 35.0;
     [self addParametrsToURL];
     [self getData];
     
+    UITapGestureRecognizer *lpgr = [[UITapGestureRecognizer alloc]
+                                    initWithTarget:self action:@selector(handleSingleClickOnCollectionView:)];
+    lpgr.delegate = self;
+    [self.houseCollection addGestureRecognizer:lpgr];
+    
 
 }
+
+-(void)handleSingleClickOnCollectionView:(UITapGestureRecognizer *)gestureRecognizer
+{
+    CGPoint p = [gestureRecognizer locationInView:self.houseCollection];
+    NSIndexPath *indexPath = [self.houseCollection indexPathForItemAtPoint:p];
+    
+    AroundPlaceObject *aroundObj = self.cityObject.houses[indexPath.row];
+    
+    [self goTodetailWithUrl:aroundObj.urlStr andWithType:aroundObj.type];
+    
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     
 
@@ -112,7 +129,7 @@ CGFloat const distance_W_LabelHeader = 35.0;
      
         [self.houseCollection layoutIfNeeded];
         self.scrollViewContentHeightsize = self.spaceToNav.constant + 154;
-        self.spaceToNavPreviousValue = self.spaceToNav.constant;
+        self.spaceToNavPreviousValue     = self.spaceToNav.constant;
     }
     
     
@@ -132,10 +149,13 @@ CGFloat const distance_W_LabelHeader = 35.0;
     }];
     
     self.scrollViewContentHeightsize = content;
+    
     self.ViewContentLayoutConstrain.constant = self.scrollViewContentHeightsize;
     [self.parentView layoutIfNeeded];
+    
     self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width,self.scrollViewContentHeightsize+40);
-    self.houseCollectionHeightConstrain.constant = collectionContent;
+    
+    self.houseCollectionHeightConstrain.constant = self.cityObject.houses.count > 0 ? collectionContent : 0;
     [self.houseCollection layoutIfNeeded];
     
     self.isForFisrttime = NO;
@@ -340,15 +360,21 @@ CGFloat const distance_W_LabelHeader = 35.0;
     UICollectionReusableView* cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                         withReuseIdentifier:@"cityDetailHouseCollectionRV"
                                                                                forIndexPath:indexPath];
-    
-    
+//  
     CityDetailHouseCollectionReusableView* header_view = (CityDetailHouseCollectionReusableView*) cell;
-    
-    
-    
+
     return header_view;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (collectionView == self.attractionCollectionView) {
+        
+        AroundPlaceObject *aroundObj = self.cityObject.attractions[indexPath.row];
+        
+        [self goTodetailWithUrl:aroundObj.urlStr andWithType:aroundObj.type];
+    }
+}
 
 #pragma mark - scrollViewDelegate
 
