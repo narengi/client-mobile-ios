@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "HWViewPager.h"
 #import "PageCell.h"
+@protocol HouseCellDelegate;
 
-@interface SearchDetailHomeCollectionViewCell : UICollectionViewCell<UICollectionViewDataSource,UICollectionViewDelegate>
+
+@interface SearchDetailHomeCollectionViewCell : UICollectionViewCell<UICollectionViewDataSource,UICollectionViewDelegate,UIGestureRecognizerDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -30,7 +32,16 @@
 @property (strong, nonatomic) HWViewPager *pages;
 
 @property (nonatomic) NSArray *imageUrls;
+@property (assign, nonatomic) id <HouseCellDelegate> delegate;
+@property (nonatomic,strong) NSString *hostUrl;
 
 
+@end
+
+@protocol HouseCellDelegate <NSObject>
+
+@optional
+
+- (void)delegateTouchAvatar:(SearchDetailHomeCollectionViewCell *)cell;
 
 @end

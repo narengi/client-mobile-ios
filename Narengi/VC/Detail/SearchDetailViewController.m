@@ -11,7 +11,7 @@
 #import "SearchDetailCityCollectionViewCell.h"
 #import "SearchDetailHomeCollectionViewCell.h"
 
-@interface SearchDetailViewController ()
+@interface SearchDetailViewController ()<HouseCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) NSInteger curentRequestcount;
@@ -121,6 +121,9 @@
         [pagerCell.pages reloadData];
         pagerCell.rateImg.image = IMG(([NSString stringWithFormat:@"%f",aroundObj.houseObject.roundedRate]));
         
+        pagerCell.hostUrl   = aroundObj.houseObject.host.hostURL;
+
+        pagerCell.delegate  = self;
         return pagerCell;
 
     }
@@ -194,19 +197,13 @@
     return 0;
 }
 
-
--(void)reloadCollctionWithanimation{
-
-    [UIView transitionWithView:self.collectionView
-                      duration:0.35f
-                       options:UIViewAnimationOptionTransitionCrossDissolve
-                    animations:^(void)
-     {
-         [self.collectionView reloadData];
-     }
-                    completion:nil];
-    
+-(void)delegateTouchAvatar:(SearchDetailHomeCollectionViewCell *)cell
+{
+    [self goTodetailWithUrl:cell.hostUrl andWithType:@"Profile"];
 }
+
+
+
 
 
 #pragma mark -search
@@ -255,5 +252,17 @@
 }
 
 
+-(void)reloadCollctionWithanimation{
+    
+    [UIView transitionWithView:self.collectionView
+                      duration:0.35f
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^(void)
+     {
+         [self.collectionView reloadData];
+     }
+                    completion:nil];
+    
+}
 
 @end

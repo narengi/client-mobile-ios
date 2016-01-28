@@ -13,7 +13,7 @@
 #import "CityDetailHouseCollectionReusableView.h"
 
 
-@interface AttractionDetailViewController ()
+@interface AttractionDetailViewController ()<HouseCellDelegate>
 
 @property (nonatomic,strong) AttractionObject *attractionObject;
 
@@ -83,6 +83,24 @@
     //Get Data For firstTime
     [self addParametrsToURL];
     [self getData];
+    
+    
+    UITapGestureRecognizer *lpgr = [[UITapGestureRecognizer alloc]
+                                    initWithTarget:self action:@selector(handleSingleClickOnCollectionView:)];
+    lpgr.delegate = self;
+    [self.houseCollection addGestureRecognizer:lpgr];
+    
+}
+
+-(void)handleSingleClickOnCollectionView:(UITapGestureRecognizer *)gestureRecognizer
+{
+    CGPoint p = [gestureRecognizer locationInView:self.houseCollection];
+    NSIndexPath *indexPath = [self.houseCollection indexPathForItemAtPoint:p];
+    
+    AroundPlaceObject *aroundObj = self.attractionObject.housesArr[indexPath.row];
+    
+    [self goTodetailWithUrl:aroundObj.urlStr andWithType:aroundObj.type];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -287,7 +305,10 @@
         pagerCell.priceLabel.layer.cornerRadius = 10;
         pagerCell.priceLabel.layer.masksToBounds = YES;
         
-        pagerCell.imageUrls       = houseObj.imageUrls;
+        pagerCell.imageUrls = houseObj.imageUrls;
+        pagerCell.hostUrl   = houseObj.host.hostURL;
+        pagerCell.delegate  = self;
+        
         [pagerCell.pages reloadData];
         pagerCell.rateImg.image = IMG(([NSString stringWithFormat:@"%f",houseObj.roundedRate]));
         
@@ -375,6 +396,12 @@
     
     
     return header_view;
+}
+
+
+-(void)delegateTouchAvatar:(SearchDetailHomeCollectionViewCell *)cell
+{
+    [self goTodetailWithUrl:cell.hostUrl andWithType:@"Profile"];
 }
 
 #pragma mark - navigation

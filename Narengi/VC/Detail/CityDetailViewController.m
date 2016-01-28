@@ -18,7 +18,7 @@ CGFloat const offset_HeaderStop      = 40.0;
 CGFloat const offset_B_LabelHeader   = 95.0;
 CGFloat const distance_W_LabelHeader = 35.0;
 
-@interface CityDetailViewController ()
+@interface CityDetailViewController ()<HouseCellDelegate>
 
 @property (nonatomic,strong) CityObject *cityObject;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -76,8 +76,8 @@ CGFloat const distance_W_LabelHeader = 35.0;
     
     [self.houseCollection  registerNib:[CityDetailHouseCollectionReusableView nib] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"cityDetailHouseCollectionRV"];
     
-    self.imageCollectionView.pagingEnabled = YES;
-    self.attractionCollectionView.pagingEnabled  = NO;
+    self.imageCollectionView.pagingEnabled      = YES;
+    self.attractionCollectionView.pagingEnabled = NO;
     
     [self.houseCollection registerNib:[UINib nibWithNibName:@"SearchDetailHomeCell" bundle:nil] forCellWithReuseIdentifier:@"homeCellID"];
     
@@ -252,6 +252,9 @@ CGFloat const distance_W_LabelHeader = 35.0;
         
         SearchDetailHomeCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"homeCellID" forIndexPath:indexPath];
         
+        pagerCell.hostUrl = houseObj.host.hostURL;
+
+        
         NSString *str = @"";
         str = [str stringByAppendingString:houseObj.cost];
         str = [str stringByAppendingString:@"   "];
@@ -266,6 +269,8 @@ CGFloat const distance_W_LabelHeader = 35.0;
         pagerCell.imageUrls       = houseObj.imageUrls;
         [pagerCell.pages reloadData];
         pagerCell.rateImg.image = IMG(([NSString stringWithFormat:@"%f",houseObj.roundedRate]));
+        
+        pagerCell.delegate  = self;
         
         return pagerCell;
     }
@@ -360,7 +365,7 @@ CGFloat const distance_W_LabelHeader = 35.0;
     UICollectionReusableView* cell = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                         withReuseIdentifier:@"cityDetailHouseCollectionRV"
                                                                                forIndexPath:indexPath];
-//  
+//
     CityDetailHouseCollectionReusableView* header_view = (CityDetailHouseCollectionReusableView*) cell;
 
     return header_view;
@@ -374,6 +379,11 @@ CGFloat const distance_W_LabelHeader = 35.0;
         
         [self goTodetailWithUrl:aroundObj.urlStr andWithType:aroundObj.type];
     }
+}
+
+-(void)delegateTouchAvatar:(SearchDetailHomeCollectionViewCell *)cell
+{
+    [self goTodetailWithUrl:cell.hostUrl andWithType:@"Profile"];
 }
 
 #pragma mark - scrollViewDelegate

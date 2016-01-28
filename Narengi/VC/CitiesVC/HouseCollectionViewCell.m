@@ -47,7 +47,7 @@
     self.titleLabel.shadowBlur   = kShadowBlur;
     
 
-
+  
     
     
 }
@@ -102,4 +102,8 @@
     }
     
 }
+
+#pragma mark - avatar
+
+
 @end

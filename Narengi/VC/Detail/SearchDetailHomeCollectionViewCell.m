@@ -49,6 +49,15 @@
     self.coverImg.layer.borderWidth = 1;
     self.coverImg.layer.borderColor = [UIColor whiteColor].CGColor;
     
+    
+    self.coverImg.userInteractionEnabled = YES;
+    
+    UITapGestureRecognizer *tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarClicked:)];
+    tapped.numberOfTapsRequired = 1;
+    tapped.numberOfTouchesRequired  =1;
+    tapped.delegate  =self;
+    [self.coverImg addGestureRecognizer:tapped];
+    
 }
 
 #pragma mark - CollectionViewDelegate
@@ -98,6 +107,15 @@
         
         return CGSizeMake([UIScreen mainScreen].bounds.size.width -16, 128);
     }
+    
+}
+
+
+#pragma mark - avatar
+-(void)avatarClicked :(UIGestureRecognizer *)gestureRecognizer {
+    
+    [self.delegate delegateTouchAvatar:self];
+    
     
 }
 

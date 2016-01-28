@@ -11,6 +11,7 @@
 #import "PageCell.h"
 
 
+
 @interface HouseCollectionViewCell : UICollectionViewCell <UICollectionViewDataSource,UICollectionViewDelegate>
 
 
@@ -29,3 +30,6 @@
 
 
 @end
+
+
+
