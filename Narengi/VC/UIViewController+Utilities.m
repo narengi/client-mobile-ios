@@ -16,4 +16,6 @@
     UINib *cellWithImageNib = [UINib nibWithNibName:nibName bundle:nil];
     [list registerNib:cellWithImageNib forCellWithReuseIdentifier:identifier];
 }
+
+
 @end

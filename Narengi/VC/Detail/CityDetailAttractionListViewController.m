@@ -40,7 +40,23 @@
      [NSDictionary dictionaryWithObjectsAndKeys:
       [UIColor blackColor], NSForegroundColorAttributeName,
       [UIFont fontWithName:@"IRANSansMobileFaNum-Medium" size:15.0], NSFontAttributeName,nil]];
+    
+    UITapGestureRecognizer *lpgr = [[UITapGestureRecognizer alloc]
+                                    initWithTarget:self action:@selector(handleSingleClickOnCollectionView:)];
+    lpgr.delegate = self;
+    [self.collectionView addGestureRecognizer:lpgr];
 
+    
+}
+
+-(void)handleSingleClickOnCollectionView:(UITapGestureRecognizer *)gestureRecognizer
+{
+    CGPoint p = [gestureRecognizer locationInView:self.collectionView];
+    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:p];
+    
+    AroundPlaceObject *aroundObj = self.attractionsArray[indexPath.row];
+    
+    [self goTodetailWithUrl:aroundObj.urlStr andWithType:aroundObj.type];
     
 }
 -(void)initNavigationTitle{

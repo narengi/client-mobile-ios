@@ -97,6 +97,8 @@
 		72F274521C199F970048BF05 /* SearchDetailCityCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F274511C199F970048BF05 /* SearchDetailCityCollectionViewCell.m */; };
 		72F274551C199FC30048BF05 /* SearchDetailHomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F274541C199FC30048BF05 /* SearchDetailHomeCollectionViewCell.m */; };
 		72F274581C199FDF0048BF05 /* SearchDetailAttractionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F274571C199FDF0048BF05 /* SearchDetailAttractionCollectionViewCell.m */; };
+		72F9FBBE1C63991B00DBB347 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F9FBBD1C63991B00DBB347 /* LoginViewController.m */; };
+		72F9FBC41C639B9E00DBB347 /* UIView+Style.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F9FBC31C639B9E00DBB347 /* UIView+Style.m */; };
 		8806210A2432B6524B082D82 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184F4AA531303E30BD8254D8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -277,6 +279,10 @@
 		72F274541C199FC30048BF05 /* SearchDetailHomeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchDetailHomeCollectionViewCell.m; path = VC/Detail/SearchDetailHomeCollectionViewCell.m; sourceTree = "<group>"; };
 		72F274561C199FDF0048BF05 /* SearchDetailAttractionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchDetailAttractionCollectionViewCell.h; path = VC/Detail/SearchDetailAttractionCollectionViewCell.h; sourceTree = "<group>"; };
 		72F274571C199FDF0048BF05 /* SearchDetailAttractionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchDetailAttractionCollectionViewCell.m; path = VC/Detail/SearchDetailAttractionCollectionViewCell.m; sourceTree = "<group>"; };
+		72F9FBBC1C63991B00DBB347 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = VC/Registeration/LoginViewController.h; sourceTree = "<group>"; };
+		72F9FBBD1C63991B00DBB347 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = VC/Registeration/LoginViewController.m; sourceTree = "<group>"; };
+		72F9FBC21C639B9E00DBB347 /* UIView+Style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Style.h"; path = "Custom Classes/UIView+Style.h"; sourceTree = "<group>"; };
+		72F9FBC31C639B9E00DBB347 /* UIView+Style.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Style.m"; path = "Custom Classes/UIView+Style.m"; sourceTree = "<group>"; };
 		82E3942A9DDE72785E55F3C3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -428,11 +434,13 @@
 				726DF1FA1BE79937004796EC /* Main.storyboard */,
 				726DF1FD1BE79937004796EC /* Assets.xcassets */,
 				726DF1FF1BE79937004796EC /* LaunchScreen.storyboard */,
-				725DE63F1C5947080001E5DC /* Profile */,
+				72F9FBBC1C63991B00DBB347 /* LoginViewController.h */,
+				72F9FBBD1C63991B00DBB347 /* LoginViewController.m */,
 				7214FB4F1BF1C70100824043 /* MenuVC */,
 				7214FB4E1BF1C6F300824043 /* Main */,
 				721E151D1C0ED3F3006E394B /* SearchDetail */,
 				72004BE91C2A91D000F9F6FB /* detail */,
+				725DE63F1C5947080001E5DC /* Profile */,
 				729838AC1BFCAFEA005BC5C3 /* Core */,
 				726DF2291BE79C1B004796EC /* Custom Classes */,
 				726DF1F11BE79937004796EC /* Supporting Files */,
@@ -504,6 +512,8 @@
 				727F89A21C3543FA00519CDD /* CityDetailButton.m */,
 				72EA4D711C50F6750053456F /* CustomMarginLabel.h */,
 				72EA4D721C50F6750053456F /* CustomMarginLabel.m */,
+				72F9FBC21C639B9E00DBB347 /* UIView+Style.h */,
+				72F9FBC31C639B9E00DBB347 /* UIView+Style.m */,
 			);
 			name = "Custom Classes";
 			sourceTree = "<group>";
@@ -844,6 +854,8 @@
 				72D4E5D31C3E6C1B00AC3D0D /* CommentSectionHeaderView.m in Sources */,
 				72D4E5B81C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.m in Sources */,
 				7285DE551BF494CD00F92608 /* NSObject+NullCheck.m in Sources */,
+				72F9FBBE1C63991B00DBB347 /* LoginViewController.m in Sources */,
+				72F9FBC41C639B9E00DBB347 /* UIView+Style.m in Sources */,
 				72D4E5D01C3E683C00AC3D0D /* CommentObject.m in Sources */,
 				72F274461C19782A0048BF05 /* CustomFaMediumFontLabel.m in Sources */,
 				72B19A131BFF6B3F007EDD86 /* AttractionObject.m in Sources */,

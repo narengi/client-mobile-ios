@@ -12,6 +12,7 @@
 #import "AttractionDetailViewController.h"
 #import "HouseDetailViewController.h"
 #import "ProfileViewController.h"
+#import "LoginViewController.h"
 
 @implementation UIViewController (Additional)
 
@@ -144,22 +145,15 @@
 
 }
 
+-(void)goToRegister{
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    UINavigationController *logInNavVC = [storyboard instantiateViewControllerWithIdentifier:@"registrationNav"];
+    [self presentViewController:logInNavVC animated:YES completion:nil];
+    
+    
+}
 
 
 

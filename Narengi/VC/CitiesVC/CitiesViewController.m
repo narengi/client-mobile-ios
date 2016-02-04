@@ -243,7 +243,8 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
-        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:@"search?filter[limit]=40&filter[skip]=0" andWithParametrs:nil andWithBody:nil andIsFullPath:NO];
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:SEARCHSERVICE andWithParametrs:@[@"filter[limit]=40",@"filter[skip]=0"] andWithBody:nil andIsFullPath:NO];
+        
         dispatch_async(dispatch_get_main_queue(),^{
             
             if (!serverRs.hasErro) {

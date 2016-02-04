@@ -17,4 +17,6 @@
 -(NSURL*)fixUrr:(NSURL *)url withParametrs:(NSArray *)parametrs;
 -(void)insertGradientToView:(UIView *)View;
 
+-(void)goToRegister;
+
 @end

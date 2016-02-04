@@ -92,7 +92,7 @@
     
     self.ownerDesArr = @[@"پروفایل مالک",@"ارتباط با مالک",@"خدمات و خدمت‌های اضافی",@"شرایط و قوانین"];
     self.navigationView.alpha = 0;
-    self.headerFade = [UIScreen mainScreen].bounds.size.width;
+    self.headerFade = [UIScreen mainScreen].bounds.size.width - 150;
     
     //Get Data For firstTime
     [self addParametrsToURL];
@@ -276,8 +276,13 @@
     self.avatarImg.layer.borderWidth = 4;
     self.avatarImg.layer.borderColor = [UIColor whiteColor].CGColor;
     [self.avatarImg sd_setImageWithURL:self.houseObj.host.imageUrl placeholderImage:nil];
-
-   
+    self.mapViewImg.layer.masksToBounds  = YES;
+ 
+    NSString *staticMapUrl = [NSString stringWithFormat:@"http://maps.google.com/maps/api/staticmap?markers=color:red|%f,%f&%@&sensor=true",self.houseObj.geoObj.lat, self.houseObj.geoObj.lng,[NSString stringWithFormat:@"zoom=14&size=%.fx200",[UIScreen mainScreen].nativeBounds.size.width ]];
+    NSURL *mapUrl = [NSURL URLWithString:[staticMapUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    
+    [self.mapViewImg sd_setImageWithURL:mapUrl placeholderImage:nil];
+    
     [self loadPorperties];
 
     [self.imagesCollectionView reloadData];
@@ -595,6 +600,12 @@
 - (IBAction)backButtonClicked:(UIButton *)sender {
     
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - button
+- (IBAction)rentButtonClicked:(IranButton *)sender {
+    
+    [self goToRegister];
 }
 
 @end

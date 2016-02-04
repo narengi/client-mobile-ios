@@ -25,11 +25,15 @@
 #define kShadowBlur			(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 10.0 : 5.0)
 
 #define FARSI @"Farsi"http://149.202.20.233:3500/api/v1/
+
 #define BASEURL @"http://149.202.20.233:3500/api/v1/"
+#define SEARCHSERVICE @"search"
+#define SUGGESTIONService @"suggestion"
+
+#define REACHABILITY if(![Reachability reachabilityForInternetConnection].isReachable){[self noConnection]; return;}
 
 
-#import "UIViewController+Utilities.h"
-#import <GoogleMaps/GoogleMaps.h>
+//Core Classes
 #import "NSObject+NullCheck.h"
 #import "NarengiCore.h"
 #import "HouseObject.h"
@@ -37,29 +41,31 @@
 #import "HostObject.h"
 #import "GeoPointObject.h"
 #import "ServerResponse.h"
-#import "NSObject+NullCheck.h"
-#import "UIImageView+WebCache.h"
-#import "UIViewController+Additional.h"
 #import "AttractionObject.h"
 #import "CityObject.h"
 #import "CommentObject.h"
 #import "FacilityObject.h"
+
+//General Usefull Classes
+#import "UIImageView+WebCache.h"
+#import "UIViewController+Additional.h"
 #import "MZFormSheetPresentationViewController.h"
+#import "Reachability.h"
+#import "UIViewController+Utilities.h"
+#import <GoogleMaps/GoogleMaps.h>
+#import "UIView+Style.h"
 
-
-
+//UI Custom classes
+#import "IranButton.h"
 #import "THLabel.h"
 #import "CustomLabel.h"
-
 #import "CustomFaBoldLabel.h"
 #import "CustomFaLightLabel.h"
 #import "CustomFaMediumFontLabel.h"
 #import "CustomFaRegularLabel.h"
 
-#import "Reachability.h"
 
 
 
-#define REACHABILITY if(![Reachability reachabilityForInternetConnection].isReachable){[self noConnection]; return;}
 
 

@@ -9,5 +9,7 @@ pod 'THLabel', '~> 1.4'
 pod 'JDStatusBarNotification'
 pod 'Reachability'
 pod 'MZFormSheetPresentationController', '~> 2.1'
+pod 'IQKeyboardManager'
+
 
 

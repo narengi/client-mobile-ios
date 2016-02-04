@@ -134,6 +134,7 @@ NarengiCore *sharedInstance;
             houseObj.imageUrls      = [self parsImageArray:[dict objectForKey:@"Images"]];
             houseObj.rate           = [dict objectForKey:@"Rating"];
             houseObj.roundedRate    = [self roundRate:houseObj.rate];
+            houseObj.geoObj         = [self parsLocation:[dict objectForKey:@"Position"]];
             
             houseObj.summary        = [dict objectForKey:@"Summary"];
             houseObj.featureSummray = [dict objectForKey:@"FeatureSummray"];
@@ -217,7 +218,16 @@ NarengiCore *sharedInstance;
     
     return [muTmpArr copy];
 }
-            
+
+-(GeoPointObject *)parsLocation:(NSDictionary *)position{
+
+    GeoPointObject *positionObj = [[GeoPointObject alloc] init];
+    positionObj.lat = [[position objectForKey:@"lat"] doubleValue];
+    positionObj.lng = [[position objectForKey:@"lng"] doubleValue];
+    
+    return positionObj;
+}
+
 -(NSArray *)parsComments:(NSArray *)comments{
 
     NSMutableArray *muArr = [[NSMutableArray alloc] init];
