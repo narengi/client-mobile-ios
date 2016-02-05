@@ -57,12 +57,17 @@ NarengiCore *sharedInstance;
     [request setHTTPMethod:method];
     [request setTimeoutInterval:25];
     
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request addValue:@"mobile" forHTTPHeaderField:@"src"];
+
+    
     
     if (body != nil) {
         
-        NSData *bodyData = [NSKeyedArchiver archivedDataWithRootObject:body];
-        
-        [request setHTTPBody:[[[NSString alloc]initWithData:bodyData encoding:NSUTF8StringEncoding] dataUsingEncoding:NSUTF8StringEncoding]];
+//        NSData *bodyData = [NSKeyedArchiver archivedDataWithRootObject:body];
+//        NSData *bodyData = [NSJSONSerialization dataWithJSONObject:body options:0 error:nil] ;
+
+        [request setHTTPBody:body];
     }
     
     
@@ -82,6 +87,11 @@ NarengiCore *sharedInstance;
             serverRes.link = [response.allHeaderFields objectForKey:@"Link"];
         
         }
+        else if(response.statusCode == 401)
+        {
+            serverRes.hasErro = YES;
+            serverRes.backData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil ];
+        }
         else
         {
             serverRes.hasErro = YES;
@@ -92,7 +102,22 @@ NarengiCore *sharedInstance;
     else
     {
         serverRes.hasErro = YES;
-        serverRes.backData = nil;
+        
+        if (error.code  == -1012) {
+         
+            id backData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil ];
+            
+            if (backData != nil)
+                serverRes.backData = backData;
+            
+            else
+                serverRes.backData  = nil;
+            
+        }
+        else{
+            serverRes.backData = nil;
+        }
+        
     }
     return serverRes;
     
@@ -358,6 +383,20 @@ NarengiCore *sharedInstance;
     int mulitpler = floor(value / roundingValue);
     
     return mulitpler * roundingValue;
+    
+}
+
+#pragma mark - register
+
+-(BOOL)checkLogin{
+
+    NSString *str = [[NSUserDefaults standardUserDefaults]objectForKey:@"fuckingLoginedOrNOT"];
+    
+    if (str == nil)
+        return YES;
+    
+    else
+        return NO;
     
 }
 

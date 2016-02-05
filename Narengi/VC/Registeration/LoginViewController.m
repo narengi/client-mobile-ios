@@ -25,7 +25,12 @@
     
     [super viewDidLoad];
     [self setUpElements];
-
+    
+     [self.emailTextField addTarget:self action:@selector(textDidChanged:) forControlEvents:UIControlEventEditingChanged];
+     [self.passwordTextField addTarget:self action:@selector(textDidChanged:) forControlEvents:UIControlEventEditingChanged];
+    
+    self.loginButton.enabled = NO;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,5 +58,83 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - textField
+
+- (void)textDidChanged:(UITextField *)textField
+{
+    
+    NSString *emailStr = [self.emailTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *passStr = [self.passwordTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    if (emailStr.length > 0 && passStr.length > 0) {
+        
+        self.loginButton.enabled = YES;
+    }
+    else{
+        self.loginButton.enabled = NO;
+    }
+}
+
+
+
+#pragma mark - data
+
+- (IBAction)loginButtonClicked:(IranButton *)sender {
+
+    REACHABILITY
+    [self sendData];
+}
+
+-(void)sendData{
+
+
+    
+    [SVProgressHUD showWithStatus:@"در حال ارسال اطلاعات" maskType:SVProgressHUDMaskTypeGradient];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+        
+       ServerResponse *response = [[NarengiCore sharedInstance] sendRequestWithMethod:@"POST" andWithService:@"accounts/login" andWithParametrs:nil andWithBody:[self makeJson] andIsFullPath:NO];
+        
+        dispatch_async(dispatch_get_main_queue(),^{
+            
+            
+            [SVProgressHUD dismiss];
+
+            if (!response.hasErro) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+                [[NSUserDefaults standardUserDefaults] setObject:[response.backData objectForKey:@"token"] forKey:@"fuckingLoginedOrNOT"];
+            }
+            else{
+                
+                if (response.backData != nil ) {
+                   
+                    //show erro
+                    NSString *erroStr = [[response.backData objectForKey:@"error"] objectForKey:@"message"];
+                    [self showErro:erroStr];
+                }
+                else{
+                    
+                    [self showErro:@"اشکال در ارتباط با سرور"];
+                    
+                }
+                
+            }
+        });
+        
+    });
+    
+}
+
+-(NSData *)makeJson{
+
+    
+    NSDictionary* bodyDict = @{@"username": self.emailTextField.text,@"password": self.passwordTextField.text};
+    NSData *bodyData = [NSJSONSerialization dataWithJSONObject:bodyDict options:0 error:nil];
+
+    
+    return bodyData;
+
+}
+
 
 @end

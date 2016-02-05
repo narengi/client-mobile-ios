@@ -949,6 +949,9 @@
                                 <state key="normal" title="ورود">
                                     <color key="titleColor" red="0.22352941179999999" green="0.62745098040000002" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButtonClicked:" destination="qkH-Gb-xEX" eventType="touchUpInside" id="Exf-1t-PW8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5EA-TG-Kys" customClass="IranButton">
                                 <rect key="frame" x="150" y="304" width="300" height="40"/>
@@ -1040,6 +1043,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="qkH-Gb-xEX" id="R4a-PX-3zX"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1e-Zd-Ohn">
                                         <rect key="frame" x="0.0" y="49" width="300" height="1"/>
@@ -1060,6 +1066,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="qkH-Gb-xEX" id="ksa-TH-358"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

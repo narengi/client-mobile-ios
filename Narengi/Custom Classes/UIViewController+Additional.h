@@ -18,5 +18,7 @@
 -(void)insertGradientToView:(UIView *)View;
 
 -(void)goToRegister;
+-(void)showErro:(NSString *)str;
+
 
 @end

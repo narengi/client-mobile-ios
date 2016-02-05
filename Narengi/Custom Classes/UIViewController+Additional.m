@@ -67,6 +67,13 @@
     
 }
 
+-(void)showErro:(NSString *)str{
+    
+    
+    [JDStatusBarNotification showWithStatus:str dismissAfter:1.5 styleName:JDStatusBarStyleError];
+    
+}
+
 #pragma mark -Navigation
 
 -(void)goTodetailWithUrl:(NSString *)urlStr andWithType:(NSString *)type{
