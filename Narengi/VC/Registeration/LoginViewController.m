@@ -116,20 +116,20 @@
                 
                 //Send Request For Get Status
                 
-//                NSDictionary *dic = [response.backData objectForKey:@"status"];
-//                
-//                [[NSUserDefaults standardUserDefaults] setObject:[response.backData objectForKey:@"token"] forKey:@"fuckingLoginedOrNOT"];
-//
-//                if ([[dic objectForKey:@"percent"] isEqualToString:@"50"]) {
-//                    
-//                    [self dismissViewControllerAnimated:YES completion:nil];
-//                }
-//                else{
+                UserObject *userObj = [[NarengiCore sharedInstance ] parsUserObject:response.backData];
                 
-//                    [self performSegueWithIdentifier:@"goToCompleteProfile" sender:nil];
-                [self performSegueWithIdentifier:@"goToEditProfile" sender:nil];
+                [[NSUserDefaults standardUserDefaults] setObject:[response.backData objectForKey:@"token"] forKey:@"fuckingLoginedOrNOT"];
+
+                if (userObj.completePercent > 70) {
+                    
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }
+                else{
                 
- //               }
+                    [self performSegueWithIdentifier:@"goToCompleteProfile" sender:nil];
+                    
+                
+               }
                 
             }
             else{

@@ -970,7 +970,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNb-Lx-DVz">
                                 <rect key="frame" x="150" y="128" width="300" height="100"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="آدرس ایمیل" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ldd-24-HNc">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="آدرس ایمیل" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ldd-24-HNc">
                                         <rect key="frame" x="10" y="9" width="280" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Mv7-cf-IFE"/>
@@ -993,7 +993,7 @@
                                         <color key="textColor" red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="کلمه عبور" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="paE-YX-IoJ">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="کلمه عبور" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="paE-YX-IoJ">
                                         <rect key="frame" x="10" y="62" width="280" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="ker-cI-JYM"/>
@@ -1173,6 +1173,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bo9-d8-lQd">
                                 <rect key="frame" x="0.0" y="64" width="600" height="225"/>
+                                <color key="backgroundColor" red="0.22352941179999999" green="0.62745098040000002" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="225" id="7qL-fM-RVm"/>
                                     <constraint firstAttribute="width" constant="600" id="FDu-2t-niv"/>
@@ -1193,7 +1194,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWl-4L-Bg1">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="225"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNh-NX-4sf">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNh-NX-4sf" customClass="IranButton">
                                                         <rect key="frame" x="179" y="98" width="242" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="BfP-fx-wmc"/>
@@ -1202,6 +1203,9 @@
                                                         <state key="normal" title="افزوردن تصویر پروفایل">
                                                             <color key="titleColor" red="0.35294117650000001" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="selectAvatarBt:" destination="ncn-aU-npj" eventType="touchUpInside" id="Oek-Ui-USa"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

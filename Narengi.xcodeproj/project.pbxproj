@@ -61,6 +61,22 @@
 		729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838BA1BFCB1FC005BC5C3 /* GeoPointObject.m */; };
 		72B19A131BFF6B3F007EDD86 /* AttractionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B19A121BFF6B3F007EDD86 /* AttractionObject.m */; };
 		72B19A161BFF6C6D007EDD86 /* CityObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B19A151BFF6C6D007EDD86 /* CityObject.m */; };
+		72C24F4E1C6D6F2900026821 /* AFOAuthCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F4B1C6D6F2900026821 /* AFOAuthCredential.m */; };
+		72C24F4F1C6D6F2900026821 /* GROAuth2SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F4D1C6D6F2900026821 /* GROAuth2SessionManager.m */; };
+		72C24F581C6D6F9A00026821 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F571C6D6F9A00026821 /* MBProgressHUD.m */; };
+		72C24F741C6D78EF00026821 /* DZNPhotoDisplayViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F6D1C6D78EF00026821 /* DZNPhotoDisplayViewCell.m */; };
+		72C24F751C6D78EF00026821 /* DZNPhotoDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F6F1C6D78EF00026821 /* DZNPhotoDisplayViewController.m */; };
+		72C24F761C6D78EF00026821 /* DZNPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F711C6D78EF00026821 /* DZNPhotoPickerController.m */; };
+		72C24F771C6D78EF00026821 /* DZNPhotoPickerControllerConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F731C6D78EF00026821 /* DZNPhotoPickerControllerConstants.m */; };
+		72C24F7C1C6D78F900026821 /* DZNPhotoEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F791C6D78F900026821 /* DZNPhotoEditorViewController.m */; };
+		72C24F7D1C6D78F900026821 /* UIImagePickerController+Edit.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F7B1C6D78F900026821 /* UIImagePickerController+Edit.m */; };
+		72C24F891C6D790600026821 /* DZNPhotoMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F7F1C6D790600026821 /* DZNPhotoMetadata.m */; };
+		72C24F8A1C6D790600026821 /* DZNPhotoServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F811C6D790600026821 /* DZNPhotoServiceClient.m */; };
+		72C24F8B1C6D790600026821 /* DZNPhotoServiceConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F841C6D790600026821 /* DZNPhotoServiceConstants.m */; };
+		72C24F8C1C6D790600026821 /* DZNPhotoServiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F861C6D790600026821 /* DZNPhotoServiceFactory.m */; };
+		72C24F8D1C6D790600026821 /* DZNPhotoTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F881C6D790600026821 /* DZNPhotoTag.m */; };
+		72C24F901C6D791100026821 /* UIImagePickerController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F8F1C6D791100026821 /* UIImagePickerController+Block.m */; };
+		72C24F921C6D791B00026821 /* DZNPhotoPickerController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72C24F911C6D791B00026821 /* DZNPhotoPickerController.strings */; };
 		72D4E5B51C3E61FB00AC3D0D /* PropertyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D4E5B41C3E61FB00AC3D0D /* PropertyView.m */; };
 		72D4E5B81C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D4E5B71C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.m */; };
 		72D4E5BB1C3E625A00AC3D0D /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D4E5BA1C3E625A00AC3D0D /* CommentTableViewCell.m */; };
@@ -223,6 +239,38 @@
 		72B19A121BFF6B3F007EDD86 /* AttractionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttractionObject.m; path = Core/AttractionObject.m; sourceTree = "<group>"; };
 		72B19A141BFF6C6D007EDD86 /* CityObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityObject.h; path = Core/CityObject.h; sourceTree = "<group>"; };
 		72B19A151BFF6C6D007EDD86 /* CityObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityObject.m; path = Core/CityObject.m; sourceTree = "<group>"; };
+		72C24F4A1C6D6F2900026821 /* AFOAuthCredential.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFOAuthCredential.h; sourceTree = "<group>"; };
+		72C24F4B1C6D6F2900026821 /* AFOAuthCredential.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFOAuthCredential.m; sourceTree = "<group>"; };
+		72C24F4C1C6D6F2900026821 /* GROAuth2SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GROAuth2SessionManager.h; sourceTree = "<group>"; };
+		72C24F4D1C6D6F2900026821 /* GROAuth2SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GROAuth2SessionManager.m; sourceTree = "<group>"; };
+		72C24F561C6D6F9A00026821 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		72C24F571C6D6F9A00026821 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		72C24F6C1C6D78EF00026821 /* DZNPhotoDisplayViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZNPhotoDisplayViewCell.h; sourceTree = "<group>"; };
+		72C24F6D1C6D78EF00026821 /* DZNPhotoDisplayViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZNPhotoDisplayViewCell.m; sourceTree = "<group>"; };
+		72C24F6E1C6D78EF00026821 /* DZNPhotoDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZNPhotoDisplayViewController.h; sourceTree = "<group>"; };
+		72C24F6F1C6D78EF00026821 /* DZNPhotoDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZNPhotoDisplayViewController.m; sourceTree = "<group>"; };
+		72C24F701C6D78EF00026821 /* DZNPhotoPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZNPhotoPickerController.h; sourceTree = "<group>"; };
+		72C24F711C6D78EF00026821 /* DZNPhotoPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZNPhotoPickerController.m; sourceTree = "<group>"; };
+		72C24F721C6D78EF00026821 /* DZNPhotoPickerControllerConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZNPhotoPickerControllerConstants.h; sourceTree = "<group>"; };
+		72C24F731C6D78EF00026821 /* DZNPhotoPickerControllerConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZNPhotoPickerControllerConstants.m; sourceTree = "<group>"; };
+		72C24F781C6D78F900026821 /* DZNPhotoEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZNPhotoEditorViewController.h; sourceTree = "<group>"; };
+		72C24F791C6D78F900026821 /* DZNPhotoEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZNPhotoEditorViewController.m; sourceTree = "<group>"; };
+		72C24F7A1C6D78F900026821 /* UIImagePickerController+Edit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImagePickerController+Edit.h"; sourceTree = "<group>"; };
+		72C24F7B1C6D78F900026821 /* UIImagePickerController+Edit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImagePickerController+Edit.m"; sourceTree = "<group>"; };
+		72C24F7E1C6D790600026821 /* DZNPhotoMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZNPhotoMetadata.h; sourceTree = "<group>"; };
+		72C24F7F1C6D790600026821 /* DZNPhotoMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZNPhotoMetadata.m; sourceTree = "<group>"; };
+		72C24F801C6D790600026821 /* DZNPhotoServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZNPhotoServiceClient.h; sourceTree = "<group>"; };
+		72C24F811C6D790600026821 /* DZNPhotoServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZNPhotoServiceClient.m; sourceTree = "<group>"; };
+		72C24F821C6D790600026821 /* DZNPhotoServiceClientProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZNPhotoServiceClientProtocol.h; sourceTree = "<group>"; };
+		72C24F831C6D790600026821 /* DZNPhotoServiceConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZNPhotoServiceConstants.h; sourceTree = "<group>"; };
+		72C24F841C6D790600026821 /* DZNPhotoServiceConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZNPhotoServiceConstants.m; sourceTree = "<group>"; };
+		72C24F851C6D790600026821 /* DZNPhotoServiceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZNPhotoServiceFactory.h; sourceTree = "<group>"; };
+		72C24F861C6D790600026821 /* DZNPhotoServiceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZNPhotoServiceFactory.m; sourceTree = "<group>"; };
+		72C24F871C6D790600026821 /* DZNPhotoTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZNPhotoTag.h; sourceTree = "<group>"; };
+		72C24F881C6D790600026821 /* DZNPhotoTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZNPhotoTag.m; sourceTree = "<group>"; };
+		72C24F8E1C6D791100026821 /* UIImagePickerController+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImagePickerController+Block.h"; sourceTree = "<group>"; };
+		72C24F8F1C6D791100026821 /* UIImagePickerController+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImagePickerController+Block.m"; sourceTree = "<group>"; };
+		72C24F911C6D791B00026821 /* DZNPhotoPickerController.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = DZNPhotoPickerController.strings; sourceTree = "<group>"; };
 		72D4E5B31C3E61FB00AC3D0D /* PropertyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PropertyView.h; path = VC/Detail/PropertyView.h; sourceTree = "<group>"; };
 		72D4E5B41C3E61FB00AC3D0D /* PropertyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PropertyView.m; path = VC/Detail/PropertyView.m; sourceTree = "<group>"; };
 		72D4E5B61C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeFacilityCollectionViewCell.h; path = VC/Detail/HomeFacilityCollectionViewCell.h; sourceTree = "<group>"; };
@@ -524,6 +572,7 @@
 				72EA4D721C50F6750053456F /* CustomMarginLabel.m */,
 				72F9FBC21C639B9E00DBB347 /* UIView+Style.h */,
 				72F9FBC31C639B9E00DBB347 /* UIView+Style.m */,
+				72C24F241C6D6D3A00026821 /* DZNPhoto */,
 			);
 			name = "Custom Classes";
 			sourceTree = "<group>";
@@ -580,6 +629,45 @@
 				72D4E5D51C3EA94E00AC3D0D /* FacilityObject.m */,
 			);
 			name = Core;
+			sourceTree = "<group>";
+		};
+		72C24F241C6D6D3A00026821 /* DZNPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				72C24F4A1C6D6F2900026821 /* AFOAuthCredential.h */,
+				72C24F4B1C6D6F2900026821 /* AFOAuthCredential.m */,
+				72C24F4C1C6D6F2900026821 /* GROAuth2SessionManager.h */,
+				72C24F4D1C6D6F2900026821 /* GROAuth2SessionManager.m */,
+				72C24F561C6D6F9A00026821 /* MBProgressHUD.h */,
+				72C24F571C6D6F9A00026821 /* MBProgressHUD.m */,
+				72C24F6C1C6D78EF00026821 /* DZNPhotoDisplayViewCell.h */,
+				72C24F6D1C6D78EF00026821 /* DZNPhotoDisplayViewCell.m */,
+				72C24F6E1C6D78EF00026821 /* DZNPhotoDisplayViewController.h */,
+				72C24F6F1C6D78EF00026821 /* DZNPhotoDisplayViewController.m */,
+				72C24F701C6D78EF00026821 /* DZNPhotoPickerController.h */,
+				72C24F711C6D78EF00026821 /* DZNPhotoPickerController.m */,
+				72C24F721C6D78EF00026821 /* DZNPhotoPickerControllerConstants.h */,
+				72C24F731C6D78EF00026821 /* DZNPhotoPickerControllerConstants.m */,
+				72C24F781C6D78F900026821 /* DZNPhotoEditorViewController.h */,
+				72C24F791C6D78F900026821 /* DZNPhotoEditorViewController.m */,
+				72C24F7A1C6D78F900026821 /* UIImagePickerController+Edit.h */,
+				72C24F7B1C6D78F900026821 /* UIImagePickerController+Edit.m */,
+				72C24F7E1C6D790600026821 /* DZNPhotoMetadata.h */,
+				72C24F7F1C6D790600026821 /* DZNPhotoMetadata.m */,
+				72C24F801C6D790600026821 /* DZNPhotoServiceClient.h */,
+				72C24F811C6D790600026821 /* DZNPhotoServiceClient.m */,
+				72C24F821C6D790600026821 /* DZNPhotoServiceClientProtocol.h */,
+				72C24F831C6D790600026821 /* DZNPhotoServiceConstants.h */,
+				72C24F841C6D790600026821 /* DZNPhotoServiceConstants.m */,
+				72C24F851C6D790600026821 /* DZNPhotoServiceFactory.h */,
+				72C24F861C6D790600026821 /* DZNPhotoServiceFactory.m */,
+				72C24F871C6D790600026821 /* DZNPhotoTag.h */,
+				72C24F881C6D790600026821 /* DZNPhotoTag.m */,
+				72C24F8E1C6D791100026821 /* UIImagePickerController+Block.h */,
+				72C24F8F1C6D791100026821 /* UIImagePickerController+Block.m */,
+				72C24F911C6D791B00026821 /* DZNPhotoPickerController.strings */,
+			);
+			name = DZNPhoto;
 			sourceTree = "<group>";
 		};
 		72D4E5B21C3E5F2D00AC3D0D /* House */ = {
@@ -717,6 +805,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"en-GB",
 			);
 			mainGroup = 726DF1E51BE79936004796EC;
 			productRefGroup = 726DF1EF1BE79937004796EC /* Products */;
@@ -755,6 +844,7 @@
 				727F89A91C35491000519CDD /* CityDetailAttractionHeader.xib in Resources */,
 				720B92AA1C253B8E00D1468A /* SearchSection.xib in Resources */,
 				72F274391C19712E0048BF05 /* SearchDetaillAttractionCell.xib in Resources */,
+				72C24F921C6D791B00026821 /* DZNPhotoPickerController.strings in Resources */,
 				721E15231C0EE212006E394B /* CityCell.xib in Resources */,
 				72F274401C1976E90048BF05 /* IRANSansMobile(FaNum)_Bold.ttf in Resources */,
 				721E15261C0EE273006E394B /* AttractionCell.xib in Resources */,
@@ -845,12 +935,18 @@
 				726A3A3E1C47E14E002C4D11 /* FacilitiesViewController.m in Sources */,
 				72D5E5EE1BF4BB7500E950C1 /* PagerCollectionViewCell.m in Sources */,
 				72004BE71C2A91AB00F9F6FB /* CityDetailViewController.m in Sources */,
+				72C24F4F1C6D6F2900026821 /* GROAuth2SessionManager.m in Sources */,
+				72C24F8A1C6D790600026821 /* DZNPhotoServiceClient.m in Sources */,
 				72D4E5BB1C3E625A00AC3D0D /* CommentTableViewCell.m in Sources */,
+				72C24F8C1C6D790600026821 /* DZNPhotoServiceFactory.m in Sources */,
 				727F89AC1C354E1D00519CDD /* CityDetailHouseCollectionReusableView.m in Sources */,
 				729838B21BFCB04D005BC5C3 /* HouseObject.m in Sources */,
 				721E15361C0F51CA006E394B /* MainHomeCollectionViewCell.m in Sources */,
+				72C24F761C6D78EF00026821 /* DZNPhotoPickerController.m in Sources */,
+				72C24F8D1C6D790600026821 /* DZNPhotoTag.m in Sources */,
 				72D4E5D61C3EA94E00AC3D0D /* FacilityObject.m in Sources */,
 				729838B51BFCB098005BC5C3 /* AroundPlaceObject.m in Sources */,
+				72C24F891C6D790600026821 /* DZNPhotoMetadata.m in Sources */,
 				729838AF1BFCB018005BC5C3 /* NarengiCore.m in Sources */,
 				727F899F1C35169B00519CDD /* CityDetailAttractionListViewController.m in Sources */,
 				72F274551C199FC30048BF05 /* SearchDetailHomeCollectionViewCell.m in Sources */,
@@ -875,26 +971,35 @@
 				726A3A441C47EA6B002C4D11 /* CommentDetailTableViewCell.m in Sources */,
 				721E15331C0F51B0006E394B /* AttractionCollectionViewCell.m in Sources */,
 				72F274491C1978700048BF05 /* CustomFaRegularLabel.m in Sources */,
+				72C24F741C6D78EF00026821 /* DZNPhotoDisplayViewCell.m in Sources */,
 				72D4E5B51C3E61FB00AC3D0D /* PropertyView.m in Sources */,
 				7285DE601BF4B40600F92608 /* PageCell.m in Sources */,
 				722922F51BFCB4F800C5575C /* UserObject.m in Sources */,
+				72C24F901C6D791100026821 /* UIImagePickerController+Block.m in Sources */,
 				72D7FE651C15C59D00BD39A5 /* CustomLabel.m in Sources */,
 				722922F81BFCEA3600C5575C /* ServerResponse.m in Sources */,
 				72EA4D761C51051C0053456F /* ProfileViewController.m in Sources */,
 				7294429C1C6CC5DD003F3D92 /* EditProfileViewController.m in Sources */,
 				729442991C6B6F88003F3D92 /* AskForCompleteProfileViewController.m in Sources */,
+				72C24F751C6D78EF00026821 /* DZNPhotoDisplayViewController.m in Sources */,
 				7214FB5D1BF1C98A00824043 /* UIViewController+Utilities.m in Sources */,
 				726A3A351C47A382002C4D11 /* MoreFacilityCollectionViewCell.m in Sources */,
 				72DFF0E31C1046C400884E04 /* SearchViewController.m in Sources */,
 				72F274581C199FDF0048BF05 /* SearchDetailAttractionCollectionViewCell.m in Sources */,
 				726A3A3B1C47E07E002C4D11 /* FacilitiesTableViewCell.m in Sources */,
+				72C24F4E1C6D6F2900026821 /* AFOAuthCredential.m in Sources */,
+				72C24F771C6D78EF00026821 /* DZNPhotoPickerControllerConstants.m in Sources */,
 				727F89A31C3543FA00519CDD /* CityDetailButton.m in Sources */,
 				72004BE81C2A91AB00F9F6FB /* HouseDetailViewController.m in Sources */,
+				72C24F7C1C6D78F900026821 /* DZNPhotoEditorViewController.m in Sources */,
 				721E152B1C0EEAF6006E394B /* CityCollectionViewCell.m in Sources */,
 				72DFF0E01C10461B00884E04 /* ModalAnimator.m in Sources */,
 				7214FB561BF1C7CF00824043 /* MenuViewController.m in Sources */,
 				7214FB4D1BF1C64100824043 /* CitiesCollectionViewCell.m in Sources */,
+				72C24F7D1C6D78F900026821 /* UIImagePickerController+Edit.m in Sources */,
+				72C24F8B1C6D790600026821 /* DZNPhotoServiceConstants.m in Sources */,
 				726DF1F31BE79937004796EC /* main.m in Sources */,
+				72C24F581C6D6F9A00026821 /* MBProgressHUD.m in Sources */,
 				72F2744C1C19788A0048BF05 /* CustomFaBoldLabel.m in Sources */,
 				721355371C2B22AF00AD0BDE /* AttractionSmallCollectionViewCell.m in Sources */,
 				72B19A161BFF6C6D007EDD86 /* CityObject.m in Sources */,

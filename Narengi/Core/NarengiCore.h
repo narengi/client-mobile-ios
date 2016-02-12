@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ServerResponse.h"
 #import "HostObject.h"
+#import "UserObject.h"
 
 @interface NarengiCore : NSObject
 
@@ -21,5 +22,6 @@
 
 -(NSArray *)parsComments:(NSArray *)comments;
 -(HostObject *)parsHost:(NSDictionary *)dict isDetail:(BOOL)isDetail;
+-(UserObject *)parsUserObject:(NSDictionary *)dict;
 
 @end
