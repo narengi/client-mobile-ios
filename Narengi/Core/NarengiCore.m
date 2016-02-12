@@ -364,6 +364,22 @@ NarengiCore *sharedInstance;
     
     return hostObj;
 }
+
+
+-(UserObject *)parsUserObject:(NSDictionary *)dict {
+    
+    UserObject *userObj = [[UserObject alloc] init];
+    
+    userObj.avatarUrl       = [NSURL URLWithString:[[dict objectForKey:@"ImageUrl"] checkNull]];
+    userObj.fisrtName       = [[[dict objectForKey:@"profile"] checkNull] objectForKey:@"firstName"];
+    userObj.lastName        = [[[dict objectForKey:@"profile"] checkNull] objectForKey:@"lastName"];
+    userObj.email           = [dict objectForKey:@"email"];
+    userObj.cellNumber      = [dict objectForKey:@"cellNumber"];
+    userObj.completePercent = [[[dict objectForKey:@"status"] objectForKey:@"completed"] integerValue];
+    userObj.token           = [[dict objectForKey:@"token"] objectForKey:@"token"];
+    
+    return userObj;
+}
 -(NSArray *)parsImageArray:(NSArray *)images{
 
     NSMutableArray *muArr = [[NSMutableArray alloc] init];

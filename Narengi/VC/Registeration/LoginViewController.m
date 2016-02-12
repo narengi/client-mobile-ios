@@ -41,6 +41,8 @@
 -(void)setUpElements{
 
     [self.loginButton setBorderWithColor:RGB(50, 160, 84, 1) andWithWidth:1 withCornerRadius:2];
+    [self.signUpButton setBorderWithColor:RGB(244, 51, 0, 1) andWithWidth:1 withCornerRadius:2];
+    
     [self.textFieldsContainer setBorderWithColor:RGB(235, 235, 235, 1) andWithWidth:1 withCornerRadius:2];
     
     NSAttributedString * nameAtStr = [[NSAttributedString alloc] initWithString:@"کلمه عبور خود را فراموش کرده‌اید؟ " attributes:@{NSForegroundColorAttributeName:RGB(118, 118, 118, 1)}];
@@ -83,17 +85,26 @@
 - (IBAction)loginButtonClicked:(IranButton *)sender {
 
     REACHABILITY
-    [self sendData];
+    [self sendDataWithType:@"login"];
 }
 
--(void)sendData{
+- (IBAction)signUpButtonClicked:(IranButton *)sender {
+    
+    REACHABILITY
+    [self sendDataWithType:@"register"];
+}
+
+
+
+-(void)sendDataWithType:(NSString *)type{
 
 
     
     [SVProgressHUD showWithStatus:@"در حال ارسال اطلاعات" maskType:SVProgressHUDMaskTypeGradient];
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
-       ServerResponse *response = [[NarengiCore sharedInstance] sendRequestWithMethod:@"POST" andWithService:@"accounts/login" andWithParametrs:nil andWithBody:[self makeJson] andIsFullPath:NO];
+       ServerResponse *response = [[NarengiCore sharedInstance] sendRequestWithMethod:@"POST" andWithService:[NSString stringWithFormat: @"accounts/%@" ,type] andWithParametrs:nil andWithBody:[self makeJsonWithType:type] andIsFullPath:NO];
         
         dispatch_async(dispatch_get_main_queue(),^{
             
@@ -101,14 +112,31 @@
             [SVProgressHUD dismiss];
 
             if (!response.hasErro) {
-                [self dismissViewControllerAnimated:YES completion:nil];
-                [[NSUserDefaults standardUserDefaults] setObject:[response.backData objectForKey:@"token"] forKey:@"fuckingLoginedOrNOT"];
+                
+                
+                //Send Request For Get Status
+                
+//                NSDictionary *dic = [response.backData objectForKey:@"status"];
+//                
+//                [[NSUserDefaults standardUserDefaults] setObject:[response.backData objectForKey:@"token"] forKey:@"fuckingLoginedOrNOT"];
+//
+//                if ([[dic objectForKey:@"percent"] isEqualToString:@"50"]) {
+//                    
+//                    [self dismissViewControllerAnimated:YES completion:nil];
+//                }
+//                else{
+                
+//                    [self performSegueWithIdentifier:@"goToCompleteProfile" sender:nil];
+                [self performSegueWithIdentifier:@"goToEditProfile" sender:nil];
+                
+ //               }
+                
             }
             else{
                 
                 if (response.backData != nil ) {
                    
-                    //show erro
+                    //show error
                     NSString *erroStr = [[response.backData objectForKey:@"error"] objectForKey:@"message"];
                     [self showErro:erroStr];
                 }
@@ -125,10 +153,20 @@
     
 }
 
--(NSData *)makeJson{
+
+
+-(NSData *)makeJsonWithType:(NSString *)type{
 
     
-    NSDictionary* bodyDict = @{@"username": self.emailTextField.text,@"password": self.passwordTextField.text};
+    NSDictionary* bodyDict ;
+    
+    if ([type isEqualToString:@"login"]) {
+        bodyDict = @{@"username": self.emailTextField.text,@"password": self.passwordTextField.text};
+    }
+    else{
+        bodyDict = @{@"email": self.emailTextField.text,@"password": self.passwordTextField.text};
+        
+    }
     NSData *bodyData = [NSJSONSerialization dataWithJSONObject:bodyDict options:0 error:nil];
 
     

@@ -52,6 +52,8 @@
 		727F89AC1C354E1D00519CDD /* CityDetailHouseCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 727F89AB1C354E1D00519CDD /* CityDetailHouseCollectionReusableView.m */; };
 		7285DE551BF494CD00F92608 /* NSObject+NullCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE541BF494CD00F92608 /* NSObject+NullCheck.m */; };
 		7285DE601BF4B40600F92608 /* PageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE5F1BF4B40600F92608 /* PageCell.m */; };
+		729442991C6B6F88003F3D92 /* AskForCompleteProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 729442981C6B6F88003F3D92 /* AskForCompleteProfileViewController.m */; };
+		7294429C1C6CC5DD003F3D92 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7294429B1C6CC5DD003F3D92 /* EditProfileViewController.m */; };
 		729838AF1BFCB018005BC5C3 /* NarengiCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838AE1BFCB018005BC5C3 /* NarengiCore.m */; };
 		729838B21BFCB04D005BC5C3 /* HouseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838B11BFCB04D005BC5C3 /* HouseObject.m */; };
 		729838B51BFCB098005BC5C3 /* AroundPlaceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838B41BFCB098005BC5C3 /* AroundPlaceObject.m */; };
@@ -203,6 +205,10 @@
 		7285DE541BF494CD00F92608 /* NSObject+NullCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+NullCheck.m"; path = "Custom Classes/NSObject+NullCheck.m"; sourceTree = "<group>"; };
 		7285DE5E1BF4B40600F92608 /* PageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageCell.h; path = VC/CitiesVC/PageCell.h; sourceTree = "<group>"; };
 		7285DE5F1BF4B40600F92608 /* PageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageCell.m; path = VC/CitiesVC/PageCell.m; sourceTree = "<group>"; };
+		729442971C6B6F88003F3D92 /* AskForCompleteProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AskForCompleteProfileViewController.h; path = VC/Registeration/AskForCompleteProfileViewController.h; sourceTree = "<group>"; };
+		729442981C6B6F88003F3D92 /* AskForCompleteProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AskForCompleteProfileViewController.m; path = VC/Registeration/AskForCompleteProfileViewController.m; sourceTree = "<group>"; };
+		7294429A1C6CC5DD003F3D92 /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditProfileViewController.h; path = VC/Profile/EditProfileViewController.h; sourceTree = "<group>"; };
+		7294429B1C6CC5DD003F3D92 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditProfileViewController.m; path = VC/Profile/EditProfileViewController.m; sourceTree = "<group>"; };
 		729838AD1BFCB018005BC5C3 /* NarengiCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NarengiCore.h; path = Core/NarengiCore.h; sourceTree = "<group>"; };
 		729838AE1BFCB018005BC5C3 /* NarengiCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NarengiCore.m; path = Core/NarengiCore.m; sourceTree = "<group>"; };
 		729838B01BFCB04D005BC5C3 /* HouseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HouseObject.h; path = Core/HouseObject.h; sourceTree = "<group>"; };
@@ -400,6 +406,8 @@
 				72EA4D741C51051C0053456F /* ProfileViewController.h */,
 				72EA4D751C51051C0053456F /* ProfileViewController.m */,
 				725DE6401C5948E50001E5DC /* ProfileCommentsHeadeView.xib */,
+				7294429A1C6CC5DD003F3D92 /* EditProfileViewController.h */,
+				7294429B1C6CC5DD003F3D92 /* EditProfileViewController.m */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -436,6 +444,8 @@
 				726DF1FF1BE79937004796EC /* LaunchScreen.storyboard */,
 				72F9FBBC1C63991B00DBB347 /* LoginViewController.h */,
 				72F9FBBD1C63991B00DBB347 /* LoginViewController.m */,
+				729442971C6B6F88003F3D92 /* AskForCompleteProfileViewController.h */,
+				729442981C6B6F88003F3D92 /* AskForCompleteProfileViewController.m */,
 				7214FB4F1BF1C70100824043 /* MenuVC */,
 				7214FB4E1BF1C6F300824043 /* Main */,
 				721E151D1C0ED3F3006E394B /* SearchDetail */,
@@ -871,6 +881,8 @@
 				72D7FE651C15C59D00BD39A5 /* CustomLabel.m in Sources */,
 				722922F81BFCEA3600C5575C /* ServerResponse.m in Sources */,
 				72EA4D761C51051C0053456F /* ProfileViewController.m in Sources */,
+				7294429C1C6CC5DD003F3D92 /* EditProfileViewController.m in Sources */,
+				729442991C6B6F88003F3D92 /* AskForCompleteProfileViewController.m in Sources */,
 				7214FB5D1BF1C98A00824043 /* UIViewController+Utilities.m in Sources */,
 				726A3A351C47A382002C4D11 /* MoreFacilityCollectionViewCell.m in Sources */,
 				72DFF0E31C1046C400884E04 /* SearchViewController.m in Sources */,
