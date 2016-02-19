@@ -24,4 +24,5 @@
 -(HostObject *)parsHost:(NSDictionary *)dict isDetail:(BOOL)isDetail;
 -(UserObject *)parsUserObject:(NSDictionary *)dict;
 
+
 @end

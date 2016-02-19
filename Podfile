@@ -10,5 +10,4 @@ pod 'JDStatusBarNotification'
 pod 'Reachability'
 pod 'MZFormSheetPresentationController', '~> 2.1'
 pod 'IQKeyboardManager'
-
-
+pod 'RMMapper'

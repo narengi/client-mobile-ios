@@ -46,6 +46,7 @@
 #import "CommentObject.h"
 #import "FacilityObject.h"
 #import "UserObject.h"
+#import "VerificationObject.h"
 
 //General Usefull Classes
 #import "UIImageView+WebCache.h"
@@ -56,6 +57,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "UIView+Style.h"
 #import "SVProgressHUD.h"
+#import "NSUserDefaults+RMSaveCustomObject.h"
 
 
 //UI Custom classes

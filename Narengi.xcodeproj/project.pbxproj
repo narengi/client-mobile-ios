@@ -27,6 +27,8 @@
 		721E152E1C0EF13A006E394B /* PagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 721E152C1C0EF13A006E394B /* PagerCell.xib */; };
 		721E15331C0F51B0006E394B /* AttractionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 721E15321C0F51B0006E394B /* AttractionCollectionViewCell.m */; };
 		721E15361C0F51CA006E394B /* MainHomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 721E15351C0F51CA006E394B /* MainHomeCollectionViewCell.m */; };
+		7226015D1C771A9D008A2C65 /* Alerts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7226015C1C771A9D008A2C65 /* Alerts.storyboard */; };
+		722601601C771B4C008A2C65 /* SelectBirthDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7226015F1C771B4C008A2C65 /* SelectBirthDayViewController.m */; };
 		722922F51BFCB4F800C5575C /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922F41BFCB4F800C5575C /* UserObject.m */; };
 		722922F81BFCEA3600C5575C /* ServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922F71BFCEA3600C5575C /* ServerResponse.m */; };
 		722922FE1BFCFA4500C5575C /* UIViewController+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922FD1BFCFA4500C5575C /* UIViewController+Additional.m */; };
@@ -77,6 +79,7 @@
 		72C24F8D1C6D790600026821 /* DZNPhotoTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F881C6D790600026821 /* DZNPhotoTag.m */; };
 		72C24F901C6D791100026821 /* UIImagePickerController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F8F1C6D791100026821 /* UIImagePickerController+Block.m */; };
 		72C24F921C6D791B00026821 /* DZNPhotoPickerController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72C24F911C6D791B00026821 /* DZNPhotoPickerController.strings */; };
+		72C24F951C6E4C2A00026821 /* VerificationObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F941C6E4C2A00026821 /* VerificationObject.m */; };
 		72D4E5B51C3E61FB00AC3D0D /* PropertyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D4E5B41C3E61FB00AC3D0D /* PropertyView.m */; };
 		72D4E5B81C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D4E5B71C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.m */; };
 		72D4E5BB1C3E625A00AC3D0D /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D4E5BA1C3E625A00AC3D0D /* CommentTableViewCell.m */; };
@@ -175,6 +178,9 @@
 		721E15321C0F51B0006E394B /* AttractionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttractionCollectionViewCell.m; path = VC/CitiesVC/AttractionCollectionViewCell.m; sourceTree = "<group>"; };
 		721E15341C0F51CA006E394B /* MainHomeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainHomeCollectionViewCell.h; path = VC/Detail/MainHomeCollectionViewCell.h; sourceTree = "<group>"; };
 		721E15351C0F51CA006E394B /* MainHomeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainHomeCollectionViewCell.m; path = VC/Detail/MainHomeCollectionViewCell.m; sourceTree = "<group>"; };
+		7226015C1C771A9D008A2C65 /* Alerts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Alerts.storyboard; sourceTree = "<group>"; };
+		7226015E1C771B4C008A2C65 /* SelectBirthDayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectBirthDayViewController.h; path = VC/Profile/SelectBirthDayViewController.h; sourceTree = "<group>"; };
+		7226015F1C771B4C008A2C65 /* SelectBirthDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectBirthDayViewController.m; path = VC/Profile/SelectBirthDayViewController.m; sourceTree = "<group>"; };
 		722922F31BFCB4F800C5575C /* UserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserObject.h; path = Core/UserObject.h; sourceTree = "<group>"; };
 		722922F41BFCB4F800C5575C /* UserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserObject.m; path = Core/UserObject.m; sourceTree = "<group>"; };
 		722922F61BFCEA3600C5575C /* ServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerResponse.h; path = Core/ServerResponse.h; sourceTree = "<group>"; };
@@ -271,6 +277,8 @@
 		72C24F8E1C6D791100026821 /* UIImagePickerController+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImagePickerController+Block.h"; sourceTree = "<group>"; };
 		72C24F8F1C6D791100026821 /* UIImagePickerController+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImagePickerController+Block.m"; sourceTree = "<group>"; };
 		72C24F911C6D791B00026821 /* DZNPhotoPickerController.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = DZNPhotoPickerController.strings; sourceTree = "<group>"; };
+		72C24F931C6E4C2A00026821 /* VerificationObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VerificationObject.h; path = Core/VerificationObject.h; sourceTree = "<group>"; };
+		72C24F941C6E4C2A00026821 /* VerificationObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VerificationObject.m; path = Core/VerificationObject.m; sourceTree = "<group>"; };
 		72D4E5B31C3E61FB00AC3D0D /* PropertyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PropertyView.h; path = VC/Detail/PropertyView.h; sourceTree = "<group>"; };
 		72D4E5B41C3E61FB00AC3D0D /* PropertyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PropertyView.m; path = VC/Detail/PropertyView.m; sourceTree = "<group>"; };
 		72D4E5B61C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeFacilityCollectionViewCell.h; path = VC/Detail/HomeFacilityCollectionViewCell.h; sourceTree = "<group>"; };
@@ -456,6 +464,8 @@
 				725DE6401C5948E50001E5DC /* ProfileCommentsHeadeView.xib */,
 				7294429A1C6CC5DD003F3D92 /* EditProfileViewController.h */,
 				7294429B1C6CC5DD003F3D92 /* EditProfileViewController.m */,
+				7226015E1C771B4C008A2C65 /* SelectBirthDayViewController.h */,
+				7226015F1C771B4C008A2C65 /* SelectBirthDayViewController.m */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -488,6 +498,7 @@
 				726DF1F41BE79937004796EC /* AppDelegate.h */,
 				726DF1F51BE79937004796EC /* AppDelegate.m */,
 				726DF1FA1BE79937004796EC /* Main.storyboard */,
+				7226015C1C771A9D008A2C65 /* Alerts.storyboard */,
 				726DF1FD1BE79937004796EC /* Assets.xcassets */,
 				726DF1FF1BE79937004796EC /* LaunchScreen.storyboard */,
 				72F9FBBC1C63991B00DBB347 /* LoginViewController.h */,
@@ -627,6 +638,8 @@
 				72D4E5CF1C3E683C00AC3D0D /* CommentObject.m */,
 				72D4E5D41C3EA94E00AC3D0D /* FacilityObject.h */,
 				72D4E5D51C3EA94E00AC3D0D /* FacilityObject.m */,
+				72C24F931C6E4C2A00026821 /* VerificationObject.h */,
+				72C24F941C6E4C2A00026821 /* VerificationObject.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -826,6 +839,7 @@
 			files = (
 				72D4E5CD1C3E635E00AC3D0D /* OwnerDesCell.xib in Resources */,
 				726DF2011BE79937004796EC /* LaunchScreen.storyboard in Resources */,
+				7226015D1C771A9D008A2C65 /* Alerts.storyboard in Resources */,
 				721E152E1C0EF13A006E394B /* PagerCell.xib in Resources */,
 				72F274431C1976E90048BF05 /* IRANSansMobile(FaNum)_UltraLight.ttf in Resources */,
 				725DE6421C5948E50001E5DC /* ProfileCommentsHeadeView.xib in Resources */,
@@ -938,6 +952,7 @@
 				72C24F4F1C6D6F2900026821 /* GROAuth2SessionManager.m in Sources */,
 				72C24F8A1C6D790600026821 /* DZNPhotoServiceClient.m in Sources */,
 				72D4E5BB1C3E625A00AC3D0D /* CommentTableViewCell.m in Sources */,
+				72C24F951C6E4C2A00026821 /* VerificationObject.m in Sources */,
 				72C24F8C1C6D790600026821 /* DZNPhotoServiceFactory.m in Sources */,
 				727F89AC1C354E1D00519CDD /* CityDetailHouseCollectionReusableView.m in Sources */,
 				729838B21BFCB04D005BC5C3 /* HouseObject.m in Sources */,
@@ -964,6 +979,7 @@
 				72F9FBC41C639B9E00DBB347 /* UIView+Style.m in Sources */,
 				72D4E5D01C3E683C00AC3D0D /* CommentObject.m in Sources */,
 				72F274461C19782A0048BF05 /* CustomFaMediumFontLabel.m in Sources */,
+				722601601C771B4C008A2C65 /* SelectBirthDayViewController.m in Sources */,
 				72B19A131BFF6B3F007EDD86 /* AttractionObject.m in Sources */,
 				72F2744F1C1978B20048BF05 /* CustomFaLightLabel.m in Sources */,
 				72D4E5FC1C3F20C000AC3D0D /* CustomScrollView.m in Sources */,

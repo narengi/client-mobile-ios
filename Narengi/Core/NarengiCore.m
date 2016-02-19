@@ -61,14 +61,9 @@ NarengiCore *sharedInstance;
     [request addValue:@"mobile" forHTTPHeaderField:@"src"];
 
     
-    
-    if (body != nil) {
-        
-//        NSData *bodyData = [NSKeyedArchiver archivedDataWithRootObject:body];
-//        NSData *bodyData = [NSJSONSerialization dataWithJSONObject:body options:0 error:nil] ;
-
+    if (body != nil)
         [request setHTTPBody:body];
-    }
+    
     
     
     NSError *error = nil;
@@ -78,7 +73,7 @@ NarengiCore *sharedInstance;
     ServerResponse *serverRes = [[ServerResponse alloc] init];
     if (!error) {
         
-        if (response.statusCode == 200 ) {
+        if (response.statusCode == 200 || response.statusCode == 201 ) {
             
             NSLog(@"BackData: %@",[NSJSONSerialization JSONObjectWithData:data options:0 error:nil ]);
             serverRes.hasErro = NO;
@@ -377,9 +372,32 @@ NarengiCore *sharedInstance;
     userObj.cellNumber      = [dict objectForKey:@"cellNumber"];
     userObj.completePercent = [[[dict objectForKey:@"status"] objectForKey:@"completed"] integerValue];
     userObj.token           = [[dict objectForKey:@"token"] objectForKey:@"token"];
+    userObj.gender          = [[[dict objectForKey:@"profile"] checkNull] objectForKey:@"gender"];
+    
+    [[dict objectForKey:@"verification"] enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        VerificationObject *verificationObj = [self parsVerificationWithDict:obj];
+        userObj.phoneVerification = [verificationObj.type isEqualToString:@"SMS"] ? verificationObj :nil
+        ;
+        userObj.emailVerification = [verificationObj.type isEqualToString:@"Email"] ? verificationObj :nil
+        ;
+    }];
     
     return userObj;
 }
+-(VerificationObject *)parsVerificationWithDict:(NSDictionary *)dict{
+
+    VerificationObject *verificationObj = [[VerificationObject alloc] init];
+    
+    verificationObj.isVerified    = [[dict objectForKey:@"verified"] boolValue];
+    verificationObj.type          = [dict objectForKey:@"verificationType"];
+    verificationObj.code          = [dict objectForKey:@"code"];
+    verificationObj.requestedDate = [dict objectForKey:@"requestDate"];
+    
+    return verificationObj;
+    
+}
+
 -(NSArray *)parsImageArray:(NSArray *)images{
 
     NSMutableArray *muArr = [[NSMutableArray alloc] init];

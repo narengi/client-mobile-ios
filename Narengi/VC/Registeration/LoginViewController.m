@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 
+
 @interface LoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
@@ -119,6 +120,7 @@
                 UserObject *userObj = [[NarengiCore sharedInstance ] parsUserObject:response.backData];
                 
                 [[NSUserDefaults standardUserDefaults] setObject:[response.backData objectForKey:@"token"] forKey:@"fuckingLoginedOrNOT"];
+                [[NSUserDefaults standardUserDefaults] rm_setCustomObject:userObj forKey:@"userObject"];
 
                 if (userObj.completePercent > 70) {
                     
@@ -173,6 +175,10 @@
     return bodyData;
 
 }
+
+#pragma mark - navigation
+
+
 
 
 @end

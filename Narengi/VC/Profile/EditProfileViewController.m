@@ -11,10 +11,11 @@
 #import "DZNPhotoPickerController.h"
 #import "DZNPhotoEditorViewController.h"
 #import "UIImagePickerController+Edit.h"
+#import "SelectBirthDayViewController.h"
 
 
 @interface EditProfileViewController ()<DZNPhotoPickerControllerDelegate,UIActionSheetDelegate,
-UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate>
 
 {
     UIPopoverController *_popoverController;
@@ -22,23 +23,33 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     NSDictionary *_photoPayload;
 }
 
-@property (weak, nonatomic) IBOutlet UIView       *nameTextFieldContainerView;
 @property (weak, nonatomic) IBOutlet UITextField  *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField  *lastNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField  *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField  *phoneTextField;
+
 @property (weak, nonatomic) IBOutlet UIButton     *maleButton;
 @property (weak, nonatomic) IBOutlet UIButton     *womenButton;
-@property (weak, nonatomic) IBOutlet UILabel      *birthdayLabel;
-@property (weak, nonatomic) IBOutlet UIImageView  *avatarImg;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton     *addAvatarButton;
+
+@property (weak, nonatomic) IBOutlet UIImageView  *avatarImg;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (weak, nonatomic) IBOutlet UIView *nameTextFieldContainerView;
 @property (weak, nonatomic) IBOutlet UIView *emailContainerView;
 @property (weak, nonatomic) IBOutlet UIView *phoneContainerView;
 @property (weak, nonatomic) IBOutlet UIView *genderContainerView;
 @property (weak, nonatomic) IBOutlet UIView *birthDayContainerView;
+
 @property (weak, nonatomic) IBOutlet CustomFaRegularLabel *emailValidationStateLabel;
 @property (weak, nonatomic) IBOutlet CustomFaRegularLabel *phoneValidationStateLabel;
+@property (weak, nonatomic) IBOutlet UILabel              *birthdayLabel;
+
+@property (nonatomic,strong) NSDate *selectedBirthDayDate;
+
+
+@property (nonatomic,strong) UserObject *userObject;
 @property ( nonatomic)  BOOL didSelectImg;
 
 
@@ -49,7 +60,11 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.userObject = [[ NSUserDefaults standardUserDefaults] rm_customObjectForKey:@"userObject"];
+    
+    //setUpAll necessory 
     [self setUpView];
+    
     //scrollView delegate
     void *context = (__bridge void *)self;
     [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:context];
@@ -70,8 +85,79 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     [self.genderContainerView setBorderWithColor:RGB(235, 235, 235, 1) andWithWidth:1 withCornerRadius:2];
     [self.birthDayContainerView setBorderWithColor:RGB(235, 235, 235, 1) andWithWidth:1 withCornerRadius:2];
     
+
+    
+    if (self.userObject.fisrtName.length > 0)
+        self.nameTextField.text = self.userObject.fisrtName;
+        
+    
+    if (self.userObject.lastName.length > 0)
+        self.lastNameTextField.text = self.userObject.lastName;
+    
+    if (self.userObject.cellNumber.length > 0)
+        self.emailTextField.text = self.userObject.cellNumber;
+        
+    
+    if (self.userObject.email.length > 0)
+        self.emailTextField.text = self.userObject.email;
+    
+    [self checkValidations];
 }
 
+-(void)checkValidations{
+
+    
+    //Check email and phone validation
+    
+    if ([self.emailTextField.text isEqualToString:self.userObject.email]) {
+        
+        if (self.userObject.emailVerification == nil || !self.userObject.emailVerification.isVerified) {
+            
+            self.emailValidationStateLabel.text = @"تایید نشده";
+            self.emailValidationStateLabel.textColor = [UIColor redColor];
+        }
+        else{
+            
+            self.emailValidationStateLabel.text = @"تایید شده";
+            self.emailValidationStateLabel.textColor = [UIColor clearColor];
+        }
+    }
+    else{
+        
+        self.emailValidationStateLabel.text = @"تایید نشده";
+        self.emailValidationStateLabel.textColor = [UIColor redColor];
+    
+    }
+
+    
+    if ([self.phoneTextField.text isEqualToString:self.userObject.cellNumber]) {
+        
+        if (self.userObject.phoneVerification == nil || !self.userObject.phoneVerification.isVerified) {
+            
+            self.phoneValidationStateLabel.text      = @"تایید نشده";
+            self.phoneValidationStateLabel.textColor = [UIColor redColor];
+        }
+        else{
+            
+            self.phoneValidationStateLabel.text      = @"تایید شده";
+            self.phoneValidationStateLabel.textColor = [UIColor clearColor];
+        }
+    }
+    else{
+        
+        self.phoneValidationStateLabel.text = @"تایید نشده";
+        self.phoneValidationStateLabel.textColor = [UIColor redColor];
+        
+    }
+}
+
+#pragma mark - textField
+- (IBAction)textFieldsChanged:(UITextField *)sender {
+}
+- (IBAction)textFieldsBeginEditing:(UITextField *)sender {
+}
+- (IBAction)textFieldsEndEditing:(UITextField *)sender {
+}
 
 #pragma mark - scrollViewDelegate
 
@@ -90,6 +176,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
         return;
     }
 }
+
 - (void)dealloc
 {
     [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
@@ -120,13 +207,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 }
 
 
-- (IBAction)saveButtonClicked:(UIButton *)sender {
-    
-}
-- (IBAction)dismissButtonClicked:(UIButton *)sender {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+
 
 #pragma mark - Avatar Picker
 - (IBAction)selectAvatarBt:(UIButton *)sender {
@@ -353,6 +434,60 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     else if ([buttonTitle isEqualToString:NSLocalizedString(@"Delete Photo",nil)]) {
         [self resetContent];
     }
+}
+
+#pragma mark - birthday pick
+- (IBAction)selectBithdayButtonClicked:(UIButton *)sender {
+    
+    UIStoryboard *storybord =[UIStoryboard storyboardWithName:@"Alerts" bundle:nil];
+    SelectBirthDayViewController *vc = [storybord instantiateViewControllerWithIdentifier:@"datePickview"];
+    
+    if (self.selectedBirthDayDate != nil ) {
+        vc.previousDate = self.selectedBirthDayDate;
+    }
+    
+    MZFormSheetPresentationViewController *formSheet = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:vc];
+    
+    
+    formSheet.presentationController.contentViewSize = CGSizeMake(300, [UIScreen mainScreen].bounds.size.height - 60);
+    
+    formSheet.presentationController.portraitTopInset = 10;
+    
+    formSheet.allowDismissByPanningPresentedView = YES;
+    formSheet.contentViewCornerRadius = 8.0;
+    
+    
+    formSheet.willPresentContentViewControllerHandler = ^(UIViewController *presentedFSViewController){
+    };
+    formSheet.didDismissContentViewControllerHandler = ^(UIViewController *presentedFSViewController){
+        
+        SelectBirthDayViewController *datePickerVC = (SelectBirthDayViewController *)presentedFSViewController;
+        
+        if (datePickerVC.didSelectDate) {
+            self.selectedBirthDayDate = datePickerVC.previousDate;
+        }
+    };
+    
+    [self presentViewController:formSheet animated:YES completion:nil];
+}
+
+
+
+#pragma mark -data
+
+- (IBAction)saveButtonClicked:(UIButton *)sender {
+    
+}
+
+-(void)sendUserData{
+
+    
+}
+
+
+- (IBAction)dismissButtonClicked:(UIButton *)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
