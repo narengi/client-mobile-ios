@@ -11,9 +11,11 @@
 #import "HostObject.h"
 #import "UserObject.h"
 
+
 @interface NarengiCore : NSObject
 
 
+-(void )sendServerRequestProfileImageWithImage:(NSData *)imageData;
 + (NarengiCore *)sharedInstance;
 -(ServerResponse *)sendRequestWithMethod:(NSString *)method andWithService:(NSString *)service andWithParametrs:(NSArray *)params andWithBody:(id)body andIsFullPath:(BOOL) fullPath;
 
@@ -23,6 +25,8 @@
 -(NSArray *)parsComments:(NSArray *)comments;
 -(HostObject *)parsHost:(NSDictionary *)dict isDetail:(BOOL)isDetail;
 -(UserObject *)parsUserObject:(NSDictionary *)dict;
+-(NSString *)makeAuthurizationValue;
+
 
 
 @end

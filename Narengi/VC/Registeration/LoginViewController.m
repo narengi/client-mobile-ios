@@ -17,6 +17,17 @@
 @property (weak, nonatomic) IBOutlet IranButton *forgetButton;
 @property (weak, nonatomic) IBOutlet IranButton *signUpButton;
 @property (weak, nonatomic) IBOutlet UIView *textFieldsContainer;
+@property (weak, nonatomic) IBOutlet UIView *registerTextFieldContainer;
+@property (weak, nonatomic) IBOutlet UITextField *registerEmailTextfield;
+@property (weak, nonatomic) IBOutlet UITextField *registerPasswordtextField;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *secondViewLeadingSpace;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *secondViewTrailingSpace;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *firstViewLeadingSpace;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *fisrtViewtrailingSpace;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *trigerDistance;
+
 
 @end
 
@@ -30,7 +41,15 @@
      [self.emailTextField addTarget:self action:@selector(textDidChanged:) forControlEvents:UIControlEventEditingChanged];
      [self.passwordTextField addTarget:self action:@selector(textDidChanged:) forControlEvents:UIControlEventEditingChanged];
     
+    [self.registerEmailTextfield addTarget:self action:@selector(textDidChanged:) forControlEvents:UIControlEventEditingChanged];
+    [self.registerPasswordtextField addTarget:self action:@selector(textDidChanged:) forControlEvents:UIControlEventEditingChanged];
+    
     self.loginButton.enabled = NO;
+    
+    self.secondViewLeadingSpace.constant = [UIScreen mainScreen].bounds.size.width;
+    self.secondViewTrailingSpace.constant = -[UIScreen mainScreen].bounds.size.width;
+    self.trigerDistance.constant  = ([UIScreen mainScreen].bounds.size.width/4) -12;
+    //[self.secondView layoutIfNeeded];
     
 }
 
@@ -42,9 +61,11 @@
 -(void)setUpElements{
 
     [self.loginButton setBorderWithColor:RGB(50, 160, 84, 1) andWithWidth:1 withCornerRadius:2];
-    [self.signUpButton setBorderWithColor:RGB(244, 51, 0, 1) andWithWidth:1 withCornerRadius:2];
+    [self.signUpButton setBorderWithColor:RGB(50, 160, 84, 1) andWithWidth:1 withCornerRadius:2];
     
     [self.textFieldsContainer setBorderWithColor:RGB(235, 235, 235, 1) andWithWidth:1 withCornerRadius:2];
+    
+    [self.registerTextFieldContainer setBorderWithColor:RGB(235, 235, 235, 1) andWithWidth:1 withCornerRadius:2];
     
     NSAttributedString * nameAtStr = [[NSAttributedString alloc] initWithString:@"کلمه عبور خود را فراموش کرده‌اید؟ " attributes:@{NSForegroundColorAttributeName:RGB(118, 118, 118, 1)}];
     
@@ -119,7 +140,10 @@
                 
                 UserObject *userObj = [[NarengiCore sharedInstance ] parsUserObject:response.backData];
                 
-                [[NSUserDefaults standardUserDefaults] setObject:[response.backData objectForKey:@"token"] forKey:@"fuckingLoginedOrNOT"];
+                [[NSUserDefaults standardUserDefaults] setObject:[[response.backData objectForKey:@"token"] objectForKey:@"token"] forKey:@"fuckingLoginedOrNOT"];
+                
+                [[NSUserDefaults standardUserDefaults] setObject:[response.backData objectForKey:@"email"] forKey:@"loginedUser"];
+                
                 [[NSUserDefaults standardUserDefaults] rm_setCustomObject:userObj forKey:@"userObject"];
 
                 if (userObj.completePercent > 70) {
@@ -171,6 +195,7 @@
     }
     NSData *bodyData = [NSJSONSerialization dataWithJSONObject:bodyDict options:0 error:nil];
 
+
     
     return bodyData;
 
@@ -178,6 +203,40 @@
 
 #pragma mark - navigation
 
+- (IBAction)selectLogInButton:(UIButton *)sender {
+    
+    
+    self.trigerDistance.constant  = ([UIScreen mainScreen].bounds.size.width/4)-12;
+    
+    self.secondViewLeadingSpace.constant = [UIScreen mainScreen].bounds.size.width;
+    self.secondViewTrailingSpace.constant = -[UIScreen mainScreen].bounds.size.width;
+    
+    self.fisrtViewtrailingSpace.constant = 0;
+    self.firstViewLeadingSpace.constant = 0;
+    
+    
+    [UIView animateWithDuration:.5
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }];
+}
+- (IBAction)selectRegisterButton:(UIButton *)sender {
+    
+    
+    self.trigerDistance.constant  =  ([UIScreen mainScreen].bounds.size.width / 4 * 3)-12;
+    
+    self.secondViewLeadingSpace.constant = 0;
+    self.secondViewTrailingSpace.constant = 0;
+    
+    self.fisrtViewtrailingSpace.constant = [UIScreen mainScreen].bounds.size.width;
+    self.firstViewLeadingSpace.constant = -[UIScreen mainScreen].bounds.size.width;
+    
+    
+    [UIView animateWithDuration:.5
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }];
+}
 
 
 

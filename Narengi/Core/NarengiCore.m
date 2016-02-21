@@ -55,10 +55,16 @@ NarengiCore *sharedInstance;
 
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:escapedPath]];
     [request setHTTPMethod:method];
-    [request setTimeoutInterval:25];
+   // [request setTimeoutInterval:25];
     
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request addValue:@"mobile" forHTTPHeaderField:@"src"];
+    
+    NSString *token  = [[NSUserDefaults standardUserDefaults] objectForKey:@"fuckingLoginedOrNOT"];
+    
+    if (token != nil )
+        [request addValue:[self makeAuthurizationValue] forHTTPHeaderField:@"Authorization"];
+
 
     
     if (body != nil)
@@ -73,7 +79,7 @@ NarengiCore *sharedInstance;
     ServerResponse *serverRes = [[ServerResponse alloc] init];
     if (!error) {
         
-        if (response.statusCode == 200 || response.statusCode == 201 ) {
+        if (response.statusCode == 200 || response.statusCode == 201  || response.statusCode == 204) {
             
             NSLog(@"BackData: %@",[NSJSONSerialization JSONObjectWithData:data options:0 error:nil ]);
             serverRes.hasErro = NO;
@@ -116,6 +122,78 @@ NarengiCore *sharedInstance;
     }
     return serverRes;
     
+}
+
+
+//Upload profile Image
+-(void )sendServerRequestProfileImageWithImage:(NSData *)imageData{
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@user-profiles/picture",BASEURL]]];
+    
+    
+    [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+    [request setHTTPShouldHandleCookies:NO];
+    [request setTimeoutInterval:60];
+    [request setHTTPMethod:@"POST"];
+    
+    NSString *boundary = @"unique-consistent-string";
+    
+    // set Content-Type in HTTP header
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
+    [request setValue:contentType forHTTPHeaderField: @"Content-Type"];
+    
+    NSMutableData* body = [NSMutableData data];
+    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"picture\"; filename=\"%@\"\r\n", @"aa"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Type: %@\r\n\r\n", @"image/jpeg"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:imageData];
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setHTTPBody:body];
+
+    [request addValue:@"mobile" forHTTPHeaderField:@"src"];
+    [request addValue:[self makeAuthurizationValue] forHTTPHeaderField:@"Authorization"];
+    
+    NSError *error = nil;
+    NSHTTPURLResponse* response;
+    
+    
+    NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    if (data == nil)
+    {
+        
+        
+    }
+    else
+    {
+        NSDictionary *backDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil ];
+        
+        if (response.statusCode == 200) {
+            
+            if (backDict != nil) {
+            }
+        }
+        
+    }
+    
+}
+
+-(NSString *)makeAuthurizationValue{
+
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"fuckingLoginedOrNOT"];
+    NSString *user  = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginedUser"];
+    
+    NSDictionary* authenticateDict ;
+    authenticateDict = @{@"username": user,@"token": token};
+    
+    NSData *bodyData = [NSJSONSerialization dataWithJSONObject:authenticateDict options:0 error:nil];
+    NSString *result = [[NSString alloc] initWithData:bodyData encoding:NSUTF8StringEncoding];
+    
+    result  =[result stringByReplacingOccurrencesOfString:@"{" withString:@""] ;
+    result  =[result stringByReplacingOccurrencesOfString:@"}" withString:@""] ;
+    
+    return result;
+
 }
 
 -(NSArray *)parsAroudPlacesWith:(NSArray *)objects andwithType:(NSString *)type andIsDetail:(BOOL)isDetail{
@@ -373,6 +451,7 @@ NarengiCore *sharedInstance;
     userObj.completePercent = [[[dict objectForKey:@"status"] objectForKey:@"completed"] integerValue];
     userObj.token           = [[dict objectForKey:@"token"] objectForKey:@"token"];
     userObj.gender          = [[[dict objectForKey:@"profile"] checkNull] objectForKey:@"gender"];
+    userObj.birthDate       = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"birthDate"] checkNull];
     
     [[dict objectForKey:@"verification"] enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         

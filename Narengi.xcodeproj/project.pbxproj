@@ -29,6 +29,7 @@
 		721E15361C0F51CA006E394B /* MainHomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 721E15351C0F51CA006E394B /* MainHomeCollectionViewCell.m */; };
 		7226015D1C771A9D008A2C65 /* Alerts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7226015C1C771A9D008A2C65 /* Alerts.storyboard */; };
 		722601601C771B4C008A2C65 /* SelectBirthDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7226015F1C771B4C008A2C65 /* SelectBirthDayViewController.m */; };
+		722601631C772828008A2C65 /* NSDateFormatter+Persian.m in Sources */ = {isa = PBXBuildFile; fileRef = 722601621C772828008A2C65 /* NSDateFormatter+Persian.m */; };
 		722922F51BFCB4F800C5575C /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922F41BFCB4F800C5575C /* UserObject.m */; };
 		722922F81BFCEA3600C5575C /* ServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922F71BFCEA3600C5575C /* ServerResponse.m */; };
 		722922FE1BFCFA4500C5575C /* UIViewController+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922FD1BFCFA4500C5575C /* UIViewController+Additional.m */; };
@@ -61,6 +62,7 @@
 		729838B51BFCB098005BC5C3 /* AroundPlaceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838B41BFCB098005BC5C3 /* AroundPlaceObject.m */; };
 		729838B81BFCB1CB005BC5C3 /* HostObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838B71BFCB1CB005BC5C3 /* HostObject.m */; };
 		729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838BA1BFCB1FC005BC5C3 /* GeoPointObject.m */; };
+		72A381F01C79FAD80065E1A9 /* PhoneValidateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A381EF1C79FAD80065E1A9 /* PhoneValidateViewController.m */; };
 		72B19A131BFF6B3F007EDD86 /* AttractionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B19A121BFF6B3F007EDD86 /* AttractionObject.m */; };
 		72B19A161BFF6C6D007EDD86 /* CityObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B19A151BFF6C6D007EDD86 /* CityObject.m */; };
 		72C24F4E1C6D6F2900026821 /* AFOAuthCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F4B1C6D6F2900026821 /* AFOAuthCredential.m */; };
@@ -181,6 +183,8 @@
 		7226015C1C771A9D008A2C65 /* Alerts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Alerts.storyboard; sourceTree = "<group>"; };
 		7226015E1C771B4C008A2C65 /* SelectBirthDayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectBirthDayViewController.h; path = VC/Profile/SelectBirthDayViewController.h; sourceTree = "<group>"; };
 		7226015F1C771B4C008A2C65 /* SelectBirthDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectBirthDayViewController.m; path = VC/Profile/SelectBirthDayViewController.m; sourceTree = "<group>"; };
+		722601611C772828008A2C65 /* NSDateFormatter+Persian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Persian.h"; sourceTree = "<group>"; };
+		722601621C772828008A2C65 /* NSDateFormatter+Persian.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Persian.m"; sourceTree = "<group>"; };
 		722922F31BFCB4F800C5575C /* UserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserObject.h; path = Core/UserObject.h; sourceTree = "<group>"; };
 		722922F41BFCB4F800C5575C /* UserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserObject.m; path = Core/UserObject.m; sourceTree = "<group>"; };
 		722922F61BFCEA3600C5575C /* ServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerResponse.h; path = Core/ServerResponse.h; sourceTree = "<group>"; };
@@ -241,6 +245,8 @@
 		729838B71BFCB1CB005BC5C3 /* HostObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HostObject.m; path = Core/HostObject.m; sourceTree = "<group>"; };
 		729838B91BFCB1FC005BC5C3 /* GeoPointObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GeoPointObject.h; path = Core/GeoPointObject.h; sourceTree = "<group>"; };
 		729838BA1BFCB1FC005BC5C3 /* GeoPointObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GeoPointObject.m; path = Core/GeoPointObject.m; sourceTree = "<group>"; };
+		72A381EE1C79FAD80065E1A9 /* PhoneValidateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhoneValidateViewController.h; path = VC/Registeration/PhoneValidateViewController.h; sourceTree = "<group>"; };
+		72A381EF1C79FAD80065E1A9 /* PhoneValidateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhoneValidateViewController.m; path = VC/Registeration/PhoneValidateViewController.m; sourceTree = "<group>"; };
 		72B19A111BFF6B3F007EDD86 /* AttractionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttractionObject.h; path = Core/AttractionObject.h; sourceTree = "<group>"; };
 		72B19A121BFF6B3F007EDD86 /* AttractionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttractionObject.m; path = Core/AttractionObject.m; sourceTree = "<group>"; };
 		72B19A141BFF6C6D007EDD86 /* CityObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityObject.h; path = Core/CityObject.h; sourceTree = "<group>"; };
@@ -501,10 +507,7 @@
 				7226015C1C771A9D008A2C65 /* Alerts.storyboard */,
 				726DF1FD1BE79937004796EC /* Assets.xcassets */,
 				726DF1FF1BE79937004796EC /* LaunchScreen.storyboard */,
-				72F9FBBC1C63991B00DBB347 /* LoginViewController.h */,
-				72F9FBBD1C63991B00DBB347 /* LoginViewController.m */,
-				729442971C6B6F88003F3D92 /* AskForCompleteProfileViewController.h */,
-				729442981C6B6F88003F3D92 /* AskForCompleteProfileViewController.m */,
+				72A381ED1C79FAAC0065E1A9 /* register */,
 				7214FB4F1BF1C70100824043 /* MenuVC */,
 				7214FB4E1BF1C6F300824043 /* Main */,
 				721E151D1C0ED3F3006E394B /* SearchDetail */,
@@ -555,6 +558,8 @@
 		726DF2291BE79C1B004796EC /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
+				722601611C772828008A2C65 /* NSDateFormatter+Persian.h */,
+				722601621C772828008A2C65 /* NSDateFormatter+Persian.m */,
 				720B929F1C22A9AB00D1468A /* HWViewPager.h */,
 				720B92A01C22A9AB00D1468A /* HWViewPager.m */,
 				726A3A361C47C2F5002C4D11 /* IranButton.h */,
@@ -642,6 +647,19 @@
 				72C24F941C6E4C2A00026821 /* VerificationObject.m */,
 			);
 			name = Core;
+			sourceTree = "<group>";
+		};
+		72A381ED1C79FAAC0065E1A9 /* register */ = {
+			isa = PBXGroup;
+			children = (
+				72F9FBBC1C63991B00DBB347 /* LoginViewController.h */,
+				72F9FBBD1C63991B00DBB347 /* LoginViewController.m */,
+				729442971C6B6F88003F3D92 /* AskForCompleteProfileViewController.h */,
+				729442981C6B6F88003F3D92 /* AskForCompleteProfileViewController.m */,
+				72A381EE1C79FAD80065E1A9 /* PhoneValidateViewController.h */,
+				72A381EF1C79FAD80065E1A9 /* PhoneValidateViewController.m */,
+			);
+			name = register;
 			sourceTree = "<group>";
 		};
 		72C24F241C6D6D3A00026821 /* DZNPhoto */ = {
@@ -987,11 +1005,13 @@
 				726A3A441C47EA6B002C4D11 /* CommentDetailTableViewCell.m in Sources */,
 				721E15331C0F51B0006E394B /* AttractionCollectionViewCell.m in Sources */,
 				72F274491C1978700048BF05 /* CustomFaRegularLabel.m in Sources */,
+				722601631C772828008A2C65 /* NSDateFormatter+Persian.m in Sources */,
 				72C24F741C6D78EF00026821 /* DZNPhotoDisplayViewCell.m in Sources */,
 				72D4E5B51C3E61FB00AC3D0D /* PropertyView.m in Sources */,
 				7285DE601BF4B40600F92608 /* PageCell.m in Sources */,
 				722922F51BFCB4F800C5575C /* UserObject.m in Sources */,
 				72C24F901C6D791100026821 /* UIImagePickerController+Block.m in Sources */,
+				72A381F01C79FAD80065E1A9 /* PhoneValidateViewController.m in Sources */,
 				72D7FE651C15C59D00BD39A5 /* CustomLabel.m in Sources */,
 				722922F81BFCEA3600C5575C /* ServerResponse.m in Sources */,
 				72EA4D761C51051C0053456F /* ProfileViewController.m in Sources */,

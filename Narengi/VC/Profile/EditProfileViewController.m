@@ -12,6 +12,7 @@
 #import "DZNPhotoEditorViewController.h"
 #import "UIImagePickerController+Edit.h"
 #import "SelectBirthDayViewController.h"
+#import "NSDateFormatter+Persian.h"
 
 
 @interface EditProfileViewController ()<DZNPhotoPickerControllerDelegate,UIActionSheetDelegate,
@@ -46,11 +47,19 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 @property (weak, nonatomic) IBOutlet CustomFaRegularLabel *phoneValidationStateLabel;
 @property (weak, nonatomic) IBOutlet UILabel              *birthdayLabel;
 
-@property (nonatomic,strong) NSDate *selectedBirthDayDate;
+@property (nonatomic,strong) NSDate   *selectedBirthDayDate;
+@property (nonatomic,strong) NSString *selectedBirthDayDateStr;
 
+@property (nonatomic,strong) NSString *selectedGender;
 
 @property (nonatomic,strong) UserObject *userObject;
 @property ( nonatomic)  BOOL didSelectImg;
+
+@property ( nonatomic)  BOOL fisrtNameValid;
+@property ( nonatomic)  BOOL lastNameValid;
+@property ( nonatomic)  BOOL phoneValid;
+@property ( nonatomic)  BOOL emailValid;
+@property ( nonatomic)  BOOL didSelectedGender;
 
 
 @end
@@ -68,6 +77,10 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     //scrollView delegate
     void *context = (__bridge void *)self;
     [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:context];
+    
+    
+    //[SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"Authorization"];
+
     
 }
 
@@ -102,6 +115,33 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
         self.emailTextField.text = self.userObject.email;
     
     [self checkValidations];
+    
+    [self.avatarImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@user-profiles/picture",BASEURL]] placeholderImage:IMG(@"edit-profile-empty-avatar")];
+    
+    if (self.userObject.birthDate != nil ) {
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+        NSDate *date = [formatter dateFromString:[[self.userObject.birthDate componentsSeparatedByString:@"T"] firstObject]];
+        
+        NSDateFormatter *validFormat = [[NSDateFormatter alloc] init];
+        [validFormat setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+        
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        [format setDateFormat:@"YYYY-MM-dd"];
+        
+        NSDateFormatter *dayFormat = [[NSDateFormatter alloc] init];
+        dayFormat = [format change];
+        [dayFormat setDateFormat:@"EEEE"];
+        
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        dateFormat = [format changetoShortFormmat];
+        
+        
+        self.birthdayLabel.text  = [[dateFormat stringFromDate:date] stringByReplacingOccurrencesOfString:@" ه‍.ش." withString:@""];
+    }
+
+    
 }
 
 -(void)checkValidations{
@@ -153,10 +193,42 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 
 #pragma mark - textField
 - (IBAction)textFieldsChanged:(UITextField *)sender {
+    
+    [self validateTextFields];
 }
 - (IBAction)textFieldsBeginEditing:(UITextField *)sender {
+    [self validateTextFields];
 }
 - (IBAction)textFieldsEndEditing:(UITextField *)sender {
+    [self validateTextFields];
+}
+
+-(void)validateTextFields{
+    
+    if ([[self.nameTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""] length] == 0)
+        self.fisrtNameValid = NO;
+    
+    else
+        self.fisrtNameValid = YES;
+    
+    if ([[self.lastNameTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""] length] == 0)
+        self.lastNameValid = NO;
+    
+    else
+        self.lastNameValid = YES;
+    
+    if ([[self.emailTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""] length] == 0)
+        self.emailValid = NO;
+    
+    else
+        self.emailValid = YES;
+    
+    if ([[self.phoneTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""] length] == 0)
+        self.phoneValid = NO;
+    
+    else
+        self.phoneValid = YES;
+    
 }
 
 #pragma mark - scrollViewDelegate
@@ -449,7 +521,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     MZFormSheetPresentationViewController *formSheet = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:vc];
     
     
-    formSheet.presentationController.contentViewSize = CGSizeMake(300, [UIScreen mainScreen].bounds.size.height - 60);
+    formSheet.presentationController.contentViewSize = CGSizeMake(300, 250);
     
     formSheet.presentationController.portraitTopInset = 10;
     
@@ -465,6 +537,13 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
         
         if (datePickerVC.didSelectDate) {
             self.selectedBirthDayDate = datePickerVC.previousDate;
+            
+            NSDateFormatter *format = [[NSDateFormatter alloc] init];
+            [format setDateFormat:@"yyyy-MM-dd"];
+            NSString *str = [format stringFromDate:self.selectedBirthDayDate];
+            self.selectedBirthDayDateStr = str;
+            self.birthdayLabel.text = datePickerVC.selectedDateStr;
+            
         }
     };
     
@@ -477,10 +556,81 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 
 - (IBAction)saveButtonClicked:(UIButton *)sender {
     
+    if (self.emailValid && self.fisrtNameValid && self.lastNameValid && self.phoneValid) {
+        [self sendUserData];
+        
+        if (self.didSelectImg) {
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+                [[NarengiCore sharedInstance] sendServerRequestProfileImageWithImage:UIImageJPEGRepresentation(self.avatarImg.image, 0.4)];
+                
+                dispatch_async(dispatch_get_main_queue(),^{
+                });
+            });
+        }
+        
+        
+    }
+    else{
+        [SVProgressHUD showErrorWithStatus:@"وارد کردن نام، نام‌خانوادگی،ایمیل و تلفن همراه الزامیست"];
+    }
+    
 }
 
 -(void)sendUserData{
+    [SVProgressHUD showWithStatus:@"در حال ارسال اطلاعات" maskType:SVProgressHUDMaskTypeGradient];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+        
+        ServerResponse *response = [[NarengiCore sharedInstance] sendRequestWithMethod:@"PUT" andWithService: @"user-profiles" andWithParametrs:nil andWithBody:[self makejson] andIsFullPath:NO];
+        
+        dispatch_async(dispatch_get_main_queue(),^{
+            
+            
+            [SVProgressHUD dismiss];
+            
+            if (!response.hasErro) {
 
+                [SVProgressHUD showSuccessWithStatus:@"اطلاعات با موفقیت ذخیره شد"];
+            }
+            else{
+                
+                if (response.backData != nil ) {
+                    
+                    //show error
+                    NSString *erroStr = [[response.backData objectForKey:@"error"] objectForKey:@"message"];
+                    [self showErro:erroStr];
+                }
+                else{
+                    
+                    [self showErro:@"اشکال در ارتباط با سرور"];
+                    
+                }
+                
+            }
+        });
+        
+    });
+    
+}
+
+-(NSData *)makejson{
+
+    NSMutableDictionary* bodyDict =[[NSMutableDictionary alloc] init];
+
+    [bodyDict addEntriesFromDictionary: @{@"firstName":self.nameTextField.text,@"lastName":self.lastNameTextField.text,@"email": self.userObject.email}];
+    
+    if (self.selectedBirthDayDate != nil) {
+        [bodyDict addEntriesFromDictionary:@{@"birthDate":self.selectedBirthDayDateStr}];
+    }
+    if (self.selectedGender != nil) {
+        [bodyDict addEntriesFromDictionary:@{@"gender":self.selectedGender}];
+    }
+    
+    NSData *bodyData = [NSJSONSerialization dataWithJSONObject:[bodyDict copy] options:0 error:nil];
+    
+    
+    return bodyData;
     
 }
 
@@ -488,6 +638,31 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 - (IBAction)dismissButtonClicked:(UIButton *)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - gender
+- (IBAction)genderButtonClicked:(UIButton *)sender {
+    
+    if (sender.tag == 0) {
+        sender.selected = !sender.isSelected;
+        if (sender.isSelected) {
+            self.selectedGender = @"male";
+        }
+        else{
+            self.selectedGender = nil;
+        }
+    }
+    else{
+        
+        sender.selected = !sender.isSelected;
+
+        if (sender.isSelected) {
+            self.selectedGender = @"female";
+        }
+        else{
+            self.selectedGender = nil;
+        }
+    }
 }
 
 

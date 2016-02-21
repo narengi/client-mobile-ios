@@ -13,7 +13,7 @@
 
 @property (nonatomic) NSString  *fisrtName;
 @property (nonatomic) NSString  *lastName;
-@property (nonatomic) NSDate    *birthDate;
+@property (nonatomic) NSString  *birthDate;
 @property (nonatomic) NSInteger completePercent;
 @property (nonatomic) NSString  *token;
 @property (nonatomic) NSString  *gender;

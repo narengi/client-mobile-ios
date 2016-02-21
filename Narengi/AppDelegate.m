@@ -26,6 +26,8 @@
     [[NSUserDefaults standardUserDefaults] setObject:@"Farsi" forKey:@"Language"];
     [GMSServices provideAPIKey:@"AIzaSyA4nLUSU6-DrxN51XV06Vhmojw6SosMFoI"];
     [self initNavigationBarTheme];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"fuckingLoginedOrNOT"];
 
     return YES;
 }
