@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *registerEmailTextfield;
 @property (weak, nonatomic) IBOutlet UITextField *registerPasswordtextField;
 
+@property (nonatomic) BOOL editingLogIn;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *secondViewLeadingSpace;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *secondViewTrailingSpace;
 
@@ -38,18 +40,16 @@
     [super viewDidLoad];
     [self setUpElements];
     
-     [self.emailTextField addTarget:self action:@selector(textDidChanged:) forControlEvents:UIControlEventEditingChanged];
-     [self.passwordTextField addTarget:self action:@selector(textDidChanged:) forControlEvents:UIControlEventEditingChanged];
     
-    [self.registerEmailTextfield addTarget:self action:@selector(textDidChanged:) forControlEvents:UIControlEventEditingChanged];
-    [self.registerPasswordtextField addTarget:self action:@selector(textDidChanged:) forControlEvents:UIControlEventEditingChanged];
-    
-    self.loginButton.enabled = NO;
+    self.loginButton.enabled  = NO;
+    self.signUpButton.enabled = NO;
     
     self.secondViewLeadingSpace.constant = [UIScreen mainScreen].bounds.size.width;
     self.secondViewTrailingSpace.constant = -[UIScreen mainScreen].bounds.size.width;
     self.trigerDistance.constant  = ([UIScreen mainScreen].bounds.size.width/4) -12;
-    //[self.secondView layoutIfNeeded];
+    
+    
+    self.editingLogIn = YES;
     
 }
 
@@ -88,18 +88,39 @@
 - (void)textDidChanged:(UITextField *)textField
 {
     
-    NSString *emailStr = [self.emailTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSString *passStr = [self.passwordTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    if (emailStr.length > 0 && passStr.length > 0) {
-        
-        self.loginButton.enabled = YES;
-    }
-    else{
-        self.loginButton.enabled = NO;
-    }
 }
 
+- (IBAction)textFiedlChanged:(UITextField *)sender {
+    
+    if (self.editingLogIn) {
+       
+        NSString *emailStr = [self.emailTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+        NSString *passStr = [self.passwordTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+        
+        if (emailStr.length > 0 && passStr.length > 0) {
+            
+            self.loginButton.enabled = YES;
+        }
+        else{
+            self.loginButton.enabled = NO;
+        }
+    }
+    else{
+        
+        NSString *emailStr = [self.registerEmailTextfield.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+        NSString *passStr = [self.registerPasswordtextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+        
+        if (emailStr.length > 0 && passStr.length > 0) {
+            
+            self.signUpButton.enabled = YES;
+        }
+        else{
+            self.signUpButton.enabled = NO;
+        }
+    
+    }
+}
 
 
 #pragma mark - data
@@ -190,7 +211,7 @@
         bodyDict = @{@"username": self.emailTextField.text,@"password": self.passwordTextField.text};
     }
     else{
-        bodyDict = @{@"email": self.emailTextField.text,@"password": self.passwordTextField.text};
+        bodyDict = @{@"email": self.registerEmailTextfield.text,@"password": self.registerPasswordtextField.text};
         
     }
     NSData *bodyData = [NSJSONSerialization dataWithJSONObject:bodyDict options:0 error:nil];
@@ -219,6 +240,7 @@
                      animations:^{
                          [self.view layoutIfNeeded];
                      }];
+    self.editingLogIn = YES;
 }
 - (IBAction)selectRegisterButton:(UIButton *)sender {
     
@@ -236,6 +258,8 @@
                      animations:^{
                          [self.view layoutIfNeeded];
                      }];
+    
+    self.editingLogIn = NO;
 }
 
 

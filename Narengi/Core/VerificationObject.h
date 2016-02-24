@@ -12,6 +12,7 @@
 
 @property (nonatomic) NSString *code;
 @property (nonatomic) NSString *type;
+@property (nonatomic) NSString *handle;
 @property (nonatomic) NSString *requestedDate;
 @property (nonatomic) BOOL     isVerified;
 

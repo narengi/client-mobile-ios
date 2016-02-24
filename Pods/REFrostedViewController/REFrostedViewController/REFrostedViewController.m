@@ -69,7 +69,7 @@
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     self.wantsFullScreenLayout = YES;
 #pragma clang diagnostic pop
-    _panGestureEnabled = YES;
+    _panGestureEnabled = NO;
     _animationDuration = 0.35f;
     _backgroundFadeAmount = 0.3f;
     _blurTintColor = REUIKitIsFlatMode() ? nil : [UIColor colorWithWhite:1 alpha:0.75f];
@@ -181,10 +181,10 @@
     self.containerViewController.animateApperance = animateApperance;
     if (self.automaticSize) {
         if (self.direction == REFrostedViewControllerDirectionLeft || self.direction == REFrostedViewControllerDirectionRight)
-            self.calculatedMenuViewSize = CGSizeMake(200, self.contentViewController.view.frame.size.height);
+            self.calculatedMenuViewSize = CGSizeMake(270, self.contentViewController.view.frame.size.height);
         
         if (self.direction == REFrostedViewControllerDirectionTop || self.direction == REFrostedViewControllerDirectionBottom)
-            self.calculatedMenuViewSize = CGSizeMake(200, self.contentViewController.view.frame.size.height - 50.0f);
+            self.calculatedMenuViewSize = CGSizeMake(270, self.contentViewController.view.frame.size.height - 50.0f);
     } else {
         self.calculatedMenuViewSize = CGSizeMake(_menuViewSize.width > 0 ? _menuViewSize.width : self.contentViewController.view.frame.size.width,
                                                  _menuViewSize.height > 0 ? _menuViewSize.height : self.contentViewController.view.frame.size.height);
@@ -259,10 +259,10 @@
     if (self.visible) {
         if (self.automaticSize) {
             if (self.direction == REFrostedViewControllerDirectionLeft || self.direction == REFrostedViewControllerDirectionRight)
-                self.calculatedMenuViewSize = CGSizeMake(200, self.view.bounds.size.height);
+                self.calculatedMenuViewSize = CGSizeMake(270, self.view.bounds.size.height);
             
             if (self.direction == REFrostedViewControllerDirectionTop || self.direction == REFrostedViewControllerDirectionBottom)
-                self.calculatedMenuViewSize = CGSizeMake(200, self.view.bounds.size.height - 50.0f);
+                self.calculatedMenuViewSize = CGSizeMake(270, self.view.bounds.size.height - 50.0f);
         } else {
             self.calculatedMenuViewSize = CGSizeMake(_menuViewSize.width > 0 ? _menuViewSize.width : self.view.bounds.size.width,
                                                      _menuViewSize.height > 0 ? _menuViewSize.height : self.view.bounds.size.height);

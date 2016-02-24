@@ -88,7 +88,7 @@ NarengiCore *sharedInstance;
             serverRes.link = [response.allHeaderFields objectForKey:@"Link"];
         
         }
-        else if(response.statusCode == 401)
+        else if(response.statusCode == 401 || response.statusCode == 400)
         {
             serverRes.hasErro = YES;
             serverRes.backData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil ];
@@ -458,6 +458,7 @@ NarengiCore *sharedInstance;
         VerificationObject *verificationObj = [self parsVerificationWithDict:obj];
         userObj.phoneVerification = [verificationObj.type isEqualToString:@"SMS"] ? verificationObj :nil
         ;
+        
         userObj.emailVerification = [verificationObj.type isEqualToString:@"Email"] ? verificationObj :nil
         ;
     }];
@@ -472,6 +473,7 @@ NarengiCore *sharedInstance;
     verificationObj.type          = [dict objectForKey:@"verificationType"];
     verificationObj.code          = [dict objectForKey:@"code"];
     verificationObj.requestedDate = [dict objectForKey:@"requestDate"];
+    verificationObj.handle        = [[dict objectForKey:@"handle"] checkNull];
     
     return verificationObj;
     

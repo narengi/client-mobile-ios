@@ -13,6 +13,7 @@
 #import "UIImagePickerController+Edit.h"
 #import "SelectBirthDayViewController.h"
 #import "NSDateFormatter+Persian.h"
+#import "PhoneValidateViewController.h"
 
 
 @interface EditProfileViewController ()<DZNPhotoPickerControllerDelegate,UIActionSheetDelegate,
@@ -77,12 +78,19 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     //scrollView delegate
     void *context = (__bridge void *)self;
     [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:context];
+
     
     
     //[SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"Authorization"];
 
     
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -107,12 +115,13 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     if (self.userObject.lastName.length > 0)
         self.lastNameTextField.text = self.userObject.lastName;
     
-    if (self.userObject.cellNumber.length > 0)
-        self.emailTextField.text = self.userObject.cellNumber;
+    if (self.userObject.phoneVerification.handle.length > 0)
+        self.phoneTextField.text = self.userObject.phoneVerification.handle;
         
     
     if (self.userObject.email.length > 0)
         self.emailTextField.text = self.userObject.email;
+    
     
     [self checkValidations];
     
@@ -159,7 +168,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
         else{
             
             self.emailValidationStateLabel.text = @"تایید شده";
-            self.emailValidationStateLabel.textColor = [UIColor clearColor];
+            self.emailValidationStateLabel.textColor = RGB(57, 160, 84, 1);
         }
     }
     else{
@@ -170,7 +179,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     }
 
     
-    if ([self.phoneTextField.text isEqualToString:self.userObject.cellNumber]) {
+    if ([self.phoneTextField.text isEqualToString:self.userObject.phoneVerification.handle]) {
         
         if (self.userObject.phoneVerification == nil || !self.userObject.phoneVerification.isVerified) {
             
@@ -180,7 +189,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
         else{
             
             self.phoneValidationStateLabel.text      = @"تایید شده";
-            self.phoneValidationStateLabel.textColor = [UIColor clearColor];
+            self.phoneValidationStateLabel.textColor = RGB(57, 160, 84, 1);
         }
     }
     else{
@@ -189,6 +198,8 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
         self.phoneValidationStateLabel.textColor = [UIColor redColor];
         
     }
+    
+    [self validateTextFields];
 }
 
 #pragma mark - textField
@@ -578,6 +589,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 }
 
 -(void)sendUserData{
+    
     [SVProgressHUD showWithStatus:@"در حال ارسال اطلاعات" maskType:SVProgressHUDMaskTypeGradient];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
@@ -592,6 +604,10 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
             if (!response.hasErro) {
 
                 [SVProgressHUD showSuccessWithStatus:@"اطلاعات با موفقیت ذخیره شد"];
+                if (!self.userObject.phoneVerification.isVerified) {
+                    
+                    [self sendUserToVerifyPhone];
+                }
             }
             else{
                 
@@ -612,6 +628,13 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
         
     });
     
+}
+-(void)sendUserToVerifyPhone{
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PhoneValidateViewController *destinationVC = [storyboard instantiateViewControllerWithIdentifier:@"phoneValidateVCID"];
+    destinationVC.phoneStr = self.phoneTextField.text;
+    [self.navigationController pushViewController:destinationVC animated:YES];
 }
 
 -(NSData *)makejson{

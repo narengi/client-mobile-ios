@@ -115,9 +115,10 @@
 - (IBAction)menuButtonClicked:(UIButton *)sender {
     
     [self.view endEditing:YES];
-    [self.frostedViewController.view endEditing:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];    [self.frostedViewController.view endEditing:YES];
     
     [self.frostedViewController presentMenuViewController];
+
     
     
 }
