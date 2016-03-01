@@ -3086,10 +3086,10 @@
             </objects>
             <point key="canvasLocation" x="2507" y="738"/>
         </scene>
-        <!--View Controller-->
+        <!--Book View Controller-->
         <scene sceneID="LZz-kh-mwL">
             <objects>
-                <viewController id="Jft-UE-h4d" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="bookVCID" id="Jft-UE-h4d" customClass="BookViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xyv-LO-2qh"/>
                         <viewControllerLayoutGuide type="bottom" id="63a-vC-oSb"/>
@@ -3200,7 +3200,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Glc-JR-2SY">
                                                 <rect key="frame" x="0.0" y="80" width="400" height="300"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0Q-mc-Qb1">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0Q-mc-Qb1" customClass="JTCalendarMenuView">
                                                         <rect key="frame" x="0.0" y="0.0" width="400" height="50"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
@@ -3208,7 +3208,7 @@
                                                             <constraint firstAttribute="width" constant="400" id="ntI-HY-ZeJ"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Vf-DB-I2d">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Vf-DB-I2d" customClass="JTHorizontalCalendarView">
                                                         <rect key="frame" x="0.0" y="50" width="400" height="250"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
@@ -3302,6 +3302,10 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="400" height="900"/>
+                    <connections>
+                        <outlet property="calendarContentView" destination="9Vf-DB-I2d" id="PVy-Nq-0Mr"/>
+                        <outlet property="calendarMenuView" destination="K0Q-mc-Qb1" id="jUh-CR-qtH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gtt-bY-lnO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

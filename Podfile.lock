@@ -29,6 +29,7 @@ PODS:
   - GoogleMaps (1.10.5)
   - IQKeyboardManager (3.3.6)
   - JDStatusBarNotification (1.5.3)
+  - JTCalendar (2.1.5)
   - MZAppearance (1.1.6)
   - MZFormSheetPresentationController (2.2.1):
     - MZAppearance
@@ -48,6 +49,7 @@ DEPENDENCIES:
   - GoogleMaps
   - IQKeyboardManager
   - JDStatusBarNotification
+  - JTCalendar
   - MZFormSheetPresentationController (~> 2.1)
   - Reachability
   - REFrostedViewController
@@ -63,6 +65,7 @@ SPEC CHECKSUMS:
   GoogleMaps: da51c62c338c2d9c47cdad470a0d1e0e4b8544e4
   IQKeyboardManager: 037cf3aec1d0a045108859a47818714eb1bfc149
   JDStatusBarNotification: 29413865af11c862c17180610b0f46a21118b412
+  JTCalendar: 57a4420f12d10c93c3b28da96803e7043d1c9281
   MZAppearance: 0c06d3fa9cc55142f1da14bc8631fbe8fd6e19d5
   MZFormSheetPresentationController: 97b4ea7a52a8bd451ac93c1a1c6b5095e2326d1c
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
