@@ -27,7 +27,7 @@ NarengiCore *sharedInstance;
 -(ServerResponse *)sendRequestWithMethod:(NSString *)method andWithService:(NSString *)service andWithParametrs:(NSArray *)params andWithBody:(id)body andIsFullPath:(BOOL) fullPath{
 
 
-    
+   // [[NSURLCache sharedURLCache] removeAllCachedResponses];
     NSString *urlString = [NSString stringWithFormat:@"%@%@",BASEURL,service];    
     if (params != nil) {
         
