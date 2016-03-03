@@ -63,6 +63,7 @@
 -(void)viewWillAppear:(BOOL)animated{
 
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
 
 }
 

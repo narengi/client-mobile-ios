@@ -14,7 +14,7 @@
 #import "SelectBirthDayViewController.h"
 #import "NSDateFormatter+Persian.h"
 #import "PhoneValidateViewController.h"
-
+#import "SelectGenderViewController.h"
 
 @interface EditProfileViewController ()<DZNPhotoPickerControllerDelegate,UIActionSheetDelegate,
 UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate,UITextViewDelegate>
@@ -25,26 +25,28 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     NSDictionary *_photoPayload;
 }
 
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
 @property (weak, nonatomic) IBOutlet UITextField  *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField  *lastNameTextField;
 
-@property (weak, nonatomic) IBOutlet UIButton     *maleButton;
-@property (weak, nonatomic) IBOutlet UIButton     *womenButton;
 @property (weak, nonatomic) IBOutlet UIButton     *addAvatarButton;
 
 @property (weak, nonatomic) IBOutlet UIImageView  *avatarImg;
 
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (weak, nonatomic) IBOutlet UITextView *aboutTextView;
 
 
 
 @property (weak, nonatomic) IBOutlet UILabel              *birthdayLabel;
+@property (weak, nonatomic) IBOutlet CustomFaRegularLabel *genderLabel;
+
 
 @property (nonatomic,strong) NSDate   *selectedBirthDayDate;
-@property (nonatomic,strong) NSString *selectedBirthDayDateStr;
 
+@property (nonatomic,strong) NSString *selectedBirthDayDateStr;
 @property (nonatomic,strong) NSString *selectedGender;
 
 @property (nonatomic,strong) UserObject *userObject;
@@ -125,8 +127,23 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
         
         self.birthdayLabel.text  = [[dateFormat stringFromDate:date] stringByReplacingOccurrencesOfString:@" ه‍.ش." withString:@""];
     }
-
     
+    if (self.userObject.gender != nil) {
+        
+        if ([self.userObject.gender isEqualToString:@"male"]){
+            self.genderLabel.text  = @"مرد";
+            self.selectedGender = @"male";
+        }
+        
+        else{
+            self.genderLabel.text  = @"زن";
+            self.selectedGender = @"female";
+        }
+    }
+    
+    [self validateTextFields];
+    
+
 }
 
 
@@ -436,6 +453,61 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     }
 }
 
+
+
+#pragma mark - gender
+- (IBAction)genderButtonClicked:(UIButton *)sender {
+ 
+    
+    UIStoryboard *storybord =[UIStoryboard storyboardWithName:@"Alerts" bundle:nil];
+    SelectGenderViewController *vc = [storybord instantiateViewControllerWithIdentifier:@"genderPicker"];
+    
+    if (self.selectedGender != nil) {
+     
+        if ([self.selectedGender isEqualToString:@"male"])
+            vc.selectedGenderStr  = @"male";
+        
+        else
+            vc.selectedGenderStr  = @"female";
+    }
+    
+    
+    MZFormSheetPresentationViewController *formSheet = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:vc];
+    formSheet.presentationController.contentViewSize = CGSizeMake(300, 150);
+    
+    formSheet.presentationController.portraitTopInset = 10;
+    
+    formSheet.allowDismissByPanningPresentedView = YES;
+    formSheet.contentViewCornerRadius = 8.0;
+    formSheet.presentationController.shouldCenterVertically = YES;
+    
+    
+    formSheet.willPresentContentViewControllerHandler = ^(UIViewController *presentedFSViewController){
+    };
+    formSheet.didDismissContentViewControllerHandler = ^(UIViewController *presentedFSViewController){
+        
+        SelectGenderViewController *datePickerVC = (SelectGenderViewController *)presentedFSViewController;
+        
+        if (datePickerVC.selectedGenderStr.length > 0) {
+            
+            self.selectedGender = datePickerVC.selectedGenderStr;
+            self.didSelectedGender = YES;
+            
+            if ([self.selectedGender isEqualToString:@"male"])
+                self.genderLabel.text  = @"مرد";
+            
+            
+            else
+                self.genderLabel.text  = @"زن";
+        }
+        else{
+            self.didSelectedGender = NO;
+        }
+    };
+    
+    [self presentViewController:formSheet animated:YES completion:nil];
+
+}
 #pragma mark - birthday pick
 - (IBAction)selectBithdayButtonClicked:(UIButton *)sender {
     
@@ -524,7 +596,8 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
                 [SVProgressHUD showSuccessWithStatus:@"اطلاعات با موفقیت ذخیره شد"];
                 if (!self.userObject.phoneVerification.isVerified) {
                     
-                    [self sendUserToVerifyPhone];
+                    [self dismissViewControllerAnimated:YES completion:nil]; 
+                    //[self sendUserToVerifyPhone];
                 }
             }
             else{
@@ -586,30 +659,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark - gender
-- (IBAction)genderButtonClicked:(UIButton *)sender {
-    
-    if (sender.tag == 0) {
-        sender.selected = !sender.isSelected;
-        if (sender.isSelected) {
-            self.selectedGender = @"male";
-        }
-        else{
-            self.selectedGender = nil;
-        }
-    }
-    else{
-        
-        sender.selected = !sender.isSelected;
 
-        if (sender.isSelected) {
-            self.selectedGender = @"female";
-        }
-        else{
-            self.selectedGender = nil;
-        }
-    }
-}
 
 
 

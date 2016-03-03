@@ -216,5 +216,10 @@
     
     return dateFormatter;
 }
+- (IBAction)cancelButtonClicked:(UIButton *)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil]
+    ;
+}
 
 @end

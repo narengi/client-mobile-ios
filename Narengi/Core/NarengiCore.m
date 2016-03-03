@@ -398,7 +398,7 @@ NarengiCore *sharedInstance;
         NSMutableArray *muArr = [[NSMutableArray alloc] init];
         NSArray *subRangeArr = [facilities subarrayWithRange:NSMakeRange(0, capicity-1)];
         [muArr addObjectsFromArray:subRangeArr];
-        [muArr addObject:[NSString stringWithFormat:@"%ld +",facilities.count - capicity+ 1]];
+        [muArr addObject:[NSString stringWithFormat:@"%lu +",facilities.count - capicity+ 1]];
         
         return [muArr copy];
     }

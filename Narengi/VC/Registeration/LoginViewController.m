@@ -53,6 +53,14 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+
+
+}
+
 - (void)didReceiveMemoryWarning {
     
     [super didReceiveMemoryWarning];
@@ -155,7 +163,6 @@
             [SVProgressHUD dismiss];
 
             if (!response.hasErro) {
-                
                 
                 //Send Request For Get Status
                 

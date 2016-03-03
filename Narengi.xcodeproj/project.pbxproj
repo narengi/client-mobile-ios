@@ -38,6 +38,7 @@
 		723E3C621C883E9E0006DEF4 /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E3C611C883E9E0006DEF4 /* CustomTextField.m */; };
 		723E3C651C883FDC0006DEF4 /* CustomFaTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E3C641C883FDC0006DEF4 /* CustomFaTextField.m */; };
 		723E3C671C88409B0006DEF4 /* IRANSansMobile.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 723E3C661C88409B0006DEF4 /* IRANSansMobile.ttf */; };
+		723E3C6A1C885A310006DEF4 /* SelectGenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E3C691C885A310006DEF4 /* SelectGenderViewController.m */; };
 		72469B5B1C7CAA79005684F9 /* EnterValidationCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72469B5A1C7CAA79005684F9 /* EnterValidationCodeViewController.m */; };
 		725DE6421C5948E50001E5DC /* ProfileCommentsHeadeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 725DE6401C5948E50001E5DC /* ProfileCommentsHeadeView.xib */; };
 		726A3A321C47A2CF002C4D11 /* MoreFacilityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 726A3A301C47A2CF002C4D11 /* MoreFacilityCell.xib */; };
@@ -206,6 +207,8 @@
 		723E3C631C883FDC0006DEF4 /* CustomFaTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomFaTextField.h; path = "Custom Classes/CustomFaTextField.h"; sourceTree = "<group>"; };
 		723E3C641C883FDC0006DEF4 /* CustomFaTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomFaTextField.m; path = "Custom Classes/CustomFaTextField.m"; sourceTree = "<group>"; };
 		723E3C661C88409B0006DEF4 /* IRANSansMobile.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile.ttf; sourceTree = "<group>"; };
+		723E3C681C885A310006DEF4 /* SelectGenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectGenderViewController.h; path = VC/Profile/SelectGenderViewController.h; sourceTree = "<group>"; };
+		723E3C691C885A310006DEF4 /* SelectGenderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectGenderViewController.m; path = VC/Profile/SelectGenderViewController.m; sourceTree = "<group>"; };
 		72469B591C7CAA79005684F9 /* EnterValidationCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnterValidationCodeViewController.h; path = VC/Registeration/EnterValidationCodeViewController.h; sourceTree = "<group>"; };
 		72469B5A1C7CAA79005684F9 /* EnterValidationCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EnterValidationCodeViewController.m; path = VC/Registeration/EnterValidationCodeViewController.m; sourceTree = "<group>"; };
 		725DE6411C5948E50001E5DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProfileCommentsHeadeView.xib; sourceTree = "<group>"; };
@@ -499,6 +502,8 @@
 				7294429B1C6CC5DD003F3D92 /* EditProfileViewController.m */,
 				7226015E1C771B4C008A2C65 /* SelectBirthDayViewController.h */,
 				7226015F1C771B4C008A2C65 /* SelectBirthDayViewController.m */,
+				723E3C681C885A310006DEF4 /* SelectGenderViewController.h */,
+				723E3C691C885A310006DEF4 /* SelectGenderViewController.m */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -1041,6 +1046,7 @@
 				72B19A131BFF6B3F007EDD86 /* AttractionObject.m in Sources */,
 				72F2744F1C1978B20048BF05 /* CustomFaLightLabel.m in Sources */,
 				72D4E5FC1C3F20C000AC3D0D /* CustomScrollView.m in Sources */,
+				723E3C6A1C885A310006DEF4 /* SelectGenderViewController.m in Sources */,
 				729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */,
 				726A3A441C47EA6B002C4D11 /* CommentDetailTableViewCell.m in Sources */,
 				721E15331C0F51B0006E394B /* AttractionCollectionViewCell.m in Sources */,

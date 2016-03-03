@@ -19,6 +19,7 @@
 
 -(void)goToRegister;
 -(void)showErro:(NSString *)str;
+-(void)goToRegisterORBook;
 
 
 @end

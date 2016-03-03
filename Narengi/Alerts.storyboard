@@ -67,5 +67,53 @@
             </objects>
             <point key="canvasLocation" x="635" y="440"/>
         </scene>
+        <!--Select Gender View Controller-->
+        <scene sceneID="IRF-PQ-bDZ">
+            <objects>
+                <viewController storyboardIdentifier="genderPicker" id="Tnx-cb-stn" customClass="SelectGenderViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kfu-Nm-7d1"/>
+                        <viewControllerLayoutGuide type="bottom" id="eu9-Yf-4i2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p7X-Qh-Quh">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAQ-LU-B7w" customClass="IranButton">
+                                <rect key="frame" x="150" y="99" width="150" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="تایید"/>
+                                <connections>
+                                    <action selector="selectbuttonclicked:" destination="Tnx-cb-stn" eventType="touchUpInside" id="eyx-xg-vJl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xao-zW-7Ti" customClass="IranButton">
+                                <rect key="frame" x="0.0" y="99" width="150" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="انصراف"/>
+                                <connections>
+                                    <action selector="cancelButtonclicked:" destination="Tnx-cb-stn" eventType="touchUpInside" id="oHq-MC-4nI"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Se2-3B-Rc5">
+                                <rect key="frame" x="0.0" y="9" width="300" height="91"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Tnx-cb-stn" id="zEs-s6-7Xv"/>
+                                    <outlet property="delegate" destination="Tnx-cb-stn" id="9H4-gB-OfC"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="150"/>
+                    <connections>
+                        <outlet property="genderPicker" destination="Se2-3B-Rc5" id="WIG-5U-uX1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IBa-VN-Byf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="952" y="421"/>
+        </scene>
     </scenes>
 </document>

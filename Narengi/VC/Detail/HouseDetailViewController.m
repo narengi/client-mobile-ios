@@ -605,7 +605,7 @@
 #pragma mark - button
 - (IBAction)rentButtonClicked:(IranButton *)sender {
     
-    [self goToRegister];
+    [self goToRegisterORBook];
 }
 
 @end

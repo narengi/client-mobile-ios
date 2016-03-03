@@ -152,7 +152,7 @@
 
 }
 
--(void)goToRegister{
+-(void)goToRegisterORBook{
 
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"fuckingLoginedOrNOT"] != nil) {
         
@@ -169,9 +169,14 @@
         UINavigationController *logInNavVC = [storyboard instantiateViewControllerWithIdentifier:@"registrationNav"];
         [self presentViewController:logInNavVC animated:YES completion:nil];
     }
+}
+-(void)goToRegister{
     
     
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
+    UINavigationController *logInNavVC = [storyboard instantiateViewControllerWithIdentifier:@"registrationNav"];
+    [self presentViewController:logInNavVC animated:YES completion:nil];
 }
 
 
