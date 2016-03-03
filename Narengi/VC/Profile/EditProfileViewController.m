@@ -17,7 +17,7 @@
 
 
 @interface EditProfileViewController ()<DZNPhotoPickerControllerDelegate,UIActionSheetDelegate,
-UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate>
+UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate,UITextViewDelegate>
 
 {
     UIPopoverController *_popoverController;
@@ -27,8 +27,6 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 
 @property (weak, nonatomic) IBOutlet UITextField  *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField  *lastNameTextField;
-@property (weak, nonatomic) IBOutlet UITextField  *emailTextField;
-@property (weak, nonatomic) IBOutlet UITextField  *phoneTextField;
 
 @property (weak, nonatomic) IBOutlet UIButton     *maleButton;
 @property (weak, nonatomic) IBOutlet UIButton     *womenButton;
@@ -38,14 +36,10 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
-@property (weak, nonatomic) IBOutlet UIView *nameTextFieldContainerView;
-@property (weak, nonatomic) IBOutlet UIView *emailContainerView;
-@property (weak, nonatomic) IBOutlet UIView *phoneContainerView;
-@property (weak, nonatomic) IBOutlet UIView *genderContainerView;
-@property (weak, nonatomic) IBOutlet UIView *birthDayContainerView;
+@property (weak, nonatomic) IBOutlet UITextView *aboutTextView;
 
-@property (weak, nonatomic) IBOutlet CustomFaRegularLabel *emailValidationStateLabel;
-@property (weak, nonatomic) IBOutlet CustomFaRegularLabel *phoneValidationStateLabel;
+
+
 @property (weak, nonatomic) IBOutlet UILabel              *birthdayLabel;
 
 @property (nonatomic,strong) NSDate   *selectedBirthDayDate;
@@ -58,8 +52,6 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 
 @property ( nonatomic)  BOOL fisrtNameValid;
 @property ( nonatomic)  BOOL lastNameValid;
-@property ( nonatomic)  BOOL phoneValid;
-@property ( nonatomic)  BOOL emailValid;
 @property ( nonatomic)  BOOL didSelectedGender;
 
 
@@ -81,7 +73,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 
     
     
-    //[SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"Authorization"];
+    [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"Authorization"];
 
     
 }
@@ -97,17 +89,10 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 }
 
 -(void)setUpView{
-    
-    [self.nameTextFieldContainerView setBorderWithColor:RGB(235, 235, 235, 1) andWithWidth:1 withCornerRadius:2];
-    
-    [self.emailContainerView setBorderWithColor:RGB(90, 90, 90, 1) andWithWidth:1 withCornerRadius:2];
-    [self.phoneContainerView setBorderWithColor:RGB(90, 90, 90, 1) andWithWidth:1 withCornerRadius:2];
-    
-    [self.genderContainerView setBorderWithColor:RGB(235, 235, 235, 1) andWithWidth:1 withCornerRadius:2];
-    [self.birthDayContainerView setBorderWithColor:RGB(235, 235, 235, 1) andWithWidth:1 withCornerRadius:2];
-    
 
-    
+    self.aboutTextView.font = [UIFont fontWithName:@"IRANSansMobileFaNum" size:13];
+    self.aboutTextView.textAlignment = NSTextAlignmentRight;
+
     if (self.userObject.fisrtName.length > 0)
         self.nameTextField.text = self.userObject.fisrtName;
         
@@ -115,15 +100,6 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     if (self.userObject.lastName.length > 0)
         self.lastNameTextField.text = self.userObject.lastName;
     
-    if (self.userObject.phoneVerification.handle.length > 0)
-        self.phoneTextField.text = self.userObject.phoneVerification.handle;
-        
-    
-    if (self.userObject.email.length > 0)
-        self.emailTextField.text = self.userObject.email;
-    
-    
-    [self checkValidations];
     
     [self.avatarImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@user-profiles/picture",BASEURL]] placeholderImage:IMG(@"edit-profile-empty-avatar")];
     
@@ -153,54 +129,6 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     
 }
 
--(void)checkValidations{
-
-    
-    //Check email and phone validation
-    
-    if ([self.emailTextField.text isEqualToString:self.userObject.email]) {
-        
-        if (self.userObject.emailVerification == nil || !self.userObject.emailVerification.isVerified) {
-            
-            self.emailValidationStateLabel.text = @"تایید نشده";
-            self.emailValidationStateLabel.textColor = [UIColor redColor];
-        }
-        else{
-            
-            self.emailValidationStateLabel.text = @"تایید شده";
-            self.emailValidationStateLabel.textColor = RGB(57, 160, 84, 1);
-        }
-    }
-    else{
-        
-        self.emailValidationStateLabel.text = @"تایید نشده";
-        self.emailValidationStateLabel.textColor = [UIColor redColor];
-    
-    }
-
-    
-    if ([self.phoneTextField.text isEqualToString:self.userObject.phoneVerification.handle]) {
-        
-        if (self.userObject.phoneVerification == nil || !self.userObject.phoneVerification.isVerified) {
-            
-            self.phoneValidationStateLabel.text      = @"تایید نشده";
-            self.phoneValidationStateLabel.textColor = [UIColor redColor];
-        }
-        else{
-            
-            self.phoneValidationStateLabel.text      = @"تایید شده";
-            self.phoneValidationStateLabel.textColor = RGB(57, 160, 84, 1);
-        }
-    }
-    else{
-        
-        self.phoneValidationStateLabel.text = @"تایید نشده";
-        self.phoneValidationStateLabel.textColor = [UIColor redColor];
-        
-    }
-    
-    [self validateTextFields];
-}
 
 #pragma mark - textField
 - (IBAction)textFieldsChanged:(UITextField *)sender {
@@ -227,18 +155,6 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     
     else
         self.lastNameValid = YES;
-    
-    if ([[self.emailTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""] length] == 0)
-        self.emailValid = NO;
-    
-    else
-        self.emailValid = YES;
-    
-    if ([[self.phoneTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""] length] == 0)
-        self.phoneValid = NO;
-    
-    else
-        self.phoneValid = YES;
     
 }
 
@@ -329,6 +245,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     picker.initialSearchTerm = @"California";
     picker.enablePhotoDownload = YES;
     picker.allowAutoCompletedSearch = YES;
+    
     
     [picker setFinalizationBlock:^(DZNPhotoPickerController *picker, NSDictionary *info){
         [self updateImageWithPayload:info];
@@ -538,6 +455,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     
     formSheet.allowDismissByPanningPresentedView = YES;
     formSheet.contentViewCornerRadius = 8.0;
+    formSheet.presentationController.shouldCenterVertically = YES;
     
     
     formSheet.willPresentContentViewControllerHandler = ^(UIViewController *presentedFSViewController){
@@ -567,7 +485,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 
 - (IBAction)saveButtonClicked:(UIButton *)sender {
     
-    if (self.emailValid && self.fisrtNameValid && self.lastNameValid && self.phoneValid) {
+    if ( self.fisrtNameValid && self.lastNameValid) {
         [self sendUserData];
         
         if (self.didSelectImg) {
@@ -633,7 +551,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PhoneValidateViewController *destinationVC = [storyboard instantiateViewControllerWithIdentifier:@"phoneValidateVCID"];
-    destinationVC.phoneStr = self.phoneTextField.text;
+   // destinationVC.phoneStr = self.phoneTextField.text;
     [self.navigationController pushViewController:destinationVC animated:YES];
 }
 
@@ -641,13 +559,18 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 
     NSMutableDictionary* bodyDict =[[NSMutableDictionary alloc] init];
 
-    [bodyDict addEntriesFromDictionary: @{@"firstName":self.nameTextField.text,@"lastName":self.lastNameTextField.text,@"email": self.userObject.email}];
+    [bodyDict addEntriesFromDictionary: @{@"firstName":self.nameTextField.text,@"lastName":self.lastNameTextField.text}];
     
     if (self.selectedBirthDayDate != nil) {
         [bodyDict addEntriesFromDictionary:@{@"birthDate":self.selectedBirthDayDateStr}];
     }
     if (self.selectedGender != nil) {
         [bodyDict addEntriesFromDictionary:@{@"gender":self.selectedGender}];
+    }
+    
+    NSString *bioText = [self.aboutTextView.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    if (bioText.length  > 0) {
+        [bodyDict addEntriesFromDictionary:@{@"Bio":self.aboutTextView.text}];
     }
     
     NSData *bodyData = [NSJSONSerialization dataWithJSONObject:[bodyDict copy] options:0 error:nil];
@@ -687,6 +610,8 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
         }
     }
 }
+
+
 
 
 @end

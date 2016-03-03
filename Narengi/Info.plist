@@ -39,6 +39,7 @@
 		<string>IRANSansMobile(FaNum)_Light.ttf</string>
 		<string>IRANSansMobile(FaNum)_Medium.ttf</string>
 		<string>IRANSansMobile(FaNum)_UltraLight.ttf</string>
+		<string>IRANSansMobile.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

@@ -34,6 +34,10 @@
 		722922F81BFCEA3600C5575C /* ServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922F71BFCEA3600C5575C /* ServerResponse.m */; };
 		722922FE1BFCFA4500C5575C /* UIViewController+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922FD1BFCFA4500C5575C /* UIViewController+Additional.m */; };
 		723E3C5C1C8654350006DEF4 /* BookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E3C5B1C8654350006DEF4 /* BookViewController.m */; };
+		723E3C5F1C8836E80006DEF4 /* ProfileSubViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E3C5E1C8836E80006DEF4 /* ProfileSubViewContainer.m */; };
+		723E3C621C883E9E0006DEF4 /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E3C611C883E9E0006DEF4 /* CustomTextField.m */; };
+		723E3C651C883FDC0006DEF4 /* CustomFaTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E3C641C883FDC0006DEF4 /* CustomFaTextField.m */; };
+		723E3C671C88409B0006DEF4 /* IRANSansMobile.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 723E3C661C88409B0006DEF4 /* IRANSansMobile.ttf */; };
 		72469B5B1C7CAA79005684F9 /* EnterValidationCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72469B5A1C7CAA79005684F9 /* EnterValidationCodeViewController.m */; };
 		725DE6421C5948E50001E5DC /* ProfileCommentsHeadeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 725DE6401C5948E50001E5DC /* ProfileCommentsHeadeView.xib */; };
 		726A3A321C47A2CF002C4D11 /* MoreFacilityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 726A3A301C47A2CF002C4D11 /* MoreFacilityCell.xib */; };
@@ -195,6 +199,13 @@
 		722922FD1BFCFA4500C5575C /* UIViewController+Additional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Additional.m"; path = "Custom Classes/UIViewController+Additional.m"; sourceTree = "<group>"; };
 		723E3C5A1C8654350006DEF4 /* BookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookViewController.h; path = Narengi/VC/Bool/BookViewController.h; sourceTree = "<group>"; };
 		723E3C5B1C8654350006DEF4 /* BookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookViewController.m; path = Narengi/VC/Bool/BookViewController.m; sourceTree = "<group>"; };
+		723E3C5D1C8836E80006DEF4 /* ProfileSubViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileSubViewContainer.h; path = "Custom Classes/ProfileSubViewContainer.h"; sourceTree = "<group>"; };
+		723E3C5E1C8836E80006DEF4 /* ProfileSubViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileSubViewContainer.m; path = "Custom Classes/ProfileSubViewContainer.m"; sourceTree = "<group>"; };
+		723E3C601C883E9E0006DEF4 /* CustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomTextField.h; path = "Custom Classes/CustomTextField.h"; sourceTree = "<group>"; };
+		723E3C611C883E9E0006DEF4 /* CustomTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTextField.m; path = "Custom Classes/CustomTextField.m"; sourceTree = "<group>"; };
+		723E3C631C883FDC0006DEF4 /* CustomFaTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomFaTextField.h; path = "Custom Classes/CustomFaTextField.h"; sourceTree = "<group>"; };
+		723E3C641C883FDC0006DEF4 /* CustomFaTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomFaTextField.m; path = "Custom Classes/CustomFaTextField.m"; sourceTree = "<group>"; };
+		723E3C661C88409B0006DEF4 /* IRANSansMobile.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile.ttf; sourceTree = "<group>"; };
 		72469B591C7CAA79005684F9 /* EnterValidationCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnterValidationCodeViewController.h; path = VC/Registeration/EnterValidationCodeViewController.h; sourceTree = "<group>"; };
 		72469B5A1C7CAA79005684F9 /* EnterValidationCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EnterValidationCodeViewController.m; path = VC/Registeration/EnterValidationCodeViewController.m; sourceTree = "<group>"; };
 		725DE6411C5948E50001E5DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProfileCommentsHeadeView.xib; sourceTree = "<group>"; };
@@ -545,6 +556,7 @@
 				72F2743C1C1976E90048BF05 /* IRANSansMobile(FaNum)_Light.ttf */,
 				72F2743D1C1976E90048BF05 /* IRANSansMobile(FaNum)_Medium.ttf */,
 				72F2743E1C1976E90048BF05 /* IRANSansMobile(FaNum)_UltraLight.ttf */,
+				723E3C661C88409B0006DEF4 /* IRANSansMobile.ttf */,
 				7214FB461BF10F5B00824043 /* Farsi.strings */,
 				7214FB481BF10F6200824043 /* English.strings */,
 				7214FB4A1BF1102E00824043 /* PrefixHeader.pch */,
@@ -605,6 +617,12 @@
 				72EA4D721C50F6750053456F /* CustomMarginLabel.m */,
 				72F9FBC21C639B9E00DBB347 /* UIView+Style.h */,
 				72F9FBC31C639B9E00DBB347 /* UIView+Style.m */,
+				723E3C5D1C8836E80006DEF4 /* ProfileSubViewContainer.h */,
+				723E3C5E1C8836E80006DEF4 /* ProfileSubViewContainer.m */,
+				723E3C601C883E9E0006DEF4 /* CustomTextField.h */,
+				723E3C611C883E9E0006DEF4 /* CustomTextField.m */,
+				723E3C631C883FDC0006DEF4 /* CustomFaTextField.h */,
+				723E3C641C883FDC0006DEF4 /* CustomFaTextField.m */,
 				72C24F241C6D6D3A00026821 /* DZNPhoto */,
 			);
 			name = "Custom Classes";
@@ -891,6 +909,7 @@
 				72F274411C1976E90048BF05 /* IRANSansMobile(FaNum)_Light.ttf in Resources */,
 				72D4E5C71C3E62FA00AC3D0D /* FacilityCell.xib in Resources */,
 				72D4E5C11C3E62B800AC3D0D /* PropertyView.xib in Resources */,
+				723E3C671C88409B0006DEF4 /* IRANSansMobile.ttf in Resources */,
 				726A3A321C47A2CF002C4D11 /* MoreFacilityCell.xib in Resources */,
 				727F89A91C35491000519CDD /* CityDetailAttractionHeader.xib in Resources */,
 				720B92AA1C253B8E00D1468A /* SearchSection.xib in Resources */,
@@ -999,6 +1018,7 @@
 				72D4E5D61C3EA94E00AC3D0D /* FacilityObject.m in Sources */,
 				729838B51BFCB098005BC5C3 /* AroundPlaceObject.m in Sources */,
 				72C24F891C6D790600026821 /* DZNPhotoMetadata.m in Sources */,
+				723E3C621C883E9E0006DEF4 /* CustomTextField.m in Sources */,
 				729838AF1BFCB018005BC5C3 /* NarengiCore.m in Sources */,
 				727F899F1C35169B00519CDD /* CityDetailAttractionListViewController.m in Sources */,
 				72F274551C199FC30048BF05 /* SearchDetailHomeCollectionViewCell.m in Sources */,
@@ -1013,6 +1033,7 @@
 				72D4E5B81C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.m in Sources */,
 				7285DE551BF494CD00F92608 /* NSObject+NullCheck.m in Sources */,
 				72F9FBBE1C63991B00DBB347 /* LoginViewController.m in Sources */,
+				723E3C5F1C8836E80006DEF4 /* ProfileSubViewContainer.m in Sources */,
 				72F9FBC41C639B9E00DBB347 /* UIView+Style.m in Sources */,
 				72D4E5D01C3E683C00AC3D0D /* CommentObject.m in Sources */,
 				72F274461C19782A0048BF05 /* CustomFaMediumFontLabel.m in Sources */,
@@ -1034,6 +1055,7 @@
 				72A381F01C79FAD80065E1A9 /* PhoneValidateViewController.m in Sources */,
 				72D7FE651C15C59D00BD39A5 /* CustomLabel.m in Sources */,
 				722922F81BFCEA3600C5575C /* ServerResponse.m in Sources */,
+				723E3C651C883FDC0006DEF4 /* CustomFaTextField.m in Sources */,
 				72EA4D761C51051C0053456F /* ProfileViewController.m in Sources */,
 				7294429C1C6CC5DD003F3D92 /* EditProfileViewController.m in Sources */,
 				729442991C6B6F88003F3D92 /* AskForCompleteProfileViewController.m in Sources */,

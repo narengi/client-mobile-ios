@@ -28,6 +28,8 @@
     [self initNavigationBarTheme];
     
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"fuckingLoginedOrNOT"];
+    
+
 
     return YES;
 }

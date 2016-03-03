@@ -24,6 +24,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.edgesForExtendedLayout               = UIRectEdgeNone;
+    self.extendedLayoutIncludesOpaqueBars     = NO;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
 
     _calendarManager = [JTCalendarManager new];
     _calendarManager.delegate = self;
@@ -48,6 +53,10 @@
 - (void)calendar:(JTCalendarManager *)calendar prepareDayView:(JTCalendarDayView *)dayView
 {
     // Today
+    
+    
+    [dayView setTransform:CGAffineTransformMakeScale(-1, 1)];
+
     if([_calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
         dayView.circleView.hidden = NO;
         dayView.circleView.backgroundColor = [UIColor blueColor];

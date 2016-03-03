@@ -20,7 +20,7 @@
     
     [super viewDidLoad];
 
-    [self.datePicker setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"IR"]];
+    [self.datePicker setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"fa_IR"]];
     
     
     NSCalendar *persCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierPersian];

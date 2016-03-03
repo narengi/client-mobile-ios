@@ -61,6 +61,7 @@
     }
         
     [(UILabel *)menuItemView setText:text];
+    [(UILabel *)menuItemView setFont:[UIFont fontWithName:@"IRANSansMobileFaNum" size:15]];
 }
 
 #pragma mark - Content view

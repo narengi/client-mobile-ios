@@ -40,6 +40,7 @@ PODS:
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
   - SVProgressHUD (1.1.3)
+  - SZTextView (1.2.2)
   - THLabel (1.4.7)
 
 DEPENDENCIES:
@@ -56,6 +57,7 @@ DEPENDENCIES:
   - RMMapper
   - SDWebImage
   - SVProgressHUD
+  - SZTextView
   - THLabel (~> 1.4)
 
 SPEC CHECKSUMS:
@@ -73,6 +75,7 @@ SPEC CHECKSUMS:
   RMMapper: 21122d753c736d975f6c61e674afce8db73579af
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
+  SZTextView: 3a81174dce0710a9ab069bc73a813e6df53b9c82
   THLabel: 1a23e71d7738abfeacaf22ab409b981209b105ae
 
 COCOAPODS: 0.39.0

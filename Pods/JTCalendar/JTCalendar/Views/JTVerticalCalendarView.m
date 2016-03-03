@@ -83,6 +83,8 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
         _centerView.frame = CGRectMake(0, _centerView.frame.origin.y, size.width, size.height);
         _rightView.frame = CGRectMake(0, _rightView.frame.origin.y, size.width, size.height);
         
+        
+        
         self.contentSize = CGSizeMake(size.width, self.contentSize.height);
     }
 }
