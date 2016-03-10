@@ -127,6 +127,10 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
             break;
     }
     
+    [_rightView setTransform:CGAffineTransformMakeScale(-1, 1)];
+    [_centerView setTransform:CGAffineTransformMakeScale(-1, 1)];
+    [_leftView setTransform:CGAffineTransformMakeScale(-1, 1)];
+    
     [_manager.scrollManager updateMenuContentOffset:(self.contentOffset.y / self.contentSize.height) pageMode:_pageMode];
 }
 
@@ -235,6 +239,10 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
     [_rightView reload];
     [_centerView reload];
     
+    [_rightView setTransform:CGAffineTransformMakeScale(-1, 1)];
+    [_centerView setTransform:CGAffineTransformMakeScale(-1, 1)];
+    [_leftView setTransform:CGAffineTransformMakeScale(-1, 1)];
+    
     if(_manager.delegate && [_manager.delegate respondsToSelector:@selector(calendarDidLoadPreviousPage:)]){
         [_manager.delegate calendarDidLoadPreviousPage:_manager];
     }
@@ -315,6 +323,10 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
     // Update subviews
     [_leftView reload];
     [_centerView reload];
+    
+    [_rightView setTransform:CGAffineTransformMakeScale(-1, 1)];
+    [_centerView setTransform:CGAffineTransformMakeScale(-1, 1)];
+    [_leftView setTransform:CGAffineTransformMakeScale(-1, 1)];
     
     if(_manager.delegate && [_manager.delegate respondsToSelector:@selector(calendarDidLoadNextPage:)]){
         [_manager.delegate calendarDidLoadNextPage:_manager];

@@ -27,7 +27,7 @@
     [GMSServices provideAPIKey:@"AIzaSyA4nLUSU6-DrxN51XV06Vhmojw6SosMFoI"];
     [self initNavigationBarTheme];
     
-    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"fuckingLoginedOrNOT"];
+   // [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"fuckingLoginedOrNOT"];
     
 
 

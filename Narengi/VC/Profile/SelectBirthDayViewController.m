@@ -53,9 +53,9 @@
     
    self.selectedDateStr  = [[dateFormat stringFromDate:self.datePicker.date] stringByReplacingOccurrencesOfString:@" ه‍.ش." withString:@""];
     
- //   NSDate *startDate = self.datePicker.date;
+  //   NSDate *startDate    = self.datePicker.date;
+  //  self.selectedDateStr  = [dateFormat stringFromDate:startDate];
     
-  //  self.selectedDateStr    = [dateFormat stringFromDate:startDate];
     self.previousDate = self.datePicker.date;
     
     self.didSelectDate = YES;

@@ -19,7 +19,8 @@
 
 -(void)goToRegister;
 -(void)showErro:(NSString *)str;
--(void)goToRegisterORBook;
+-(void)goToRegisterORBookWithObject:(HouseObject *)houseObj;
+-(void)registerCellWithName:(NSString *)name andWithIdentifier :(NSString *)identifier andTableView:(UITableView *)tableview;
 
 
 @end

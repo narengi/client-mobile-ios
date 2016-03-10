@@ -13,6 +13,7 @@
 #import "HouseDetailViewController.h"
 #import "ProfileViewController.h"
 #import "LoginViewController.h"
+#import "BookViewController.h"
 
 @implementation UIViewController (Additional)
 
@@ -152,14 +153,18 @@
 
 }
 
--(void)goToRegisterORBook{
+-(void)goToRegisterORBookWithObject:(HouseObject *)houseObj{
 
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"fuckingLoginedOrNOT"] != nil) {
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         
         UINavigationController *logInNavVC = [storyboard instantiateViewControllerWithIdentifier:@"bookNavigation"];
-        [self presentViewController:logInNavVC animated:YES completion:nil];
+        [self presentViewController:logInNavVC animated:YES completion:^{
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"houseObjectForBokking" object:houseObj];
+        }];
+        
         
     }
     else{
@@ -177,6 +182,13 @@
     
     UINavigationController *logInNavVC = [storyboard instantiateViewControllerWithIdentifier:@"registrationNav"];
     [self presentViewController:logInNavVC animated:YES completion:nil];
+}
+
+-(void)registerCellWithName:(NSString *)name andWithIdentifier :(NSString *)identifier andTableView:(UITableView *)tableview{
+
+    [tableview registerNib:[UINib nibWithNibName:name bundle:nil]  forCellReuseIdentifier:identifier];
+
+
 }
 
 

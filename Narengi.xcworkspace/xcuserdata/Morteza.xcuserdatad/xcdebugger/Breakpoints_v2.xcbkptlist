@@ -64,22 +64,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Narengi/VC/Detail/HouseDetailViewController.m"
-            timestampString = "475678799.168312"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
-            landmarkName = "-setDataForView"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -116,11 +100,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Narengi/Core/NarengiCore.m"
-            timestampString = "477932503.314881"
+            timestampString = "479300335.126339"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "455"
-            endingLineNumber = "455"
+            startingLineNumber = "474"
+            endingLineNumber = "474"
             landmarkName = "-parsUserObject:"
             landmarkType = "5">
             <Locations>
@@ -164,11 +148,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Narengi/Core/NarengiCore.m"
-            timestampString = "477933128.838746"
+            timestampString = "479300335.126339"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "477"
-            endingLineNumber = "477"
+            startingLineNumber = "496"
+            endingLineNumber = "496"
             landmarkName = "-parsVerificationWithDict:"
             landmarkType = "5">
          </BreakpointContent>
@@ -180,11 +164,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Narengi/Core/NarengiCore.m"
-            timestampString = "477933159.981555"
+            timestampString = "479300335.126339"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "461"
-            endingLineNumber = "461"
+            startingLineNumber = "480"
+            endingLineNumber = "480"
             landmarkName = "-parsUserObject:"
             landmarkType = "5">
          </BreakpointContent>

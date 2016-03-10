@@ -33,7 +33,17 @@
 		722922F51BFCB4F800C5575C /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922F41BFCB4F800C5575C /* UserObject.m */; };
 		722922F81BFCEA3600C5575C /* ServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922F71BFCEA3600C5575C /* ServerResponse.m */; };
 		722922FE1BFCFA4500C5575C /* UIViewController+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922FD1BFCFA4500C5575C /* UIViewController+Additional.m */; };
-		723E3C5C1C8654350006DEF4 /* BookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E3C5B1C8654350006DEF4 /* BookViewController.m */; };
+		722A0DBC1C917147005C6DDB /* BookFacilityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722A0DBB1C917147005C6DDB /* BookFacilityCell.xib */; };
+		722A0DBF1C917160005C6DDB /* BookFacilityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 722A0DBE1C917160005C6DDB /* BookFacilityTableViewCell.m */; };
+		722A0DC11C9171C1005C6DDB /* BillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722A0DC01C9171C1005C6DDB /* BillCell.xib */; };
+		722A0DC41C9171EA005C6DDB /* BillTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 722A0DC31C9171EA005C6DDB /* BillTableViewCell.m */; };
+		722A0DC71C917214005C6DDB /* BookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 722A0DC61C917214005C6DDB /* BookViewController.m */; };
+		722A0DC91C917E0D005C6DDB /* BookFacilityHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722A0DC81C917E0D005C6DDB /* BookFacilityHeader.xib */; };
+		722A0DCC1C917E32005C6DDB /* BookFacilityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 722A0DCB1C917E32005C6DDB /* BookFacilityHeaderView.m */; };
+		722A0DCE1C917E77005C6DDB /* BillHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722A0DCD1C917E77005C6DDB /* BillHeader.xib */; };
+		722A0DD11C917E8E005C6DDB /* BillHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 722A0DD01C917E8E005C6DDB /* BillHeaderView.m */; };
+		722A0DD41C9186DB005C6DDB /* ExtraServiceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 722A0DD31C9186DB005C6DDB /* ExtraServiceObject.m */; };
+		722A0DD71C918CC7005C6DDB /* PriceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 722A0DD61C918CC7005C6DDB /* PriceObject.m */; };
 		723E3C5F1C8836E80006DEF4 /* ProfileSubViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E3C5E1C8836E80006DEF4 /* ProfileSubViewContainer.m */; };
 		723E3C621C883E9E0006DEF4 /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E3C611C883E9E0006DEF4 /* CustomTextField.m */; };
 		723E3C651C883FDC0006DEF4 /* CustomFaTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E3C641C883FDC0006DEF4 /* CustomFaTextField.m */; };
@@ -198,8 +208,24 @@
 		722922F71BFCEA3600C5575C /* ServerResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerResponse.m; path = Core/ServerResponse.m; sourceTree = "<group>"; };
 		722922FC1BFCFA4500C5575C /* UIViewController+Additional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Additional.h"; path = "Custom Classes/UIViewController+Additional.h"; sourceTree = "<group>"; };
 		722922FD1BFCFA4500C5575C /* UIViewController+Additional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Additional.m"; path = "Custom Classes/UIViewController+Additional.m"; sourceTree = "<group>"; };
-		723E3C5A1C8654350006DEF4 /* BookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookViewController.h; path = Narengi/VC/Bool/BookViewController.h; sourceTree = "<group>"; };
-		723E3C5B1C8654350006DEF4 /* BookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookViewController.m; path = Narengi/VC/Bool/BookViewController.m; sourceTree = "<group>"; };
+		722A0DBB1C917147005C6DDB /* BookFacilityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookFacilityCell.xib; path = Narengi/VC/Book/BookFacilityCell.xib; sourceTree = "<group>"; };
+		722A0DBD1C917160005C6DDB /* BookFacilityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookFacilityTableViewCell.h; path = Narengi/VC/Book/BookFacilityTableViewCell.h; sourceTree = "<group>"; };
+		722A0DBE1C917160005C6DDB /* BookFacilityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookFacilityTableViewCell.m; path = Narengi/VC/Book/BookFacilityTableViewCell.m; sourceTree = "<group>"; };
+		722A0DC01C9171C1005C6DDB /* BillCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BillCell.xib; path = Narengi/VC/Book/BillCell.xib; sourceTree = "<group>"; };
+		722A0DC21C9171EA005C6DDB /* BillTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BillTableViewCell.h; path = Narengi/VC/Book/BillTableViewCell.h; sourceTree = "<group>"; };
+		722A0DC31C9171EA005C6DDB /* BillTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BillTableViewCell.m; path = Narengi/VC/Book/BillTableViewCell.m; sourceTree = "<group>"; };
+		722A0DC51C917214005C6DDB /* BookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookViewController.h; path = Narengi/VC/Book/BookViewController.h; sourceTree = "<group>"; };
+		722A0DC61C917214005C6DDB /* BookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookViewController.m; path = Narengi/VC/Book/BookViewController.m; sourceTree = "<group>"; };
+		722A0DC81C917E0D005C6DDB /* BookFacilityHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookFacilityHeader.xib; path = Narengi/VC/Book/BookFacilityHeader.xib; sourceTree = "<group>"; };
+		722A0DCA1C917E31005C6DDB /* BookFacilityHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookFacilityHeaderView.h; path = Narengi/VC/Book/BookFacilityHeaderView.h; sourceTree = "<group>"; };
+		722A0DCB1C917E32005C6DDB /* BookFacilityHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookFacilityHeaderView.m; path = Narengi/VC/Book/BookFacilityHeaderView.m; sourceTree = "<group>"; };
+		722A0DCD1C917E77005C6DDB /* BillHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BillHeader.xib; path = Narengi/VC/Book/BillHeader.xib; sourceTree = "<group>"; };
+		722A0DCF1C917E8E005C6DDB /* BillHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BillHeaderView.h; path = Narengi/VC/Book/BillHeaderView.h; sourceTree = "<group>"; };
+		722A0DD01C917E8E005C6DDB /* BillHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BillHeaderView.m; path = Narengi/VC/Book/BillHeaderView.m; sourceTree = "<group>"; };
+		722A0DD21C9186DB005C6DDB /* ExtraServiceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExtraServiceObject.h; path = Core/ExtraServiceObject.h; sourceTree = "<group>"; };
+		722A0DD31C9186DB005C6DDB /* ExtraServiceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExtraServiceObject.m; path = Core/ExtraServiceObject.m; sourceTree = "<group>"; };
+		722A0DD51C918CC7005C6DDB /* PriceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PriceObject.h; path = Core/PriceObject.h; sourceTree = "<group>"; };
+		722A0DD61C918CC7005C6DDB /* PriceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PriceObject.m; path = Core/PriceObject.m; sourceTree = "<group>"; };
 		723E3C5D1C8836E80006DEF4 /* ProfileSubViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileSubViewContainer.h; path = "Custom Classes/ProfileSubViewContainer.h"; sourceTree = "<group>"; };
 		723E3C5E1C8836E80006DEF4 /* ProfileSubViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileSubViewContainer.m; path = "Custom Classes/ProfileSubViewContainer.m"; sourceTree = "<group>"; };
 		723E3C601C883E9E0006DEF4 /* CustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomTextField.h; path = "Custom Classes/CustomTextField.h"; sourceTree = "<group>"; };
@@ -485,8 +511,20 @@
 		723E3C591C8654000006DEF4 /* Book */ = {
 			isa = PBXGroup;
 			children = (
-				723E3C5A1C8654350006DEF4 /* BookViewController.h */,
-				723E3C5B1C8654350006DEF4 /* BookViewController.m */,
+				722A0DC51C917214005C6DDB /* BookViewController.h */,
+				722A0DC61C917214005C6DDB /* BookViewController.m */,
+				722A0DBB1C917147005C6DDB /* BookFacilityCell.xib */,
+				722A0DBD1C917160005C6DDB /* BookFacilityTableViewCell.h */,
+				722A0DBE1C917160005C6DDB /* BookFacilityTableViewCell.m */,
+				722A0DC81C917E0D005C6DDB /* BookFacilityHeader.xib */,
+				722A0DCA1C917E31005C6DDB /* BookFacilityHeaderView.h */,
+				722A0DCB1C917E32005C6DDB /* BookFacilityHeaderView.m */,
+				722A0DC01C9171C1005C6DDB /* BillCell.xib */,
+				722A0DC21C9171EA005C6DDB /* BillTableViewCell.h */,
+				722A0DC31C9171EA005C6DDB /* BillTableViewCell.m */,
+				722A0DCD1C917E77005C6DDB /* BillHeader.xib */,
+				722A0DCF1C917E8E005C6DDB /* BillHeaderView.h */,
+				722A0DD01C917E8E005C6DDB /* BillHeaderView.m */,
 			);
 			name = Book;
 			path = ..;
@@ -685,6 +723,10 @@
 				72D4E5D51C3EA94E00AC3D0D /* FacilityObject.m */,
 				72C24F931C6E4C2A00026821 /* VerificationObject.h */,
 				72C24F941C6E4C2A00026821 /* VerificationObject.m */,
+				722A0DD21C9186DB005C6DDB /* ExtraServiceObject.h */,
+				722A0DD31C9186DB005C6DDB /* ExtraServiceObject.m */,
+				722A0DD51C918CC7005C6DDB /* PriceObject.h */,
+				722A0DD61C918CC7005C6DDB /* PriceObject.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -897,6 +939,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				722A0DC11C9171C1005C6DDB /* BillCell.xib in Resources */,
 				72D4E5CD1C3E635E00AC3D0D /* OwnerDesCell.xib in Resources */,
 				726DF2011BE79937004796EC /* LaunchScreen.storyboard in Resources */,
 				7226015D1C771A9D008A2C65 /* Alerts.storyboard in Resources */,
@@ -915,16 +958,19 @@
 				72D4E5C71C3E62FA00AC3D0D /* FacilityCell.xib in Resources */,
 				72D4E5C11C3E62B800AC3D0D /* PropertyView.xib in Resources */,
 				723E3C671C88409B0006DEF4 /* IRANSansMobile.ttf in Resources */,
+				722A0DBC1C917147005C6DDB /* BookFacilityCell.xib in Resources */,
 				726A3A321C47A2CF002C4D11 /* MoreFacilityCell.xib in Resources */,
 				727F89A91C35491000519CDD /* CityDetailAttractionHeader.xib in Resources */,
 				720B92AA1C253B8E00D1468A /* SearchSection.xib in Resources */,
 				72F274391C19712E0048BF05 /* SearchDetaillAttractionCell.xib in Resources */,
+				722A0DC91C917E0D005C6DDB /* BookFacilityHeader.xib in Resources */,
 				72C24F921C6D791B00026821 /* DZNPhotoPickerController.strings in Resources */,
 				721E15231C0EE212006E394B /* CityCell.xib in Resources */,
 				72F274401C1976E90048BF05 /* IRANSansMobile(FaNum)_Bold.ttf in Resources */,
 				721E15261C0EE273006E394B /* AttractionCell.xib in Resources */,
 				721E15281C0EE282006E394B /* HouseCell.xib in Resources */,
 				7214FB471BF10F5B00824043 /* Farsi.strings in Resources */,
+				722A0DCE1C917E77005C6DDB /* BillHeader.xib in Resources */,
 				72F274421C1976E90048BF05 /* IRANSansMobile(FaNum)_Medium.ttf in Resources */,
 				726DF1FC1BE79937004796EC /* Main.storyboard in Resources */,
 			);
@@ -999,11 +1045,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				722A0DC41C9171EA005C6DDB /* BillTableViewCell.m in Sources */,
 				726A3A381C47C2F5002C4D11 /* IranButton.m in Sources */,
 				72F274521C199F970048BF05 /* SearchDetailCityCollectionViewCell.m in Sources */,
 				72F274301C196FA30048BF05 /* CitiesViewController.m in Sources */,
 				72EA4D731C50F6750053456F /* CustomMarginLabel.m in Sources */,
 				720B92A41C253B3100D1468A /* SearchSectionView.m in Sources */,
+				722A0DD11C917E8E005C6DDB /* BillHeaderView.m in Sources */,
 				72DFF0E61C106C2F00884E04 /* SearchTableViewCell.m in Sources */,
 				720B92A11C22A9AB00D1468A /* HWViewPager.m in Sources */,
 				726A3A411C47EA51002C4D11 /* CommentsViewController.m in Sources */,
@@ -1014,6 +1062,7 @@
 				72C24F8A1C6D790600026821 /* DZNPhotoServiceClient.m in Sources */,
 				72D4E5BB1C3E625A00AC3D0D /* CommentTableViewCell.m in Sources */,
 				72C24F951C6E4C2A00026821 /* VerificationObject.m in Sources */,
+				722A0DCC1C917E32005C6DDB /* BookFacilityHeaderView.m in Sources */,
 				72C24F8C1C6D790600026821 /* DZNPhotoServiceFactory.m in Sources */,
 				727F89AC1C354E1D00519CDD /* CityDetailHouseCollectionReusableView.m in Sources */,
 				729838B21BFCB04D005BC5C3 /* HouseObject.m in Sources */,
@@ -1035,15 +1084,18 @@
 				72F2742E1C196DE30048BF05 /* SearchDetailViewController.m in Sources */,
 				72D4E5BE1C3E627B00AC3D0D /* OwnerTableViewCell.m in Sources */,
 				72D4E5D31C3E6C1B00AC3D0D /* CommentSectionHeaderView.m in Sources */,
+				722A0DC71C917214005C6DDB /* BookViewController.m in Sources */,
 				72D4E5B81C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.m in Sources */,
 				7285DE551BF494CD00F92608 /* NSObject+NullCheck.m in Sources */,
 				72F9FBBE1C63991B00DBB347 /* LoginViewController.m in Sources */,
 				723E3C5F1C8836E80006DEF4 /* ProfileSubViewContainer.m in Sources */,
 				72F9FBC41C639B9E00DBB347 /* UIView+Style.m in Sources */,
+				722A0DD41C9186DB005C6DDB /* ExtraServiceObject.m in Sources */,
 				72D4E5D01C3E683C00AC3D0D /* CommentObject.m in Sources */,
 				72F274461C19782A0048BF05 /* CustomFaMediumFontLabel.m in Sources */,
 				722601601C771B4C008A2C65 /* SelectBirthDayViewController.m in Sources */,
 				72B19A131BFF6B3F007EDD86 /* AttractionObject.m in Sources */,
+				722A0DD71C918CC7005C6DDB /* PriceObject.m in Sources */,
 				72F2744F1C1978B20048BF05 /* CustomFaLightLabel.m in Sources */,
 				72D4E5FC1C3F20C000AC3D0D /* CustomScrollView.m in Sources */,
 				723E3C6A1C885A310006DEF4 /* SelectGenderViewController.m in Sources */,
@@ -1066,7 +1118,6 @@
 				7294429C1C6CC5DD003F3D92 /* EditProfileViewController.m in Sources */,
 				729442991C6B6F88003F3D92 /* AskForCompleteProfileViewController.m in Sources */,
 				72C24F751C6D78EF00026821 /* DZNPhotoDisplayViewController.m in Sources */,
-				723E3C5C1C8654350006DEF4 /* BookViewController.m in Sources */,
 				7214FB5D1BF1C98A00824043 /* UIViewController+Utilities.m in Sources */,
 				726A3A351C47A382002C4D11 /* MoreFacilityCollectionViewCell.m in Sources */,
 				72DFF0E31C1046C400884E04 /* SearchViewController.m in Sources */,
@@ -1077,6 +1128,7 @@
 				727F89A31C3543FA00519CDD /* CityDetailButton.m in Sources */,
 				72004BE81C2A91AB00F9F6FB /* HouseDetailViewController.m in Sources */,
 				72C24F7C1C6D78F900026821 /* DZNPhotoEditorViewController.m in Sources */,
+				722A0DBF1C917160005C6DDB /* BookFacilityTableViewCell.m in Sources */,
 				721E152B1C0EEAF6006E394B /* CityCollectionViewCell.m in Sources */,
 				72DFF0E01C10461B00884E04 /* ModalAnimator.m in Sources */,
 				7214FB561BF1C7CF00824043 /* MenuViewController.m in Sources */,

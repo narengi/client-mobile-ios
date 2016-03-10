@@ -13,8 +13,11 @@
 @interface BookViewController : UIViewController<JTCalendarDelegate>
 
 @property (weak, nonatomic) IBOutlet JTCalendarMenuView *calendarMenuView;
-@property (weak, nonatomic) IBOutlet JTHorizontalCalendarView *calendarContentView;
+@property (weak, nonatomic) IBOutlet JTVerticalCalendarView *calendarContentView;
 
 @property (strong, nonatomic) JTCalendarManager *calendarManager;
+@property (nonatomic,strong) HouseObject *houseObj;
+
+@property (nonatomic) NSUInteger totalFee;
 
 @end

@@ -47,6 +47,9 @@
 #import "FacilityObject.h"
 #import "UserObject.h"
 #import "VerificationObject.h"
+#import "PriceObject.h"
+#import "ExtraServiceObject.h"
+
 
 //General Usefull Classes
 #import "UIImageView+WebCache.h"
@@ -58,6 +61,7 @@
 #import "UIView+Style.h"
 #import "SVProgressHUD.h"
 #import "NSUserDefaults+RMSaveCustomObject.h"
+#import "NSDateFormatter+Persian.h"
 
 
 //UI Custom classes
