@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *img;
 @property (weak, nonatomic) IBOutlet CustomFaRegularLabel *titleLabel;
 @property (weak, nonatomic) IBOutlet CustomFaRegularLabel *priceLabel;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *addButton;
+@property (weak, nonatomic) IBOutlet UIImageView *stateImg;
+@property (weak, nonatomic) IBOutlet UILabel *lineLabel;
 
 @end

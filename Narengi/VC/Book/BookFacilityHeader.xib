@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="خدمات اضافی:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="655-Ip-z9W" customClass="CustomFaRegularLabel">
-                    <rect key="frame" x="145" y="9" width="147" height="21"/>
+                    <rect key="frame" x="135" y="9" width="147" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="147" id="KBK-F7-2oa"/>
                         <constraint firstAttribute="height" constant="21" id="o4w-FA-cEP"/>
@@ -25,7 +25,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="655-Ip-z9W" firstAttribute="centerY" secondItem="ero-aX-ER9" secondAttribute="centerY" id="3ll-Pe-E28"/>
-                <constraint firstAttribute="trailing" secondItem="655-Ip-z9W" secondAttribute="trailing" constant="8" id="Av2-be-FSZ"/>
+                <constraint firstAttribute="trailing" secondItem="655-Ip-z9W" secondAttribute="trailing" constant="18" id="Av2-be-FSZ"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

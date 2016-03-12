@@ -237,7 +237,6 @@ NarengiCore *sharedInstance;
             houseObj.summary        = [dict objectForKey:@"Summary"];
             houseObj.featureSummray = [dict objectForKey:@"FeatureSummray"];
             houseObj.url            = [dict objectForKey:@"URL"];
-            houseObj.price          = [[[dict objectForKey:@"Price"] objectForKey:@"price"] integerValue];
             
             houseObj.host = [self parsHost:[dict objectForKey:@"Host"] isDetail:NO];
 
@@ -252,10 +251,12 @@ NarengiCore *sharedInstance;
                 houseObj.exteraServices  = [self parsExtraServices:[dict objectForKey:@"ExtraServices"]];
                 
                 houseObj.type         = [dict objectForKey:@"type"];
-                houseObj.bedroomCount = [[[dict objectForKey:@"bedroomCount"] checkNull] stringValue];
-                houseObj.guestCount   = [[[dict objectForKey:@"guestCount"] checkNull] stringValue];
-                houseObj.bedCount     = [[[dict objectForKey:@"bedCount"] checkNull ] stringValue];
+                houseObj.bedroomCount = [[[[dict objectForKey:@"Spec"] objectForKey:@"bedroomCount"] checkNull] stringValue];
+                houseObj.guestCount   = [[[[dict objectForKey:@"Spec"] objectForKey:@"guestCount"] checkNull] stringValue];
+                houseObj.bedCount     = [[[[dict objectForKey:@"Spec"] objectForKey:@"bedCount"] checkNull ] stringValue];
                 houseObj.reviewCount  = [[[dict objectForKey:@"reviewsCount"] checkNull] stringValue];
+                houseObj.price        = [[[dict objectForKey:@"Price"] objectForKey:@"price"] integerValue];
+
                 
                 if ([[houseObj.shownFacilities lastObject] isKindOfClass:[NSString class]]) {
                     
@@ -341,6 +342,8 @@ NarengiCore *sharedInstance;
         extraObj.name      = [[obj objectForKey:@"name"] checkNull];
         extraObj.type      = [[obj objectForKey:@"type"] checkNull];
         extraObj.price     = [[[[obj objectForKey:@"price"] checkNull] objectForKey:@"fee"] integerValue];
+        
+        [muArr addObject:extraObj];
         
     }];
     

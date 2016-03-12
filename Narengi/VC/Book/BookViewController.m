@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet CustomFaRegularLabel *totalDaysLabel;
 @property (weak, nonatomic) IBOutlet CustomFaBoldLabel *guestCountLabel;
 
+@property (weak, nonatomic) IBOutlet IranButton *continuebutton;
 @property (nonatomic) NSInteger  guestCount;
 
 @property (weak, nonatomic) IBOutlet UITableView *facilityTableView;
@@ -38,6 +39,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (nonatomic,strong)  NSMutableArray *priceListArr;
+@property (weak, nonatomic) IBOutlet UIView *parentView;
 
 @end
 
@@ -50,6 +52,8 @@
     self.extendedLayoutIncludesOpaqueBars     = NO;
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    
+    [self.continuebutton setBorderWithColor: RGB(10, 187, 120, 1) andWithWidth:1 withCornerRadius:2];
 
     _calendarManager = [JTCalendarManager new];
     _calendarManager.delegate = self;
@@ -69,22 +73,24 @@
     [self registerNibs];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(houseObjRecived:) name:@"houseObjectForBokking" object:nil];
+    
+
 }
 
 -(void)checkBill{
 
     self.totalFee = 0;
-    NSMutableArray *muArr = [[NSMutableArray alloc] init];
+    self.priceListArr = [[NSMutableArray alloc] init];
 
     if (self.firstDate != nil && self.secondDate != nil) {
         
         PriceObject *pernightPrice = [[PriceObject alloc] init];
         
-        pernightPrice.name  = [NSString stringWithFormat:@"%ld شب %ld  هرزار تومان",[self calculateDays],self.houseObj.price  ];
+        pernightPrice.name  = [NSString stringWithFormat:@"%ld شب × %ld تومان",[self calculateDays],self.houseObj.price  ];
         pernightPrice.fee  = [self calculateDays] * self.houseObj.price ;
         
         self.totalFee += pernightPrice.fee;
-        [muArr addObject:pernightPrice];
+        [self.priceListArr  addObject:pernightPrice];
     }
     else{
         
@@ -93,7 +99,7 @@
         pernightPrice.name  = [NSString stringWithFormat:@"-"];
         pernightPrice.fee  = 0 ;
         
-        [muArr addObject:pernightPrice];
+        [self.priceListArr  addObject:pernightPrice];
         
     }
 
@@ -105,7 +111,7 @@
             priceObj.fee  = obj.price;
             priceObj.name = obj.name;
             self.totalFee += obj.price;
-            [muArr addObject:priceObj];
+            [self.priceListArr  addObject:priceObj];
 
         }
     }];
@@ -113,14 +119,14 @@
     PriceObject *rentPrice = [[PriceObject alloc] init];
     rentPrice.name  = @"حق سرویس";
     rentPrice.fee  = 20000;
-    [muArr addObject:rentPrice];
+    [self.priceListArr  addObject:rentPrice];
     
     self.totalFee += rentPrice.fee;
     
     PriceObject *totalPrice = [[PriceObject alloc] init];
     totalPrice.name  = @"مجموع";
-    rentPrice.fee  = self.totalFee;
-    [muArr addObject:rentPrice];
+    totalPrice.fee  = self.totalFee;
+    [self.priceListArr  addObject:totalPrice];
     
     [self.billTableview reloadData];
     [self.facilityTableView reloadData];
@@ -130,18 +136,27 @@
 }
 -(void)updateUI{
 
-    if (self.houseObj.exteraServices > 0) {
-        self.facilityTableHeight.constant = self.houseObj.exteraServices.count * 65 + 45;
+    if (self.houseObj.exteraServices.count > 0) {
+        self.facilityTableHeight.constant = self.houseObj.exteraServices.count * 55 + 40;
     }
     else
         self.facilityTableHeight.constant = 0;
     
     if (self.priceListArr.count > 0) {
-        self.billTableHeight.constant = (self.houseObj.exteraServices.count + 1) * 45;
+        self.billTableHeight.constant = (self.priceListArr.count + 1) * 40;
     }
     else
         self.billTableHeight.constant = 0;
     
+    [self.facilityTableView layoutIfNeeded];
+    [self.billTableview layoutIfNeeded];
+    
+    [self.view layoutIfNeeded];
+
+    
+    self.parentViewHeight.constant = self.billTableview.frame.origin.y + self.billTableHeight.constant + 100;
+    
+    [self.parentView layoutIfNeeded];
     [self.view layoutIfNeeded];
 }
 
@@ -149,6 +164,7 @@
 
     self.houseObj = notification.object;
     [self checkBill];
+    [self updateUI];
 }
 
 -(void)registerNibs{
@@ -177,13 +193,12 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    if (tableView == self.facilityTableView) {
-        
+    if (tableView == self.facilityTableView)
         return self.houseObj.exteraServices.count;
-    }
-    else{
+    
+    else
         return self.priceListArr.count;
-    }
+    
     
 }
 
@@ -197,6 +212,19 @@
         cell.titleLabel.text = extraObj.name;
         cell.priceLabel.text  = [NSString stringWithFormat:@"%ld تومان", extraObj.price ];
         
+        if (extraObj.isSelected)
+            cell.stateImg.image = IMG(@"amenitieschecked");
+        else
+            cell.stateImg.image = IMG(@"amenitiesoption");
+        
+        if ( indexPath.row == self.priceListArr.count -1 )
+            cell.lineLabel.hidden = NO;
+        
+        else
+            cell.lineLabel.hidden = YES;
+            
+        
+        
         return cell;
 
     }
@@ -207,6 +235,19 @@
         PriceObject *priceObj = [self.priceListArr objectAtIndex:indexPath.row];
         cell.titleLabel.text  = priceObj.name;
         cell.priceLabel.text  = [NSString stringWithFormat:@"%ld تومان", priceObj.fee ];
+        
+        if ( indexPath.row == self.priceListArr.count -1 ){
+            cell.lineLabel.hidden = NO;
+            cell.priceLabel.textColor = RGB (10, 187, 120, 1);
+            cell.priceLabel.font  = [cell.priceLabel.font fontWithSize:15];
+        }
+        else{
+            cell.lineLabel.hidden = YES;
+            cell.priceLabel.textColor = RGB (0, 0, 0, 1);
+            cell.priceLabel.font  = [cell.priceLabel.font fontWithSize:13];
+
+        }
+        
         
         return cell;
 
@@ -219,17 +260,17 @@
     
     if (tableView == self.facilityTableView)
         
-        return 65;
+        return 55;
     
     else
-        return 45;
+        return 40;
     
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     
-    return 45;
+    return 40;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -251,6 +292,25 @@
         
     }
     
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if (tableView ==  self.facilityTableView) {
+        
+        ExtraServiceObject *extraObj = [self.houseObj.exteraServices objectAtIndex:indexPath.row];
+        extraObj.isSelected = !extraObj.isSelected;
+        NSMutableArray *muArr = [[NSMutableArray alloc] initWithArray:self.houseObj.exteraServices];
+        [muArr replaceObjectAtIndex:indexPath.row withObject:extraObj];
+        
+        self.houseObj.exteraServices = [muArr copy];
+        [self checkBill];
+        [self updateUI];
+
+        
+    }
+
 }
 
 
@@ -405,6 +465,8 @@
         self.totalDaysLabel.text = @"-";
     }
 
+    [self checkBill];
+    [self updateUI];
 
 }
 
@@ -488,7 +550,7 @@
 
 - (IBAction)minusButtonClicked:(id)sender {
     
-    if (self.guestCount != 20) {
+    if (self.guestCount != [self.houseObj.guestCount integerValue]) {
         self.guestCount += 1;
         self.guestCountLabel.text = [NSString stringWithFormat:@"%ld",self.guestCount];
     }
