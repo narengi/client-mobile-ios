@@ -14,7 +14,7 @@
 -(void)changeLeftIcontoBack;
 -(void)noConnection;
 -(void)goTodetailWithUrl:(NSString *)urlStr andWithType:(NSString *)type;
--(NSURL*)fixUrr:(NSURL *)url withParametrs:(NSArray *)parametrs;
+-(NSURL*)fixUrl:(NSURL *)url withParametrs:(NSArray *)parametrs;
 -(void)insertGradientToView:(UIView *)View;
 
 -(void)goToRegister;

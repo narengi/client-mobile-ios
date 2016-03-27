@@ -13,13 +13,17 @@
 #import "BillHeaderView.h"
 
 @interface BookViewController ()<UITableViewDataSource,UITableViewDelegate>{
-    NSMutableDictionary *_eventsByDate;
     
+    NSMutableDictionary *_eventsByDate;
     NSMutableArray *_datesSelected;
+    
 }
 
-@property (nonatomic,strong) NSDate *firstDate;
-@property (nonatomic,strong) NSDate *secondDate;
+@property (nonatomic,strong) NSDate *arriveDate;
+@property (nonatomic,strong) NSDate *leaveDate;
+@property (nonatomic,strong) NSDate *lastAvailabeDate;
+
+@property (nonatomic,strong) NSArray *availableDates;
 
 @property (weak, nonatomic) IBOutlet CustomFaRegularLabel *arriveDateLabel;
 @property (weak, nonatomic) IBOutlet CustomFaRegularLabel *leaveDateLabel;
@@ -74,6 +78,9 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(houseObjRecived:) name:@"houseObjectForBokking" object:nil];
     
+   
+
+    
 
 }
 
@@ -82,7 +89,7 @@
     self.totalFee = 0;
     self.priceListArr = [[NSMutableArray alloc] init];
 
-    if (self.firstDate != nil && self.secondDate != nil) {
+    if (self.arriveDate != nil && self.leaveDate != nil) {
         
         PriceObject *pernightPrice = [[PriceObject alloc] init];
         
@@ -165,6 +172,8 @@
     self.houseObj = notification.object;
     [self checkBill];
     [self updateUI];
+    
+     [self getValidDates];
 }
 
 -(void)registerNibs{
@@ -318,15 +327,17 @@
 
 - (void)calendar:(JTCalendarManager *)calendar prepareDayView:(JTCalendarDayView *)dayView
 {
-    // Today
     
     
     [dayView setTransform:CGAffineTransformMakeScale(-1, 1)];
+    
+    
 
+    //today
     if([_calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
+        
         dayView.circleView.hidden = NO;
         dayView.circleView.backgroundColor = [UIColor blueColor];
-        dayView.userInteractionEnabled = NO;
         dayView.dotView.hidden = YES;
         dayView.textLabel.textColor = [UIColor whiteColor];
         
@@ -344,18 +355,34 @@
     else if(![_calendarManager.dateHelper date:_calendarContentView.date isTheSameMonthThan:dayView.date]){
         dayView.circleView.hidden = YES;
         dayView.dotView.hidden = YES;
-        dayView.textLabel.textColor = [UIColor lightGrayColor];
+        dayView.textLabel.textColor = [UIColor grayColor];
     }
     
     // Another day of the current month
     else{
-        dayView.circleView.hidden = YES;
-        dayView.dotView.hidden = YES;
-        dayView.textLabel.textColor = [UIColor blackColor];
+        
+        
+        if([self isInAvailableDates:dayView.date]){
+            
+            dayView.circleView.hidden = YES;
+            dayView.dotView.hidden = YES;
+            dayView.textLabel.textColor = [UIColor blackColor];
+            
+        }
+        else{
+            
+            dayView.circleView.hidden = YES;
+            dayView.dotView.hidden = YES;
+            dayView.textLabel.textColor = [UIColor lightGrayColor];
+        }
+
+        
     }
     
     
 }
+
+
 
 - (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(JTCalendarDayView *)dayView
 {
@@ -364,6 +391,7 @@
     // Load the previous or next page if touch a day from another month
     
     if(![_calendarManager.dateHelper date:_calendarContentView.date isTheSameMonthThan:dayView.date]){
+        
         if([_calendarContentView.date compare:dayView.date] == NSOrderedAscending){
             [_calendarContentView loadNextPageWithAnimation];
         }
@@ -372,41 +400,74 @@
         }
     }
     
-    if (self.firstDate == nil) {
+    if (self.arriveDate == nil) {
         
-        self.firstDate = dayView.date;
-        [_datesSelected addObject:dayView.date];
         
-        [_calendarManager reload];
-        [self changeLabels];
-        return;
+        if([self isInAvailableDates:dayView.date]){
+            
+            self.arriveDate = dayView.date;
+            [_datesSelected addObject:dayView.date];
+            
+            [_calendarManager reload];
+            [self changeLabels];
+            return;
+        }
+        else
+            [SVProgressHUD showErrorWithStatus:@"این روز قابل رزرو کردن نیست"];
+
+
         
     }
-    else if (self.secondDate == nil ){
+    else if (self.leaveDate == nil ){
         
-        self.secondDate = dayView.date;
+        self.leaveDate = dayView.date;
         
         NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
         [calendar setTimeZone:[NSTimeZone systemTimeZone]];
         
-        if ([self.firstDate compare:self.secondDate] == NSOrderedAscending) {
-            [self addDatebetweenTwoDate:self.firstDate andSecondDate:dayView.date];
+        if ([self.arriveDate compare:dayView.date] == NSOrderedAscending) {
+            [self addDatebetweenTwoDate:self.arriveDate andarriveDate:dayView.date];
+            
+            if (![self isAllDatesBetweenAreOk]) {
+                
+                [_datesSelected removeAllObjects];
+                self.leaveDate = nil;
+                
+                [_datesSelected addObject:self.arriveDate];
+                
+                [SVProgressHUD showErrorWithStatus:@"روزهای بین دو روز انتخاب شده قبلا رزو شده‌اند"];
+            }
+            
+            
+
             
         }
-        else if ([self.firstDate compare:self.secondDate] == NSOrderedDescending){
+        else if ([self.arriveDate compare:dayView.date] == NSOrderedDescending){
             
-            NSDate *tempDate = self.firstDate;;
-            self.firstDate = self.secondDate;
-            self.secondDate = tempDate;
+            NSDate *tempDate = self.arriveDate;;
+            self.arriveDate = self.leaveDate;
+            self.leaveDate = tempDate;
             
             [_datesSelected removeAllObjects];
             [_datesSelected addObject:dayView.date];
-            [self addDatebetweenTwoDate:self.firstDate andSecondDate:self.secondDate];
+            [self addDatebetweenTwoDate:self.arriveDate andarriveDate:self.leaveDate];
+            
+            if (![self isAllDatesBetweenAreOk]) {
+                
+                [_datesSelected removeAllObjects];
+                self.leaveDate = nil;
+                
+                [_datesSelected addObject:self.arriveDate];
+                
+                [SVProgressHUD showErrorWithStatus:@"روزهای بین دو روز انتخاب شده قبلا رزو شده‌اند"];
+            }
             
         }
         else{
             
         }
+        
+       
         
         
         
@@ -417,14 +478,21 @@
     }
     else{
         
-        [_datesSelected removeAllObjects];
-        self.firstDate = dayView.date;
-        self.secondDate = nil;
         
-        [_datesSelected addObject:dayView.date];
-        [_calendarManager reload];
-        
-        [self changeLabels];
+        if([self isInAvailableDates:dayView.date]){
+            
+            [_datesSelected removeAllObjects];
+            self.arriveDate = dayView.date;
+            self.leaveDate = nil;
+            
+            [_datesSelected addObject:dayView.date];
+            [_calendarManager reload];
+            
+            [self changeLabels];
+
+        }
+        else
+            [SVProgressHUD showErrorWithStatus:@"این روز قابل رزرو کردن نیست"];
         
     }
     
@@ -433,8 +501,6 @@
 
 -(void)changeLabels{
 
-    NSDateFormatter *validFormat = [[NSDateFormatter alloc] init];
-    [validFormat setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
     
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"YYYY-MM-dd"];
@@ -442,23 +508,23 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     dateFormat = [format changetoShortFormmat];
     
-    if (self.firstDate != nil) {
-       self.arriveDateLabel.text =  [[dateFormat stringFromDate:self.firstDate] stringByReplacingOccurrencesOfString:@" ه‍.ش." withString:@""];
+    if (self.arriveDate != nil) {
+       self.arriveDateLabel.text =  [[dateFormat stringFromDate:self.arriveDate] stringByReplacingOccurrencesOfString:@" ه‍.ش." withString:@""];
 
     }
     else{
         self.arriveDateLabel.text  = @"-";
     }
     
-    if (self.secondDate != nil ){
-        self.leaveDateLabel.text = [[dateFormat stringFromDate:self.secondDate] stringByReplacingOccurrencesOfString:@" ه‍.ش." withString:@""];
+    if (self.leaveDate != nil ){
+        self.leaveDateLabel.text = [[dateFormat stringFromDate:self.leaveDate] stringByReplacingOccurrencesOfString:@" ه‍.ش." withString:@""];
 
     }
     else{
         self.leaveDateLabel.text = @"-";
     }
     
-    if (self.firstDate != nil && self.secondDate != nil  ) {
+    if (self.arriveDate != nil && self.arriveDate != nil  ) {
         self.totalDaysLabel.text = [NSString stringWithFormat:@"%ld شب و %ld روز",(long)[self calculateDays],[self calculateDays]+1];
     }
     else{
@@ -474,22 +540,22 @@
 
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *components = [gregorianCalendar components:NSCalendarUnitDay
-                                                        fromDate:self.firstDate
-                                                          toDate:self.secondDate
+                                                        fromDate:self.arriveDate
+                                                          toDate:self.leaveDate
                                                          options:NSCalendarWrapComponents];
     
     return [components day];
     
 }
 
--(void )addDatebetweenTwoDate :(NSDate *)firstDate andSecondDate:(NSDate *)secondDate{
+-(void )addDatebetweenTwoDate :(NSDate *)arriveDate andarriveDate:(NSDate *)secondDate{
     
     
     
     NSMutableArray * days = [NSMutableArray new];
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     [calendar setTimeZone:[NSTimeZone systemTimeZone]];
-    NSDate *startDate = firstDate;
+    NSDate *startDate = arriveDate;
     NSDateComponents *deltaDays = [NSDateComponents new];
     [deltaDays setDay:1];
     [days addObject:startDate];
@@ -518,6 +584,29 @@
     return NO;
 }
 
+-(BOOL)isInAvailableDates:(NSDate *)date{
+    
+    for(NSDate *dateSelected in self.availableDates){
+        if([_calendarManager.dateHelper date:dateSelected isTheSameDayThan:date]){
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
+-(BOOL)isAllDatesBetweenAreOk{
+    
+    
+    for(NSDate *dateSelected in _datesSelected){
+        if(![self isInAvailableDates:dateSelected]){
+            return NO;
+        }
+    }
+    
+    return YES;
+
+}
 #pragma mark - Fake data
 
 // Used only to have a key for _eventsByDate
@@ -558,6 +647,82 @@
 
 #pragma mark -data
 - (IBAction)continueButtonClicked:(IranButton *)sender {
+    
+    REACHABILITY
+}
+
+
+-(void)getValidDates{
+
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"YYYY-MM-dd"];
+    
+    NSString *startDateStr = [format stringFromDate:[NSDate new]];
+    
+    NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
+    dayComponent.year = 1;
+    NSCalendar *theCalendar = [NSCalendar currentCalendar];
+    NSDate *nextYear = [theCalendar dateByAddingComponents:dayComponent toDate:[NSDate date] options:0];
+    NSString *endDateStr  = [format stringFromDate: nextYear];
+    
+    
+    [SVProgressHUD showWithStatus:@"در حال ارسال اطلاعات" maskType:SVProgressHUDMaskTypeGradient];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+        
+        ServerResponse *response = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:[NSString stringWithFormat:@"%@/available-dates/start-%@/end-%@",self.houseObj.url,startDateStr,endDateStr] andWithParametrs:nil andWithBody:nil andIsFullPath:YES];
+        
+        
+        dispatch_async(dispatch_get_main_queue(),^{
+            
+            [SVProgressHUD dismiss];
+            
+            if (!response.hasErro) {
+                
+                if (response.backData != nil) {
+                    
+                    [self setAvailabelDates:response.backData];
+                }
+            }
+            else{
+                
+                if (response.backData != nil ) {
+                    
+                    //show error
+                    NSString *erroStr = [[response.backData objectForKey:@"error"] objectForKey:@"message"];
+                    [self showErro:erroStr];
+                }
+                else{
+                    
+                    [self showErro:@"اشکال در ارتباط با سرور"];
+                    
+                }
+                
+            }
+        });
+    });
+}
+
+-(void)setAvailabelDates:(NSDictionary *)dataFromServer{
+    
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"YYYY-MM-dd"];
+    
+    NSMutableArray *muArr = [[NSMutableArray alloc] init];
+    [[dataFromServer objectForKey:@"dates"] enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        NSDate *date = [format dateFromString:[[obj componentsSeparatedByString:@"T"] firstObject] ];
+        
+        [muArr addObject:date];
+        
+    }];
+
+    self.availableDates = [muArr copy];
+    
+    NSDate *date = [format dateFromString:[[[dataFromServer objectForKey:@"lastAllowedDate"] componentsSeparatedByString:@"T"] firstObject] ];
+    self.lastAvailabeDate = date;
+
+    
+    
 }
 
 

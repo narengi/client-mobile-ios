@@ -148,7 +148,7 @@
 #pragma mark - Data
 -(void) addParametrsToURL{
     
-    self.url =[self fixUrr:self.url withParametrs:@[@{@"name":@"filter[review]",@"value":@"3"}]];
+    self.url =[self fixUrl:self.url withParametrs:@[@{@"name":@"filter[review]",@"value":@"3"}]];
     
 }
 

@@ -120,7 +120,7 @@
 
 #pragma mark - url
 
--(NSURL*)fixUrr:(NSURL *)url withParametrs:(NSArray *)parametrs{
+-(NSURL*)fixUrl:(NSURL *)url withParametrs:(NSArray *)parametrs{
 
     NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithURL:[NSURL URLWithString:url.absoluteString]resolvingAgainstBaseURL:YES];
     
