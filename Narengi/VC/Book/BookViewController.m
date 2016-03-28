@@ -649,6 +649,15 @@
 - (IBAction)continueButtonClicked:(IranButton *)sender {
     
     REACHABILITY
+    
+    if ((self.arriveDate != nil) && (self.leaveDate != nil )) {
+     
+        //send request to server
+    }
+    else{
+        
+        [SVProgressHUD showErrorWithStatus:@"روزهای رسیدن و ترک کردن به درستی انتخاب نشده است!"];
+    }
 }
 
 

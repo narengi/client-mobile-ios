@@ -80,6 +80,7 @@
 		729838B81BFCB1CB005BC5C3 /* HostObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838B71BFCB1CB005BC5C3 /* HostObject.m */; };
 		729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838BA1BFCB1FC005BC5C3 /* GeoPointObject.m */; };
 		72A381F01C79FAD80065E1A9 /* PhoneValidateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A381EF1C79FAD80065E1A9 /* PhoneValidateViewController.m */; };
+		72AF71B91CA8410400A50575 /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF71B81CA8410400A50575 /* MyProfileViewController.m */; };
 		72B19A131BFF6B3F007EDD86 /* AttractionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B19A121BFF6B3F007EDD86 /* AttractionObject.m */; };
 		72B19A161BFF6C6D007EDD86 /* CityObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B19A151BFF6C6D007EDD86 /* CityObject.m */; };
 		72C24F4E1C6D6F2900026821 /* AFOAuthCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F4B1C6D6F2900026821 /* AFOAuthCredential.m */; };
@@ -293,6 +294,8 @@
 		729838BA1BFCB1FC005BC5C3 /* GeoPointObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GeoPointObject.m; path = Core/GeoPointObject.m; sourceTree = "<group>"; };
 		72A381EE1C79FAD80065E1A9 /* PhoneValidateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhoneValidateViewController.h; path = VC/Registeration/PhoneValidateViewController.h; sourceTree = "<group>"; };
 		72A381EF1C79FAD80065E1A9 /* PhoneValidateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhoneValidateViewController.m; path = VC/Registeration/PhoneValidateViewController.m; sourceTree = "<group>"; };
+		72AF71B71CA8410400A50575 /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyProfileViewController.h; path = VC/Profile/MyProfileViewController.h; sourceTree = "<group>"; };
+		72AF71B81CA8410400A50575 /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyProfileViewController.m; path = VC/Profile/MyProfileViewController.m; sourceTree = "<group>"; };
 		72B19A111BFF6B3F007EDD86 /* AttractionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttractionObject.h; path = Core/AttractionObject.h; sourceTree = "<group>"; };
 		72B19A121BFF6B3F007EDD86 /* AttractionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttractionObject.m; path = Core/AttractionObject.m; sourceTree = "<group>"; };
 		72B19A141BFF6C6D007EDD86 /* CityObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityObject.h; path = Core/CityObject.h; sourceTree = "<group>"; };
@@ -538,6 +541,8 @@
 				725DE6401C5948E50001E5DC /* ProfileCommentsHeadeView.xib */,
 				7294429A1C6CC5DD003F3D92 /* EditProfileViewController.h */,
 				7294429B1C6CC5DD003F3D92 /* EditProfileViewController.m */,
+				72AF71B71CA8410400A50575 /* MyProfileViewController.h */,
+				72AF71B81CA8410400A50575 /* MyProfileViewController.m */,
 				7226015E1C771B4C008A2C65 /* SelectBirthDayViewController.h */,
 				7226015F1C771B4C008A2C65 /* SelectBirthDayViewController.m */,
 				723E3C681C885A310006DEF4 /* SelectGenderViewController.h */,
@@ -1067,6 +1072,7 @@
 				727F89AC1C354E1D00519CDD /* CityDetailHouseCollectionReusableView.m in Sources */,
 				729838B21BFCB04D005BC5C3 /* HouseObject.m in Sources */,
 				721E15361C0F51CA006E394B /* MainHomeCollectionViewCell.m in Sources */,
+				72AF71B91CA8410400A50575 /* MyProfileViewController.m in Sources */,
 				72C24F761C6D78EF00026821 /* DZNPhotoPickerController.m in Sources */,
 				72C24F8D1C6D790600026821 /* DZNPhotoTag.m in Sources */,
 				72D4E5D61C3EA94E00AC3D0D /* FacilityObject.m in Sources */,

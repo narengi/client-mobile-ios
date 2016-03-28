@@ -63,14 +63,29 @@
 
 - (IBAction)registerClicked:(IranButton *)sender {
     
-    
-    
-    
     [self goToRegister];
     [self.frostedViewController hideMenuViewController];
     
 }
 
+- (IBAction)profileButton:(UIButton *)sender {
+
+    
+}
+- (IBAction)homeButtonClicked:(IranButton *)sender {
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"navRootVCID"];
+    
+    
+//    LinesViewController *linesViewC = [self.storyboard instantiateViewControllerWithIdentifier:@"lineView"];
+//    navigationController.viewControllers = @[linesViewC];
+    self.frostedViewController.contentViewController = navigationController;
+    [self.frostedViewController hideMenuViewController];
+    
+    
+}
 
 
 @end

@@ -182,6 +182,7 @@
     
     UINavigationController *logInNavVC = [storyboard instantiateViewControllerWithIdentifier:@"registrationNav"];
     [self presentViewController:logInNavVC animated:YES completion:nil];
+    
 }
 
 -(void)registerCellWithName:(NSString *)name andWithIdentifier :(NSString *)identifier andTableView:(UITableView *)tableview{
