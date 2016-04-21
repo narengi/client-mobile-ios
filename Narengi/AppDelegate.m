@@ -30,7 +30,7 @@
     [SVProgressHUD setFont:[UIFont fontWithName:@"IRANSansMobileFaNum" size:11]];
     [SVProgressHUD setBackgroundColor:RGB(248, 248, 248, 1)];
     
-   // [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"fuckingLoginedOrNOT"];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"fuckingLoginedOrNOT"];
     
 
 

@@ -17,6 +17,9 @@
 @property (nonatomic) NSInteger completePercent;
 @property (nonatomic) NSString  *token;
 @property (nonatomic) NSString  *gender;
+@property (nonatomic) NSString  *bio;
+@property (nonatomic) NSString  *sinceStr;
+@property (nonatomic) NSString  *residentStr;
 
 @property (nonatomic) NSString  *cellNumber;
 @property (nonatomic) NSString  *email;

@@ -62,6 +62,8 @@
 #import "SVProgressHUD.h"
 #import "NSUserDefaults+RMSaveCustomObject.h"
 #import "NSDateFormatter+Persian.h"
+#import "NSString+Utilities.h"
+
 
 
 //UI Custom classes

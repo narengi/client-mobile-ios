@@ -8,6 +8,21 @@
 
 #import "MyProfileViewController.h"
 
+@interface MyProfileViewController ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
+@property (weak, nonatomic) IBOutlet CustomFaRegularLabel *nameLabel;
+@property (weak, nonatomic) IBOutlet CustomFaRegularLabel *cityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *aboutLabel;
+@property (weak, nonatomic) IBOutlet UILabel *membershipAgeLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bioLabelHeight;
+
+@property (nonatomic,strong) UserObject *userObject;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@end
+
 @implementation MyProfileViewController
 
 
@@ -15,8 +30,99 @@
 
 {
     [super viewDidLoad];
+    [self addLeftAndRightButton];
+    self.userObject = [[ NSUserDefaults standardUserDefaults] rm_customObjectForKey:@"userObject"];
+    [self setupView];
     
     self.title = @"پروفایل";
+    //scrollView delegate
+    void *context = (__bridge void *)self;
+    [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:context];
+    
+    [self getData];
+}
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    
+    
+}
+
+-(void)setupView{
+    
+    
+    self.nameLabel.text = [[self.userObject.fisrtName stringByAppendingString:@" "] stringByAppendingString:self.userObject.lastName];
+    
+    [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"Authorization"];
+    [self.avatarImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@user-profiles/picture",BASEURL]] placeholderImage:nil];
+    
+    if (self.userObject.bio.length > 0) {
+        self.aboutLabel.text = self.userObject.bio;
+    }
+    else{
+       self.aboutLabel.text =@"-";
+    }
+    if (self.userObject.residentStr.length > 0) {
+        self.cityLabel.text = self.userObject.residentStr;
+    }
+    else
+        self.cityLabel.text = @"-";
+    
+
+    
+}
+
+
+
+
+#pragma mark - scrollViewDelegate
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if (context != (__bridge void *)self) {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+        return;
+    }
+    
+    if ((object == self.scrollView) && ([keyPath isEqualToString:@"contentOffset"] == YES)) {
+        [self scrollViewDidScrollWithOffset:self.scrollView.contentOffset.y];
+        return;
+    }
+}
+
+- (void)dealloc
+{
+    [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
+}
+
+
+- (void)scrollViewDidScrollWithOffset:(CGFloat)scrollOffset
+{
+    
+    CATransform3D headerTransform = CATransform3DIdentity;
+    
+    
+    if (scrollOffset < 0) {
+        
+        CGFloat headerScaleFactor = -(scrollOffset) / self.avatarImg.bounds.size.height;
+        
+        CGFloat headerSizevariation = ((self.avatarImg.bounds.size.height * (1.0 + headerScaleFactor)) - self.avatarImg.bounds.size.height)/2.0;
+        headerTransform = CATransform3DTranslate(headerTransform, 0, headerSizevariation, 0);
+        headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0);
+        
+        self.avatarImg.layer.transform = headerTransform;
+        
+    }
+    
+    
+    
+    
 }
 
 -(void)addLeftAndRightButton{
@@ -53,4 +159,66 @@
 
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (IBAction)verificationbuttonClicked:(IranButton *)sender {
+}
+- (IBAction)reservationHistoryClicked:(IranButton *)sender {
+}
+- (IBAction)commentsHistoryButtonClicked:(IranButton *)sender {
+}
+- (IBAction)introduceToFriendsButtonClicked:(IranButton *)sender {
+}
+- (IBAction)extiButtonClicked:(IranButton *)sender {
+    
+    UIAlertController *exitAlert = [UIAlertController alertControllerWithTitle:@"حساب کاربری"
+                                                                               message: @"آیا از خروج اطمینان دارید؟"
+                                                                        preferredStyle:UIAlertControllerStyleAlert                   ];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"بله"
+                         style:UIAlertActionStyleDestructive
+                         handler:^(UIAlertAction * action)
+                         {
+                             //erase all data user 
+                             [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"fuckingLoginedOrNOT"];
+                             [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"userObject"];
+                             
+                             [exitAlert dismissViewControllerAnimated:YES completion:nil];
+                             [self dismissViewControllerAnimated:YES completion:nil];
+                             
+
+                             
+                         }];
+    UIAlertAction* cancel = [UIAlertAction
+                         actionWithTitle:@"خیر"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             [exitAlert dismissViewControllerAnimated:YES completion:nil];
+                             
+                         }];
+    
+    [exitAlert addAction: ok];
+    [exitAlert addAction: cancel];
+    
+    [self presentViewController:exitAlert animated:YES completion:nil];
+}
+
+#pragma mark - updateUserData
+
+-(void)getData{
+   
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+        
+        ServerResponse *response = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService: @"user-profiles" andWithParametrs:nil andWithBody:nil andIsFullPath:NO];
+
+        dispatch_async(dispatch_get_main_queue(),^{
+            
+            UserObject *userObj = [[NarengiCore sharedInstance ] parsUserObject:response.backData];
+            [[NSUserDefaults standardUserDefaults] rm_setCustomObject:userObj forKey:@"userObject"];
+            [self setupView];
+        });
+    });
+}
+
 @end

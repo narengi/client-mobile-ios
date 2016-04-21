@@ -70,6 +70,10 @@
 
 - (IBAction)profileButton:(UIButton *)sender {
 
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    UINavigationController *myProfileNav = [storyboard instantiateViewControllerWithIdentifier:@"myProfileNav"];
+    [self presentViewController:myProfileNav animated:YES completion:nil];
     
 }
 - (IBAction)homeButtonClicked:(IranButton *)sender {

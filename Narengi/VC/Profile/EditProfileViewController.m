@@ -15,6 +15,7 @@
 #import "NSDateFormatter+Persian.h"
 #import "PhoneValidateViewController.h"
 #import "SelectGenderViewController.h"
+#import "SelectProvinceViewController.h"
 
 @interface EditProfileViewController ()<DZNPhotoPickerControllerDelegate,UIActionSheetDelegate,
 UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate,UITextViewDelegate>
@@ -42,6 +43,8 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 
 @property (weak, nonatomic) IBOutlet UILabel              *birthdayLabel;
 @property (weak, nonatomic) IBOutlet CustomFaRegularLabel *genderLabel;
+@property (weak, nonatomic) IBOutlet CustomFaRegularLabel *provinceLabel;
+@property (weak, nonatomic) IBOutlet CustomFaRegularLabel *cityLabel;
 
 
 @property (nonatomic,strong) NSDate   *selectedBirthDayDate;
@@ -56,6 +59,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 @property ( nonatomic)  BOOL lastNameValid;
 @property ( nonatomic)  BOOL didSelectedGender;
 
+@property (nonatomic,strong) NSDictionary *selectedProvince;
 
 @end
 
@@ -101,6 +105,9 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     
     if (self.userObject.lastName.length > 0)
         self.lastNameTextField.text = self.userObject.lastName;
+    
+    if (self.userObject.bio.length > 0)
+        self.aboutTextView.text = self.userObject.bio;
     
     
     [self.avatarImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@user-profiles/picture",BASEURL]] placeholderImage:IMG(@"edit-profile-empty-avatar")];
@@ -594,6 +601,10 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
             if (!response.hasErro) {
 
                 [SVProgressHUD showSuccessWithStatus:@"اطلاعات با موفقیت ذخیره شد"];
+                
+                UserObject *userObj = [[NarengiCore sharedInstance ] parsUserObject:response.backData];
+                [[NSUserDefaults standardUserDefaults] rm_setCustomObject:userObj forKey:@"userObject"];
+
                 if (!self.userObject.phoneVerification.isVerified) {
                     
                     [self dismissViewControllerAnimated:YES completion:nil]; 
@@ -643,7 +654,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     
     NSString *bioText = [self.aboutTextView.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     if (bioText.length  > 0) {
-        [bodyDict addEntriesFromDictionary:@{@"Bio":self.aboutTextView.text}];
+        [bodyDict addEntriesFromDictionary:@{@"bio":self.aboutTextView.text}];
     }
     
     NSData *bodyData = [NSJSONSerialization dataWithJSONObject:[bodyDict copy] options:0 error:nil];
@@ -661,7 +672,48 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 
 
 
+#pragma mark - Province and city
+- (IBAction)selectProvinceClicked:(UIButton *)sender {
 
+    [self goToSelectProvince];
+}
+
+- (IBAction)selectCityClicked:(UIButton *)sender {
+
+}
+
+-(void)goToSelectProvince{
+
+    UIStoryboard *storybord =[UIStoryboard storyboardWithName:@"Alerts" bundle:nil];
+    SelectProvinceViewController *vc = [storybord instantiateViewControllerWithIdentifier:@"selectProvinceVCID"];
+    
+    MZFormSheetPresentationViewController *formSheet = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:vc];
+    
+    
+    formSheet.presentationController.contentViewSize = CGSizeMake(300, 400);
+    formSheet.presentationController.portraitTopInset = 10;
+    formSheet.allowDismissByPanningPresentedView = YES;
+    formSheet.presentationController.shouldDismissOnBackgroundViewTap = YES;
+    formSheet.contentViewCornerRadius = 8.0;
+    
+    
+    formSheet.willPresentContentViewControllerHandler = ^(UIViewController *presentedFSViewController){
+        
+    };
+    formSheet.didDismissContentViewControllerHandler = ^(UIViewController *presentedFSViewController){
+        
+        SelectProvinceViewController *vc = (SelectProvinceViewController *)presentedFSViewController;
+        if (vc.isSelectProvince) {
+            
+            self.selectedProvince = vc.selectedProvince;
+            self.provinceLabel.text = [self.selectedProvince objectForKey:@"name"];
+            
+        }
+        
+    };
+    
+    [self presentViewController:formSheet animated:YES completion:nil];
+}
 
 
 @end

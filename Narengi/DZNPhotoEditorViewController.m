@@ -145,7 +145,7 @@ typedef NS_ENUM(NSInteger, DZNPhotoAspect) {
 {
     [super viewWillAppear:animated];
 
-    if (!DZN_IS_IPAD) {
+    if (!(DZN_IS_IPAD)) {
         [self.navigationController setNavigationBarHidden:YES animated:YES];
     }
 }
@@ -154,7 +154,7 @@ typedef NS_ENUM(NSInteger, DZNPhotoAspect) {
 {
     [super viewDidAppear:animated];
     
-    if (!DZN_IS_IPAD) {
+    if (!(DZN_IS_IPAD)) {
         [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     }
     else if (self.navigationController.isNavigationBarHidden) {
@@ -167,7 +167,7 @@ typedef NS_ENUM(NSInteger, DZNPhotoAspect) {
 {
 	[super viewWillDisappear:animated];
     
-    if (!DZN_IS_IPAD) {
+    if (!(DZN_IS_IPAD)) {
         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
         [self.navigationController setNavigationBarHidden:NO animated:YES];
     }
@@ -316,7 +316,7 @@ typedef NS_ENUM(NSInteger, DZNPhotoAspect) {
 
 - (CGSize)cropSize
 {
-    CGSize viewSize = (!DZN_IS_IPAD) ? self.view.bounds.size : self.navigationController.preferredContentSize;
+    CGSize viewSize = (!(DZN_IS_IPAD)) ? self.view.bounds.size : self.navigationController.preferredContentSize;
     
     if (self.cropMode == DZNPhotoEditorViewControllerCropModeCustom) {
         CGFloat cropHeight = roundf((_cropSize.height * viewSize.width) / _cropSize.width);

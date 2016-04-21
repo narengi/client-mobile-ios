@@ -81,8 +81,13 @@
 		729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838BA1BFCB1FC005BC5C3 /* GeoPointObject.m */; };
 		72A381F01C79FAD80065E1A9 /* PhoneValidateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A381EF1C79FAD80065E1A9 /* PhoneValidateViewController.m */; };
 		72AF71B91CA8410400A50575 /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF71B81CA8410400A50575 /* MyProfileViewController.m */; };
+		72AF71BC1CA954BC00A50575 /* IdentificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF71BB1CA954BC00A50575 /* IdentificationViewController.m */; };
 		72B19A131BFF6B3F007EDD86 /* AttractionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B19A121BFF6B3F007EDD86 /* AttractionObject.m */; };
 		72B19A161BFF6C6D007EDD86 /* CityObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B19A151BFF6C6D007EDD86 /* CityObject.m */; };
+		72B662D71CC8E08F00D2B3FB /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B662D61CC8E08F00D2B3FB /* SelectCityViewController.m */; };
+		72B662DA1CC8E16500D2B3FB /* SelectProvinceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B662D91CC8E16500D2B3FB /* SelectProvinceViewController.m */; };
+		72B662DD1CC8E1DF00D2B3FB /* SelectProvinceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B662DC1CC8E1DF00D2B3FB /* SelectProvinceTableViewCell.m */; };
+		72B662E01CC8EF3D00D2B3FB /* NSString+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B662DF1CC8EF3D00D2B3FB /* NSString+Utilities.m */; };
 		72C24F4E1C6D6F2900026821 /* AFOAuthCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F4B1C6D6F2900026821 /* AFOAuthCredential.m */; };
 		72C24F4F1C6D6F2900026821 /* GROAuth2SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F4D1C6D6F2900026821 /* GROAuth2SessionManager.m */; };
 		72C24F581C6D6F9A00026821 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F571C6D6F9A00026821 /* MBProgressHUD.m */; };
@@ -296,10 +301,20 @@
 		72A381EF1C79FAD80065E1A9 /* PhoneValidateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhoneValidateViewController.m; path = VC/Registeration/PhoneValidateViewController.m; sourceTree = "<group>"; };
 		72AF71B71CA8410400A50575 /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyProfileViewController.h; path = VC/Profile/MyProfileViewController.h; sourceTree = "<group>"; };
 		72AF71B81CA8410400A50575 /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyProfileViewController.m; path = VC/Profile/MyProfileViewController.m; sourceTree = "<group>"; };
+		72AF71BA1CA954BC00A50575 /* IdentificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IdentificationViewController.h; path = VC/Profile/IdentificationViewController.h; sourceTree = "<group>"; };
+		72AF71BB1CA954BC00A50575 /* IdentificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IdentificationViewController.m; path = VC/Profile/IdentificationViewController.m; sourceTree = "<group>"; };
 		72B19A111BFF6B3F007EDD86 /* AttractionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttractionObject.h; path = Core/AttractionObject.h; sourceTree = "<group>"; };
 		72B19A121BFF6B3F007EDD86 /* AttractionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttractionObject.m; path = Core/AttractionObject.m; sourceTree = "<group>"; };
 		72B19A141BFF6C6D007EDD86 /* CityObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityObject.h; path = Core/CityObject.h; sourceTree = "<group>"; };
 		72B19A151BFF6C6D007EDD86 /* CityObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityObject.m; path = Core/CityObject.m; sourceTree = "<group>"; };
+		72B662D51CC8E08F00D2B3FB /* SelectCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectCityViewController.h; path = VC/Profile/SelectCityViewController.h; sourceTree = "<group>"; };
+		72B662D61CC8E08F00D2B3FB /* SelectCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectCityViewController.m; path = VC/Profile/SelectCityViewController.m; sourceTree = "<group>"; };
+		72B662D81CC8E16500D2B3FB /* SelectProvinceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectProvinceViewController.h; path = VC/Profile/SelectProvinceViewController.h; sourceTree = "<group>"; };
+		72B662D91CC8E16500D2B3FB /* SelectProvinceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectProvinceViewController.m; path = VC/Profile/SelectProvinceViewController.m; sourceTree = "<group>"; };
+		72B662DB1CC8E1DF00D2B3FB /* SelectProvinceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectProvinceTableViewCell.h; path = VC/Profile/SelectProvinceTableViewCell.h; sourceTree = "<group>"; };
+		72B662DC1CC8E1DF00D2B3FB /* SelectProvinceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectProvinceTableViewCell.m; path = VC/Profile/SelectProvinceTableViewCell.m; sourceTree = "<group>"; };
+		72B662DE1CC8EF3D00D2B3FB /* NSString+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Utilities.h"; path = "Custom Classes/NSString+Utilities.h"; sourceTree = "<group>"; };
+		72B662DF1CC8EF3D00D2B3FB /* NSString+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Utilities.m"; path = "Custom Classes/NSString+Utilities.m"; sourceTree = "<group>"; };
 		72C24F4A1C6D6F2900026821 /* AFOAuthCredential.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFOAuthCredential.h; sourceTree = "<group>"; };
 		72C24F4B1C6D6F2900026821 /* AFOAuthCredential.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFOAuthCredential.m; sourceTree = "<group>"; };
 		72C24F4C1C6D6F2900026821 /* GROAuth2SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GROAuth2SessionManager.h; sourceTree = "<group>"; };
@@ -547,6 +562,14 @@
 				7226015F1C771B4C008A2C65 /* SelectBirthDayViewController.m */,
 				723E3C681C885A310006DEF4 /* SelectGenderViewController.h */,
 				723E3C691C885A310006DEF4 /* SelectGenderViewController.m */,
+				72AF71BA1CA954BC00A50575 /* IdentificationViewController.h */,
+				72AF71BB1CA954BC00A50575 /* IdentificationViewController.m */,
+				72B662D81CC8E16500D2B3FB /* SelectProvinceViewController.h */,
+				72B662D91CC8E16500D2B3FB /* SelectProvinceViewController.m */,
+				72B662DB1CC8E1DF00D2B3FB /* SelectProvinceTableViewCell.h */,
+				72B662DC1CC8E1DF00D2B3FB /* SelectProvinceTableViewCell.m */,
+				72B662D51CC8E08F00D2B3FB /* SelectCityViewController.h */,
+				72B662D61CC8E08F00D2B3FB /* SelectCityViewController.m */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -671,6 +694,8 @@
 				723E3C611C883E9E0006DEF4 /* CustomTextField.m */,
 				723E3C631C883FDC0006DEF4 /* CustomFaTextField.h */,
 				723E3C641C883FDC0006DEF4 /* CustomFaTextField.m */,
+				72B662DE1CC8EF3D00D2B3FB /* NSString+Utilities.h */,
+				72B662DF1CC8EF3D00D2B3FB /* NSString+Utilities.m */,
 				72C24F241C6D6D3A00026821 /* DZNPhoto */,
 			);
 			name = "Custom Classes";
@@ -1056,6 +1081,7 @@
 				72F274301C196FA30048BF05 /* CitiesViewController.m in Sources */,
 				72EA4D731C50F6750053456F /* CustomMarginLabel.m in Sources */,
 				720B92A41C253B3100D1468A /* SearchSectionView.m in Sources */,
+				72B662DD1CC8E1DF00D2B3FB /* SelectProvinceTableViewCell.m in Sources */,
 				722A0DD11C917E8E005C6DDB /* BillHeaderView.m in Sources */,
 				72DFF0E61C106C2F00884E04 /* SearchTableViewCell.m in Sources */,
 				720B92A11C22A9AB00D1468A /* HWViewPager.m in Sources */,
@@ -1073,6 +1099,7 @@
 				729838B21BFCB04D005BC5C3 /* HouseObject.m in Sources */,
 				721E15361C0F51CA006E394B /* MainHomeCollectionViewCell.m in Sources */,
 				72AF71B91CA8410400A50575 /* MyProfileViewController.m in Sources */,
+				72B662D71CC8E08F00D2B3FB /* SelectCityViewController.m in Sources */,
 				72C24F761C6D78EF00026821 /* DZNPhotoPickerController.m in Sources */,
 				72C24F8D1C6D790600026821 /* DZNPhotoTag.m in Sources */,
 				72D4E5D61C3EA94E00AC3D0D /* FacilityObject.m in Sources */,
@@ -1104,6 +1131,7 @@
 				722A0DD71C918CC7005C6DDB /* PriceObject.m in Sources */,
 				72F2744F1C1978B20048BF05 /* CustomFaLightLabel.m in Sources */,
 				72D4E5FC1C3F20C000AC3D0D /* CustomScrollView.m in Sources */,
+				72AF71BC1CA954BC00A50575 /* IdentificationViewController.m in Sources */,
 				723E3C6A1C885A310006DEF4 /* SelectGenderViewController.m in Sources */,
 				729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */,
 				726A3A441C47EA6B002C4D11 /* CommentDetailTableViewCell.m in Sources */,
@@ -1126,6 +1154,8 @@
 				72C24F751C6D78EF00026821 /* DZNPhotoDisplayViewController.m in Sources */,
 				7214FB5D1BF1C98A00824043 /* UIViewController+Utilities.m in Sources */,
 				726A3A351C47A382002C4D11 /* MoreFacilityCollectionViewCell.m in Sources */,
+				72B662DA1CC8E16500D2B3FB /* SelectProvinceViewController.m in Sources */,
+				72B662E01CC8EF3D00D2B3FB /* NSString+Utilities.m in Sources */,
 				72DFF0E31C1046C400884E04 /* SearchViewController.m in Sources */,
 				72F274581C199FDF0048BF05 /* SearchDetailAttractionCollectionViewCell.m in Sources */,
 				726A3A3B1C47E07E002C4D11 /* FacilitiesTableViewCell.m in Sources */,
