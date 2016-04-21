@@ -107,7 +107,15 @@
     NSMutableArray *muArr = [[NSMutableArray alloc] init];
     [dict.allKeys enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        NSDictionary *tempDict = @{@"name":obj,@"cities":[dict objectForKey:obj]};
+        
+        NSMutableArray *cityMuArr = [[NSMutableArray alloc] init];
+        [[dict objectForKey:obj] enumerateObjectsUsingBlock:^(NSDictionary *innerObj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            [cityMuArr addObject:[innerObj objectForKey:@"city"]];
+        }];
+        
+        NSDictionary *tempDict = @{@"name":obj,@"cities":[cityMuArr copy]};
+
         [muArr addObject:tempDict];
         
     }];

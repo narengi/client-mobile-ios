@@ -10,4 +10,9 @@
 
 @interface SelectCityViewController : UIViewController
 
+
+@property (nonatomic) BOOL isSelectCity;
+@property (nonatomic,strong) NSString *selectedCity;
+@property (nonatomic,strong) NSArray *cityArr;
+
 @end

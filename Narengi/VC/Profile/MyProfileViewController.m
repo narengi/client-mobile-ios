@@ -31,7 +31,6 @@
 {
     [super viewDidLoad];
     [self addLeftAndRightButton];
-    self.userObject = [[ NSUserDefaults standardUserDefaults] rm_customObjectForKey:@"userObject"];
     [self setupView];
     
     self.title = @"پروفایل";
@@ -53,7 +52,8 @@
 
 -(void)setupView{
     
-    
+    self.userObject = [[ NSUserDefaults standardUserDefaults] rm_customObjectForKey:@"userObject"];
+
     self.nameLabel.text = [[self.userObject.fisrtName stringByAppendingString:@" "] stringByAppendingString:self.userObject.lastName];
     
     [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"Authorization"];
@@ -65,8 +65,12 @@
     else{
        self.aboutLabel.text =@"-";
     }
-    if (self.userObject.residentStr.length > 0) {
-        self.cityLabel.text = self.userObject.residentStr;
+    if (self.userObject.province.length > 0) {
+    
+        if (self.userObject.city.length > 0)
+            self.cityLabel.text = [NSString stringWithFormat:@"%@، %@",self.userObject.province, self.userObject.city];
+        else
+            self.cityLabel.text = self.userObject.province;
     }
     else
         self.cityLabel.text = @"-";
@@ -216,6 +220,7 @@
             
             UserObject *userObj = [[NarengiCore sharedInstance ] parsUserObject:response.backData];
             [[NSUserDefaults standardUserDefaults] rm_setCustomObject:userObj forKey:@"userObject"];
+            
             [self setupView];
         });
     });

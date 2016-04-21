@@ -16,6 +16,7 @@
 #import "PhoneValidateViewController.h"
 #import "SelectGenderViewController.h"
 #import "SelectProvinceViewController.h"
+#import "SelectCityViewController.h"
 
 @interface EditProfileViewController ()<DZNPhotoPickerControllerDelegate,UIActionSheetDelegate,
 UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate,UITextViewDelegate>
@@ -60,6 +61,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 @property ( nonatomic)  BOOL didSelectedGender;
 
 @property (nonatomic,strong) NSDictionary *selectedProvince;
+@property (nonatomic,strong) NSString *selectedCity;
 
 @end
 
@@ -108,6 +110,12 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     
     if (self.userObject.bio.length > 0)
         self.aboutTextView.text = self.userObject.bio;
+    
+    if (self.userObject.city.length > 0)
+        self.cityLabel.text = self.userObject.city;
+    
+    if (self.userObject.province.length > 0)
+        self.provinceLabel.text = self.userObject.province;
     
     
     [self.avatarImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@user-profiles/picture",BASEURL]] placeholderImage:IMG(@"edit-profile-empty-avatar")];
@@ -656,6 +664,12 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     if (bioText.length  > 0) {
         [bodyDict addEntriesFromDictionary:@{@"bio":self.aboutTextView.text}];
     }
+    if (self.selectedProvince != nil) {
+        [bodyDict addEntriesFromDictionary:@{@"province":[self.selectedProvince objectForKey:@"name"]}];
+    }
+    if (self.selectedCity.length  > 0) {
+        [bodyDict addEntriesFromDictionary:@{@"city":self.selectedCity}];
+    }
     
     NSData *bodyData = [NSJSONSerialization dataWithJSONObject:[bodyDict copy] options:0 error:nil];
     
@@ -680,6 +694,28 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 
 - (IBAction)selectCityClicked:(UIButton *)sender {
 
+    if (self.selectedProvince !=  nil) {
+        [self goToSelectCity];
+    }
+    else{
+        
+        UIAlertController *exitAlert = [UIAlertController alertControllerWithTitle:@"نارنگی"
+                                                                           message: @"ابتدا استان را انتخاب کنید"
+                                                                    preferredStyle:UIAlertControllerStyleAlert                   ];
+        
+        UIAlertAction* ok = [UIAlertAction
+                             actionWithTitle:@"تایید"
+                             style:UIAlertActionStyleDestructive
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [exitAlert dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+        
+        [exitAlert addAction: ok];
+        
+        [self presentViewController:exitAlert animated:YES completion:nil];
+    }
 }
 
 -(void)goToSelectProvince{
@@ -714,6 +750,42 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     
     [self presentViewController:formSheet animated:YES completion:nil];
 }
+
+
+-(void)goToSelectCity{
+    
+    UIStoryboard *storybord =[UIStoryboard storyboardWithName:@"Alerts" bundle:nil];
+    SelectCityViewController *vc = [storybord instantiateViewControllerWithIdentifier:@"selectCityVCID"];
+    
+    vc.cityArr = [self.selectedProvince objectForKey:@"cities"];
+    
+    MZFormSheetPresentationViewController *formSheet = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:vc];
+    
+    
+    formSheet.presentationController.contentViewSize = CGSizeMake(300, 400);
+    formSheet.presentationController.portraitTopInset = 10;
+    formSheet.allowDismissByPanningPresentedView = YES;
+    formSheet.presentationController.shouldDismissOnBackgroundViewTap = YES;
+    formSheet.contentViewCornerRadius = 8.0;
+    
+    
+    formSheet.willPresentContentViewControllerHandler = ^(UIViewController *presentedFSViewController){
+        
+    };
+    formSheet.didDismissContentViewControllerHandler = ^(UIViewController *presentedFSViewController){
+        
+        SelectCityViewController *vc = (SelectCityViewController *)presentedFSViewController;
+        if (vc.isSelectCity) {
+            
+            self.selectedCity = vc.selectedCity;
+            self.cityLabel.text = self.selectedCity ;
+        }
+    };
+    
+    [self presentViewController:formSheet animated:YES completion:nil];
+}
+
+
 
 
 @end

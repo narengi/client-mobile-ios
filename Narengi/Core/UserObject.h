@@ -19,7 +19,8 @@
 @property (nonatomic) NSString  *gender;
 @property (nonatomic) NSString  *bio;
 @property (nonatomic) NSString  *sinceStr;
-@property (nonatomic) NSString  *residentStr;
+@property (nonatomic) NSString  *city;
+@property (nonatomic) NSString  *province;
 
 @property (nonatomic) NSString  *cellNumber;
 @property (nonatomic) NSString  *email;

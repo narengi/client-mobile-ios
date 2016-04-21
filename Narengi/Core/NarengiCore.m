@@ -478,6 +478,8 @@ NarengiCore *sharedInstance;
     userObj.gender          = [[[dict objectForKey:@"profile"] checkNull] objectForKey:@"gender"];
     userObj.birthDate       = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"birthDate"] checkNull];
     userObj.bio             = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"bio"] checkNull];
+    userObj.city            = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"city"] checkNull];
+    userObj.province        = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"province"] checkNull];
     
     [[dict objectForKey:@"verification"] enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         

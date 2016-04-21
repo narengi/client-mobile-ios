@@ -7,10 +7,12 @@
 //
 
 #import "SelectCityViewController.h"
+#import "SelectProvinceTableViewCell.h"
 
 @interface SelectCityViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 
 @end
 
@@ -24,14 +26,36 @@
     [super didReceiveMemoryWarning];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - tableView
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+
+{
+    return 1;
 }
-*/
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.cityArr.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    SelectProvinceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"selectProvinceCell" forIndexPath:indexPath];
+    
+    cell.titleLabel.text = self.cityArr[indexPath.row];
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.selectedCity = self.cityArr[indexPath.row];
+    self.isSelectCity = YES;
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
 
 @end
