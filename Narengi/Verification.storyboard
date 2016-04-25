@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iWz-09-6KS">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Identification View Controller-->
+        <scene sceneID="GJb-ol-iXl">
+            <objects>
+                <viewController id="TKp-Vc-U7z" customClass="IdentificationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="B2h-1T-FNr"/>
+                        <viewControllerLayoutGuide type="bottom" id="M9N-1G-dPL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OK8-m3-suJ">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="420"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="فرآیند تایید هویت شما از طرف نارنجی در حال انجام است. در صورت تایید هوییت از طریق ایمیل به شما اطلاع رسانی خواد شد." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfo-X9-dXf" customClass="CustomFaRegularLabel">
+                                <rect key="frame" x="5" y="38" width="290" height="111"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="111" id="VuR-bg-Xkg"/>
+                                    <constraint firstAttribute="width" constant="290" id="i2H-rD-bfA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEo-vw-xLc">
+                                <rect key="frame" x="5" y="171" width="290" height="159"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="تصویر مدرک شناسایی" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDq-V7-TU4" customClass="CustomFaRegularLabel">
+                                        <rect key="frame" x="133" y="20" width="144" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ایمیل" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFP-eQ-mlv" customClass="CustomFaRegularLabel">
+                                        <rect key="frame" x="232" y="77" width="45" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="تلفن همراه" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCT-97-Rfk" customClass="CustomFaRegularLabel">
+                                        <rect key="frame" x="209" y="125" width="68" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tPv-t4-lbO">
+                                        <rect key="frame" x="32" y="77" width="190" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="angle-left" translatesAutoresizingMaskIntoConstraints="NO" id="cml-s0-i80">
+                                        <rect key="frame" x="8" y="80" width="16" height="16"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="angle-left" translatesAutoresizingMaskIntoConstraints="NO" id="Vko-n1-05I">
+                                        <rect key="frame" x="8" y="128" width="16" height="16"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDV-jf-tfA" customClass="CustomFaRegularLabel">
+                                        <rect key="frame" x="30" y="129" width="152" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G2g-YC-s7a">
+                                        <rect key="frame" x="8" y="8" width="70" height="45"/>
+                                        <color key="backgroundColor" red="0.61960784310000006" green="0.61960784310000006" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RvY-OW-GHc">
+                                        <rect key="frame" x="0.0" y="63" width="290" height="1"/>
+                                        <color key="backgroundColor" red="0.61960784313725492" green="0.61960784313725492" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IH7-MQ-UiO">
+                                        <rect key="frame" x="0.0" y="110" width="290" height="1"/>
+                                        <color key="backgroundColor" red="0.61960784313725492" green="0.61960784313725492" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Cb-ux-E3R">
+                                        <rect key="frame" x="191" y="123" width="25" height="25"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3y-Ly-eVC">
+                                        <rect key="frame" x="8" y="119" width="282" height="43"/>
+                                        <connections>
+                                            <action selector="phoneVerificationClicked:" destination="TKp-Vc-U7z" eventType="touchUpInside" id="wfD-co-M7p"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNS-0J-osz">
+                                        <rect key="frame" x="8" y="9" width="274" height="46"/>
+                                        <connections>
+                                            <action selector="idCardVerificationClicked:" destination="TKp-Vc-U7z" eventType="touchUpInside" id="mGS-e3-p58"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NaB-Kc-rTN">
+                                        <rect key="frame" x="218" y="76" width="25" height="25"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="159" id="cfx-zS-AGP"/>
+                                    <constraint firstAttribute="width" constant="290" id="z8w-ZR-YdT"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lfo-X9-dXf" firstAttribute="top" secondItem="B2h-1T-FNr" secondAttribute="bottom" constant="38" id="0Eg-p0-rb7"/>
+                            <constraint firstItem="nEo-vw-xLc" firstAttribute="top" secondItem="lfo-X9-dXf" secondAttribute="bottom" constant="22" id="77g-TN-MrC"/>
+                            <constraint firstItem="nEo-vw-xLc" firstAttribute="centerX" secondItem="OK8-m3-suJ" secondAttribute="centerX" id="g3L-8r-5V9"/>
+                            <constraint firstItem="lfo-X9-dXf" firstAttribute="centerX" secondItem="OK8-m3-suJ" secondAttribute="centerX" id="vjE-eZ-RLB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="nEo-vw-xLc" id="XmS-P8-syJ"/>
+                        <outlet property="emailLabel" destination="tPv-t4-lbO" id="q4J-f2-7gk"/>
+                        <outlet property="emailValidateImg" destination="NaB-Kc-rTN" id="BOh-fI-wEM"/>
+                        <outlet property="idCardImg" destination="G2g-YC-s7a" id="cWM-kC-6zx"/>
+                        <outlet property="identificationCardImg" destination="nEo-vw-xLc" id="TTc-js-gMl"/>
+                        <outlet property="phoneLabel" destination="NDV-jf-tfA" id="cqi-v5-gnO"/>
+                        <outlet property="phoneValidateImg" destination="9Cb-ux-E3R" id="bbW-lL-BgF"/>
+                        <segue destination="8fo-iR-Jry" kind="show" identifier="goToPhoneVerificationId" id="t3H-4q-kDr"/>
+                        <segue destination="lC8-Wi-K6f" kind="show" identifier="goToIDCardVerficationStep" id="ehb-4h-tFv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VW6-Hi-jWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1910" y="1748"/>
+        </scene>
+        <!--Verification Intro View Controller-->
+        <scene sceneID="Xxm-Jj-FI3">
+            <objects>
+                <viewController id="QqT-xG-S0H" customClass="VerificationIntroViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l3f-pV-hWW"/>
+                        <viewControllerLayoutGuide type="bottom" id="m6r-53-Q8N"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="me2-uk-oO9">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="فرآیند تایید هوییت بسیار ساده است و تنها راهی است که به ایجاد اعتماد میان کاربرانگ کمک میکند." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfJ-wT-UT4" customClass="CustomFaRegularLabel">
+                                <rect key="frame" x="42" y="128" width="216" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="216" id="DUb-hd-Eit"/>
+                                    <constraint firstAttribute="height" constant="66" id="aRV-U5-7Pe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نارنگی با استفاده از تلفن ، ایمیل و تصویر مدرک   شناسایی رسمی شما، اقدام به تایید هویت شما می‌کند. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKp-h0-Aqm" customClass="CustomFaRegularLabel">
+                                <rect key="frame" x="42" y="206" width="216" height="93"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="216" id="R1Y-Vn-oLP"/>
+                                    <constraint firstAttribute="height" constant="93" id="rLY-Zg-vYE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s2j-al-XZA">
+                                <rect key="frame" x="118" y="37" width="65" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="TIg-Py-aUs"/>
+                                    <constraint firstAttribute="height" constant="71" id="uim-Ac-gnT"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2P4-ew-Akj" customClass="IranButton">
+                                <rect key="frame" x="42" y="550" width="216" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="216" id="9ZM-dR-MEX"/>
+                                    <constraint firstAttribute="height" constant="30" id="aLr-cD-2zi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="شروع فرآیند">
+                                    <color key="titleColor" red="0.0" green="0.58431372550000005" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonclicked:" destination="QqT-xG-S0H" eventType="touchUpInside" id="K6Q-Ik-Rpy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cfJ-wT-UT4" firstAttribute="centerX" secondItem="me2-uk-oO9" secondAttribute="centerX" id="8Y0-6t-J5f"/>
+                            <constraint firstItem="m6r-53-Q8N" firstAttribute="top" secondItem="2P4-ew-Akj" secondAttribute="bottom" constant="20" id="H2W-Am-prg"/>
+                            <constraint firstItem="s2j-al-XZA" firstAttribute="centerX" secondItem="me2-uk-oO9" secondAttribute="centerX" id="IcD-qM-0if"/>
+                            <constraint firstItem="2P4-ew-Akj" firstAttribute="centerX" secondItem="me2-uk-oO9" secondAttribute="centerX" id="QWT-mu-crE"/>
+                            <constraint firstItem="s2j-al-XZA" firstAttribute="top" secondItem="l3f-pV-hWW" secondAttribute="bottom" constant="37" id="VPr-XK-1Wn"/>
+                            <constraint firstItem="cfJ-wT-UT4" firstAttribute="top" secondItem="s2j-al-XZA" secondAttribute="bottom" constant="20" id="coL-6M-J5U"/>
+                            <constraint firstItem="FKp-h0-Aqm" firstAttribute="top" secondItem="cfJ-wT-UT4" secondAttribute="bottom" constant="12" id="ll0-bn-gX4"/>
+                            <constraint firstItem="FKp-h0-Aqm" firstAttribute="centerX" secondItem="me2-uk-oO9" secondAttribute="centerX" id="yfe-1V-esq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Zqs-jY-2h4"/>
+                    <connections>
+                        <outlet property="startButton" destination="2P4-ew-Akj" id="vNx-a7-EIu"/>
+                        <segue destination="8fo-iR-Jry" kind="show" identifier="goToPhoneVerificationID" id="Fab-V5-16A"/>
+                        <segue destination="lC8-Wi-K6f" kind="show" identifier="goDirectToVerificationID" id="aCF-OR-Dwu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rEg-W4-Tjg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2438" y="972"/>
+        </scene>
+        <!--Verfication Root View Controller-->
+        <scene sceneID="sKC-vY-Pje">
+            <objects>
+                <viewController id="iWz-09-6KS" customClass="VerficationRootViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZOT-h5-qkw"/>
+                        <viewControllerLayoutGuide type="bottom" id="N4H-Ag-P8B"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4I9-Jt-PXa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LvN-eU-gab">
+                                <rect key="frame" x="150" y="0.0" width="300" height="600"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Mni-IV-ClR"/>
+                                    <constraint firstAttribute="height" constant="600" id="VW6-Ch-Yte"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="QqT-xG-S0H" kind="embed" identifier="verificationIntro" id="ihv-7n-DCE"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vKh-Df-1Fe">
+                                <rect key="frame" x="150" y="0.0" width="300" height="420"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="420" id="jHn-71-XMA"/>
+                                    <constraint firstAttribute="width" constant="300" id="pjM-VN-JUc"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="TKp-Vc-U7z" kind="embed" identifier="verification" id="aW0-we-Nx2"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="N4H-Ag-P8B" firstAttribute="top" secondItem="LvN-eU-gab" secondAttribute="bottom" id="4kV-sT-cec"/>
+                            <constraint firstItem="vKh-Df-1Fe" firstAttribute="top" secondItem="ZOT-h5-qkw" secondAttribute="bottom" constant="-20" id="6lN-Rw-WMG"/>
+                            <constraint firstItem="vKh-Df-1Fe" firstAttribute="centerX" secondItem="4I9-Jt-PXa" secondAttribute="centerX" id="L0W-4X-ikC"/>
+                            <constraint firstItem="LvN-eU-gab" firstAttribute="centerX" secondItem="4I9-Jt-PXa" secondAttribute="centerX" id="aH4-SU-GoC"/>
+                            <constraint firstItem="LvN-eU-gab" firstAttribute="top" secondItem="4I9-Jt-PXa" secondAttribute="top" id="g6l-91-fvi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3KC-MA-2aQ"/>
+                    <connections>
+                        <outlet property="identifierView" destination="vKh-Df-1Fe" id="TeK-J8-cb0"/>
+                        <outlet property="introContainerView" destination="LvN-eU-gab" id="DTm-uR-y9j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7mo-s6-mFP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1751" y="725"/>
+        </scene>
+        <!--Phone Validate View Controller-->
+        <scene sceneID="eDr-24-wJI">
+            <objects>
+                <viewController storyboardIdentifier="phoneValidateVCID" id="8fo-iR-Jry" customClass="PhoneValidateViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oiN-EP-KY0"/>
+                        <viewControllerLayoutGuide type="bottom" id="j4D-hS-QSX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dop-BZ-me8">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="شماره تلفن همراه خود را وارد کنید." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTo-04-ujf" customClass="CustomFaRegularLabel">
+                                <rect key="frame" x="26" y="32" width="249" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="CBc-yA-OVj"/>
+                                    <constraint firstAttribute="width" constant="249" id="OXU-u6-rI9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kOr-3Y-Mng">
+                                <rect key="frame" x="0.0" y="77" width="300" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aTz-A2-V4v">
+                                        <rect key="frame" x="10" y="10" width="199" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="hg8-87-2Tx"/>
+                                            <constraint firstAttribute="width" constant="199" id="sbA-9i-9Za"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                        <connections>
+                                            <action selector="tectFieldChanged:" destination="8fo-iR-Jry" eventType="editingChanged" id="oYl-BR-qqk"/>
+                                            <outlet property="delegate" destination="8fo-iR-Jry" id="gO8-2H-TML"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تلفن همراه" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8w-hJ-vz4" customClass="CustomFaRegularLabel">
+                                        <rect key="frame" x="217" y="14" width="71" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="D6e-Vn-W1R"/>
+                                            <constraint firstAttribute="width" constant="71" id="STv-QV-ScN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="aTz-A2-V4v" firstAttribute="centerY" secondItem="kOr-3Y-Mng" secondAttribute="centerY" id="ZlW-8U-zQY"/>
+                                    <constraint firstAttribute="trailing" secondItem="W8w-hJ-vz4" secondAttribute="trailing" constant="12" id="aWq-ra-rSg"/>
+                                    <constraint firstItem="aTz-A2-V4v" firstAttribute="leading" secondItem="kOr-3Y-Mng" secondAttribute="leading" constant="10" id="apr-iN-zk1"/>
+                                    <constraint firstAttribute="width" constant="300" id="iZ4-JS-uMo"/>
+                                    <constraint firstAttribute="height" constant="50" id="jUp-lt-0QU"/>
+                                    <constraint firstItem="W8w-hJ-vz4" firstAttribute="leading" secondItem="aTz-A2-V4v" secondAttribute="trailing" constant="8" id="uXV-vP-vb7"/>
+                                    <constraint firstItem="W8w-hJ-vz4" firstAttribute="centerY" secondItem="kOr-3Y-Mng" secondAttribute="centerY" id="zDP-0d-6S7"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0l-AJ-yLh" customClass="IranButton">
+                                <rect key="frame" x="0.0" y="159" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ein-As-3b1"/>
+                                    <constraint firstAttribute="width" constant="300" id="nbt-Nm-quw"/>
+                                </constraints>
+                                <state key="normal" title="تایید شماره تلفن همراه">
+                                    <color key="titleColor" red="0.22352941179999999" green="0.62745098040000002" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="submiteButtonClicked:" destination="8fo-iR-Jry" eventType="touchUpInside" id="VDX-54-fOn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="D0l-AJ-yLh" firstAttribute="centerX" secondItem="Dop-BZ-me8" secondAttribute="centerX" id="4Rk-Y6-3lO"/>
+                            <constraint firstItem="oTo-04-ujf" firstAttribute="top" secondItem="oiN-EP-KY0" secondAttribute="bottom" constant="32" id="4pV-3d-U9W"/>
+                            <constraint firstItem="kOr-3Y-Mng" firstAttribute="centerX" secondItem="Dop-BZ-me8" secondAttribute="centerX" id="5iC-Yp-ErN"/>
+                            <constraint firstItem="kOr-3Y-Mng" firstAttribute="top" secondItem="oTo-04-ujf" secondAttribute="bottom" constant="24" id="bPP-Qq-fwL"/>
+                            <constraint firstItem="oTo-04-ujf" firstAttribute="centerX" secondItem="Dop-BZ-me8" secondAttribute="centerX" id="bQo-Nh-cn8"/>
+                            <constraint firstItem="D0l-AJ-yLh" firstAttribute="top" secondItem="kOr-3Y-Mng" secondAttribute="bottom" constant="32" id="qRq-Vb-c3v"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="phoneTextField" destination="aTz-A2-V4v" id="RjM-Bi-pCU"/>
+                        <outlet property="phoneTextFieldContainerView" destination="kOr-3Y-Mng" id="nMN-0U-uKC"/>
+                        <outlet property="submiteButton" destination="D0l-AJ-yLh" id="d5P-aK-rrW"/>
+                        <segue destination="75X-Em-F44" kind="show" identifier="goToValidatePhoneCode" id="W6c-1x-YEU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="StA-fj-6el" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2555" y="134"/>
+        </scene>
+        <!--Enter Validation Code View Controller-->
+        <scene sceneID="7eg-B1-F76">
+            <objects>
+                <viewController storyboardIdentifier="enterValidationCodeVCID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="75X-Em-F44" customClass="EnterValidationCodeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CQp-f1-K4c"/>
+                        <viewControllerLayoutGuide type="bottom" id="NE2-Vi-6V3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6j0-AU-MMx">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="کد ۴ رقمی ارسال شده را اینجا وارد کنید" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHr-8e-FTN" customClass="CustomFaRegularLabel">
+                                <rect key="frame" x="10" y="32" width="280" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="0c2-Ab-CzE"/>
+                                    <constraint firstAttribute="width" constant="280" id="3W6-jy-0Br"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8OO-ZO-BrC">
+                                <rect key="frame" x="0.0" y="77" width="300" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uco-oE-6my">
+                                        <rect key="frame" x="21" y="0.0" width="257" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="NKm-Cc-OWI"/>
+                                            <constraint firstAttribute="width" constant="257" id="hsN-zZ-Hov"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <action selector="textFieldChanged:" destination="75X-Em-F44" eventType="editingChanged" id="omB-6j-yOd"/>
+                                            <outlet property="delegate" destination="75X-Em-F44" id="qBO-8Q-wee"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Uco-oE-6my" firstAttribute="top" secondItem="8OO-ZO-BrC" secondAttribute="top" id="qDr-lK-dSh"/>
+                                    <constraint firstAttribute="bottom" secondItem="Uco-oE-6my" secondAttribute="bottom" id="t5K-H7-qRA"/>
+                                    <constraint firstAttribute="trailing" secondItem="Uco-oE-6my" secondAttribute="trailing" constant="22" id="tXT-Wj-Ed6"/>
+                                    <constraint firstAttribute="height" constant="50" id="u2l-3V-xbp"/>
+                                    <constraint firstItem="Uco-oE-6my" firstAttribute="leading" secondItem="8OO-ZO-BrC" secondAttribute="leading" constant="21" id="uKy-RN-YBu"/>
+                                    <constraint firstAttribute="width" constant="300" id="w1Y-kL-ADn"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIF-C8-yBa" customClass="IranButton">
+                                <rect key="frame" x="0.0" y="159" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="pnc-bz-pfn"/>
+                                    <constraint firstAttribute="height" constant="40" id="yxb-Qd-ixx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="ارسال">
+                                    <color key="titleColor" red="0.22352941179999999" green="0.62745098040000002" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendButtonclicked:" destination="75X-Em-F44" eventType="touchUpInside" id="u2H-15-aqg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5HI-NU-QbQ" customClass="IranButton">
+                                <rect key="frame" x="0.0" y="214" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="30R-Y2-zVv"/>
+                                    <constraint firstAttribute="height" constant="40" id="O8S-Hi-MuR"/>
+                                </constraints>
+                                <state key="normal" title="در صورت دریافت نکردن پیامک عملیات را تکرار کنید">
+                                    <color key="titleColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendCodeAgainButtonClicked:" destination="75X-Em-F44" eventType="touchUpInside" id="GIf-M8-m7e"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8OO-ZO-BrC" firstAttribute="centerX" secondItem="6j0-AU-MMx" secondAttribute="centerX" id="3G3-f9-6ds"/>
+                            <constraint firstItem="qIF-C8-yBa" firstAttribute="centerX" secondItem="6j0-AU-MMx" secondAttribute="centerX" id="55D-1M-HOH"/>
+                            <constraint firstItem="qIF-C8-yBa" firstAttribute="top" secondItem="8OO-ZO-BrC" secondAttribute="bottom" constant="32" id="5SJ-pg-cA7"/>
+                            <constraint firstItem="BHr-8e-FTN" firstAttribute="top" secondItem="CQp-f1-K4c" secondAttribute="bottom" constant="32" id="BbI-A8-i39"/>
+                            <constraint firstItem="8OO-ZO-BrC" firstAttribute="top" secondItem="BHr-8e-FTN" secondAttribute="bottom" constant="24" id="ROq-MM-sh6"/>
+                            <constraint firstItem="5HI-NU-QbQ" firstAttribute="top" secondItem="qIF-C8-yBa" secondAttribute="bottom" constant="15" id="Ykg-Te-4f1"/>
+                            <constraint firstItem="BHr-8e-FTN" firstAttribute="centerX" secondItem="6j0-AU-MMx" secondAttribute="centerX" id="voi-0h-G64"/>
+                            <constraint firstItem="5HI-NU-QbQ" firstAttribute="centerX" secondItem="6j0-AU-MMx" secondAttribute="centerX" id="zHG-4G-iKL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="codeTextField" destination="Uco-oE-6my" id="Okh-1P-YNa"/>
+                        <outlet property="sendButton" destination="qIF-C8-yBa" id="ca5-aU-aeq"/>
+                        <outlet property="textFieldContainerView" destination="8OO-ZO-BrC" id="L8p-ZT-iyJ"/>
+                        <segue destination="lC8-Wi-K6f" kind="show" identifier="goToIdCardVerificationID" id="bGD-g5-5ya"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8qY-Bb-zWf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3043" y="134"/>
+        </scene>
+        <!--Card Validate View Controller-->
+        <scene sceneID="fOZ-iv-RCq">
+            <objects>
+                <viewController id="lC8-Wi-K6f" customClass="IDCardValidateViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hnk-d4-gpa"/>
+                        <viewControllerLayoutGuide type="bottom" id="iO4-OT-T9N"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TBT-sa-TwN">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="از مدرگ شناسایی خود مانند کارت ملی یا شناسنامه عکس بگیرید و یا اگرا از قبل تصویر آن  را در گالری خود دارید آن را انتخاب کنید." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKd-JA-5Sl" customClass="CustomFaRegularLabel">
+                                <rect key="frame" x="49" y="58" width="202" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="202" id="Jlc-Sa-wLj"/>
+                                    <constraint firstAttribute="height" constant="85" id="xfQ-aq-ntO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmq-de-DFh" customClass="CustomFaLightLabel">
+                                <rect key="frame" x="49" y="163" width="202" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="0cV-p9-poU"/>
+                                    <constraint firstAttribute="width" constant="202" id="C1e-jw-pd5"/>
+                                </constraints>
+                                <string key="text">اطلاعات مدرک شناسایی شما باید با اطلاعات کاربری شما در نارنگی همخوانی داشته باشد. در غیر این صورت  نارنگی قادر به احراز هویت شما نیست.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wg5-6c-pKi" customClass="IranButton">
+                                <rect key="frame" x="29" y="550" width="243" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="243" id="TaN-fx-3Pj"/>
+                                    <constraint firstAttribute="height" constant="30" id="z9K-No-5gf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="انتخاب تصویر مدرک شناسایی">
+                                    <color key="titleColor" red="0.34509803921568627" green="0.34509803921568627" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectIDCardImgBt:" destination="lC8-Wi-K6f" eventType="touchUpInside" id="TB4-OO-WLe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iO4-OT-T9N" firstAttribute="top" secondItem="wg5-6c-pKi" secondAttribute="bottom" constant="20" id="8Ty-Ig-nQi"/>
+                            <constraint firstItem="MKd-JA-5Sl" firstAttribute="top" secondItem="hnk-d4-gpa" secondAttribute="bottom" constant="58" id="BaU-TP-i9W"/>
+                            <constraint firstItem="gmq-de-DFh" firstAttribute="top" secondItem="MKd-JA-5Sl" secondAttribute="bottom" constant="20" id="Nr4-gd-sIv"/>
+                            <constraint firstItem="MKd-JA-5Sl" firstAttribute="centerX" secondItem="TBT-sa-TwN" secondAttribute="centerX" id="S96-94-hAM"/>
+                            <constraint firstItem="gmq-de-DFh" firstAttribute="centerX" secondItem="TBT-sa-TwN" secondAttribute="centerX" id="Tmt-bM-rp8"/>
+                            <constraint firstItem="wg5-6c-pKi" firstAttribute="centerX" secondItem="TBT-sa-TwN" secondAttribute="centerX" id="dT7-Rx-poO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="selectImgButton" destination="wg5-6c-pKi" id="gwE-ti-EWc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q9j-wV-18C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3485" y="139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="angle-left" width="16" height="16"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Fab-V5-16A"/>
+        <segue reference="aCF-OR-Dwu"/>
+    </inferredMetricsTieBreakers>
+</document>

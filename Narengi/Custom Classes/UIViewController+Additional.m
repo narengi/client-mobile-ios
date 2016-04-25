@@ -14,7 +14,7 @@
 #import "ProfileViewController.h"
 #import "LoginViewController.h"
 #import "BookViewController.h"
-
+#import "VerficationRootViewController.h"
 @implementation UIViewController (Additional)
 
 
@@ -192,6 +192,30 @@
 
 }
 
+-(void)changeRightIconToSkip{
 
+    
+    UIButton *mapButton  = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
+    [mapButton setImage:IMG(@"CloseIconOrange") forState:UIControlStateNormal];
+    
+    [mapButton addTarget:self action:@selector(goToRoot) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:mapButton];
+    self.navigationItem.rightBarButtonItem = customBarItem;
+}
+
+-(void)goToRoot{
+ 
+    NSArray *viewControllers = [[self navigationController] viewControllers];
+    for( int i=0;i<[viewControllers count];i++){
+        id obj=[viewControllers objectAtIndex:i];
+        if([obj isKindOfClass:[VerficationRootViewController class]]){
+            [[self navigationController] popToViewController:obj animated:YES];
+            return;
+        }
+    }
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 @end

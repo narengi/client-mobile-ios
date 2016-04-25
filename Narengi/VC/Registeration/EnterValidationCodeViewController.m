@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UITextField *codeTextField;
 @property (weak, nonatomic) IBOutlet UIView *textFieldContainerView;
+@property (nonatomic,strong) UserObject *userObject;
 
 @end
 
@@ -23,6 +24,7 @@
     [self.textFieldContainerView setBorderWithColor:RGB(235, 235, 235, 1) andWithWidth:1 withCornerRadius:2];
     [self changeLeftIcontoBack];
     self.title  = @"تایید تلفن همراه";
+    [self changeRightIconToSkip];
     [super viewDidLoad];
     
 }
@@ -78,9 +80,11 @@
             
             if (!response.hasErro) {
                 
-                //Send user to enter code view
                 [SVProgressHUD showSuccessWithStatus:@"شماره تلفن همراه شما فعال شد."];
-                [self dismissViewControllerAnimated:YES completion:nil];
+                self.userObject = [[ NSUserDefaults standardUserDefaults] rm_customObjectForKey:@"userObject"];
+                [self changeValidationState:response.backData];
+
+                [self goToIDCardStep];
                 
             }
             else{
@@ -102,7 +106,31 @@
         
     });
 }
+-(void)changeValidationState:(NSDictionary *)dict{
 
+    VerificationObject *verificationObj = [[VerificationObject alloc] init];
+    
+    verificationObj.isVerified    = [[dict objectForKey:@"verified"] boolValue];
+    verificationObj.type          = [dict objectForKey:@"verificationType"];
+    verificationObj.code          = [dict objectForKey:@"code"];
+    verificationObj.requestedDate = [dict objectForKey:@"requestDate"];
+    verificationObj.handle        = [[dict objectForKey:@"handle"] checkNull];
+    self.userObject.phoneVerification = verificationObj;
+    
+    [[NSUserDefaults standardUserDefaults] rm_setCustomObject: self.userObject forKey:@"userObject"];
+
+    
+}
+
+-(void)goToIDCardStep{
+
+    if (self.userObject.idCardVerification.isVerified) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+    else{
+        [self performSegueWithIdentifier:@"goToIdCardVerificationID" sender:nil];
+    }
+}
 
 
 @end

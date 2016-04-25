@@ -178,6 +178,54 @@ NarengiCore *sharedInstance;
     
 }
 
+
+//Upload profile Image
+-(BOOL )sendServerRequestIDCardImageWithImage:(NSData *)imageData{
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@accounts/id-card",BASEURL]]];
+    
+    
+    [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+    [request setHTTPShouldHandleCookies:NO];
+    [request setTimeoutInterval:60];
+    [request setHTTPMethod:@"POST"];
+    
+    NSString *boundary = @"unique-consistent-string";
+    
+    // set Content-Type in HTTP header
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
+    [request setValue:contentType forHTTPHeaderField: @"Content-Type"];
+    
+    NSMutableData* body = [NSMutableData data];
+    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"picture\"; filename=\"%@\"\r\n", @"aa"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Type: %@\r\n\r\n", @"image/jpeg"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:imageData];
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setHTTPBody:body];
+    
+    [request addValue:@"mobile" forHTTPHeaderField:@"src"];
+    [request addValue:[self makeAuthurizationValue] forHTTPHeaderField:@"Authorization"];
+    
+    NSError *error = nil;
+    NSHTTPURLResponse* response;
+    
+    
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    if (!error) {
+        
+        if (response.statusCode == 200) {
+            return YES;
+        }
+        else
+            return NO;
+    }
+    else
+        return NO;
+    
+}
+
 -(NSString *)makeAuthurizationValue{
 
     NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"fuckingLoginedOrNOT"];

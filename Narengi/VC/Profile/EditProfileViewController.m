@@ -609,14 +609,10 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
             if (!response.hasErro) {
 
                 [SVProgressHUD showSuccessWithStatus:@"اطلاعات با موفقیت ذخیره شد"];
-                
-                UserObject *userObj = [[NarengiCore sharedInstance ] parsUserObject:response.backData];
-                [[NSUserDefaults standardUserDefaults] rm_setCustomObject:userObj forKey:@"userObject"];
 
                 if (!self.userObject.phoneVerification.isVerified) {
                     
                     [self dismissViewControllerAnimated:YES completion:nil]; 
-                    //[self sendUserToVerifyPhone];
                 }
             }
             else{
@@ -638,13 +634,6 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
         
     });
     
-}
--(void)sendUserToVerifyPhone{
-
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    PhoneValidateViewController *destinationVC = [storyboard instantiateViewControllerWithIdentifier:@"phoneValidateVCID"];
-   // destinationVC.phoneStr = self.phoneTextField.text;
-    [self.navigationController pushViewController:destinationVC animated:YES];
 }
 
 -(NSData *)makejson{

@@ -16,6 +16,7 @@
 
 
 -(void )sendServerRequestProfileImageWithImage:(NSData *)imageData;
+-(BOOL )sendServerRequestIDCardImageWithImage:(NSData *)imageData;
 + (NarengiCore *)sharedInstance;
 -(ServerResponse *)sendRequestWithMethod:(NSString *)method andWithService:(NSString *)service andWithParametrs:(NSArray *)params andWithBody:(id)body andIsFullPath:(BOOL) fullPath;
 

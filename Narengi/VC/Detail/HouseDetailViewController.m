@@ -266,9 +266,11 @@
     self.navTitleLabel.text    = self.houseObj.name;
     self.cityNameLabel.text    = self.houseObj.cityName;
     self.descriptionLabel.text = self.houseObj.summary;
-    
+    self.priceLabel.text       = self.houseObj.cost;
     self.reviewCountLabel.text = [NSString stringWithFormat:@"( %@ رای )",self.houseObj.reviewCount];
-
+    self.priceLabelcontainer.layer.cornerRadius = 5;
+    self.priceLabelcontainer.layer.masksToBounds = YES;
+    
     
     self.startsImg.image = IMG(([NSString stringWithFormat:@"%f",self.houseObj.roundedRate]));
     self.avatarImg.layer.cornerRadius  = 40;

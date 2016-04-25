@@ -49,6 +49,10 @@
 		723E3C651C883FDC0006DEF4 /* CustomFaTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E3C641C883FDC0006DEF4 /* CustomFaTextField.m */; };
 		723E3C671C88409B0006DEF4 /* IRANSansMobile.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 723E3C661C88409B0006DEF4 /* IRANSansMobile.ttf */; };
 		723E3C6A1C885A310006DEF4 /* SelectGenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E3C691C885A310006DEF4 /* SelectGenderViewController.m */; };
+		723F11351CCE15DE0034DC50 /* Verification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 723F11341CCE15DE0034DC50 /* Verification.storyboard */; };
+		72405ABB1CCE6F7100F68052 /* VerficationRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72405ABA1CCE6F7100F68052 /* VerficationRootViewController.m */; };
+		72405AC41CCE70BF00F68052 /* VerificationIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72405AC31CCE70BF00F68052 /* VerificationIntroViewController.m */; };
+		72405AC71CCEB89400F68052 /* IDCardValidateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72405AC61CCEB89400F68052 /* IDCardValidateViewController.m */; };
 		72469B5B1C7CAA79005684F9 /* EnterValidationCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72469B5A1C7CAA79005684F9 /* EnterValidationCodeViewController.m */; };
 		725DE6421C5948E50001E5DC /* ProfileCommentsHeadeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 725DE6401C5948E50001E5DC /* ProfileCommentsHeadeView.xib */; };
 		726A3A321C47A2CF002C4D11 /* MoreFacilityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 726A3A301C47A2CF002C4D11 /* MoreFacilityCell.xib */; };
@@ -241,6 +245,13 @@
 		723E3C661C88409B0006DEF4 /* IRANSansMobile.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile.ttf; sourceTree = "<group>"; };
 		723E3C681C885A310006DEF4 /* SelectGenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectGenderViewController.h; path = VC/Profile/SelectGenderViewController.h; sourceTree = "<group>"; };
 		723E3C691C885A310006DEF4 /* SelectGenderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectGenderViewController.m; path = VC/Profile/SelectGenderViewController.m; sourceTree = "<group>"; };
+		723F11341CCE15DE0034DC50 /* Verification.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Verification.storyboard; sourceTree = "<group>"; };
+		72405AB91CCE6F7100F68052 /* VerficationRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VerficationRootViewController.h; path = VC/Verification/VerficationRootViewController.h; sourceTree = "<group>"; };
+		72405ABA1CCE6F7100F68052 /* VerficationRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VerficationRootViewController.m; path = VC/Verification/VerficationRootViewController.m; sourceTree = "<group>"; };
+		72405AC21CCE70BF00F68052 /* VerificationIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VerificationIntroViewController.h; path = VC/Verification/VerificationIntroViewController.h; sourceTree = "<group>"; };
+		72405AC31CCE70BF00F68052 /* VerificationIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VerificationIntroViewController.m; path = VC/Verification/VerificationIntroViewController.m; sourceTree = "<group>"; };
+		72405AC51CCEB89400F68052 /* IDCardValidateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDCardValidateViewController.h; path = VC/Verification/IDCardValidateViewController.h; sourceTree = "<group>"; };
+		72405AC61CCEB89400F68052 /* IDCardValidateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDCardValidateViewController.m; path = VC/Verification/IDCardValidateViewController.m; sourceTree = "<group>"; };
 		72469B591C7CAA79005684F9 /* EnterValidationCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnterValidationCodeViewController.h; path = VC/Registeration/EnterValidationCodeViewController.h; sourceTree = "<group>"; };
 		72469B5A1C7CAA79005684F9 /* EnterValidationCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EnterValidationCodeViewController.m; path = VC/Registeration/EnterValidationCodeViewController.m; sourceTree = "<group>"; };
 		725DE6411C5948E50001E5DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProfileCommentsHeadeView.xib; sourceTree = "<group>"; };
@@ -548,6 +559,25 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		72405AB81CCE6F0800F68052 /* Verification */ = {
+			isa = PBXGroup;
+			children = (
+				72405AB91CCE6F7100F68052 /* VerficationRootViewController.h */,
+				72405ABA1CCE6F7100F68052 /* VerficationRootViewController.m */,
+				72AF71BA1CA954BC00A50575 /* IdentificationViewController.h */,
+				72AF71BB1CA954BC00A50575 /* IdentificationViewController.m */,
+				72405AC21CCE70BF00F68052 /* VerificationIntroViewController.h */,
+				72405AC31CCE70BF00F68052 /* VerificationIntroViewController.m */,
+				72A381EE1C79FAD80065E1A9 /* PhoneValidateViewController.h */,
+				72A381EF1C79FAD80065E1A9 /* PhoneValidateViewController.m */,
+				72469B591C7CAA79005684F9 /* EnterValidationCodeViewController.h */,
+				72469B5A1C7CAA79005684F9 /* EnterValidationCodeViewController.m */,
+				72405AC51CCEB89400F68052 /* IDCardValidateViewController.h */,
+				72405AC61CCEB89400F68052 /* IDCardValidateViewController.m */,
+			);
+			name = Verification;
+			sourceTree = "<group>";
+		};
 		725DE63F1C5947080001E5DC /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -562,8 +592,6 @@
 				7226015F1C771B4C008A2C65 /* SelectBirthDayViewController.m */,
 				723E3C681C885A310006DEF4 /* SelectGenderViewController.h */,
 				723E3C691C885A310006DEF4 /* SelectGenderViewController.m */,
-				72AF71BA1CA954BC00A50575 /* IdentificationViewController.h */,
-				72AF71BB1CA954BC00A50575 /* IdentificationViewController.m */,
 				72B662D81CC8E16500D2B3FB /* SelectProvinceViewController.h */,
 				72B662D91CC8E16500D2B3FB /* SelectProvinceViewController.m */,
 				72B662DB1CC8E1DF00D2B3FB /* SelectProvinceTableViewCell.h */,
@@ -603,6 +631,7 @@
 				726DF1F51BE79937004796EC /* AppDelegate.m */,
 				726DF1FA1BE79937004796EC /* Main.storyboard */,
 				7226015C1C771A9D008A2C65 /* Alerts.storyboard */,
+				723F11341CCE15DE0034DC50 /* Verification.storyboard */,
 				726DF1FD1BE79937004796EC /* Assets.xcassets */,
 				726DF1FF1BE79937004796EC /* LaunchScreen.storyboard */,
 				72A381ED1C79FAAC0065E1A9 /* register */,
@@ -612,6 +641,7 @@
 				721E151D1C0ED3F3006E394B /* SearchDetail */,
 				72004BE91C2A91D000F9F6FB /* detail */,
 				725DE63F1C5947080001E5DC /* Profile */,
+				72405AB81CCE6F0800F68052 /* Verification */,
 				729838AC1BFCAFEA005BC5C3 /* Core */,
 				726DF2291BE79C1B004796EC /* Custom Classes */,
 				726DF1F11BE79937004796EC /* Supporting Files */,
@@ -768,10 +798,6 @@
 				72F9FBBD1C63991B00DBB347 /* LoginViewController.m */,
 				729442971C6B6F88003F3D92 /* AskForCompleteProfileViewController.h */,
 				729442981C6B6F88003F3D92 /* AskForCompleteProfileViewController.m */,
-				72A381EE1C79FAD80065E1A9 /* PhoneValidateViewController.h */,
-				72A381EF1C79FAD80065E1A9 /* PhoneValidateViewController.m */,
-				72469B591C7CAA79005684F9 /* EnterValidationCodeViewController.h */,
-				72469B5A1C7CAA79005684F9 /* EnterValidationCodeViewController.m */,
 			);
 			name = register;
 			sourceTree = "<group>";
@@ -975,6 +1001,7 @@
 				7226015D1C771A9D008A2C65 /* Alerts.storyboard in Resources */,
 				721E152E1C0EF13A006E394B /* PagerCell.xib in Resources */,
 				72F274431C1976E90048BF05 /* IRANSansMobile(FaNum)_UltraLight.ttf in Resources */,
+				723F11351CCE15DE0034DC50 /* Verification.storyboard in Resources */,
 				725DE6421C5948E50001E5DC /* ProfileCommentsHeadeView.xib in Resources */,
 				72F2743F1C1976E90048BF05 /* IRANSans-Mobile(FaNum).ttf in Resources */,
 				726DF1FE1BE79937004796EC /* Assets.xcassets in Resources */,
@@ -1107,11 +1134,13 @@
 				72C24F891C6D790600026821 /* DZNPhotoMetadata.m in Sources */,
 				723E3C621C883E9E0006DEF4 /* CustomTextField.m in Sources */,
 				729838AF1BFCB018005BC5C3 /* NarengiCore.m in Sources */,
+				72405ABB1CCE6F7100F68052 /* VerficationRootViewController.m in Sources */,
 				727F899F1C35169B00519CDD /* CityDetailAttractionListViewController.m in Sources */,
 				72F274551C199FC30048BF05 /* SearchDetailHomeCollectionViewCell.m in Sources */,
 				726DF1F61BE79937004796EC /* AppDelegate.m in Sources */,
 				72004BE61C2A91AB00F9F6FB /* AttractionDetailViewController.m in Sources */,
 				729838B81BFCB1CB005BC5C3 /* HostObject.m in Sources */,
+				72405AC41CCE70BF00F68052 /* VerificationIntroViewController.m in Sources */,
 				722922FE1BFCFA4500C5575C /* UIViewController+Additional.m in Sources */,
 				7214FB571BF1C7CF00824043 /* RootViewController.m in Sources */,
 				72F2742E1C196DE30048BF05 /* SearchDetailViewController.m in Sources */,
@@ -1135,6 +1164,7 @@
 				723E3C6A1C885A310006DEF4 /* SelectGenderViewController.m in Sources */,
 				729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */,
 				726A3A441C47EA6B002C4D11 /* CommentDetailTableViewCell.m in Sources */,
+				72405AC71CCEB89400F68052 /* IDCardValidateViewController.m in Sources */,
 				721E15331C0F51B0006E394B /* AttractionCollectionViewCell.m in Sources */,
 				72F274491C1978700048BF05 /* CustomFaRegularLabel.m in Sources */,
 				722601631C772828008A2C65 /* NSDateFormatter+Persian.m in Sources */,

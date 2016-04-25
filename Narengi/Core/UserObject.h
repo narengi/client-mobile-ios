@@ -28,5 +28,6 @@
 
 @property (nonatomic) VerificationObject   *emailVerification;
 @property (nonatomic) VerificationObject   *phoneVerification;
+@property (nonatomic) VerificationObject   *idCardVerification;
 
 @end

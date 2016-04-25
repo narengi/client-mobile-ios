@@ -165,6 +165,8 @@
 }
 
 - (IBAction)verificationbuttonClicked:(IranButton *)sender {
+    
+    [self performSegueWithIdentifier:@"goToVerficationRoot" sender:nil];
 }
 - (IBAction)reservationHistoryClicked:(IranButton *)sender {
 }

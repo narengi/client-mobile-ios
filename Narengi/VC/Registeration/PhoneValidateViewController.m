@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *submiteButton;
 
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
+@property (nonatomic,strong) UserObject *userObject;
+@property (nonatomic,strong) NSString *phoneStr;
 
 @end
 
@@ -23,6 +25,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.userObject = [[ NSUserDefaults standardUserDefaults] rm_customObjectForKey:@"userObject"];
+
+     self.phoneStr = self.userObject.phoneVerification.handle;
     [self.submiteButton setBorderWithColor:RGB(50, 160, 84, 1) andWithWidth:1 withCornerRadius:2];
     [self.phoneTextFieldContainerView setBorderWithColor:RGB(235, 235, 235, 1) andWithWidth:1 withCornerRadius:2];
     self.phoneTextField.text = self.phoneStr;

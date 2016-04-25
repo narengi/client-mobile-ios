@@ -10,5 +10,4 @@
 
 @interface PhoneValidateViewController : UIViewController
 
-@property (nonatomic,strong) NSString *phoneStr;
 @end
