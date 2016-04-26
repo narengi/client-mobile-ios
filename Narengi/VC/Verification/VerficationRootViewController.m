@@ -20,7 +20,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self changeLeftIcontoBack];
+    if (self.isComingFromHouse) {
+        
+        [self changeRightIcontoDismiss];
+    }
+    else{
+        [self changeLeftIcontoBack];
+    }
+    
     self.title = @"تایید هوییت";
     
     

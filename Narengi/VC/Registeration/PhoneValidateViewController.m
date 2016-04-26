@@ -33,6 +33,7 @@
     self.phoneTextField.text = self.phoneStr;
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self changeLeftIcontoBack];
+    [self ChangeRightButtonToSkipCurrentStep];
     
     self.title  = @"تایید تلفن همراه";
 }

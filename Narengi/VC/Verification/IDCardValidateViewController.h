@@ -10,4 +10,5 @@
 
 @interface IDCardValidateViewController : UIViewController
 
+
 @end

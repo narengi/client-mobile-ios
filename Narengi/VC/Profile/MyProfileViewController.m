@@ -157,6 +157,7 @@
 
 -(void)goToEdit{
 
+    
 }
 
 -(void)closeButton{
@@ -220,10 +221,13 @@
 
         dispatch_async(dispatch_get_main_queue(),^{
             
-            UserObject *userObj = [[NarengiCore sharedInstance ] parsUserObject:response.backData];
-            [[NSUserDefaults standardUserDefaults] rm_setCustomObject:userObj forKey:@"userObject"];
+            if (!response.hasErro && response.backData != nil) {
+                UserObject *userObj = [[NarengiCore sharedInstance ] parsUserObject:response.backData];
+                [[NSUserDefaults standardUserDefaults] rm_setCustomObject:userObj forKey:@"userObject"];
+                
+                [self setupView];
+            }
             
-            [self setupView];
         });
     });
 }

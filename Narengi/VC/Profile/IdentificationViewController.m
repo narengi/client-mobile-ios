@@ -85,7 +85,7 @@
 }
 - (IBAction)idCardVerificationClicked:(UIButton *)sender {
     
-    [self performSegueWithIdentifier:@"goToIDCardVerficationStep" sender:nil];
+    [self goToIdCardVerification ];
     
 }
 

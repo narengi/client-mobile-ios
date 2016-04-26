@@ -31,12 +31,36 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self changeLeftIcontoBack];
+    self.navigationItem.hidesBackButton = YES;
     [self changeRightIconToSkip];
     [self.selectImgButton setBorderWithColor:RGB(88, 88 , 88, 1) andWithWidth:1 withCornerRadius:2];
 
     self.title = @"ارسال مدرک شناسایی";
 }
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    // Disable iOS 7 back gesture
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+        self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    // Enable iOS 7 back gesture
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -310,9 +334,6 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
                          style:UIAlertActionStyleDestructive
                          handler:^(UIAlertAction * action)
                          {
-                             //erase all data user
-                             [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"fuckingLoginedOrNOT"];
-                             [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"userObject"];
                              
                              [exitAlert dismissViewControllerAnimated:YES completion:nil];
                              [self sendData];
@@ -335,9 +356,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     [self presentViewController:exitAlert animated:YES completion:nil];
 }
 -(void)popToVerification{
-
-
-        
+    
         NSArray *viewControllers = [[self navigationController] viewControllers];
         for( int i=0;i<[viewControllers count];i++){
             id obj=[viewControllers objectAtIndex:i];
@@ -347,6 +366,13 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
             }
         }
         [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+#pragma mark - back
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    return NO;
 }
 
 @end

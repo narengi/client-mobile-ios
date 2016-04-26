@@ -15,6 +15,9 @@
 #import "LoginViewController.h"
 #import "BookViewController.h"
 #import "VerficationRootViewController.h"
+#import "IDCardValidateViewController.h"
+#import "VerficationRootViewController.h"
+
 @implementation UIViewController (Additional)
 
 
@@ -30,6 +33,7 @@
     self.navigationItem.rightBarButtonItem = customBarItem;
     
 }
+
 
 -(void)goToFilter
 {
@@ -157,13 +161,30 @@
 
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"fuckingLoginedOrNOT"] != nil) {
         
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         
-        UINavigationController *logInNavVC = [storyboard instantiateViewControllerWithIdentifier:@"bookNavigation"];
-        [self presentViewController:logInNavVC animated:YES completion:^{
+        UserObject *userObject = [[ NSUserDefaults standardUserDefaults] rm_customObjectForKey:@"userObject"];
+        if (userObject.phoneVerification.isVerified) {
+          
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"houseObjectForBokking" object:houseObj];
-        }];
+            UINavigationController *logInNavVC = [storyboard instantiateViewControllerWithIdentifier:@"bookNavigation"];
+            [self presentViewController:logInNavVC animated:YES completion:^{
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"houseObjectForBokking" object:houseObj];
+            }];
+        }
+        else
+        {
+            UIStoryboard *verificationStoeyBoard = [UIStoryboard storyboardWithName:@"Verification" bundle:nil];
+            
+            VerficationRootViewController *vc =  [verificationStoeyBoard instantiateViewControllerWithIdentifier:@"verificationRootVCID"];
+            vc.isComingFromHouse = YES;
+            
+            UINavigationController *verificationNavigation = [[UINavigationController alloc] initWithRootViewController:vc];
+            
+            [self presentViewController:verificationNavigation animated:YES completion:nil];
+        }
+        
         
         
     }
@@ -195,13 +216,13 @@
 -(void)changeRightIconToSkip{
 
     
-    UIButton *mapButton  = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
-    [mapButton setImage:IMG(@"CloseIconOrange") forState:UIControlStateNormal];
+    UIButton *skipButton  = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
+    [skipButton setImage:IMG(@"CloseIconOrange") forState:UIControlStateNormal];
     
-    [mapButton addTarget:self action:@selector(goToRoot) forControlEvents:UIControlEventTouchUpInside];
+    [skipButton addTarget:self action:@selector(goToRoot) forControlEvents:UIControlEventTouchUpInside];
     
     
-    UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:mapButton];
+    UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:skipButton];
     self.navigationItem.rightBarButtonItem = customBarItem;
 }
 
@@ -218,4 +239,53 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
+-(void)ChangeRightButtonToSkipCurrentStep{
+    
+    UIButton *skipButton  = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
+    [skipButton setImage:IMG(@"CloseIconOrange") forState:UIControlStateNormal];
+    
+   UserObject *user = [[ NSUserDefaults standardUserDefaults] rm_customObjectForKey:@"userObject"];
+    if (user.idCardVerification.isVerified) {
+        [skipButton addTarget:self action:@selector(goToRoot) forControlEvents:UIControlEventTouchUpInside];
+
+    }
+    else{
+        [skipButton addTarget:self action:@selector(goToIdCardVerification) forControlEvents:UIControlEventTouchUpInside];
+
+        
+    }
+
+    
+    
+    UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:skipButton];
+    self.navigationItem.rightBarButtonItem = customBarItem;
+    
+}
+-(void)goToIdCardVerification{
+
+    UIStoryboard *verificationStoeyBoard = [UIStoryboard storyboardWithName:@"Verification" bundle:nil];
+
+    IDCardValidateViewController *vc =  [verificationStoeyBoard instantiateViewControllerWithIdentifier:@"idVerificationVCID"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+-(void)changeRightIcontoDismiss{
+    
+    UIButton *closeButton  = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
+    [closeButton setImage:IMG(@"CloseIconOrange") forState:UIControlStateNormal];
+    
+    [closeButton addTarget:self action:@selector(dismissVerification) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:closeButton];
+    self.navigationItem.rightBarButtonItem = customBarItem;
+    
+}
+
+-(void)dismissVerification{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
 @end

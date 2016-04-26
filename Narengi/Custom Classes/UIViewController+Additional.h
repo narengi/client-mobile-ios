@@ -12,6 +12,9 @@
 
 -(void)changeRightIcontoMap;
 -(void)changeLeftIcontoBack;
+-(void)ChangeRightButtonToSkipCurrentStep;
+-(void)goToIdCardVerification;
+-(void)changeRightIcontoDismiss;
 -(void)noConnection;
 -(void)goTodetailWithUrl:(NSString *)urlStr andWithType:(NSString *)type;
 -(NSURL*)fixUrl:(NSURL *)url withParametrs:(NSArray *)parametrs;

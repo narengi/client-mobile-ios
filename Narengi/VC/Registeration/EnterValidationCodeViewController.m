@@ -24,7 +24,7 @@
     [self.textFieldContainerView setBorderWithColor:RGB(235, 235, 235, 1) andWithWidth:1 withCornerRadius:2];
     [self changeLeftIcontoBack];
     self.title  = @"تایید تلفن همراه";
-    [self changeRightIconToSkip];
+    [self ChangeRightButtonToSkipCurrentStep];
     [super viewDidLoad];
     
 }

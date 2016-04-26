@@ -127,7 +127,6 @@
                         <outlet property="phoneLabel" destination="NDV-jf-tfA" id="cqi-v5-gnO"/>
                         <outlet property="phoneValidateImg" destination="9Cb-ux-E3R" id="bbW-lL-BgF"/>
                         <segue destination="8fo-iR-Jry" kind="show" identifier="goToPhoneVerificationId" id="t3H-4q-kDr"/>
-                        <segue destination="lC8-Wi-K6f" kind="show" identifier="goToIDCardVerficationStep" id="ehb-4h-tFv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VW6-Hi-jWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -204,7 +203,6 @@
                     <connections>
                         <outlet property="startButton" destination="2P4-ew-Akj" id="vNx-a7-EIu"/>
                         <segue destination="8fo-iR-Jry" kind="show" identifier="goToPhoneVerificationID" id="Fab-V5-16A"/>
-                        <segue destination="lC8-Wi-K6f" kind="show" identifier="goDirectToVerificationID" id="aCF-OR-Dwu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rEg-W4-Tjg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -214,7 +212,7 @@
         <!--Verfication Root View Controller-->
         <scene sceneID="sKC-vY-Pje">
             <objects>
-                <viewController id="iWz-09-6KS" customClass="VerficationRootViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="verificationRootVCID" id="iWz-09-6KS" customClass="VerficationRootViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZOT-h5-qkw"/>
                         <viewControllerLayoutGuide type="bottom" id="N4H-Ag-P8B"/>
@@ -451,7 +449,6 @@
                         <outlet property="codeTextField" destination="Uco-oE-6my" id="Okh-1P-YNa"/>
                         <outlet property="sendButton" destination="qIF-C8-yBa" id="ca5-aU-aeq"/>
                         <outlet property="textFieldContainerView" destination="8OO-ZO-BrC" id="L8p-ZT-iyJ"/>
-                        <segue destination="lC8-Wi-K6f" kind="show" identifier="goToIdCardVerificationID" id="bGD-g5-5ya"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8qY-Bb-zWf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -461,17 +458,17 @@
         <!--Card Validate View Controller-->
         <scene sceneID="fOZ-iv-RCq">
             <objects>
-                <viewController id="lC8-Wi-K6f" customClass="IDCardValidateViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="idVerificationVCID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lC8-Wi-K6f" customClass="IDCardValidateViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hnk-d4-gpa"/>
                         <viewControllerLayoutGuide type="bottom" id="iO4-OT-T9N"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TBT-sa-TwN">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="از مدرگ شناسایی خود مانند کارت ملی یا شناسنامه عکس بگیرید و یا اگرا از قبل تصویر آن  را در گالری خود دارید آن را انتخاب کنید." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKd-JA-5Sl" customClass="CustomFaRegularLabel">
-                                <rect key="frame" x="49" y="58" width="202" height="85"/>
+                                <rect key="frame" x="199" y="78" width="202" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="202" id="Jlc-Sa-wLj"/>
                                     <constraint firstAttribute="height" constant="85" id="xfQ-aq-ntO"/>
@@ -481,7 +478,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmq-de-DFh" customClass="CustomFaLightLabel">
-                                <rect key="frame" x="49" y="163" width="202" height="85"/>
+                                <rect key="frame" x="199" y="183" width="202" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="0cV-p9-poU"/>
                                     <constraint firstAttribute="width" constant="202" id="C1e-jw-pd5"/>
@@ -492,7 +489,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wg5-6c-pKi" customClass="IranButton">
-                                <rect key="frame" x="29" y="550" width="243" height="30"/>
+                                <rect key="frame" x="179" y="550" width="243" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="243" id="TaN-fx-3Pj"/>
                                     <constraint firstAttribute="height" constant="30" id="z9K-No-5gf"/>
@@ -522,7 +519,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q9j-wV-18C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3485" y="139"/>
+            <point key="canvasLocation" x="3585" y="-281"/>
         </scene>
     </scenes>
     <resources>
@@ -530,6 +527,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Fab-V5-16A"/>
-        <segue reference="aCF-OR-Dwu"/>
     </inferredMetricsTieBreakers>
 </document>

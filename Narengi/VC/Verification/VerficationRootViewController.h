@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface VerficationRootViewController : UIViewController
-
+@property (nonatomic) BOOL isComingFromHouse;
 @end

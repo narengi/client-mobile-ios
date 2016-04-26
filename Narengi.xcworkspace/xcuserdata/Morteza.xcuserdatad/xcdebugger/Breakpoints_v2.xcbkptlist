@@ -196,11 +196,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Narengi/Custom Classes/UIViewController+Additional.m"
-            timestampString = "482911548.341459"
+            timestampString = "483368238.575069"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "-fixUrl:withParametrs:"
             landmarkType = "5">
          </BreakpointContent>
@@ -218,22 +218,6 @@
             startingLineNumber = "516"
             endingLineNumber = "516"
             landmarkName = "-parsUserObject:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Narengi/Core/NarengiCore.m"
-            timestampString = "482919827.699866"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "-sendRequestWithMethod:andWithService:andWithParametrs:andWithBody:andIsFullPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -282,38 +266,6 @@
             startingLineNumber = "215"
             endingLineNumber = "215"
             landmarkName = "-sendServerRequestIDCardImageWithImage:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Narengi/Custom Classes/UIViewController+Additional.m"
-            timestampString = "483317006.880858"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
-            landmarkName = "-goToRoot"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Narengi/VC/Verification/VerificationIntroViewController.m"
-            timestampString = "483317970.336931"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "-startButtonclicked:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

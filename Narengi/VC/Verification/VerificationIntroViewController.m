@@ -34,7 +34,7 @@
     
     
     if (self.userObject.phoneVerification.isVerified) {
-        [self performSegueWithIdentifier:@"goDirectToVerificationID" sender:nil];
+        [self goToIdCardVerification ];
 
     }
     else
