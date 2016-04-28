@@ -29,6 +29,7 @@
 		721E15361C0F51CA006E394B /* MainHomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 721E15351C0F51CA006E394B /* MainHomeCollectionViewCell.m */; };
 		721F951C1CD21B7F003CC915 /* SuccessReserveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721F951B1CD21B7F003CC915 /* SuccessReserveViewController.m */; };
 		721F951F1CD21B91003CC915 /* FailReserveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721F951E1CD21B91003CC915 /* FailReserveViewController.m */; };
+		721F95221CD27D68003CC915 /* CommissionObjetc.m in Sources */ = {isa = PBXBuildFile; fileRef = 721F95211CD27D68003CC915 /* CommissionObjetc.m */; };
 		7226015D1C771A9D008A2C65 /* Alerts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7226015C1C771A9D008A2C65 /* Alerts.storyboard */; };
 		722601601C771B4C008A2C65 /* SelectBirthDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7226015F1C771B4C008A2C65 /* SelectBirthDayViewController.m */; };
 		722601631C772828008A2C65 /* NSDateFormatter+Persian.m in Sources */ = {isa = PBXBuildFile; fileRef = 722601621C772828008A2C65 /* NSDateFormatter+Persian.m */; };
@@ -213,6 +214,8 @@
 		721F951B1CD21B7F003CC915 /* SuccessReserveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SuccessReserveViewController.m; path = Narengi/VC/Book/SuccessReserveViewController.m; sourceTree = "<group>"; };
 		721F951D1CD21B91003CC915 /* FailReserveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FailReserveViewController.h; path = Narengi/VC/Book/FailReserveViewController.h; sourceTree = "<group>"; };
 		721F951E1CD21B91003CC915 /* FailReserveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FailReserveViewController.m; path = Narengi/VC/Book/FailReserveViewController.m; sourceTree = "<group>"; };
+		721F95201CD27D68003CC915 /* CommissionObjetc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommissionObjetc.h; path = Core/CommissionObjetc.h; sourceTree = "<group>"; };
+		721F95211CD27D68003CC915 /* CommissionObjetc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommissionObjetc.m; path = Core/CommissionObjetc.m; sourceTree = "<group>"; };
 		7226015C1C771A9D008A2C65 /* Alerts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Alerts.storyboard; sourceTree = "<group>"; };
 		7226015E1C771B4C008A2C65 /* SelectBirthDayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectBirthDayViewController.h; path = VC/Profile/SelectBirthDayViewController.h; sourceTree = "<group>"; };
 		7226015F1C771B4C008A2C65 /* SelectBirthDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectBirthDayViewController.m; path = VC/Profile/SelectBirthDayViewController.m; sourceTree = "<group>"; };
@@ -797,6 +800,8 @@
 				722A0DD31C9186DB005C6DDB /* ExtraServiceObject.m */,
 				722A0DD51C918CC7005C6DDB /* PriceObject.h */,
 				722A0DD61C918CC7005C6DDB /* PriceObject.m */,
+				721F95201CD27D68003CC915 /* CommissionObjetc.h */,
+				721F95211CD27D68003CC915 /* CommissionObjetc.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -1193,6 +1198,7 @@
 				72EA4D761C51051C0053456F /* ProfileViewController.m in Sources */,
 				7294429C1C6CC5DD003F3D92 /* EditProfileViewController.m in Sources */,
 				729442991C6B6F88003F3D92 /* AskForCompleteProfileViewController.m in Sources */,
+				721F95221CD27D68003CC915 /* CommissionObjetc.m in Sources */,
 				72C24F751C6D78EF00026821 /* DZNPhotoDisplayViewController.m in Sources */,
 				7214FB5D1BF1C98A00824043 /* UIViewController+Utilities.m in Sources */,
 				726A3A351C47A382002C4D11 /* MoreFacilityCollectionViewCell.m in Sources */,

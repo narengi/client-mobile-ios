@@ -51,6 +51,7 @@
 @implementation BookViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     self.edgesForExtendedLayout               = UIRectEdgeNone;
@@ -126,7 +127,13 @@
     
     PriceObject *rentPrice = [[PriceObject alloc] init];
     rentPrice.name  = @"حق سرویس";
-    rentPrice.fee  = 20000;
+    
+    if (self.houseObj.commissionObj.rate > 0) {
+        rentPrice.fee += (self.totalFee * self.houseObj.commissionObj.rate )/100;
+    }
+    else{
+        rentPrice.fee  = self.houseObj.commissionObj.fee;
+    }
     [self.priceListArr  addObject:rentPrice];
     
     self.totalFee += rentPrice.fee;

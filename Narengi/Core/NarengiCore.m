@@ -334,7 +334,12 @@ NarengiCore *sharedInstance;
                 houseObj.bedCount     = [[[[dict objectForKey:@"Spec"] objectForKey:@"bedCount"] checkNull ] stringValue];
                 houseObj.reviewCount  = [[[dict objectForKey:@"reviewsCount"] checkNull] stringValue];
                 houseObj.price        = [[[dict objectForKey:@"Price"] objectForKey:@"price"] integerValue];
-
+                
+                CommissionObjetc *commObj = [[CommissionObjetc alloc] init];
+                
+                commObj.fee  = [[[dict objectForKey:@"Commission"] objectForKey:@"fee"] integerValue];
+                commObj.rate = [[[dict objectForKey:@"Commission"] objectForKey:@"rate"] integerValue];
+                houseObj.commissionObj = commObj;
                 
                 if ([[houseObj.shownFacilities lastObject] isKindOfClass:[NSString class]]) {
                     

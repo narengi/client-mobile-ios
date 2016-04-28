@@ -49,6 +49,8 @@
 #import "VerificationObject.h"
 #import "PriceObject.h"
 #import "ExtraServiceObject.h"
+#import "CommissionObjetc.h"
+
 
 
 //General Usefull Classes
