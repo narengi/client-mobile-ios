@@ -118,7 +118,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
         self.provinceLabel.text = self.userObject.province;
     
     
-    [self.avatarImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@user-profiles/picture",BASEURL]] placeholderImage:IMG(@"edit-profile-empty-avatar")];
+    [self.avatarImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@user-profiles/picture",BASEURL]] placeholderImage:IMG(@"edit-profile-empty-avatar") options:SDWebImageRefreshCached];
     
     if (self.userObject.birthDate != nil ) {
         

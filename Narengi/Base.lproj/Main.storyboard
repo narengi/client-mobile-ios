@@ -848,6 +848,7 @@
                         <outlet property="nameLabel" destination="iSg-eL-UCf" id="oh8-7Z-Xxg"/>
                         <outlet property="scrollView" destination="ukf-jF-xey" id="VLb-sJ-4iw"/>
                         <segue destination="MWN-V1-hz8" kind="show" identifier="goToVerficationRoot" id="Cce-eA-knA"/>
+                        <segue destination="ncn-aU-npj" kind="showDetail" identifier="goToEditProfileFromMyAccount" id="oPa-UN-mOr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aIY-Kf-nYk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4492,6 +4493,6 @@
         <image name="timearrow" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jl0-VP-lww"/>
+        <segue reference="oPa-UN-mOr"/>
     </inferredMetricsTieBreakers>
 </document>

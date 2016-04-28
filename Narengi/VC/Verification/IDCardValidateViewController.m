@@ -19,10 +19,11 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     NSDictionary *_photoPayload;
 }
 
-@property (weak, nonatomic)  UIImageView  *avatarImg;
 @property ( nonatomic)  BOOL didSelectImg;
 @property (weak, nonatomic) IBOutlet IranButton *selectImgButton;
 
+@property (nonatomic,strong) UserObject *userObject;
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImg;
 
 @end
 
@@ -30,6 +31,8 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     
     self.navigationItem.hidesBackButton = YES;
     [self changeRightIconToSkip];
@@ -305,23 +308,53 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     if (self.didSelectImg) {
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
-            BOOL status = [[NarengiCore sharedInstance] sendServerRequestIDCardImageWithImage:UIImageJPEGRepresentation(self.avatarImg.image, 0.4)];
+            ServerResponse *response = [[NarengiCore sharedInstance] sendServerRequestIDCardImageWithImage:UIImageJPEGRepresentation(self.avatarImg.image, 0.4)];
             
             dispatch_async(dispatch_get_main_queue(),^{
                 
-                if (status) {
+                [SVProgressHUD dismiss];
+                
+                if (!response.hasErro) {
                     [SVProgressHUD showSuccessWithStatus:@"اطلاعات با موفقیت ذخیره شد"];
-                    [self.navigationController popToRootViewControllerAnimated:YES];
+                    self.userObject = [[ NSUserDefaults standardUserDefaults] rm_customObjectForKey:@"userObject"];
+                    [self changeValidationState:response.backData];
+                    [self popToVerification];
                 }
-                else
-                {
-                    [SVProgressHUD dismiss];
-                    [self showtryAgainAlert];
-
+                else{
+                    
+                    if (response.backData != nil ) {
+                        
+                        //show error
+                        NSString *erroStr = [[response.backData objectForKey:@"error"] objectForKey:@"message"];
+                        [self showErro:erroStr];
+                    }
+                    else{
+                        
+                        [self showErro:@"اشکال در ارتباط با سرور"];
+                        
+                    }
                 }
+                
             });
         });
     }
+}
+
+-(void)changeValidationState:(NSDictionary *)dict{
+    
+    VerificationObject *verificationObj = [[VerificationObject alloc] init];
+    
+    verificationObj.isVerified    = [[dict objectForKey:@"verified"] boolValue];
+    verificationObj.type          = [dict objectForKey:@"verificationType"];
+    verificationObj.code          = [dict objectForKey:@"code"];
+    verificationObj.requestedDate = [dict objectForKey:@"requestDate"];
+    verificationObj.handle        = [[dict objectForKey:@"handle"] checkNull];
+    
+    self.userObject.idCardVerification = verificationObj;
+    
+    [[NSUserDefaults standardUserDefaults] rm_setCustomObject: self.userObject forKey:@"userObject"];
+    
+    
 }
 -(void)showtryAgainAlert{
 

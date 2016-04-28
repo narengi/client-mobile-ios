@@ -180,9 +180,9 @@ NarengiCore *sharedInstance;
 
 
 //Upload profile Image
--(BOOL )sendServerRequestIDCardImageWithImage:(NSData *)imageData{
+-(ServerResponse * )sendServerRequestIDCardImageWithImage:(NSData *)imageData{
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@accounts/id-card",BASEURL]]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@accounts/verifications/request/ID",BASEURL]]];
     
     
     [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
@@ -211,18 +211,48 @@ NarengiCore *sharedInstance;
     NSHTTPURLResponse* response;
     
     
-    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    ServerResponse *serverRes = [[ServerResponse alloc] init];
     
     if (!error) {
-        
-        if (response.statusCode == 200) {
-            return YES;
+        if (response.statusCode == 200 || response.statusCode == 201  || response.statusCode == 204) {
+            serverRes.hasErro = NO;
+            serverRes.backData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil ];
+        }
+        else if(response.statusCode == 401 || response.statusCode == 400)
+        {
+            serverRes.hasErro = YES;
+            serverRes.backData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil ];
         }
         else
-            return NO;
+        {
+            serverRes.hasErro = YES;
+            serverRes.backData = nil;
+        }
     }
     else
-        return NO;
+    {
+        serverRes.hasErro = YES;
+        
+        if (error.code  == -1012) {
+            
+            id backData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil ];
+            
+            if (backData != nil)
+                serverRes.backData = backData;
+            
+            else
+                serverRes.backData  = nil;
+            
+        }
+        else{
+            serverRes.backData = nil;
+        }
+        
+    }
+    
+    return serverRes;
     
 }
 
@@ -532,11 +562,22 @@ NarengiCore *sharedInstance;
     [[dict objectForKey:@"verification"] enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         VerificationObject *verificationObj = [self parsVerificationWithDict:obj];
-        userObj.phoneVerification = [verificationObj.type isEqualToString:@"SMS"] ? verificationObj :nil
-        ;
         
-        userObj.emailVerification = [verificationObj.type isEqualToString:@"Email"] ? verificationObj :nil
-        ;
+        if ([verificationObj.type isEqualToString:@"SMS"]) {
+            userObj.phoneVerification = [verificationObj.type isEqualToString:@"SMS"] ? verificationObj :nil;
+
+        }
+        if ([verificationObj.type isEqualToString:@"Email"]) {
+            userObj.emailVerification = [verificationObj.type isEqualToString:@"Email"] ? verificationObj :nil
+            ;
+        }
+        
+        if ([verificationObj.type isEqualToString:@"ID"]) {
+            userObj.idCardVerification = [verificationObj.type isEqualToString:@"ID"] ? verificationObj :nil
+            ;
+        }
+
+        
     }];
     
     return userObj;

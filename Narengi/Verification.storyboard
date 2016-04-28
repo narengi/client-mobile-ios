@@ -270,7 +270,7 @@
                         <viewControllerLayoutGuide type="bottom" id="j4D-hS-QSX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Dop-BZ-me8">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="420"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="شماره تلفن همراه خود را وارد کنید." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTo-04-ujf" customClass="CustomFaRegularLabel">
@@ -365,7 +365,7 @@
                         <viewControllerLayoutGuide type="bottom" id="NE2-Vi-6V3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6j0-AU-MMx">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="420"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="کد ۴ رقمی ارسال شده را اینجا وارد کنید" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHr-8e-FTN" customClass="CustomFaRegularLabel">
@@ -449,6 +449,7 @@
                         <outlet property="codeTextField" destination="Uco-oE-6my" id="Okh-1P-YNa"/>
                         <outlet property="sendButton" destination="qIF-C8-yBa" id="ca5-aU-aeq"/>
                         <outlet property="textFieldContainerView" destination="8OO-ZO-BrC" id="L8p-ZT-iyJ"/>
+                        <segue destination="lC8-Wi-K6f" kind="show" identifier="goToIdCardVerificationID" id="hFH-0f-NhB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8qY-Bb-zWf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -464,11 +465,11 @@
                         <viewControllerLayoutGuide type="bottom" id="iO4-OT-T9N"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TBT-sa-TwN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="420"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="از مدرگ شناسایی خود مانند کارت ملی یا شناسنامه عکس بگیرید و یا اگرا از قبل تصویر آن  را در گالری خود دارید آن را انتخاب کنید." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKd-JA-5Sl" customClass="CustomFaRegularLabel">
-                                <rect key="frame" x="199" y="78" width="202" height="85"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="از مدرگ شناسایی خود مانند کارت ملی یا شناسنامه عکس بگیرید و یا اگرا از قبل تصویر آن  را در گالری خود دارید آن را انتخاب کنید." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKd-JA-5Sl">
+                                <rect key="frame" x="49" y="58" width="202" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="202" id="Jlc-Sa-wLj"/>
                                     <constraint firstAttribute="height" constant="85" id="xfQ-aq-ntO"/>
@@ -477,8 +478,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmq-de-DFh" customClass="CustomFaLightLabel">
-                                <rect key="frame" x="199" y="183" width="202" height="85"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmq-de-DFh">
+                                <rect key="frame" x="49" y="163" width="202" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="0cV-p9-poU"/>
                                     <constraint firstAttribute="width" constant="202" id="C1e-jw-pd5"/>
@@ -489,7 +490,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wg5-6c-pKi" customClass="IranButton">
-                                <rect key="frame" x="179" y="550" width="243" height="30"/>
+                                <rect key="frame" x="29" y="370" width="243" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="243" id="TaN-fx-3Pj"/>
                                     <constraint firstAttribute="height" constant="30" id="z9K-No-5gf"/>
@@ -502,6 +503,9 @@
                                     <action selector="selectIDCardImgBt:" destination="lC8-Wi-K6f" eventType="touchUpInside" id="TB4-OO-WLe"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fa3-qb-hzq">
+                                <rect key="frame" x="-70" y="277" width="240" height="128"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -514,6 +518,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="avatarImg" destination="Fa3-qb-hzq" id="aS5-TX-GnM"/>
                         <outlet property="selectImgButton" destination="wg5-6c-pKi" id="gwE-ti-EWc"/>
                     </connections>
                 </viewController>
@@ -526,6 +531,6 @@
         <image name="angle-left" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fab-V5-16A"/>
+        <segue reference="t3H-4q-kDr"/>
     </inferredMetricsTieBreakers>
 </document>

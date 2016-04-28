@@ -67,8 +67,11 @@
     self.phoneLabel.text        = self.userObject.phoneVerification.handle;
 
 
+    
     [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"Authorization"];
-    [self.idCardImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/accounts/id-card",BASEURL]] placeholderImage:nil];
+    
+    
+    [self.idCardImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@accounts/id-card",BASEURL]] placeholderImage:nil options:SDWebImageRefreshCached];
 }
 
 

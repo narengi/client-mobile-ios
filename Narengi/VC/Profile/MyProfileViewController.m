@@ -31,23 +31,25 @@
 {
     [super viewDidLoad];
     [self addLeftAndRightButton];
-    [self setupView];
+ 
     
     self.title = @"پروفایل";
     //scrollView delegate
     void *context = (__bridge void *)self;
     [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:context];
     
-    [self getData];
 }
 
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:YES];
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     
-    
+    [self setupView];
+
+    [self getData];
 }
 
 -(void)setupView{
@@ -57,7 +59,8 @@
     self.nameLabel.text = [[self.userObject.fisrtName stringByAppendingString:@" "] stringByAppendingString:self.userObject.lastName];
     
     [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"Authorization"];
-    [self.avatarImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@user-profiles/picture",BASEURL]] placeholderImage:nil];
+    
+    [self.avatarImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@user-profiles/picture",BASEURL]] placeholderImage:nil options:SDWebImageRefreshCached];
     
     if (self.userObject.bio.length > 0) {
         self.aboutLabel.text = self.userObject.bio;
@@ -157,7 +160,7 @@
 
 -(void)goToEdit{
 
-    
+    [self performSegueWithIdentifier:@"goToEditProfileFromMyAccount" sender:nil];
 }
 
 -(void)closeButton{

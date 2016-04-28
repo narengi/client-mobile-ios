@@ -27,6 +27,8 @@
 		721E152E1C0EF13A006E394B /* PagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 721E152C1C0EF13A006E394B /* PagerCell.xib */; };
 		721E15331C0F51B0006E394B /* AttractionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 721E15321C0F51B0006E394B /* AttractionCollectionViewCell.m */; };
 		721E15361C0F51CA006E394B /* MainHomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 721E15351C0F51CA006E394B /* MainHomeCollectionViewCell.m */; };
+		721F951C1CD21B7F003CC915 /* SuccessReserveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721F951B1CD21B7F003CC915 /* SuccessReserveViewController.m */; };
+		721F951F1CD21B91003CC915 /* FailReserveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721F951E1CD21B91003CC915 /* FailReserveViewController.m */; };
 		7226015D1C771A9D008A2C65 /* Alerts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7226015C1C771A9D008A2C65 /* Alerts.storyboard */; };
 		722601601C771B4C008A2C65 /* SelectBirthDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7226015F1C771B4C008A2C65 /* SelectBirthDayViewController.m */; };
 		722601631C772828008A2C65 /* NSDateFormatter+Persian.m in Sources */ = {isa = PBXBuildFile; fileRef = 722601621C772828008A2C65 /* NSDateFormatter+Persian.m */; };
@@ -207,6 +209,10 @@
 		721E15321C0F51B0006E394B /* AttractionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttractionCollectionViewCell.m; path = VC/CitiesVC/AttractionCollectionViewCell.m; sourceTree = "<group>"; };
 		721E15341C0F51CA006E394B /* MainHomeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainHomeCollectionViewCell.h; path = VC/Detail/MainHomeCollectionViewCell.h; sourceTree = "<group>"; };
 		721E15351C0F51CA006E394B /* MainHomeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainHomeCollectionViewCell.m; path = VC/Detail/MainHomeCollectionViewCell.m; sourceTree = "<group>"; };
+		721F951A1CD21B7F003CC915 /* SuccessReserveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuccessReserveViewController.h; path = Narengi/VC/Book/SuccessReserveViewController.h; sourceTree = "<group>"; };
+		721F951B1CD21B7F003CC915 /* SuccessReserveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SuccessReserveViewController.m; path = Narengi/VC/Book/SuccessReserveViewController.m; sourceTree = "<group>"; };
+		721F951D1CD21B91003CC915 /* FailReserveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FailReserveViewController.h; path = Narengi/VC/Book/FailReserveViewController.h; sourceTree = "<group>"; };
+		721F951E1CD21B91003CC915 /* FailReserveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FailReserveViewController.m; path = Narengi/VC/Book/FailReserveViewController.m; sourceTree = "<group>"; };
 		7226015C1C771A9D008A2C65 /* Alerts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Alerts.storyboard; sourceTree = "<group>"; };
 		7226015E1C771B4C008A2C65 /* SelectBirthDayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectBirthDayViewController.h; path = VC/Profile/SelectBirthDayViewController.h; sourceTree = "<group>"; };
 		7226015F1C771B4C008A2C65 /* SelectBirthDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectBirthDayViewController.m; path = VC/Profile/SelectBirthDayViewController.m; sourceTree = "<group>"; };
@@ -554,6 +560,10 @@
 				722A0DCD1C917E77005C6DDB /* BillHeader.xib */,
 				722A0DCF1C917E8E005C6DDB /* BillHeaderView.h */,
 				722A0DD01C917E8E005C6DDB /* BillHeaderView.m */,
+				721F951A1CD21B7F003CC915 /* SuccessReserveViewController.h */,
+				721F951B1CD21B7F003CC915 /* SuccessReserveViewController.m */,
+				721F951D1CD21B91003CC915 /* FailReserveViewController.h */,
+				721F951E1CD21B91003CC915 /* FailReserveViewController.m */,
 			);
 			name = Book;
 			path = ..;
@@ -1114,7 +1124,9 @@
 				720B92A11C22A9AB00D1468A /* HWViewPager.m in Sources */,
 				726A3A411C47EA51002C4D11 /* CommentsViewController.m in Sources */,
 				726A3A3E1C47E14E002C4D11 /* FacilitiesViewController.m in Sources */,
+				721F951F1CD21B91003CC915 /* FailReserveViewController.m in Sources */,
 				72D5E5EE1BF4BB7500E950C1 /* PagerCollectionViewCell.m in Sources */,
+				721F951C1CD21B7F003CC915 /* SuccessReserveViewController.m in Sources */,
 				72004BE71C2A91AB00F9F6FB /* CityDetailViewController.m in Sources */,
 				72C24F4F1C6D6F2900026821 /* GROAuth2SessionManager.m in Sources */,
 				72C24F8A1C6D790600026821 /* DZNPhotoServiceClient.m in Sources */,

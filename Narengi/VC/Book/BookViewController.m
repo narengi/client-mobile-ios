@@ -11,6 +11,7 @@
 #import "BookFacilityTableViewCell.h"
 #import "BookFacilityHeaderView.h"
 #import "BillHeaderView.h"
+#import "SuccessReserveViewController.h"
 
 @interface BookViewController ()<UITableViewDataSource,UITableViewDelegate>{
     
@@ -78,7 +79,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(houseObjRecived:) name:@"houseObjectForBokking" object:nil];
     
-   
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(paymentNotificationRecived:) name:@"paymentNotificationRecived" object:nil];
 
     
 
@@ -188,8 +189,6 @@
     [super didReceiveMemoryWarning];
     
 }
-
-#pragma mark -tableView
 
 
 #pragma mark - tableView
@@ -652,12 +651,38 @@
     
     if ((self.arriveDate != nil) && (self.leaveDate != nil )) {
      
-        //send request to server
+        [self showSuccessAlert];
     }
     else{
         
         [SVProgressHUD showErrorWithStatus:@"روزهای رسیدن و ترک کردن به درستی انتخاب نشده است!"];
     }
+}
+-(void)showSuccessAlert{
+
+    
+    UIStoryboard *storybord =[UIStoryboard storyboardWithName:@"Alerts" bundle:nil];
+    SuccessReserveViewController *vc = [storybord instantiateViewControllerWithIdentifier:@"SuccessReserveVCID"];
+    
+    
+    MZFormSheetPresentationViewController *formSheet = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:vc];
+    
+    
+    formSheet.presentationController.contentViewSize = CGSizeMake(300, 400);
+    
+    formSheet.presentationController.portraitTopInset = 10;
+    
+    formSheet.allowDismissByPanningPresentedView = YES;
+    formSheet.contentViewCornerRadius = 8.0;
+    
+    
+    formSheet.willPresentContentViewControllerHandler = ^(UIViewController *presentedFSViewController){
+    };
+    formSheet.didDismissContentViewControllerHandler = ^(UIViewController *presentedFSViewController){
+        
+    };
+    
+    [self presentViewController:formSheet animated:YES completion:nil];
 }
 
 
@@ -734,5 +759,10 @@
     
 }
 
+#pragma mark - notification
 
+-(void)paymentNotificationRecived:(NSNotification *)notification{
+
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

@@ -185,6 +185,160 @@
             </objects>
             <point key="canvasLocation" x="795" y="916"/>
         </scene>
+        <!--Success Reserve View Controller-->
+        <scene sceneID="pAS-aa-XvU">
+            <objects>
+                <viewController storyboardIdentifier="SuccessReserveVCID" id="QtW-5s-ijt" customClass="SuccessReserveViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2L9-XK-Tsn"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Md-P8-JY7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hAE-D1-Nfe">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hxh-cB-KV4">
+                                <rect key="frame" x="94" y="28" width="112" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="8fP-MA-6AG"/>
+                                    <constraint firstAttribute="width" constant="112" id="pzK-jC-7WI"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" پرداخت موفق                   رزواسیون شما انجام شد" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZh-9p-vc7" customClass="CustomFaRegularLabel">
+                                <rect key="frame" x="37" y="124" width="238" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="Mz2-B6-RJc"/>
+                                    <constraint firstAttribute="width" constant="238" id="aJ2-DZ-bJF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="0.0" green="0.58431372550000005" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="از طرف مالک برای هماهنگی نهایی با شما تماس گرفته خواد شد" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1R-9D-MDy" customClass="CustomFaRegularLabel">
+                                <rect key="frame" x="15" y="192" width="270" height="77"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="8es-vT-HOF"/>
+                                    <constraint firstAttribute="height" constant="77" id="bUu-GN-hbs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.3529411764705882" green="0.3529411764705882" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSs-cN-P12" customClass="IranButton">
+                                <rect key="frame" x="15" y="345" width="270" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="gK1-Nr-Z7U"/>
+                                    <constraint firstAttribute="width" constant="270" id="wUD-3S-xzS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="بستن">
+                                    <color key="titleColor" red="0.70980392160000005" green="0.70980392160000005" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="closebuttonClicked:" destination="QtW-5s-ijt" eventType="touchUpInside" id="b3H-rG-sdz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Y1R-9D-MDy" firstAttribute="top" secondItem="hxh-cB-KV4" secondAttribute="bottom" constant="76" id="0hP-gZ-OXW"/>
+                            <constraint firstItem="KZh-9p-vc7" firstAttribute="top" secondItem="hxh-cB-KV4" secondAttribute="bottom" constant="8" id="8E5-Pz-NNa"/>
+                            <constraint firstItem="KZh-9p-vc7" firstAttribute="centerX" secondItem="hAE-D1-Nfe" secondAttribute="centerX" constant="6" id="Jvf-OD-Oq3"/>
+                            <constraint firstItem="hxh-cB-KV4" firstAttribute="top" secondItem="2L9-XK-Tsn" secondAttribute="bottom" constant="8" id="MsR-YA-WMs"/>
+                            <constraint firstItem="Y1R-9D-MDy" firstAttribute="centerX" secondItem="hAE-D1-Nfe" secondAttribute="centerX" id="Uzo-mA-ecP"/>
+                            <constraint firstItem="LSs-cN-P12" firstAttribute="leading" secondItem="hAE-D1-Nfe" secondAttribute="leading" constant="15" id="gW4-mr-9gw"/>
+                            <constraint firstItem="hxh-cB-KV4" firstAttribute="centerX" secondItem="hAE-D1-Nfe" secondAttribute="centerX" id="shw-Za-wFG"/>
+                            <constraint firstAttribute="trailing" secondItem="LSs-cN-P12" secondAttribute="trailing" constant="15" id="v8O-fz-AhZ"/>
+                            <constraint firstItem="2Md-P8-JY7" firstAttribute="top" secondItem="LSs-cN-P12" secondAttribute="bottom" constant="13" id="xvL-0h-MYx"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="400"/>
+                    <connections>
+                        <outlet property="closeButton" destination="LSs-cN-P12" id="tLA-iV-Tjc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZyD-V1-2sj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="284" y="1414"/>
+        </scene>
+        <!--Fail Reserve View Controller-->
+        <scene sceneID="acU-WL-ayx">
+            <objects>
+                <viewController id="z7N-Aw-S6X" customClass="FailReserveViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KV4-5e-jkS"/>
+                        <viewControllerLayoutGuide type="bottom" id="DIb-kK-dCx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="krj-Do-tO2">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h8k-rz-G7G">
+                                <rect key="frame" x="94" y="40" width="112" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="Caq-8n-pHi"/>
+                                    <constraint firstAttribute="width" constant="112" id="Ch2-a8-Bu3"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="لطفا با مراجعه به پروفایل خود و وارد شدن به بخش رزرو‌های من، اقدام به پرداخت سفارش خود کنید " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgP-6b-3aA" customClass="CustomFaRegularLabel">
+                                <rect key="frame" x="15" y="204" width="270" height="77"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="NbM-Wh-n2V"/>
+                                    <constraint firstAttribute="height" constant="77" id="wV9-xb-umY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.35294117650000001" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEa-gd-ksE" customClass="IranButton">
+                                <rect key="frame" x="15" y="345" width="270" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="odJ-PY-Rnl"/>
+                                    <constraint firstAttribute="width" constant="270" id="x1r-Ei-lzo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="بستن">
+                                    <color key="titleColor" red="0.70980392156862748" green="0.70980392156862748" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeButtonclicked:" destination="z7N-Aw-S6X" eventType="touchUpInside" id="odh-On-2D4"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" پرداخت ناموفق          رزواسیون شما انجام نشد" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cqv-t6-97D" customClass="CustomFaRegularLabel">
+                                <rect key="frame" x="68" y="136" width="164" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="BhY-0k-fUb"/>
+                                    <constraint firstAttribute="width" constant="164" id="cGp-OL-shD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="0.63529411764705879" green="0.0039215686274509803" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="JEa-gd-ksE" secondAttribute="trailing" constant="15" id="1jg-xe-aCr"/>
+                            <constraint firstItem="Cqv-t6-97D" firstAttribute="centerX" secondItem="krj-Do-tO2" secondAttribute="centerX" id="Ac3-ay-Msk"/>
+                            <constraint firstItem="DIb-kK-dCx" firstAttribute="top" secondItem="JEa-gd-ksE" secondAttribute="bottom" constant="13" id="Gbz-QC-Ccp"/>
+                            <constraint firstItem="VgP-6b-3aA" firstAttribute="centerX" secondItem="krj-Do-tO2" secondAttribute="centerX" id="H8Q-MT-NXO"/>
+                            <constraint firstItem="h8k-rz-G7G" firstAttribute="top" secondItem="KV4-5e-jkS" secondAttribute="bottom" constant="20" id="J7y-cF-G4B"/>
+                            <constraint firstItem="Cqv-t6-97D" firstAttribute="top" secondItem="h8k-rz-G7G" secondAttribute="bottom" constant="8" id="LoG-IT-0t2"/>
+                            <constraint firstItem="JEa-gd-ksE" firstAttribute="leading" secondItem="krj-Do-tO2" secondAttribute="leading" constant="15" id="NYd-7y-tcZ"/>
+                            <constraint firstItem="h8k-rz-G7G" firstAttribute="centerX" secondItem="krj-Do-tO2" secondAttribute="centerX" id="S2h-lh-inV"/>
+                            <constraint firstItem="VgP-6b-3aA" firstAttribute="top" secondItem="h8k-rz-G7G" secondAttribute="bottom" constant="76" id="cxF-vR-MbI"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="400"/>
+                    <connections>
+                        <outlet property="closeButton" destination="JEa-gd-ksE" id="sQi-ei-BQH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i5Z-wR-fjM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="292" y="1928"/>
+        </scene>
         <!--Select City View Controller-->
         <scene sceneID="XBX-cf-lhd">
             <objects>
