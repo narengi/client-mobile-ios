@@ -1321,11 +1321,23 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4X-h2-EZF">
+                                        <rect key="frame" x="546" y="21" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="BKs-Jv-g2e"/>
+                                            <constraint firstAttribute="height" constant="30" id="COn-JV-la8"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="mapButtonClicked:" destination="rl8-uM-qGD" eventType="touchUpInside" id="Bjr-9C-AOM"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="UHZ-tX-HwL" secondAttribute="bottom" id="DRS-KL-TBj"/>
                                     <constraint firstAttribute="trailing" secondItem="Pbo-PY-ako" secondAttribute="trailing" constant="30" id="FDv-jZ-ggd"/>
+                                    <constraint firstAttribute="trailing" secondItem="k4X-h2-EZF" secondAttribute="trailing" constant="8" id="K5f-S8-xxy"/>
                                     <constraint firstAttribute="height" constant="64" id="Ngn-7m-Dkn"/>
                                     <constraint firstItem="UHZ-tX-HwL" firstAttribute="leading" secondItem="oiM-Di-wAi" secondAttribute="leading" id="Yx3-Zb-2le"/>
                                     <constraint firstAttribute="width" constant="600" id="cFf-jo-rOl"/>
@@ -1333,8 +1345,20 @@
                                     <constraint firstItem="Pbo-PY-ako" firstAttribute="centerX" secondItem="oiM-Di-wAi" secondAttribute="centerX" id="hI3-g3-Pht"/>
                                     <constraint firstItem="Pbo-PY-ako" firstAttribute="leading" secondItem="oiM-Di-wAi" secondAttribute="leading" constant="30" id="myJ-qE-3MU"/>
                                     <constraint firstItem="Pbo-PY-ako" firstAttribute="centerY" secondItem="oiM-Di-wAi" secondAttribute="centerY" constant="8.5" id="v95-XM-UQr"/>
+                                    <constraint firstItem="UHZ-tX-HwL" firstAttribute="top" secondItem="k4X-h2-EZF" secondAttribute="bottom" constant="12" id="vDM-1D-cWh"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLO-qX-NF8">
+                                <rect key="frame" x="546" y="21" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="FDm-OG-waH"/>
+                                    <constraint firstAttribute="width" constant="46" id="WIh-yi-H31"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="mapButtonClicked:" destination="rl8-uM-qGD" eventType="touchUpInside" id="ftI-Iw-vQd"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n0h-OB-rAh">
                                 <rect key="frame" x="0.0" y="21" width="72" height="43"/>
                                 <constraints>
@@ -1358,8 +1382,10 @@
                             <constraint firstAttribute="trailing" secondItem="EfP-hf-8u0" secondAttribute="trailing" id="Mib-nC-95d"/>
                             <constraint firstItem="kRu-Aw-UEg" firstAttribute="leading" secondItem="LJS-yD-Spw" secondAttribute="leading" id="OtN-vm-jeB"/>
                             <constraint firstItem="EfP-hf-8u0" firstAttribute="top" secondItem="LJS-yD-Spw" secondAttribute="top" id="QE9-vX-jJp"/>
+                            <constraint firstAttribute="trailing" secondItem="xLO-qX-NF8" secondAttribute="trailing" constant="8" id="U6n-dO-hYj"/>
                             <constraint firstItem="n0h-OB-rAh" firstAttribute="top" secondItem="LJS-yD-Spw" secondAttribute="top" constant="21" id="g9J-x3-DWy"/>
                             <constraint firstItem="n0h-OB-rAh" firstAttribute="leading" secondItem="LJS-yD-Spw" secondAttribute="leading" id="i8C-0P-25b"/>
+                            <constraint firstItem="xLO-qX-NF8" firstAttribute="top" secondItem="Ur0-bc-uRN" secondAttribute="bottom" constant="1" id="j5N-bo-0Bg"/>
                             <constraint firstAttribute="trailing" secondItem="kRu-Aw-UEg" secondAttribute="trailing" id="tOS-vt-VEQ"/>
                             <constraint firstItem="kRu-Aw-UEg" firstAttribute="top" secondItem="LJS-yD-Spw" secondAttribute="top" id="wwi-Qo-nnF"/>
                             <constraint firstItem="EfP-hf-8u0" firstAttribute="leading" secondItem="LJS-yD-Spw" secondAttribute="leading" id="xpF-vT-lP1"/>

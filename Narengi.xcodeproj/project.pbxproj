@@ -114,6 +114,8 @@
 		72BC8A4E1CD74CF9002055FA /* NSDateFormatter+Persian.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BC8A391CD74CF9002055FA /* NSDateFormatter+Persian.m */; };
 		72BC8A501CD74CF9002055FA /* UIImagePickerController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BC8A3D1CD74CF9002055FA /* UIImagePickerController+Block.m */; };
 		72BC8A511CD74CF9002055FA /* UIImagePickerController+Edit.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BC8A3F1CD74CF9002055FA /* UIImagePickerController+Edit.m */; };
+		72BC8A581CD74FF8002055FA /* HouseDetailMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BC8A571CD74FF8002055FA /* HouseDetailMapViewController.m */; };
+		72BC8A5E1CD7702B002055FA /* CityDetailMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BC8A5D1CD7702B002055FA /* CityDetailMapViewController.m */; };
 		72C24F951C6E4C2A00026821 /* VerificationObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C24F941C6E4C2A00026821 /* VerificationObject.m */; };
 		72D4E5B51C3E61FB00AC3D0D /* PropertyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D4E5B41C3E61FB00AC3D0D /* PropertyView.m */; };
 		72D4E5B81C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D4E5B71C3E621A00AC3D0D /* HomeFacilityCollectionViewCell.m */; };
@@ -372,6 +374,10 @@
 		72BC8A3D1CD74CF9002055FA /* UIImagePickerController+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImagePickerController+Block.m"; path = "Custom Classes/UIImagePickerController+Block.m"; sourceTree = "<group>"; };
 		72BC8A3E1CD74CF9002055FA /* UIImagePickerController+Edit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImagePickerController+Edit.h"; path = "Custom Classes/UIImagePickerController+Edit.h"; sourceTree = "<group>"; };
 		72BC8A3F1CD74CF9002055FA /* UIImagePickerController+Edit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImagePickerController+Edit.m"; path = "Custom Classes/UIImagePickerController+Edit.m"; sourceTree = "<group>"; };
+		72BC8A561CD74FF8002055FA /* HouseDetailMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HouseDetailMapViewController.h; path = VC/Map/HouseDetailMapViewController.h; sourceTree = "<group>"; };
+		72BC8A571CD74FF8002055FA /* HouseDetailMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HouseDetailMapViewController.m; path = VC/Map/HouseDetailMapViewController.m; sourceTree = "<group>"; };
+		72BC8A5C1CD7702B002055FA /* CityDetailMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityDetailMapViewController.h; path = VC/Map/CityDetailMapViewController.h; sourceTree = "<group>"; };
+		72BC8A5D1CD7702B002055FA /* CityDetailMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityDetailMapViewController.m; path = VC/Map/CityDetailMapViewController.m; sourceTree = "<group>"; };
 		72C24F931C6E4C2A00026821 /* VerificationObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VerificationObject.h; path = Core/VerificationObject.h; sourceTree = "<group>"; };
 		72C24F941C6E4C2A00026821 /* VerificationObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VerificationObject.m; path = Core/VerificationObject.m; sourceTree = "<group>"; };
 		72D4E5B31C3E61FB00AC3D0D /* PropertyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PropertyView.h; path = VC/Detail/PropertyView.h; sourceTree = "<group>"; };
@@ -655,6 +661,7 @@
 				72004BE91C2A91D000F9F6FB /* detail */,
 				725DE63F1C5947080001E5DC /* Profile */,
 				72405AB81CCE6F0800F68052 /* Verification */,
+				72BC8A521CD74DF3002055FA /* map */,
 				729838AC1BFCAFEA005BC5C3 /* Core */,
 				726DF2291BE79C1B004796EC /* Custom Classes */,
 				726DF1F11BE79937004796EC /* Supporting Files */,
@@ -813,6 +820,17 @@
 				729442981C6B6F88003F3D92 /* AskForCompleteProfileViewController.m */,
 			);
 			name = register;
+			sourceTree = "<group>";
+		};
+		72BC8A521CD74DF3002055FA /* map */ = {
+			isa = PBXGroup;
+			children = (
+				72BC8A561CD74FF8002055FA /* HouseDetailMapViewController.h */,
+				72BC8A571CD74FF8002055FA /* HouseDetailMapViewController.m */,
+				72BC8A5C1CD7702B002055FA /* CityDetailMapViewController.h */,
+				72BC8A5D1CD7702B002055FA /* CityDetailMapViewController.m */,
+			);
+			name = map;
 			sourceTree = "<group>";
 		};
 		72C24F241C6D6D3A00026821 /* DZNPhoto */ = {
@@ -1149,6 +1167,7 @@
 				72BC8A4B1CD74CF9002055FA /* DZNPhotoTag.m in Sources */,
 				723E3C621C883E9E0006DEF4 /* CustomTextField.m in Sources */,
 				729838AF1BFCB018005BC5C3 /* NarengiCore.m in Sources */,
+				72BC8A581CD74FF8002055FA /* HouseDetailMapViewController.m in Sources */,
 				72405ABB1CCE6F7100F68052 /* VerficationRootViewController.m in Sources */,
 				727F899F1C35169B00519CDD /* CityDetailAttractionListViewController.m in Sources */,
 				72F274551C199FC30048BF05 /* SearchDetailHomeCollectionViewCell.m in Sources */,
@@ -1187,6 +1206,7 @@
 				726A3A441C47EA6B002C4D11 /* CommentDetailTableViewCell.m in Sources */,
 				72405AC71CCEB89400F68052 /* IDCardValidateViewController.m in Sources */,
 				72BC8A401CD74CF9002055FA /* AFOAuthCredential.m in Sources */,
+				72BC8A5E1CD7702B002055FA /* CityDetailMapViewController.m in Sources */,
 				721E15331C0F51B0006E394B /* AttractionCollectionViewCell.m in Sources */,
 				72F274491C1978700048BF05 /* CustomFaRegularLabel.m in Sources */,
 				72BC8A141CD74BF2002055FA /* ModalAnimator.m in Sources */,

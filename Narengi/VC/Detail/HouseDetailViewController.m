@@ -74,6 +74,8 @@
     
     [super viewDidLoad];
     
+    [self addTapGestureToMapImg];
+    
     self.edgesForExtendedLayout               = UIRectEdgeNone;
     self.extendedLayoutIncludesOpaqueBars     = NO;
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -610,4 +612,18 @@
     [self goToRegisterORBookWithObject:self.houseObj];
 }
 
+#pragma mark - map
+
+-(void)addTapGestureToMapImg{
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
+    singleTap.numberOfTapsRequired = 1;
+    [self.mapViewImg setUserInteractionEnabled:YES];
+    [self.mapViewImg addGestureRecognizer:singleTap];
+}
+
+-(void)tapDetected{
+    
+    [self gotoMapForHouseDetailwithGeo:self.houseObj.geoObj];
+}
 @end

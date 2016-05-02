@@ -479,5 +479,11 @@ CGFloat const distance_W_LabelHeader = 35.0;
 }
 
 
+#pragma mark - map
+- (IBAction)mapButtonClicked:(UIButton *)sender {
+    
+    [self gotoMapFromCityWithHouses:self.cityObject.houses andWithTitle:self.cityObject.name];
+}
+
 
 @end

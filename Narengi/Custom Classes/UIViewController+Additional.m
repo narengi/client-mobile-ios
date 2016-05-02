@@ -17,6 +17,8 @@
 #import "VerficationRootViewController.h"
 #import "IDCardValidateViewController.h"
 #import "VerficationRootViewController.h"
+#import "HouseDetailMapViewController.h"
+#import "CityDetailMapViewController.h"
 
 @implementation UIViewController (Additional)
 
@@ -288,4 +290,30 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
+
+#pragma mark - goto map
+
+-(void)gotoMapForHouseDetailwithGeo:(GeoPointObject *)geo{
+
+    
+    UIStoryboard *verificationStoeyBoard = [UIStoryboard storyboardWithName:@"Maps" bundle:nil];
+    
+    HouseDetailMapViewController *vc =  [verificationStoeyBoard instantiateViewControllerWithIdentifier:@"houseDetailMapVCID"];
+    vc.geoPoint = geo;
+    
+    [self.navigationController showViewController:vc sender:nil];
+}
+
+-(void)gotoMapFromCityWithHouses:(NSArray *)houses andWithTitle:(NSString *)title{
+    
+    
+    UIStoryboard *verificationStoeyBoard = [UIStoryboard storyboardWithName:@"Maps" bundle:nil];
+    
+    CityDetailMapViewController *vc =  [verificationStoeyBoard instantiateViewControllerWithIdentifier:@"cityDetailMapVCID"];
+    vc.houseArr = houses;
+    vc.titleStr = title;
+    
+    [self.navigationController showViewController:vc sender:nil];
+}
+
 @end

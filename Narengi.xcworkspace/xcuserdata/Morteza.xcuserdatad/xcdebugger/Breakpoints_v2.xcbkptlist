@@ -148,11 +148,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Narengi/Custom Classes/UIViewController+Additional.m"
-            timestampString = "483368238.575069"
+            timestampString = "483885596.196933"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "-fixUrl:withParametrs:"
             landmarkType = "5">
          </BreakpointContent>

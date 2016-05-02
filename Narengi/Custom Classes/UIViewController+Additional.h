@@ -25,6 +25,7 @@
 -(void)goToRegisterORBookWithObject:(HouseObject *)houseObj;
 -(void)registerCellWithName:(NSString *)name andWithIdentifier :(NSString *)identifier andTableView:(UITableView *)tableview;
 -(void)changeRightIconToSkip;
-
+-(void)gotoMapForHouseDetailwithGeo:(GeoPointObject *)geo;
+-(void)gotoMapFromCityWithHouses:(NSArray *)houses andWithTitle:(NSString *)title;
 
 @end
