@@ -112,6 +112,19 @@
         
     }
 
+
+    if (self.guestCount > [self.houseObj.guestCount integerValue]) {
+        
+        PriceObject *extraGuestPrice = [[PriceObject alloc] init];
+        extraGuestPrice.name  = [NSString stringWithFormat:@"%ld × مهمان اضافی",[self calculateExtraGuest]];
+        extraGuestPrice.fee  = [self calculateExtraGuest] * self.houseObj.extraGuestPrice;
+        
+        self.totalFee += extraGuestPrice.fee;
+        [self.priceListArr  addObject:extraGuestPrice];
+        
+    }
+
+    
     [self.houseObj.exteraServices enumerateObjectsUsingBlock:^(ExtraServiceObject *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         if (obj.isSelected) {
@@ -554,6 +567,7 @@
     
 }
 
+
 -(void )addDatebetweenTwoDate :(NSDate *)arriveDate andarriveDate:(NSDate *)secondDate{
     
     
@@ -635,20 +649,35 @@
 }
 #pragma mark - guest part
 - (IBAction)plusButtonClicked:(id)sender {
-    
-    if (self.guestCount != 1) {
-        self.guestCount -= 1;
+
+    if (self.guestCount != self.houseObj.maxGuestCount ) {
+        self.guestCount += 1;
         self.guestCountLabel.text = [NSString stringWithFormat:@"%ld",self.guestCount];
+    
+        [self checkBill];
+        [self updateUI];
+
     }
 
 }
 
 - (IBAction)minusButtonClicked:(id)sender {
     
-    if (self.guestCount != [self.houseObj.guestCount integerValue]) {
-        self.guestCount += 1;
+    if (self.guestCount != 1) {
+        self.guestCount -= 1;
         self.guestCountLabel.text = [NSString stringWithFormat:@"%ld",self.guestCount];
+        
+        [self checkBill];
+        [self updateUI];
+
     }
+    
+}
+
+-(NSInteger)calculateExtraGuest{
+    
+    return self.guestCount - [self.houseObj.guestCount integerValue];
+    
 }
 
 #pragma mark -data

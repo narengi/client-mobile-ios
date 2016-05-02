@@ -20,6 +20,7 @@
 @property (nonatomic) HostObject       *host;
 @property (nonatomic) NSString         *cost;
 @property (nonatomic) NSInteger        price;
+@property (nonatomic) NSInteger        extraGuestPrice;
 @property (nonatomic) NSString         *rate;
 @property (nonatomic) float            roundedRate;
 @property (nonatomic) NSString         *summary;
@@ -41,6 +42,7 @@
 @property (nonatomic) NSString         *bedCount;
 @property (nonatomic) NSString         *reviewCount;
 @property (nonatomic) CommissionObjetc *commissionObj;
+@property (nonatomic) NSInteger        maxGuestCount;
 
 
 

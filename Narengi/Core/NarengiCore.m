@@ -324,16 +324,20 @@ NarengiCore *sharedInstance;
             if (isDetail) {
                 
                 houseObj.commentsArr     = [self parsComments:[dict objectForKey:@"Reviews"]];
+                houseObj.reviewCount  = [[[dict objectForKey:@"reviewsCount"] checkNull] stringValue];
+
                 houseObj.facilityArr     = [self parsFacilities:[dict objectForKey:@"FeatureList"]];
                 houseObj.shownFacilities = [self parsShownFacilities:houseObj.facilityArr];
                 houseObj.exteraServices  = [self parsExtraServices:[dict objectForKey:@"ExtraServices"]];
                 
-                houseObj.type         = [dict objectForKey:@"type"];
-                houseObj.bedroomCount = [[[[dict objectForKey:@"Spec"] objectForKey:@"bedroomCount"] checkNull] stringValue];
-                houseObj.guestCount   = [[[[dict objectForKey:@"Spec"] objectForKey:@"guestCount"] checkNull] stringValue];
-                houseObj.bedCount     = [[[[dict objectForKey:@"Spec"] objectForKey:@"bedCount"] checkNull ] stringValue];
-                houseObj.reviewCount  = [[[dict objectForKey:@"reviewsCount"] checkNull] stringValue];
-                houseObj.price        = [[[dict objectForKey:@"Price"] objectForKey:@"price"] integerValue];
+                houseObj.type          = [dict objectForKey:@"type"];
+                houseObj.bedroomCount  = [[[[dict objectForKey:@"Spec"] objectForKey:@"bedroomCount"] checkNull] stringValue];
+                houseObj.guestCount    = [[[[dict objectForKey:@"Spec"] objectForKey:@"guestCount"] checkNull] stringValue];
+                houseObj.bedCount      = [[[[dict objectForKey:@"Spec"] objectForKey:@"bedCount"] checkNull ] stringValue];
+                houseObj.maxGuestCount = [[[[dict objectForKey:@"Spec"] objectForKey:@"maxGuestCount"] checkNull] integerValue];
+                
+                houseObj.price           = [[[dict objectForKey:@"Price"] objectForKey:@"price"] integerValue];
+                houseObj.extraGuestPrice = [[[dict objectForKey:@"Price"] objectForKey:@"extraGuestPrice"] integerValue];
                 
                 CommissionObjetc *commObj = [[CommissionObjetc alloc] init];
                 
@@ -347,6 +351,8 @@ NarengiCore *sharedInstance;
                 }
                 else
                     houseObj.canShowMoreFacility = NO;
+                
+               
                 
             }
             
@@ -386,7 +392,7 @@ NarengiCore *sharedInstance;
                 
                 cityObj.houses      = [self parsAroudPlacesWith:[dict objectForKey:@"Houses"] andwithType:@"House" andIsDetail:NO];
                 
-                cityObj.attractions = [self parsAroudPlacesWith:[dict objectForKey:@"Attraction"] andwithType:@"Attraction" andIsDetail:NO];
+                cityObj.attractions = [self parsAroudPlacesWith:[dict objectForKey:@"Attractions"] andwithType:@"Attraction" andIsDetail:NO];
                 
                 cityObj.housesUrl      = [dict objectForKey:@"HousesUrl"];
                 cityObj.attractionsUrl = [dict objectForKey:@"AttractionsUrl"];

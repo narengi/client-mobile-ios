@@ -20,7 +20,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-//    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     [[NSUserDefaults standardUserDefaults] setObject:@"Farsi" forKey:@"Language"];
