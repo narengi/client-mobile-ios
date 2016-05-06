@@ -1607,15 +1607,39 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yez-JS-0Dw">
+                                        <rect key="frame" x="546" y="21" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="fsS-f0-Bo2"/>
+                                            <constraint firstAttribute="width" constant="46" id="hGp-f4-V7h"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="mapButtonClicked:" destination="Ngi-qv-cU5" eventType="touchUpInside" id="JkM-PO-Uc9"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Yez-JS-0Dw" secondAttribute="trailing" constant="8" id="B7t-yx-2pK"/>
                                     <constraint firstAttribute="height" constant="64" id="HsL-19-UQH"/>
                                     <constraint firstAttribute="width" constant="600" id="POA-G3-Wfc"/>
                                     <constraint firstItem="tus-Qc-Uud" firstAttribute="top" secondItem="DG9-dh-fOp" secondAttribute="top" constant="30" id="kaM-ka-iow"/>
                                     <constraint firstItem="tus-Qc-Uud" firstAttribute="centerX" secondItem="DG9-dh-fOp" secondAttribute="centerX" id="nml-QJ-ZUn"/>
+                                    <constraint firstItem="Yez-JS-0Dw" firstAttribute="top" secondItem="DG9-dh-fOp" secondAttribute="top" constant="21" id="rDi-UY-PCs"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W9P-Fk-HSg">
+                                <rect key="frame" x="546" y="21" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="DHW-bv-fz9"/>
+                                    <constraint firstAttribute="height" constant="30" id="iNV-Ow-bBy"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="mapButtonClicked:" destination="Ngi-qv-cU5" eventType="touchUpInside" id="zwV-3c-kK3"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TMV-DN-eCl">
                                 <rect key="frame" x="0.0" y="21" width="72" height="43"/>
                                 <constraints>
@@ -1624,13 +1648,11 @@
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="-16" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" image="BackBtnOrange"/>
-                                <connections>
-                                    <action selector="backButtonClicked:" destination="Ngi-qv-cU5" eventType="touchUpInside" id="X0v-lt-3uL"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="W9P-Fk-HSg" secondAttribute="trailing" constant="8" id="2WZ-OK-gqG"/>
                             <constraint firstAttribute="trailing" secondItem="DG9-dh-fOp" secondAttribute="trailing" id="3bj-eP-x2T"/>
                             <constraint firstItem="vJs-vD-fch" firstAttribute="leading" secondItem="S64-kh-fQq" secondAttribute="leading" id="4Lm-R0-sPa"/>
                             <constraint firstItem="3Yt-ke-uSE" firstAttribute="leading" secondItem="S64-kh-fQq" secondAttribute="leading" id="6mE-tc-vpn"/>
@@ -1639,6 +1661,7 @@
                             <constraint firstAttribute="trailing" secondItem="vJs-vD-fch" secondAttribute="trailing" id="Et4-My-8fZ"/>
                             <constraint firstItem="MbI-4S-5CN" firstAttribute="top" secondItem="vJs-vD-fch" secondAttribute="bottom" id="HKa-Ru-IJd"/>
                             <constraint firstItem="TMV-DN-eCl" firstAttribute="top" secondItem="92a-YZ-LAW" secondAttribute="bottom" constant="1" id="KYm-kk-spE"/>
+                            <constraint firstItem="W9P-Fk-HSg" firstAttribute="top" secondItem="S64-kh-fQq" secondAttribute="top" constant="21" id="V9v-Te-pcB"/>
                             <constraint firstItem="vJs-vD-fch" firstAttribute="centerX" secondItem="S64-kh-fQq" secondAttribute="centerX" id="jl3-0P-TrG"/>
                             <constraint firstItem="vJs-vD-fch" firstAttribute="top" secondItem="S64-kh-fQq" secondAttribute="top" id="kng-X3-tbj"/>
                             <constraint firstAttribute="trailing" secondItem="3Yt-ke-uSE" secondAttribute="trailing" id="mXb-5g-YiX"/>

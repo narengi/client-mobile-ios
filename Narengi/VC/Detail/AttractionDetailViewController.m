@@ -414,5 +414,11 @@
 }
 
 
+#pragma mark -map
+- (IBAction)mapButtonClicked:(UIButton *)sender {
+    
+    [self gotoMapFromCityWithHouses:self.attractionObject.housesArr andWithTitle:self.attractionObject.name];
+    
+}
 
 @end
