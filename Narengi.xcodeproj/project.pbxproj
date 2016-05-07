@@ -29,6 +29,9 @@
 		721F951C1CD21B7F003CC915 /* SuccessReserveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721F951B1CD21B7F003CC915 /* SuccessReserveViewController.m */; };
 		721F951F1CD21B91003CC915 /* FailReserveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721F951E1CD21B91003CC915 /* FailReserveViewController.m */; };
 		721F95221CD27D68003CC915 /* CommissionObjetc.m in Sources */ = {isa = PBXBuildFile; fileRef = 721F95211CD27D68003CC915 /* CommissionObjetc.m */; };
+		7225B4361CDC9489008A538C /* AddHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7225B4341CDC9489008A538C /* AddHome.storyboard */; };
+		7225B43A1CDC9AA5008A538C /* InsertNameAndDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7225B4391CDC9AA5008A538C /* InsertNameAndDescriptionViewController.m */; };
+		7225B43D1CDD33A9008A538C /* SelectLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7225B43C1CDD33A9008A538C /* SelectLocationViewController.m */; };
 		722601601C771B4C008A2C65 /* SelectBirthDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7226015F1C771B4C008A2C65 /* SelectBirthDayViewController.m */; };
 		722922F51BFCB4F800C5575C /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922F41BFCB4F800C5575C /* UserObject.m */; };
 		722922F81BFCEA3600C5575C /* ServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 722922F71BFCEA3600C5575C /* ServerResponse.m */; };
@@ -217,6 +220,11 @@
 		721F951E1CD21B91003CC915 /* FailReserveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FailReserveViewController.m; path = Narengi/VC/Book/FailReserveViewController.m; sourceTree = "<group>"; };
 		721F95201CD27D68003CC915 /* CommissionObjetc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommissionObjetc.h; path = Core/CommissionObjetc.h; sourceTree = "<group>"; };
 		721F95211CD27D68003CC915 /* CommissionObjetc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommissionObjetc.m; path = Core/CommissionObjetc.m; sourceTree = "<group>"; };
+		7225B4351CDC9489008A538C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AddHome.storyboard; sourceTree = "<group>"; };
+		7225B4381CDC9AA5008A538C /* InsertNameAndDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InsertNameAndDescriptionViewController.h; path = "VC/Add Home/InsertNameAndDescriptionViewController.h"; sourceTree = "<group>"; };
+		7225B4391CDC9AA5008A538C /* InsertNameAndDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InsertNameAndDescriptionViewController.m; path = "VC/Add Home/InsertNameAndDescriptionViewController.m"; sourceTree = "<group>"; };
+		7225B43B1CDD33A9008A538C /* SelectLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectLocationViewController.h; path = "VC/Add Home/SelectLocationViewController.h"; sourceTree = "<group>"; };
+		7225B43C1CDD33A9008A538C /* SelectLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectLocationViewController.m; path = "VC/Add Home/SelectLocationViewController.m"; sourceTree = "<group>"; };
 		7226015E1C771B4C008A2C65 /* SelectBirthDayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectBirthDayViewController.h; path = VC/Profile/SelectBirthDayViewController.h; sourceTree = "<group>"; };
 		7226015F1C771B4C008A2C65 /* SelectBirthDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectBirthDayViewController.m; path = VC/Profile/SelectBirthDayViewController.m; sourceTree = "<group>"; };
 		722922F31BFCB4F800C5575C /* UserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserObject.h; path = Core/UserObject.h; sourceTree = "<group>"; };
@@ -551,6 +559,17 @@
 			name = SearchDetail;
 			sourceTree = "<group>";
 		};
+		7225B4371CDC9A68008A538C /* Add Home */ = {
+			isa = PBXGroup;
+			children = (
+				7225B4381CDC9AA5008A538C /* InsertNameAndDescriptionViewController.h */,
+				7225B4391CDC9AA5008A538C /* InsertNameAndDescriptionViewController.m */,
+				7225B43B1CDD33A9008A538C /* SelectLocationViewController.h */,
+				7225B43C1CDD33A9008A538C /* SelectLocationViewController.m */,
+			);
+			name = "Add Home";
+			sourceTree = "<group>";
+		};
 		723E3C591C8654000006DEF4 /* Book */ = {
 			isa = PBXGroup;
 			children = (
@@ -651,6 +670,7 @@
 				72BC8A041CD74B2A002055FA /* Alerts.storyboard */,
 				72BC8A061CD74B2A002055FA /* Verification.storyboard */,
 				72BC8A011CD74AD6002055FA /* Maps.storyboard */,
+				7225B4341CDC9489008A538C /* AddHome.storyboard */,
 				726DF1FF1BE79937004796EC /* LaunchScreen.storyboard */,
 				726DF1FD1BE79937004796EC /* Assets.xcassets */,
 				72A381ED1C79FAAC0065E1A9 /* register */,
@@ -662,6 +682,7 @@
 				725DE63F1C5947080001E5DC /* Profile */,
 				72405AB81CCE6F0800F68052 /* Verification */,
 				72BC8A521CD74DF3002055FA /* map */,
+				7225B4371CDC9A68008A538C /* Add Home */,
 				729838AC1BFCAFEA005BC5C3 /* Core */,
 				726DF2291BE79C1B004796EC /* Custom Classes */,
 				726DF1F11BE79937004796EC /* Supporting Files */,
@@ -1026,6 +1047,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7225B4361CDC9489008A538C /* AddHome.storyboard in Resources */,
 				72BC8A181CD74C59002055FA /* CommentDetailCell.xib in Resources */,
 				722A0DC11C9171C1005C6DDB /* BillCell.xib in Resources */,
 				72D4E5CD1C3E635E00AC3D0D /* OwnerDesCell.xib in Resources */,
@@ -1157,6 +1179,7 @@
 				729838B21BFCB04D005BC5C3 /* HouseObject.m in Sources */,
 				72BC8A4A1CD74CF9002055FA /* DZNPhotoServiceFactory.m in Sources */,
 				721E15361C0F51CA006E394B /* MainHomeCollectionViewCell.m in Sources */,
+				7225B43A1CDC9AA5008A538C /* InsertNameAndDescriptionViewController.m in Sources */,
 				72AF71B91CA8410400A50575 /* MyProfileViewController.m in Sources */,
 				72B662D71CC8E08F00D2B3FB /* SelectCityViewController.m in Sources */,
 				72BC8A121CD74BF2002055FA /* CustomFaBoldLabel.m in Sources */,
@@ -1187,6 +1210,7 @@
 				7285DE551BF494CD00F92608 /* NSObject+NullCheck.m in Sources */,
 				72F9FBBE1C63991B00DBB347 /* LoginViewController.m in Sources */,
 				723E3C5F1C8836E80006DEF4 /* ProfileSubViewContainer.m in Sources */,
+				7225B43D1CDD33A9008A538C /* SelectLocationViewController.m in Sources */,
 				72F9FBC41C639B9E00DBB347 /* UIView+Style.m in Sources */,
 				72BC8A421CD74CF9002055FA /* DZNPhotoDisplayViewController.m in Sources */,
 				722A0DD41C9186DB005C6DDB /* ExtraServiceObject.m in Sources */,
@@ -1308,6 +1332,14 @@
 				721E152D1C0EF13A006E394B /* Base */,
 			);
 			name = PagerCell.xib;
+			sourceTree = "<group>";
+		};
+		7225B4341CDC9489008A538C /* AddHome.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7225B4351CDC9489008A538C /* Base */,
+			);
+			name = AddHome.storyboard;
 			sourceTree = "<group>";
 		};
 		725DE6401C5948E50001E5DC /* ProfileCommentsHeadeView.xib */ = {

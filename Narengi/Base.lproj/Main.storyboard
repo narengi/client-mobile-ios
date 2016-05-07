@@ -1599,6 +1599,9 @@
                                         <rect key="frame" x="0.0" y="21" width="72" height="43"/>
                                         <inset key="contentEdgeInsets" minX="-16" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" image="BackBtnOrange"/>
+                                        <connections>
+                                            <action selector="backButtonClicked:" destination="Ngi-qv-cU5" eventType="touchUpInside" id="k46-RV-ZNY"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36L-jk-VA3">
                                         <rect key="frame" x="0.0" y="63" width="600" height="1"/>
@@ -1648,6 +1651,9 @@
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="-16" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" image="BackBtnOrange"/>
+                                <connections>
+                                    <action selector="backButtonClicked:" destination="Ngi-qv-cU5" eventType="touchUpInside" id="y82-j5-ZZa"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4542,6 +4548,6 @@
         <image name="timearrow" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oPa-UN-mOr"/>
+        <segue reference="pui-JH-pWd"/>
     </inferredMetricsTieBreakers>
 </document>
