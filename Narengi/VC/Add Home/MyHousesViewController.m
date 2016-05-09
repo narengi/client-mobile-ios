@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self changeLeftButton];
     [self changeRighNavigationToMenu];
     self.title = @"مهمان‌پذیری";

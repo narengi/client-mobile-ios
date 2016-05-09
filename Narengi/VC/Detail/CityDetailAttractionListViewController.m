@@ -27,7 +27,6 @@
 
 
     
-    [[UINavigationBar appearance] setTranslucent:YES];
 
 
     //Get Data For firstTime

@@ -26,7 +26,10 @@
     [super viewDidLoad];
     [self getHouseTypes];
     [self changeLeftIcontoBack];
+    [self changeRightButtonToClose];
+
     self.title = @"نوع مسکن";
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 

@@ -28,5 +28,5 @@
 -(void)gotoMapForHouseDetailwithGeo:(GeoPointObject *)geo;
 -(void)gotoMapFromCityWithHouses:(NSArray *)houses andWithTitle:(NSString *)title;
 -(void)changeRighNavigationToMenu;
-
+-(void)changeRightButtonToClose;
 @end

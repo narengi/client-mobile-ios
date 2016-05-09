@@ -26,6 +26,8 @@
     
     [super viewDidLoad];
     [self changeLeftIcontoBack];
+    [self changeRightButtonToClose];
+
     self.title = @"موقعیت جغرافیایی";
     
     self.locationManager = [[CLLocationManager alloc] init];

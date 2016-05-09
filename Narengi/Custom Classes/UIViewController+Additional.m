@@ -338,4 +338,23 @@
     [self.navigationController showViewController:vc sender:nil];
 }
 
+
+-(void)changeRightButtonToClose{
+    
+    UIImage *buttonImage = [UIImage imageNamed:@"minusbtn"];
+    UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [closeButton setImage:buttonImage forState:UIControlStateNormal];
+    closeButton.frame = CGRectMake(0, 0, 32, 32);
+    closeButton.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10);
+    
+    UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:closeButton];
+    self.navigationItem.rightBarButtonItem = customBarItem;
+    [closeButton addTarget:self action:@selector(closeClicked) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+-(void)closeClicked{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end

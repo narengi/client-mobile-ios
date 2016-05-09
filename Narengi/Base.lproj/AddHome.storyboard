@@ -947,6 +947,7 @@
                             </constraint>
                             <constraint firstItem="Zug-pb-9vo" firstAttribute="top" secondItem="IC4-Vi-MSb" secondAttribute="bottom" constant="14" id="E0D-ak-dDB"/>
                             <constraint firstItem="luW-kd-837" firstAttribute="top" secondItem="FMS-XO-7iR" secondAttribute="bottom" id="XTR-Pw-UeK"/>
+                            <constraint firstItem="luW-kd-837" firstAttribute="top" secondItem="sf4-Tb-BAu" secondAttribute="top" constant="64" id="lxX-dH-qCa"/>
                             <constraint firstItem="IC4-Vi-MSb" firstAttribute="centerX" secondItem="sf4-Tb-BAu" secondAttribute="centerX" id="v0P-b7-gn3">
                                 <variation key="widthClass=compact" constant="80"/>
                             </constraint>
@@ -965,6 +966,7 @@
                             <mask key="constraints">
                                 <exclude reference="0Zi-Ve-1de"/>
                                 <exclude reference="XTR-Pw-UeK"/>
+                                <exclude reference="lxX-dH-qCa"/>
                                 <exclude reference="yL8-ao-5y3"/>
                                 <exclude reference="xhh-72-Qjp"/>
                                 <exclude reference="v0P-b7-gn3"/>
@@ -981,7 +983,8 @@
                             </mask>
                             <mask key="constraints">
                                 <include reference="0Zi-Ve-1de"/>
-                                <include reference="XTR-Pw-UeK"/>
+                                <exclude reference="XTR-Pw-UeK"/>
+                                <include reference="lxX-dH-qCa"/>
                                 <include reference="yL8-ao-5y3"/>
                                 <include reference="xhh-72-Qjp"/>
                                 <include reference="v0P-b7-gn3"/>

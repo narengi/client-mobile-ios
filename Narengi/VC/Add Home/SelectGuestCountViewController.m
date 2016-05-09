@@ -27,6 +27,9 @@
     [super viewDidLoad];
     
     [self changeLeftIcontoBack];
+    [self changeRightButtonToClose];
+
+    
     self.title = @"تعداد‌ها";
     self.maxGuestCount = 1;
     self.guestCount    = 1;

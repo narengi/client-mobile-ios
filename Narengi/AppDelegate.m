@@ -70,7 +70,8 @@
       [UIColor blackColor], NSForegroundColorAttributeName,
       [UIFont fontWithName:@"IRANSansMobileFaNum-Medium" size:15.0], NSFontAttributeName,nil]];
     
-   
+    [[UINavigationBar appearance] setTranslucent:YES];
+
     
 }
 
