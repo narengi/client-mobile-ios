@@ -1,16 +1,15 @@
 //
-//  InsertNameAndDescriptionViewController.h
+//  SelectGuestCountViewController.h
 //  Narengi
 //
-//  Created by Morteza Hosseinizade on 5/6/16.
+//  Created by Morteza Hosseinizade on 5/9/16.
 //  Copyright © 2016 Morteza Hosseinizade. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface InsertNameAndDescriptionViewController : UIViewController
+@interface SelectGuestCountViewController : UIViewController
 
 @property (nonatomic,strong) HouseObject *houseObj;
-
 
 @end

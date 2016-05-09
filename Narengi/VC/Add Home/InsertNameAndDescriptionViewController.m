@@ -10,8 +10,10 @@
 #import "SZTextView.h"
 #import "SelectProvinceViewController.h"
 #import "SelectCityViewController.h"
+#import "SelectLocationViewController.h"
 
 @interface InsertNameAndDescriptionViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UIView *titleViewcontainer;
 @property (weak, nonatomic) IBOutlet UIView *desctiptionContainerView;
@@ -19,7 +21,6 @@
 @property (nonatomic,strong) NSDictionary *selectedProvince;
 @property (nonatomic,strong) NSString *selectedCity;
 
-@property (nonatomic,strong) HouseObject *houseObj;
 @property (weak, nonatomic) IBOutlet CustomFaRegularLabel *provinceLabel;
 @property (weak, nonatomic) IBOutlet CustomFaRegularLabel *cityLabel;
 
@@ -31,31 +32,14 @@
     
     [super viewDidLoad];
     
+    self.title = @"عنوان و توضیح";
     self.houseObj = [[HouseObject alloc] init];
+    [self changeRightButtonToClose];
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-- (IBAction)nextButtonClicked:(UIButton *)sender {
-
-    if ([self checkAllFields]) {
-        
-        self.houseObj.name = self.titleTextField.text;
-        self.houseObj.summary = self.desciptionTextView.text;
-        self.houseObj.cityName = [self.selectedProvince objectForKey:@"name"];
-        
-        [self performSegueWithIdentifier:@"" sender:nil];
-    }
-    
-    
-}
-
-- (IBAction)preButtonclicked:(UIButton *)sender {
 }
 
 #pragma mark - check Fields
@@ -229,4 +213,52 @@
     
     [self presentViewController:formSheet animated:YES completion:nil];
 }
+
+#pragma mark -Buttons
+
+- (IBAction)nextButtonClicked:(UIButton *)sender {
+    
+    if ([self checkAllFields]) {
+        
+        self.houseObj.name = self.titleTextField.text;
+        self.houseObj.summary = self.desciptionTextView.text;
+        self.houseObj.cityName = [self.selectedProvince objectForKey:@"name"];
+        
+        [self performSegueWithIdentifier:@"goToInsertLocation" sender:nil];
+    }
+    
+}
+
+- (IBAction)preButtonclicked:(UIButton *)sender {
+    
+    
+}
+
+
+-(void)changeRightButtonToClose{
+
+    UIImage *buttonImage = [UIImage imageNamed:@"minusbtn"];
+    UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [closeButton setImage:buttonImage forState:UIControlStateNormal];
+    closeButton.frame = CGRectMake(0, 0, 32, 32);
+    closeButton.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10);
+    
+    UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:closeButton];
+    self.navigationItem.rightBarButtonItem = customBarItem;
+    [closeButton addTarget:self action:@selector(closeClicked) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+-(void)closeClicked{
+
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Navigation
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    SelectLocationViewController *vc =  segue.destinationViewController;
+    vc.houseObj = self.houseObj;
+}
+
 @end

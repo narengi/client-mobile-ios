@@ -78,7 +78,7 @@
             
             if (!response.hasErro) {
             
-                [self mnakeProvinceArr:response.backData];
+                [self makeProvinceArr:response.backData];
                 
             }
             else{
@@ -102,7 +102,7 @@
     });
 }
 
--(void)mnakeProvinceArr:(NSDictionary *)dict{
+-(void)makeProvinceArr:(NSDictionary *)dict{
 
     NSMutableArray *muArr = [[NSMutableArray alloc] init];
     [dict.allKeys enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {

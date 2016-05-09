@@ -13,4 +13,6 @@
 @property (nonatomic) double lat;
 @property (nonatomic) double lng;
 
+-(GeoPointObject *)initWith:(double)lat andWithLng:(double)lng;
+
 @end

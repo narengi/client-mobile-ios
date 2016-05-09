@@ -35,6 +35,9 @@
 
     
     //Register for nobfile
+    
+    self.title = @"موقعیت جغرافیایی";
+
     [self registerCollectionCellWithName:@"CitiesCollectionViewCell" andWithId:@"citiesCellID" forCORT:self.collectionView];
     
     

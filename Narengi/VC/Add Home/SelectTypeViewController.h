@@ -1,14 +1,14 @@
 //
-//  InsertNameAndDescriptionViewController.h
+//  SelectTypeViewController.h
 //  Narengi
 //
-//  Created by Morteza Hosseinizade on 5/6/16.
+//  Created by Morteza Hosseinizade on 5/9/16.
 //  Copyright © 2016 Morteza Hosseinizade. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface InsertNameAndDescriptionViewController : UIViewController
+@interface SelectTypeViewController : UIViewController
 
 @property (nonatomic,strong) HouseObject *houseObj;
 

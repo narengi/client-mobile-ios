@@ -10,4 +10,12 @@
 
 @implementation GeoPointObject
 
+-(GeoPointObject *)initWith:(double)lat andWithLng:(double)lng{
+
+    GeoPointObject *geo = [[GeoPointObject alloc] init];
+    geo.lat = lat;
+    geo.lng = lng;
+    
+    return geo;
+}
 @end

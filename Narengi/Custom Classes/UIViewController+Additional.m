@@ -19,6 +19,8 @@
 #import "VerficationRootViewController.h"
 #import "HouseDetailMapViewController.h"
 #import "CityDetailMapViewController.h"
+#import "REFrostedViewController.h"
+
 
 @implementation UIViewController (Additional)
 
@@ -44,18 +46,38 @@
     
 }
 
+-(void)changeRighNavigationToMenu{
+    
+    UIImage *buttonImage = [UIImage imageNamed:@"MenuIcon"];
+    UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [menuButton setImage:buttonImage forState:UIControlStateNormal];
+    menuButton.frame = CGRectMake(0, 0, 32, 32);
+    menuButton.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10);
+    
+    UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:menuButton];
+    self.navigationItem.rightBarButtonItem = customBarItem;
+    [menuButton addTarget:self action:@selector(showMenu) forControlEvents:UIControlEventTouchUpInside];
+    
+}
 
+-(void)showMenu{
+
+    [self.view endEditing:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+    [self.frostedViewController.view endEditing:YES];
+    [self.frostedViewController presentMenuViewController];
+}
 -(void)changeLeftIcontoBack{
 
     UIImage *buttonImage = [UIImage imageNamed:@"BackBtnOrange"];
-    UIButton *addbutton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [addbutton setImage:buttonImage forState:UIControlStateNormal];
-    addbutton.frame = CGRectMake(0, 0, 32, 32);
-    addbutton.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10);
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backButton setImage:buttonImage forState:UIControlStateNormal];
+    backButton.frame = CGRectMake(0, 0, 32, 32);
+    backButton.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10);
 
-    UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:addbutton];
+    UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     self.navigationItem.leftBarButtonItem = customBarItem;
-    [addbutton addTarget:self action:@selector(Back) forControlEvents:UIControlEventTouchUpInside];
+    [backButton addTarget:self action:@selector(Back) forControlEvents:UIControlEventTouchUpInside];
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
 }
 -(void)Back {

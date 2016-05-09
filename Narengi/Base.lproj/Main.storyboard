@@ -255,6 +255,9 @@
                                         <state key="normal" title="مهمان‌پذیری" image="hosting">
                                             <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="hostingButtonClicked:" destination="u4o-yP-Eby" eventType="touchUpInside" id="niR-Ym-DFv"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kG-up-4bj" customClass="IranButton">
                                         <rect key="frame" x="20" y="498" width="240" height="40"/>
@@ -2616,7 +2619,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGv-nQ-ll8">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGv-nQ-ll8">
                                         <rect key="frame" x="15" y="11" width="45" height="45"/>
                                         <state key="normal" image="CloseIconOrange"/>
                                         <connections>
@@ -4316,6 +4319,57 @@
             </objects>
             <point key="canvasLocation" x="2087" y="1588"/>
         </scene>
+        <!--My Houses View Controller-->
+        <scene sceneID="Wom-DL-Z3J">
+            <objects>
+                <viewController id="EzU-Zr-0zv" customClass="MyHousesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aed-bu-jnc"/>
+                        <viewControllerLayoutGuide type="bottom" id="TYH-dV-JE1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wPz-1T-Y42">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MHW-82-Gt6">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="536" id="afZ-hM-LCR"/>
+                                    <constraint firstAttribute="width" constant="600" id="mI3-k8-G0q"/>
+                                </constraints>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TYH-dV-JE1" firstAttribute="top" secondItem="MHW-82-Gt6" secondAttribute="bottom" id="4Wm-ps-RR0"/>
+                            <constraint firstItem="MHW-82-Gt6" firstAttribute="leading" secondItem="wPz-1T-Y42" secondAttribute="leading" id="QHR-aC-Gu2"/>
+                            <constraint firstItem="MHW-82-Gt6" firstAttribute="top" secondItem="aed-bu-jnc" secondAttribute="bottom" id="Z4G-2b-uGp"/>
+                            <constraint firstAttribute="trailing" secondItem="MHW-82-Gt6" secondAttribute="trailing" id="iZ9-IH-FP6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3eA-Da-3dX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Emd-g2-l45" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-241" y="-3098"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hgq-72-21Z">
+            <objects>
+                <navigationController storyboardIdentifier="hostingNaviagtionVCID" id="Ci0-1B-pON" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SyX-jS-9yg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="EzU-Zr-0zv" kind="relationship" relationship="rootViewController" id="YGt-ts-OZt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x6X-c3-LZJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-891" y="-3117"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="UA0-1z-ynh">
             <objects>
@@ -4548,6 +4602,6 @@
         <image name="timearrow" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pui-JH-pWd"/>
+        <segue reference="oPa-UN-mOr"/>
     </inferredMetricsTieBreakers>
 </document>

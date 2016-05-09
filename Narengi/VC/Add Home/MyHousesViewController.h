@@ -1,5 +1,5 @@
 //
-//  SelectLocationViewController.h
+//  MyHousesViewController.h
 //  Narengi
 //
 //  Created by Morteza Hosseinizade on 5/7/16.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SelectLocationViewController : UIViewController
-
-@property (nonatomic,strong) HouseObject *houseObj;
-
+@interface MyHousesViewController : UIViewController
 
 @end

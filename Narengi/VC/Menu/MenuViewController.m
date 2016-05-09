@@ -90,6 +90,18 @@
     
     
 }
+- (IBAction)hostingButtonClicked:(UIButton *)sender {
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"hostingNaviagtionVCID"];
+    
+    self.frostedViewController.contentViewController = navigationController;
+    [self.frostedViewController hideMenuViewController];
+    
+}
+
+
 
 
 @end

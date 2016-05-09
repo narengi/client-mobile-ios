@@ -27,5 +27,6 @@
 -(void)changeRightIconToSkip;
 -(void)gotoMapForHouseDetailwithGeo:(GeoPointObject *)geo;
 -(void)gotoMapFromCityWithHouses:(NSArray *)houses andWithTitle:(NSString *)title;
+-(void)changeRighNavigationToMenu;
 
 @end
