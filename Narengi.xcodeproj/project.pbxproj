@@ -48,6 +48,9 @@
 		722A0DD11C917E8E005C6DDB /* BillHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 722A0DD01C917E8E005C6DDB /* BillHeaderView.m */; };
 		722A0DD41C9186DB005C6DDB /* ExtraServiceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 722A0DD31C9186DB005C6DDB /* ExtraServiceObject.m */; };
 		722A0DD71C918CC7005C6DDB /* PriceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 722A0DD61C918CC7005C6DDB /* PriceObject.m */; };
+		723C3EB31CE1C0B400A82D9E /* SelectFacilityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723C3EB21CE1C0B400A82D9E /* SelectFacilityViewController.m */; };
+		723C3EB61CE1C7B300A82D9E /* SelectFacilityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 723C3EB51CE1C7B300A82D9E /* SelectFacilityTableViewCell.m */; };
+		723C3EB91CE1F93500A82D9E /* SetPricesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723C3EB81CE1F93500A82D9E /* SetPricesViewController.m */; };
 		723E3C5F1C8836E80006DEF4 /* ProfileSubViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E3C5E1C8836E80006DEF4 /* ProfileSubViewContainer.m */; };
 		723E3C621C883E9E0006DEF4 /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E3C611C883E9E0006DEF4 /* CustomTextField.m */; };
 		723E3C651C883FDC0006DEF4 /* CustomFaTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E3C641C883FDC0006DEF4 /* CustomFaTextField.m */; };
@@ -257,6 +260,12 @@
 		722A0DD31C9186DB005C6DDB /* ExtraServiceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExtraServiceObject.m; path = Core/ExtraServiceObject.m; sourceTree = "<group>"; };
 		722A0DD51C918CC7005C6DDB /* PriceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PriceObject.h; path = Core/PriceObject.h; sourceTree = "<group>"; };
 		722A0DD61C918CC7005C6DDB /* PriceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PriceObject.m; path = Core/PriceObject.m; sourceTree = "<group>"; };
+		723C3EB11CE1C0B400A82D9E /* SelectFacilityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectFacilityViewController.h; path = "VC/Add Home/SelectFacilityViewController.h"; sourceTree = "<group>"; };
+		723C3EB21CE1C0B400A82D9E /* SelectFacilityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectFacilityViewController.m; path = "VC/Add Home/SelectFacilityViewController.m"; sourceTree = "<group>"; };
+		723C3EB41CE1C7B300A82D9E /* SelectFacilityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectFacilityTableViewCell.h; path = "VC/Add Home/SelectFacilityTableViewCell.h"; sourceTree = "<group>"; };
+		723C3EB51CE1C7B300A82D9E /* SelectFacilityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectFacilityTableViewCell.m; path = "VC/Add Home/SelectFacilityTableViewCell.m"; sourceTree = "<group>"; };
+		723C3EB71CE1F93500A82D9E /* SetPricesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetPricesViewController.h; path = "VC/Add Home/SetPricesViewController.h"; sourceTree = "<group>"; };
+		723C3EB81CE1F93500A82D9E /* SetPricesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetPricesViewController.m; path = "VC/Add Home/SetPricesViewController.m"; sourceTree = "<group>"; };
 		723E3C5D1C8836E80006DEF4 /* ProfileSubViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileSubViewContainer.h; path = "Custom Classes/ProfileSubViewContainer.h"; sourceTree = "<group>"; };
 		723E3C5E1C8836E80006DEF4 /* ProfileSubViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileSubViewContainer.m; path = "Custom Classes/ProfileSubViewContainer.m"; sourceTree = "<group>"; };
 		723E3C601C883E9E0006DEF4 /* CustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomTextField.h; path = "Custom Classes/CustomTextField.h"; sourceTree = "<group>"; };
@@ -586,6 +595,12 @@
 				729314601CE07E7C00CDB4C5 /* SelectTypeTableViewCell.m */,
 				729314651CE08FB700CDB4C5 /* SelectGuestCountViewController.h */,
 				729314661CE08FB700CDB4C5 /* SelectGuestCountViewController.m */,
+				723C3EB11CE1C0B400A82D9E /* SelectFacilityViewController.h */,
+				723C3EB21CE1C0B400A82D9E /* SelectFacilityViewController.m */,
+				723C3EB41CE1C7B300A82D9E /* SelectFacilityTableViewCell.h */,
+				723C3EB51CE1C7B300A82D9E /* SelectFacilityTableViewCell.m */,
+				723C3EB71CE1F93500A82D9E /* SetPricesViewController.h */,
+				723C3EB81CE1F93500A82D9E /* SetPricesViewController.m */,
 			);
 			name = "Add Home";
 			sourceTree = "<group>";
@@ -1177,7 +1192,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				722A0DC41C9171EA005C6DDB /* BillTableViewCell.m in Sources */,
+				723C3EB31CE1C0B400A82D9E /* SelectFacilityViewController.m in Sources */,
 				72F274521C199F970048BF05 /* SearchDetailCityCollectionViewCell.m in Sources */,
+				723C3EB91CE1F93500A82D9E /* SetPricesViewController.m in Sources */,
 				72F274301C196FA30048BF05 /* CitiesViewController.m in Sources */,
 				72EA4D731C50F6750053456F /* CustomMarginLabel.m in Sources */,
 				720B92A41C253B3100D1468A /* SearchSectionView.m in Sources */,
@@ -1249,6 +1266,7 @@
 				72BC8A471CD74CF9002055FA /* DZNPhotoPickerControllerConstants.m in Sources */,
 				72BC8A131CD74BF2002055FA /* IranButton.m in Sources */,
 				729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */,
+				723C3EB61CE1C7B300A82D9E /* SelectFacilityTableViewCell.m in Sources */,
 				726A3A441C47EA6B002C4D11 /* CommentDetailTableViewCell.m in Sources */,
 				72405AC71CCEB89400F68052 /* IDCardValidateViewController.m in Sources */,
 				72BC8A401CD74CF9002055FA /* AFOAuthCredential.m in Sources */,

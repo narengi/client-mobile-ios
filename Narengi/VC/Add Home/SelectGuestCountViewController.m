@@ -7,6 +7,7 @@
 //
 
 #import "SelectGuestCountViewController.h"
+#import "SelectFacilityViewController.h"
 
 @interface SelectGuestCountViewController ()
 
@@ -126,7 +127,7 @@
 
 - (IBAction)nextButtonClicked:(UIButton *)sender {
     
-//    [self performSegueWithIdentifier:@"goToSelectGuestCountVC" sender:nil];
+    [self performSegueWithIdentifier:@"goToSelectFacility" sender:nil];
 
 }
 
@@ -139,8 +140,8 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
-//    SelectGuestCountViewController *vc  = segue.destinationViewController;
-//    vc.houseObj = self.houseObj;
+    SelectFacilityViewController *vc  = segue.destinationViewController;
+    vc.houseObj = self.houseObj;
     
 }
 
