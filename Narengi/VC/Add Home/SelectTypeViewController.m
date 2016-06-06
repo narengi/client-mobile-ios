@@ -115,11 +115,11 @@
                     
                     //show error
                     NSString *erroStr = [[response.backData objectForKey:@"error"] objectForKey:@"message"];
-                    [self showErro:erroStr];
+                    [self showError:erroStr];
                 }
                 else{
                     
-                    [self showErro:@"اشکال در ارتباط با سرور"];
+                    [self showError:@"اشکال در ارتباط با سرور"];
                     
                 }
                 
@@ -151,7 +151,7 @@
         [self performSegueWithIdentifier:@"goToSelectGuestCountVC" sender:nil];
     }
     else{
-        [self showErro:@"لطفا نوع مسکن را انتخاب کنید"];
+        [self showError:@"لطفا نوع مسکن را انتخاب کنید"];
 
     }
     

@@ -21,7 +21,7 @@
 -(void)insertGradientToView:(UIView *)View;
 
 -(void)goToRegister;
--(void)showErro:(NSString *)str;
+-(void)showError:(NSString *)str;
 -(void)goToRegisterORBookWithObject:(HouseObject *)houseObj;
 -(void)registerCellWithName:(NSString *)name andWithIdentifier :(NSString *)identifier andTableView:(UITableView *)tableview;
 -(void)changeRightIconToSkip;

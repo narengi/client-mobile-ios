@@ -192,11 +192,11 @@
                    
                     //show error
                     NSString *erroStr = [[response.backData objectForKey:@"error"] objectForKey:@"message"];
-                    [self showErro:erroStr];
+                    [self showError:erroStr];
                 }
                 else{
                     
-                    [self showErro:@"اشکال در ارتباط با سرور"];
+                    [self showError:@"اشکال در ارتباط با سرور"];
                     
                 }
                 

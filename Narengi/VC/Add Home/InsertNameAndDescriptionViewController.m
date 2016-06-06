@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UIView *titleViewcontainer;
 @property (weak, nonatomic) IBOutlet UIView *desctiptionContainerView;
 @property (weak, nonatomic) IBOutlet SZTextView *desciptionTextView;
+@property (weak, nonatomic) IBOutlet SZTextView *addressTextView;
+@property (weak, nonatomic) IBOutlet SZTextView *paymentDesc;
 @property (nonatomic,strong) NSDictionary *selectedProvince;
 @property (nonatomic,strong) NSString *selectedCity;
 
@@ -36,6 +38,9 @@
     self.houseObj = [[HouseObject alloc] init];
     [self changeRightButtonToClose];
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,20 +58,20 @@
                 return YES;
             }
             else{
-                [self showErro:@"استان و شهر را انتخاب کنید"];
+                [self showError:@"استان و شهر را انتخاب کنید"];
                 return NO;
                 
             }
         }
         else{
          
-            [self showErro:@"طول توضیحات باید بیشتر از ۱۰ کارکتر باشد"];
+            [self showError:@"طول توضیحات باید بیشتر از ۱۰ کارکتر باشد"];
             return NO;
         }
     }
     else{
         
-        [self showErro:@"طول عنوان باید بیشتر از ۵ کارکتر باشد"];
+        [self showError:@"طول عنوان باید بیشتر از ۵ کارکتر باشد"];
         return NO;
         
     }
@@ -220,16 +225,65 @@
     
     if ([self checkAllFields]) {
         
-        self.houseObj.name = self.titleTextField.text;
-        self.houseObj.summary = self.desciptionTextView.text;
+        self.houseObj.name     = self.titleTextField.text;
+        self.houseObj.summary  = self.desciptionTextView.text;
         self.houseObj.cityName = [self.selectedProvince objectForKey:@"name"];
         
-        [self performSegueWithIdentifier:@"goToInsertLocation" sender:nil];
+        [self sendAddHomeRequest ];
+        
     }
     
 }
 
+-(void)sendAddHomeRequest{
+
+    REACHABILITY
+    
+    [SVProgressHUD showWithStatus:@"در حال ارسال اطلاعات" maskType:SVProgressHUDMaskTypeGradient];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+        
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"POST" andWithService:@"houses" andWithParametrs:nil andWithBody:[self makeJson] andIsFullPath:NO];
+        
+        dispatch_async(dispatch_get_main_queue(),^{
+            
+            [SVProgressHUD dismiss];
+            if (!serverRs.hasErro) {
+             
+                [self performSegueWithIdentifier:@"goToInsertLocation" sender:nil];
+
+            }
+            else{
+                
+                if (serverRs.backData != nil ) {
+                    
+                    //show error
+                    NSString *erroStr = [[serverRs.backData objectForKey:@"error"] objectForKey:@"message"];
+                    [self showError:erroStr];
+                }
+                else{
+                    
+                    [self showError:@"اشکال در ارتباط با سرور"];
+                    
+                }
+            }
+        });
+    });
+}
+-(NSData *)makeJson{
+
+    
+    NSMutableDictionary* bodyDict =[[NSMutableDictionary alloc] init];
+    
+    [bodyDict addEntriesFromDictionary: @{@"Name":self.titleTextField.text,@"location":@{@"City":self.selectedCity,@"Province":[self.selectedProvince objectForKey:@"name"]},@"Summary":self.desciptionTextView.text}];
+    NSData *bodyData = [NSJSONSerialization dataWithJSONObject:[bodyDict copy] options:0 error:nil];
+    
+    
+    return bodyData;
+}
+
 - (IBAction)preButtonclicked:(UIButton *)sender {
+    
     
     
 }

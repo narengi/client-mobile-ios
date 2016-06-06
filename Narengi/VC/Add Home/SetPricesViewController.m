@@ -42,12 +42,12 @@
         }
         else{
             
-            [self showErro:@"لطفا هزینه مهمان‌اضافی را درست وارد کنید"];
+            [self showError:@"لطفا هزینه مهمان‌اضافی را درست وارد کنید"];
 
         }
     }
     else{
-        [self showErro:@"لطفا هزینه اجاره‌بها را درست وارد کنید"];
+        [self showError:@"لطفا هزینه اجاره‌بها را درست وارد کنید"];
     }
 }
 - (IBAction)preButtonClciked:(UIButton *)sender {

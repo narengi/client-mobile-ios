@@ -93,7 +93,6 @@
 }
 
 -(void)handleSingleTap:(UITapGestureRecognizer *)recognizer{
-
     
     UIStoryboard *storyboard = self.storyboard;
     UINavigationController *searchVc = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"searchNavVCID"];
@@ -111,8 +110,6 @@
     [searchVc.view insertSubview:beView atIndex:0];
     
     [self presentViewController:searchVc animated:YES completion:nil];
-    
-
     
     
 }

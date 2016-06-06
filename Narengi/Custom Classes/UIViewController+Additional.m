@@ -96,7 +96,7 @@
     
 }
 
--(void)showErro:(NSString *)str{
+-(void)showError:(NSString *)str{
     
     
     [JDStatusBarNotification showWithStatus:str dismissAfter:1.5 styleName:JDStatusBarStyleError];

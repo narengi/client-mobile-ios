@@ -51,6 +51,7 @@
 		723C3EB31CE1C0B400A82D9E /* SelectFacilityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723C3EB21CE1C0B400A82D9E /* SelectFacilityViewController.m */; };
 		723C3EB61CE1C7B300A82D9E /* SelectFacilityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 723C3EB51CE1C7B300A82D9E /* SelectFacilityTableViewCell.m */; };
 		723C3EB91CE1F93500A82D9E /* SetPricesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723C3EB81CE1F93500A82D9E /* SetPricesViewController.m */; };
+		723C3EBC1CE2075C00A82D9E /* AddPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723C3EBB1CE2075C00A82D9E /* AddPhotoViewController.m */; };
 		723E3C5F1C8836E80006DEF4 /* ProfileSubViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E3C5E1C8836E80006DEF4 /* ProfileSubViewContainer.m */; };
 		723E3C621C883E9E0006DEF4 /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E3C611C883E9E0006DEF4 /* CustomTextField.m */; };
 		723E3C651C883FDC0006DEF4 /* CustomFaTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E3C641C883FDC0006DEF4 /* CustomFaTextField.m */; };
@@ -266,6 +267,8 @@
 		723C3EB51CE1C7B300A82D9E /* SelectFacilityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectFacilityTableViewCell.m; path = "VC/Add Home/SelectFacilityTableViewCell.m"; sourceTree = "<group>"; };
 		723C3EB71CE1F93500A82D9E /* SetPricesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetPricesViewController.h; path = "VC/Add Home/SetPricesViewController.h"; sourceTree = "<group>"; };
 		723C3EB81CE1F93500A82D9E /* SetPricesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetPricesViewController.m; path = "VC/Add Home/SetPricesViewController.m"; sourceTree = "<group>"; };
+		723C3EBA1CE2075C00A82D9E /* AddPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddPhotoViewController.h; path = "VC/Add Home/AddPhotoViewController.h"; sourceTree = "<group>"; };
+		723C3EBB1CE2075C00A82D9E /* AddPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddPhotoViewController.m; path = "VC/Add Home/AddPhotoViewController.m"; sourceTree = "<group>"; };
 		723E3C5D1C8836E80006DEF4 /* ProfileSubViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileSubViewContainer.h; path = "Custom Classes/ProfileSubViewContainer.h"; sourceTree = "<group>"; };
 		723E3C5E1C8836E80006DEF4 /* ProfileSubViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileSubViewContainer.m; path = "Custom Classes/ProfileSubViewContainer.m"; sourceTree = "<group>"; };
 		723E3C601C883E9E0006DEF4 /* CustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomTextField.h; path = "Custom Classes/CustomTextField.h"; sourceTree = "<group>"; };
@@ -601,6 +604,8 @@
 				723C3EB51CE1C7B300A82D9E /* SelectFacilityTableViewCell.m */,
 				723C3EB71CE1F93500A82D9E /* SetPricesViewController.h */,
 				723C3EB81CE1F93500A82D9E /* SetPricesViewController.m */,
+				723C3EBA1CE2075C00A82D9E /* AddPhotoViewController.h */,
+				723C3EBB1CE2075C00A82D9E /* AddPhotoViewController.m */,
 			);
 			name = "Add Home";
 			sourceTree = "<group>";
@@ -1265,6 +1270,7 @@
 				723E3C6A1C885A310006DEF4 /* SelectGenderViewController.m in Sources */,
 				72BC8A471CD74CF9002055FA /* DZNPhotoPickerControllerConstants.m in Sources */,
 				72BC8A131CD74BF2002055FA /* IranButton.m in Sources */,
+				723C3EBC1CE2075C00A82D9E /* AddPhotoViewController.m in Sources */,
 				729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */,
 				723C3EB61CE1C7B300A82D9E /* SelectFacilityTableViewCell.m in Sources */,
 				726A3A441C47EA6B002C4D11 /* CommentDetailTableViewCell.m in Sources */,
