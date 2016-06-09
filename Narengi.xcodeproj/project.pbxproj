@@ -96,6 +96,8 @@
 		72AF71BC1CA954BC00A50575 /* IdentificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF71BB1CA954BC00A50575 /* IdentificationViewController.m */; };
 		72B19A131BFF6B3F007EDD86 /* AttractionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B19A121BFF6B3F007EDD86 /* AttractionObject.m */; };
 		72B19A161BFF6C6D007EDD86 /* CityObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B19A151BFF6C6D007EDD86 /* CityObject.m */; };
+		72B432291D05CDE100604C33 /* StepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B432281D05CDE100604C33 /* StepViewController.m */; };
+		72B4322C1D05E32700604C33 /* StepLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B4322B1D05E32700604C33 /* StepLabel.m */; };
 		72B662D71CC8E08F00D2B3FB /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B662D61CC8E08F00D2B3FB /* SelectCityViewController.m */; };
 		72B662DA1CC8E16500D2B3FB /* SelectProvinceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B662D91CC8E16500D2B3FB /* SelectProvinceViewController.m */; };
 		72B662DD1CC8E1DF00D2B3FB /* SelectProvinceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B662DC1CC8E1DF00D2B3FB /* SelectProvinceTableViewCell.m */; };
@@ -353,6 +355,10 @@
 		72B19A121BFF6B3F007EDD86 /* AttractionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttractionObject.m; path = Core/AttractionObject.m; sourceTree = "<group>"; };
 		72B19A141BFF6C6D007EDD86 /* CityObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityObject.h; path = Core/CityObject.h; sourceTree = "<group>"; };
 		72B19A151BFF6C6D007EDD86 /* CityObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityObject.m; path = Core/CityObject.m; sourceTree = "<group>"; };
+		72B432271D05CDE100604C33 /* StepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StepViewController.h; path = "VC/Add Home/StepViewController.h"; sourceTree = "<group>"; };
+		72B432281D05CDE100604C33 /* StepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StepViewController.m; path = "VC/Add Home/StepViewController.m"; sourceTree = "<group>"; };
+		72B4322A1D05E32700604C33 /* StepLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StepLabel.h; path = "Custom Classes/StepLabel.h"; sourceTree = "<group>"; };
+		72B4322B1D05E32700604C33 /* StepLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StepLabel.m; path = "Custom Classes/StepLabel.m"; sourceTree = "<group>"; };
 		72B662D51CC8E08F00D2B3FB /* SelectCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectCityViewController.h; path = VC/Profile/SelectCityViewController.h; sourceTree = "<group>"; };
 		72B662D61CC8E08F00D2B3FB /* SelectCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectCityViewController.m; path = VC/Profile/SelectCityViewController.m; sourceTree = "<group>"; };
 		72B662D81CC8E16500D2B3FB /* SelectProvinceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectProvinceViewController.h; path = VC/Profile/SelectProvinceViewController.h; sourceTree = "<group>"; };
@@ -586,6 +592,8 @@
 		7225B4371CDC9A68008A538C /* Add Home */ = {
 			isa = PBXGroup;
 			children = (
+				72B432271D05CDE100604C33 /* StepViewController.h */,
+				72B432281D05CDE100604C33 /* StepViewController.m */,
 				7225B43E1CDE1049008A538C /* MyHousesViewController.h */,
 				7225B43F1CDE1049008A538C /* MyHousesViewController.m */,
 				7225B4381CDC9AA5008A538C /* InsertNameAndDescriptionViewController.h */,
@@ -598,12 +606,12 @@
 				729314601CE07E7C00CDB4C5 /* SelectTypeTableViewCell.m */,
 				729314651CE08FB700CDB4C5 /* SelectGuestCountViewController.h */,
 				729314661CE08FB700CDB4C5 /* SelectGuestCountViewController.m */,
+				723C3EB71CE1F93500A82D9E /* SetPricesViewController.h */,
+				723C3EB81CE1F93500A82D9E /* SetPricesViewController.m */,
 				723C3EB11CE1C0B400A82D9E /* SelectFacilityViewController.h */,
 				723C3EB21CE1C0B400A82D9E /* SelectFacilityViewController.m */,
 				723C3EB41CE1C7B300A82D9E /* SelectFacilityTableViewCell.h */,
 				723C3EB51CE1C7B300A82D9E /* SelectFacilityTableViewCell.m */,
-				723C3EB71CE1F93500A82D9E /* SetPricesViewController.h */,
-				723C3EB81CE1F93500A82D9E /* SetPricesViewController.m */,
 				723C3EBA1CE2075C00A82D9E /* AddPhotoViewController.h */,
 				723C3EBB1CE2075C00A82D9E /* AddPhotoViewController.m */,
 			);
@@ -771,6 +779,8 @@
 			children = (
 				720B929F1C22A9AB00D1468A /* HWViewPager.h */,
 				720B92A01C22A9AB00D1468A /* HWViewPager.m */,
+				72B4322A1D05E32700604C33 /* StepLabel.h */,
+				72B4322B1D05E32700604C33 /* StepLabel.m */,
 				72D7FE631C15C59D00BD39A5 /* CustomLabel.h */,
 				72D7FE641C15C59D00BD39A5 /* CustomLabel.m */,
 				7214FB5B1BF1C98A00824043 /* UIViewController+Utilities.h */,
@@ -1222,6 +1232,7 @@
 				72BC8A4A1CD74CF9002055FA /* DZNPhotoServiceFactory.m in Sources */,
 				721E15361C0F51CA006E394B /* MainHomeCollectionViewCell.m in Sources */,
 				7225B43A1CDC9AA5008A538C /* InsertNameAndDescriptionViewController.m in Sources */,
+				72B432291D05CDE100604C33 /* StepViewController.m in Sources */,
 				72AF71B91CA8410400A50575 /* MyProfileViewController.m in Sources */,
 				72B662D71CC8E08F00D2B3FB /* SelectCityViewController.m in Sources */,
 				72BC8A121CD74BF2002055FA /* CustomFaBoldLabel.m in Sources */,
@@ -1254,6 +1265,7 @@
 				7285DE551BF494CD00F92608 /* NSObject+NullCheck.m in Sources */,
 				72F9FBBE1C63991B00DBB347 /* LoginViewController.m in Sources */,
 				723E3C5F1C8836E80006DEF4 /* ProfileSubViewContainer.m in Sources */,
+				72B4322C1D05E32700604C33 /* StepLabel.m in Sources */,
 				7225B43D1CDD33A9008A538C /* SelectLocationViewController.m in Sources */,
 				72F9FBC41C639B9E00DBB347 /* UIView+Style.m in Sources */,
 				72BC8A421CD74CF9002055FA /* DZNPhotoDisplayViewController.m in Sources */,

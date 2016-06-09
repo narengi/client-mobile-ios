@@ -7,18 +7,20 @@
 //
 
 #import "SelectGuestCountViewController.h"
-#import "SelectFacilityViewController.h"
+#import "SetPricesViewController.h"
+
 
 @interface SelectGuestCountViewController ()
 
 @property (nonatomic) NSInteger  roomCount;
 @property (nonatomic) NSInteger  bedCount;
-@property (nonatomic) NSInteger  guestCount;
-@property (nonatomic) NSInteger  maxGuestCount;
+
 @property (weak, nonatomic) IBOutlet CustomFaRegularLabel *roomCountLabel;
 @property (weak, nonatomic) IBOutlet CustomFaRegularLabel *bedCountLabel;
-@property (weak, nonatomic) IBOutlet CustomFaRegularLabel *guestCountLabel;
-@property (weak, nonatomic) IBOutlet CustomFaRegularLabel *maxGuestCountLabel;
+
+
+@property (weak, nonatomic) IBOutlet UITextField *priceTextField;
+
 @end
 
 @implementation SelectGuestCountViewController
@@ -31,12 +33,17 @@
     [self changeRightButtonToClose];
 
     
-    self.title = @"تعداد‌ها";
-    self.maxGuestCount = 1;
-    self.guestCount    = 1;
+    self.title = @"اطلاعات اتاق";
+
     self.bedCount      = 0;
     self.roomCount     = 0;
     
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"STEPCHANGED" object:[NSNumber numberWithInteger:4]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,49 +83,14 @@
     
     [self updateLabels];
 }
-- (IBAction)guestIncreaseButtonclicked:(UIButton *)sender {
-    
-    self.guestCount = self.guestCount +1;
-    self.maxGuestCount  = self.guestCount;
-    
 
-    [self updateLabels];
-}
-- (IBAction)guestDecreaseButtonclicked:(UIButton *)sender {
-    
-    self.guestCount = self.guestCount-1;
-    
-    if (self.guestCount == 0) {
-        self.guestCount = 1;
-    }
-    self.maxGuestCount  = self.guestCount;
-    
-    [self updateLabels];
-}
-- (IBAction)maxGuestIncreaseButtonclicked:(UIButton *)sender {
-    
-    self.maxGuestCount = self.maxGuestCount +1;
-    [self updateLabels];
-    
-}
-- (IBAction)maxGuestDecreaseButtonclicked:(UIButton *)sender {
-    
-    self.maxGuestCount = self.maxGuestCount -1;
-    if (self.maxGuestCount < self.guestCount) {
-        self.maxGuestCount  = self.guestCount;
-    }
-    [self updateLabels];
-}
 
 -(void)updateLabels{
 
-    self.guestCountLabel.text    = [NSString stringWithFormat:@"%ld",(long)self.guestCount ];
-    self.maxGuestCountLabel.text = [NSString stringWithFormat:@"%ld",(long)self.maxGuestCount ];
     self.bedCountLabel.text      = [NSString stringWithFormat:@"%ld",(long)self.bedCount ];
     self.roomCountLabel.text     = [NSString stringWithFormat:@"%ld",(long)self.roomCount ];
     
-    self.houseObj.maxGuestCount = self.maxGuestCount;
-    self.houseObj.guestCount    = [NSString stringWithFormat:@"%ld",(long)self.guestCount ];
+
     self.houseObj.bedCount      = [NSString stringWithFormat:@"%ld",(long)self.bedCount ];
     self.houseObj.bedroomCount  = [NSString stringWithFormat:@"%ld",(long)self.roomCount ];
     
@@ -127,8 +99,88 @@
 
 - (IBAction)nextButtonClicked:(UIButton *)sender {
     
-    [self performSegueWithIdentifier:@"goToSelectFacility" sender:nil];
+    if ([self.priceTextField.text integerValue] > 0) {
+     
+        [self sendPriceToServer];
+    }
+    else{
+        [self showError:@"لطفا هزینه اجاره‌بها را درست وارد کنید"];
+    }
+    
 
+}
+-(void)sendPriceToServer{
+
+
+    REACHABILITY
+    
+    [SVProgressHUD showWithStatus:@"در حال ارسال اطلاعات" maskType:SVProgressHUDMaskTypeGradient];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+        
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"PUT" andWithService:[NSString stringWithFormat: @"houses/%@",self.houseObj.ID ] andWithParametrs:nil andWithBody:[self makeJson] andIsFullPath:NO];
+        
+        dispatch_async(dispatch_get_main_queue(),^{
+            
+            [SVProgressHUD dismiss];
+            if (!serverRs.hasErro) {
+                
+                
+                self.houseObj =  [(AroundPlaceObject *)[[[NarengiCore sharedInstance] parsAroudPlacesWith:@[serverRs.backData] andwithType:@"House" andIsDetail:YES] firstObject] houseObject];
+                
+                [self performSegueWithIdentifier:@"gotoSetelectExtraPrice" sender:nil];
+                
+                
+            }
+            else{
+                
+                if (serverRs.backData != nil ) {
+                    
+                    //show error
+                    NSString *erroStr = [[serverRs.backData objectForKey:@"error"] objectForKey:@"message"];
+                    [self showError:erroStr];
+                }
+                else{
+                    
+                    [self showError:@"اشکال در ارتباط با سرور"];
+                    
+                }
+            }
+        });
+    });
+    
+}
+#pragma mark - sendChanges
+
+
+-(NSData *)makeJson{
+    
+    NSMutableDictionary* bodyDict =[[NSMutableDictionary alloc] init];
+    
+    [bodyDict addEntriesFromDictionary: @{@"Spec":@{@"bedroomCount":[NSNumber numberWithInteger: self.roomCount ],@"bedCount":[NSNumber numberWithInteger:self.bedCount]},@"Price":@{@"Price":self.priceTextField.text}}];
+    NSData *bodyData = [NSJSONSerialization dataWithJSONObject:[bodyDict copy] options:0 error:nil];
+    
+    
+    return bodyData;
+}
+
+-(void)CheckPrice{
+    
+    
+        
+//        if ([self.extraGuestPriceTextField.text integerValue] > 0) {
+//            
+//            self.houseObj.price = [self.priceTextField.text integerValue];
+//            self.houseObj.extraGuestPrice = [self.extraGuestPriceTextField.text integerValue];
+//            
+//            [self performSegueWithIdentifier:@"" sender:nil];
+//        }
+//        else{
+//            
+//            [self showError:@"لطفا هزینه مهمان‌اضافی را درست وارد کنید"];
+//            
+//        }
+    
 }
 
 - (IBAction)preButtonClicked:(UIButton *)sender {
@@ -140,10 +192,16 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
-    SelectFacilityViewController *vc  = segue.destinationViewController;
-    vc.houseObj = self.houseObj;
+    if ([segue.identifier isEqualToString:@"gotoSetelectExtraPrice"]) {
+        
+        SetPricesViewController *vc  = segue.destinationViewController;
+        vc.houseObj = self.houseObj;
+    }
+    
     
 }
+
+
 
 /*
 #pragma mark - Navigation

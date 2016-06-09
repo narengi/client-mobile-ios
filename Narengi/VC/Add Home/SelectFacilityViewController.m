@@ -8,7 +8,7 @@
 
 #import "SelectFacilityViewController.h"
 #import "SelectFacilityTableViewCell.h"
-#import "SetPricesViewController.h"
+
 
 @interface SelectFacilityViewController ()
 
@@ -16,6 +16,7 @@
 @property (nonatomic       ) NSInteger    selectedIdx;
 @property (weak, nonatomic ) IBOutlet UITableView  *tableView;
 @property (nonatomic,strong) NSDictionary *selectedDict;
+@property UIRefreshControl *refreshControl;
 
 @end
 
@@ -30,6 +31,25 @@
     
     self.title = @"امکانات";
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    [self setUPullToRefresh];
+    
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 75, 0);
+}
+
+-(void)setUPullToRefresh{
+    
+    self.refreshControl = [[UIRefreshControl alloc]
+                           init];
+    [self.refreshControl addTarget:self action:@selector(getHouseFacilities) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
+    [self.refreshControl setTintColor:[UIColor grayColor]];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"STEPCHANGED" object:[NSNumber numberWithInteger:6]];
 }
 
 #pragma mark - tableView
@@ -51,9 +71,9 @@
     
     NSDictionary *typeDict  = self.houseFacilityArr[indexPath.row];
     cell.titleLabel.text = [typeDict objectForKey:@"faName"];
-    cell.img.image = IMG([typeDict objectForKey:@"enName"]);
+    cell.img.image = IMG([typeDict objectForKey:@"type"]);
     
-    if ([[typeDict objectForKey:@"isSelected"] boolValue]) {
+    if ([[typeDict objectForKey:@"available"] boolValue]) {
         cell.checkBoxImg.image  = IMG(@"amenitieschecked");
     }
     else{
@@ -70,8 +90,8 @@
     
     NSMutableDictionary *dict  = [[NSMutableDictionary alloc] initWithDictionary: self.houseFacilityArr[indexPath.row]];
     
-    BOOL isSelected = [[dict objectForKey:@"isSelected"] boolValue];
-    [dict setObject:@(!isSelected) forKey:@"isSelected"];
+    BOOL isSelected = [[dict objectForKey:@"available"] boolValue];
+    [dict setObject:@(!isSelected) forKey:@"available"];
     
     [muarr replaceObjectAtIndex:indexPath.row withObject:dict];
     
@@ -83,8 +103,11 @@
 }
 
 #pragma mark - data
+
 -(void)getHouseFacilities{
     
+    
+    NORMALREACHABILITY
     [SVProgressHUD showWithStatus:@"در حال ارسال اطلاعات" maskType:SVProgressHUDMaskTypeGradient];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
@@ -112,10 +135,10 @@
                     [self showError:@"اشکال در ارتباط با سرور"];
                     
                 }
-                
-                [self dismissViewControllerAnimated:YES completion:nil];
-                
             }
+            
+            [self.refreshControl endRefreshing];
+
         });
     });
     
@@ -126,7 +149,7 @@
     
     [arr enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        NSDictionary *dict = @{@"enName":obj.allKeys[0],@"faName":[obj objectForKey:obj.allKeys[0]],@"isSelected":@NO};
+        NSDictionary *dict = @{@"type":obj.allKeys[0],@"faName":[obj objectForKey:obj.allKeys[0]],@"available":@NO};
         [typeMuArr addObject:dict];
         
     }];
@@ -141,7 +164,7 @@
     
     [self.houseFacilityArr enumerateObjectsUsingBlock:^(NSDictionary  *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        if ([[obj objectForKey:@"isSelected"] boolValue]) {
+        if ([[obj objectForKey:@"available"] boolValue]) {
             [muArr addObject:obj];
         }
         
@@ -152,8 +175,7 @@
         self.houseObj.facilityArr  = [muArr copy];
     }
     
-    [self performSegueWithIdentifier:@"goToSetPriceID" sender:nil];
-    
+    [self sendRequest];
 }
 
 - (IBAction)preButtonClicked:(UIButton *)sender {
@@ -166,9 +188,77 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
-    SetPricesViewController *vc  = segue.destinationViewController;
-    vc.houseObj = self.houseObj;
+    if ([segue.identifier isEqualToString:@"goToSelectImgesVC"]) {
+        
+    }
     
+}
+
+
+#pragma mark - sendChanges
+-(void)sendRequest{
+    
+    REACHABILITY
+    
+    [SVProgressHUD showWithStatus:@"در حال ارسال اطلاعات" maskType:SVProgressHUDMaskTypeGradient];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+        
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"PUT" andWithService:[NSString stringWithFormat: @"houses/%@/features",self.houseObj.ID ] andWithParametrs:nil andWithBody:[self makeJson] andIsFullPath:NO];
+        
+        dispatch_async(dispatch_get_main_queue(),^{
+            
+            [SVProgressHUD dismiss];
+            if (!serverRs.hasErro) {
+                
+                
+                self.houseObj =  [(AroundPlaceObject *)[[[NarengiCore sharedInstance] parsAroudPlacesWith:@[serverRs.backData] andwithType:@"House" andIsDetail:YES] firstObject] houseObject];
+                
+                [self performSegueWithIdentifier:@"goToSelectImgesVC" sender:nil];
+                
+                
+            }
+            else{
+                
+                if (serverRs.backData != nil ) {
+                    
+                    //show error
+                    NSString *erroStr = [[serverRs.backData objectForKey:@"error"] objectForKey:@"message"];
+                    [self showError:erroStr];
+                }
+                else{
+                    
+                    [self showError:@"اشکال در ارتباط با سرور"];
+                    
+                }
+            }
+        });
+    });
+    
+}
+
+-(NSData *)makeJson{
+    
+    NSMutableDictionary* bodyDict =[[NSMutableDictionary alloc] init];
+    
+    if (self.houseObj.facilityArr.count > 0) {
+       
+        NSMutableArray *muArr = [[NSMutableArray alloc] init];
+        [self.houseObj.facilityArr enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            [muArr addObject:@{@"type":[obj objectForKey:@"type"],@"available":@YES}];
+        }];
+        
+         [bodyDict addEntriesFromDictionary: @{@"FeatureList":[muArr copy]}];
+    }
+    else
+        [bodyDict addEntriesFromDictionary: @{@"FeatureList":@[]}];
+
+    
+    NSData *bodyData = [NSJSONSerialization dataWithJSONObject:[bodyDict copy] options:0 error:nil];
+    
+    
+    return bodyData;
 }
 
 @end

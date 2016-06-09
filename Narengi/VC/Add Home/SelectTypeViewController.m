@@ -16,6 +16,8 @@
 @property (nonatomic) NSInteger selectedIdx;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSDictionary *selectedDict;
+@property UIRefreshControl *refreshControl;
+
 
 @end
 
@@ -30,8 +32,26 @@
 
     self.title = @"نوع مسکن";
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 75, 0);
+
+    
+    [self setUPullToRefresh];
 }
 
+-(void)setUPullToRefresh{
+    
+    self.refreshControl = [[UIRefreshControl alloc]
+                           init];
+    [self.refreshControl addTarget:self action:@selector(getHouseTypes) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
+    [self.refreshControl setTintColor:[UIColor grayColor]];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"STEPCHANGED" object:[NSNumber numberWithInteger:3]];
+}
 
 #pragma mark - tableView
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -65,7 +85,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-
+    
     
     NSMutableArray *muarr = [[NSMutableArray alloc] init];
     [self.houseTypesArr enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -95,6 +115,7 @@
 #pragma mark - data
 -(void)getHouseTypes{
 
+    NORMALREACHABILITY
     [SVProgressHUD showWithStatus:@"در حال ارسال اطلاعات" maskType:SVProgressHUDMaskTypeGradient];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
@@ -123,9 +144,10 @@
                     
                 }
                 
-                [self dismissViewControllerAnimated:YES completion:nil];
-                
             }
+            
+            [self.refreshControl endRefreshing];
+
         });
     });
     
@@ -148,13 +170,66 @@
     
     if (self.selectedDict  != nil ) {
     
-        [self performSegueWithIdentifier:@"goToSelectGuestCountVC" sender:nil];
+        [self sendRequest ];
     }
     else{
         [self showError:@"لطفا نوع مسکن را انتخاب کنید"];
 
     }
     
+}
+
+#pragma mark - sendChanges
+-(void)sendRequest{
+
+    REACHABILITY
+    
+    [SVProgressHUD showWithStatus:@"در حال ارسال اطلاعات" maskType:SVProgressHUDMaskTypeGradient];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+        
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"PUT" andWithService:[NSString stringWithFormat: @"houses/%@",self.houseObj.ID ] andWithParametrs:nil andWithBody:[self makeJson] andIsFullPath:NO];
+        
+        dispatch_async(dispatch_get_main_queue(),^{
+            
+            [SVProgressHUD dismiss];
+            if (!serverRs.hasErro) {
+                
+                
+                self.houseObj =  [(AroundPlaceObject *)[[[NarengiCore sharedInstance] parsAroudPlacesWith:@[serverRs.backData] andwithType:@"House" andIsDetail:YES] firstObject] houseObject];
+                
+                [self performSegueWithIdentifier:@"goToSelectGuestCountVC" sender:nil];
+
+                
+            }
+            else{
+                
+                if (serverRs.backData != nil ) {
+                    
+                    //show error
+                    NSString *erroStr = [[serverRs.backData objectForKey:@"error"] objectForKey:@"message"];
+                    [self showError:erroStr];
+                }
+                else{
+                    
+                    [self showError:@"اشکال در ارتباط با سرور"];
+                    
+                }
+            }
+        });
+    });
+    
+}
+
+-(NSData *)makeJson{
+    
+    NSMutableDictionary* bodyDict =[[NSMutableDictionary alloc] init];
+    
+    [bodyDict addEntriesFromDictionary: @{@"type":self.selectedDict[@"enName"]}];
+    NSData *bodyData = [NSJSONSerialization dataWithJSONObject:[bodyDict copy] options:0 error:nil];
+    
+    
+    return bodyData;
 }
 
 - (IBAction)preButtonClicked:(UIButton *)sender {
@@ -167,8 +242,13 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 
-    SelectGuestCountViewController *vc  = segue.destinationViewController;
-    vc.houseObj = self.houseObj;
+    if ([segue.identifier isEqualToString:@"goToSelectGuestCountVC"]) {
+       
+        SelectGuestCountViewController *vc  = segue.destinationViewController;
+        vc.houseObj = self.houseObj;
+    }
+    
+    
     
 }
 @end

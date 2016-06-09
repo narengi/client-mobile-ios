@@ -306,7 +306,7 @@ NarengiCore *sharedInstance;
             houseObj.cityName       = [dict objectForKey:@"CityName"];
             houseObj.name           = [dict objectForKey:@"Name"];
             houseObj.cost           = [dict objectForKey:@"Cost"];
-            houseObj.ID             = [[dict objectForKey:@"id"] checkNull];
+            houseObj.ID             = [[[[dict objectForKey:@"URL"] checkNull] componentsSeparatedByString:@"/"] lastObject];
             houseObj.imageUrls      = [self parsImageArray:[dict objectForKey:@"Images"]];
             houseObj.rate           = [dict objectForKey:@"Rating"];
             houseObj.roundedRate    = [self roundRate:houseObj.rate];
@@ -336,7 +336,7 @@ NarengiCore *sharedInstance;
                 houseObj.bedCount      = [[[[dict objectForKey:@"Spec"] objectForKey:@"bedCount"] checkNull ] stringValue];
                 houseObj.maxGuestCount = [[[[dict objectForKey:@"Spec"] objectForKey:@"maxGuestCount"] checkNull] integerValue];
                 
-                houseObj.price           = [[[dict objectForKey:@"Price"] objectForKey:@"price"] integerValue];
+                houseObj.price           = [[[[dict objectForKey:@"Price"] objectForKey:@"price"] checkNull] integerValue];
                 houseObj.extraGuestPrice = [[[dict objectForKey:@"Price"] objectForKey:@"extraGuestPrice"] integerValue];
                 
                 CommissionObjetc *commObj = [[CommissionObjetc alloc] init];

@@ -65,6 +65,12 @@
 }
 
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"STEPCHANGED" object:[NSNumber numberWithInteger:2]];
+}
+
 
 
 - (void)dealloc {
@@ -91,8 +97,9 @@
 }
 
 - (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 - (IBAction)goToNextStepButtonClicked:(UIButton *)sender {
     
@@ -100,7 +107,55 @@
     CLLocationCoordinate2D cordinate = [self.mapView.projection coordinateForPoint:point];
 
     self.houseObj.geoObj = [[GeoPointObject alloc] initWith:cordinate.latitude andWithLng:cordinate.longitude];
-    [self performSegueWithIdentifier:@"goSelectType" sender:nil];
+    
+    
+    REACHABILITY
+    
+    [SVProgressHUD showWithStatus:@"در حال ارسال اطلاعات" maskType:SVProgressHUDMaskTypeGradient];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+        
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"PUT" andWithService:[NSString stringWithFormat: @"houses/%@",self.houseObj.ID ] andWithParametrs:nil andWithBody:[self makeJson] andIsFullPath:NO];
+        
+        dispatch_async(dispatch_get_main_queue(),^{
+            
+            [SVProgressHUD dismiss];
+            if (!serverRs.hasErro) {
+                
+                
+                self.houseObj =  [(AroundPlaceObject *)[[[NarengiCore sharedInstance] parsAroudPlacesWith:@[serverRs.backData] andwithType:@"House" andIsDetail:YES] firstObject] houseObject];
+
+                [self performSegueWithIdentifier:@"goSelectType" sender:nil];
+                
+            }
+            else{
+                
+                if (serverRs.backData != nil ) {
+                    
+                    //show error
+                    NSString *erroStr = [[serverRs.backData objectForKey:@"error"] objectForKey:@"message"];
+                    [self showError:erroStr];
+                }
+                else{
+                    
+                    [self showError:@"اشکال در ارتباط با سرور"];
+                    
+                }
+            }
+        });
+    });
+}
+
+-(NSData *)makeJson{
+    
+    
+    NSMutableDictionary* bodyDict =[[NSMutableDictionary alloc] init];
+    
+    [bodyDict addEntriesFromDictionary: @{@"Position":@{@"lat":@(self.houseObj.geoObj.lat),@"lng":@(self.houseObj.geoObj.lng)}}];
+    NSData *bodyData = [NSJSONSerialization dataWithJSONObject:[bodyDict copy] options:0 error:nil];
+    
+    
+    return bodyData;
 }
 
 - (IBAction)goToPreStepButtonClicked:(UIButton *)sender {
@@ -110,8 +165,11 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 
-    SelectTypeViewController *vc = segue.destinationViewController;
-    vc.houseObj = self.houseObj;
+    if ([segue.identifier isEqualToString:@"goSelectType"]) {
+        
+        SelectTypeViewController *vc = segue.destinationViewController;
+        vc.houseObj = self.houseObj;
+    }
     
 }
 

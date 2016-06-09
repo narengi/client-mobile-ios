@@ -11,6 +11,6 @@
 @interface InsertNameAndDescriptionViewController : UIViewController
 
 @property (nonatomic,strong) HouseObject *houseObj;
-
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 
 @end

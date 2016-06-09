@@ -39,6 +39,13 @@
     [self changeRightButtonToClose];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"STEPCHANGED" object:[NSNumber numberWithInteger:1]];
 
     
 }
@@ -223,6 +230,7 @@
 
 - (IBAction)nextButtonClicked:(UIButton *)sender {
     
+
     if ([self checkAllFields]) {
         
         self.houseObj.name     = self.titleTextField.text;
@@ -250,6 +258,8 @@
             [SVProgressHUD dismiss];
             if (!serverRs.hasErro) {
              
+                self.houseObj =  [(AroundPlaceObject *)[[[NarengiCore sharedInstance] parsAroudPlacesWith:@[serverRs.backData] andwithType:@"House" andIsDetail:YES] firstObject] houseObject];
+                
                 [self performSegueWithIdentifier:@"goToInsertLocation" sender:nil];
 
             }
@@ -275,7 +285,7 @@
     
     NSMutableDictionary* bodyDict =[[NSMutableDictionary alloc] init];
     
-    [bodyDict addEntriesFromDictionary: @{@"Name":self.titleTextField.text,@"location":@{@"City":self.selectedCity,@"Province":[self.selectedProvince objectForKey:@"name"]},@"Summary":self.desciptionTextView.text}];
+    [bodyDict addEntriesFromDictionary: @{@"Name":self.titleTextField.text,@"location":@{@"City":self.selectedCity,@"Province":[self.selectedProvince objectForKey:@"name"]},@"Summary":self.desciptionTextView.text, @"Price":@{}}];
     NSData *bodyData = [NSJSONSerialization dataWithJSONObject:[bodyDict copy] options:0 error:nil];
     
     
@@ -289,13 +299,17 @@
 }
 
 
-
 #pragma mark - Navigation
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    SelectLocationViewController *vc =  segue.destinationViewController;
-    vc.houseObj = self.houseObj;
+    
+    if ([segue.identifier isEqualToString:@"goToInsertLocation"]) {
+       
+        SelectLocationViewController *vc =  segue.destinationViewController;
+        vc.houseObj = self.houseObj;
+
+    }
 }
 
 @end
