@@ -79,6 +79,7 @@
 		727F89A31C3543FA00519CDD /* CityDetailButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 727F89A21C3543FA00519CDD /* CityDetailButton.m */; };
 		727F89A91C35491000519CDD /* CityDetailAttractionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 727F89A71C35491000519CDD /* CityDetailAttractionHeader.xib */; };
 		727F89AC1C354E1D00519CDD /* CityDetailHouseCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 727F89AB1C354E1D00519CDD /* CityDetailHouseCollectionReusableView.m */; };
+		728271511D0AA0E40038D5F8 /* AddHomeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 728271501D0AA0E40038D5F8 /* AddHomeButton.m */; };
 		7285DE551BF494CD00F92608 /* NSObject+NullCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE541BF494CD00F92608 /* NSObject+NullCheck.m */; };
 		7285DE601BF4B40600F92608 /* PageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE5F1BF4B40600F92608 /* PageCell.m */; };
 		7293145E1CE0762A00CDB4C5 /* SelectTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7293145D1CE0762A00CDB4C5 /* SelectTypeViewController.m */; };
@@ -321,6 +322,8 @@
 		727F89A81C35491000519CDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CityDetailAttractionHeader.xib; sourceTree = "<group>"; };
 		727F89AA1C354E1D00519CDD /* CityDetailHouseCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityDetailHouseCollectionReusableView.h; path = VC/Detail/CityDetailHouseCollectionReusableView.h; sourceTree = "<group>"; };
 		727F89AB1C354E1D00519CDD /* CityDetailHouseCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityDetailHouseCollectionReusableView.m; path = VC/Detail/CityDetailHouseCollectionReusableView.m; sourceTree = "<group>"; };
+		7282714F1D0AA0E40038D5F8 /* AddHomeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddHomeButton.h; path = "Custom Classes/AddHomeButton.h"; sourceTree = "<group>"; };
+		728271501D0AA0E40038D5F8 /* AddHomeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddHomeButton.m; path = "Custom Classes/AddHomeButton.m"; sourceTree = "<group>"; };
 		7285DE531BF494CD00F92608 /* NSObject+NullCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+NullCheck.h"; path = "Custom Classes/NSObject+NullCheck.h"; sourceTree = "<group>"; };
 		7285DE541BF494CD00F92608 /* NSObject+NullCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+NullCheck.m"; path = "Custom Classes/NSObject+NullCheck.m"; sourceTree = "<group>"; };
 		7285DE5E1BF4B40600F92608 /* PageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageCell.h; path = VC/CitiesVC/PageCell.h; sourceTree = "<group>"; };
@@ -815,6 +818,8 @@
 				72BC8A0D1CD74BF2002055FA /* IranButton.m */,
 				72BC8A0E1CD74BF2002055FA /* ModalAnimator.h */,
 				72BC8A0F1CD74BF2002055FA /* ModalAnimator.m */,
+				7282714F1D0AA0E40038D5F8 /* AddHomeButton.h */,
+				728271501D0AA0E40038D5F8 /* AddHomeButton.m */,
 				72C24F241C6D6D3A00026821 /* DZNPhoto */,
 			);
 			name = "Custom Classes";
@@ -1282,6 +1287,7 @@
 				723E3C6A1C885A310006DEF4 /* SelectGenderViewController.m in Sources */,
 				72BC8A471CD74CF9002055FA /* DZNPhotoPickerControllerConstants.m in Sources */,
 				72BC8A131CD74BF2002055FA /* IranButton.m in Sources */,
+				728271511D0AA0E40038D5F8 /* AddHomeButton.m in Sources */,
 				723C3EBC1CE2075C00A82D9E /* AddPhotoViewController.m in Sources */,
 				729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */,
 				723C3EB61CE1C7B300A82D9E /* SelectFacilityTableViewCell.m in Sources */,
