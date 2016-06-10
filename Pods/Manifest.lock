@@ -26,6 +26,7 @@ PODS:
   - FMDB/common (2.5)
   - FMDB/standard (2.5):
     - FMDB/common
+  - GBKUIButtonProgressView (0.1.2)
   - GoogleMaps (1.10.5)
   - IQKeyboardManager (3.3.6)
   - JDStatusBarNotification (1.5.3)
@@ -47,6 +48,7 @@ DEPENDENCIES:
   - AFNetworking
   - DZNEmptyDataSet
   - FMDB
+  - GBKUIButtonProgressView (from `https://github.com/Guidebook/gbkui-button-progress-view`)
   - GoogleMaps
   - IQKeyboardManager
   - JDStatusBarNotification
@@ -60,10 +62,20 @@ DEPENDENCIES:
   - SZTextView
   - THLabel (~> 1.4)
 
+EXTERNAL SOURCES:
+  GBKUIButtonProgressView:
+    :git: https://github.com/Guidebook/gbkui-button-progress-view
+
+CHECKOUT OPTIONS:
+  GBKUIButtonProgressView:
+    :commit: 2e0671d061f70006032cce3ade1a17c74ae0a240
+    :git: https://github.com/Guidebook/gbkui-button-progress-view
+
 SPEC CHECKSUMS:
   AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
   DZNEmptyDataSet: 0ec00bfc230d7450997b60c127afdd0b9f24f3b6
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
+  GBKUIButtonProgressView: 6d9e84754f2d79a843e31601799144123ce802fe
   GoogleMaps: da51c62c338c2d9c47cdad470a0d1e0e4b8544e4
   IQKeyboardManager: 037cf3aec1d0a045108859a47818714eb1bfc149
   JDStatusBarNotification: 29413865af11c862c17180610b0f46a21118b412

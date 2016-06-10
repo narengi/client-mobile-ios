@@ -58,11 +58,19 @@ install_resource()
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "GBKUIButtonProgressView/GBKUIButtonProgressView/GBKUIButtonProgressView.xib"
+  install_resource "GBKUIButtonProgressView/GBKUIButtonProgressView/ic_control_stop.png"
+  install_resource "GBKUIButtonProgressView/GBKUIButtonProgressView/ic_control_stop@2x.png"
+  install_resource "GBKUIButtonProgressView/GBKUIButtonProgressView/ic_control_stop@3x.png"
   install_resource "GoogleMaps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"
   install_resource "IQKeyboardManager/IQKeyBoardManager/Resources/IQKeyboardManager.bundle"
   install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "GBKUIButtonProgressView/GBKUIButtonProgressView/GBKUIButtonProgressView.xib"
+  install_resource "GBKUIButtonProgressView/GBKUIButtonProgressView/ic_control_stop.png"
+  install_resource "GBKUIButtonProgressView/GBKUIButtonProgressView/ic_control_stop@2x.png"
+  install_resource "GBKUIButtonProgressView/GBKUIButtonProgressView/ic_control_stop@3x.png"
   install_resource "GoogleMaps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"
   install_resource "IQKeyboardManager/IQKeyBoardManager/Resources/IQKeyboardManager.bundle"
   install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"

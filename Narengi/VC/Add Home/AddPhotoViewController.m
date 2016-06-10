@@ -10,28 +10,33 @@
 
 @interface AddPhotoViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *Img1;
+@property (weak, nonatomic) IBOutlet UIImageView *Img2;
+@property (weak, nonatomic) IBOutlet UIImageView *Img3;
+@property (weak, nonatomic) IBOutlet UIImageView *Img4;
+@property (weak, nonatomic) IBOutlet UIImageView *Img5;
+@property (weak, nonatomic) IBOutlet UIImageView *Img6;
+@property (weak, nonatomic) IBOutlet UIImageView *Img7;
+@property (weak, nonatomic) IBOutlet UIImageView *Img8;
+@property (weak, nonatomic) IBOutlet UIImageView *Img9;
+@property (weak, nonatomic) IBOutlet UIImageView *Img10;
+
 @end
 
 @implementation AddPhotoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)delteButtonClicked:(UIButton *)sender {
+    
+    
 }
-*/
+
 
 @end
