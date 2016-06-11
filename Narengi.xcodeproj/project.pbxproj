@@ -80,6 +80,7 @@
 		727F89A91C35491000519CDD /* CityDetailAttractionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 727F89A71C35491000519CDD /* CityDetailAttractionHeader.xib */; };
 		727F89AC1C354E1D00519CDD /* CityDetailHouseCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 727F89AB1C354E1D00519CDD /* CityDetailHouseCollectionReusableView.m */; };
 		728271511D0AA0E40038D5F8 /* AddHomeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 728271501D0AA0E40038D5F8 /* AddHomeButton.m */; };
+		728271541D0C4E970038D5F8 /* SelectAvailableDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 728271531D0C4E970038D5F8 /* SelectAvailableDateViewController.m */; };
 		7285DE551BF494CD00F92608 /* NSObject+NullCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE541BF494CD00F92608 /* NSObject+NullCheck.m */; };
 		7285DE601BF4B40600F92608 /* PageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE5F1BF4B40600F92608 /* PageCell.m */; };
 		7293145E1CE0762A00CDB4C5 /* SelectTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7293145D1CE0762A00CDB4C5 /* SelectTypeViewController.m */; };
@@ -324,6 +325,8 @@
 		727F89AB1C354E1D00519CDD /* CityDetailHouseCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityDetailHouseCollectionReusableView.m; path = VC/Detail/CityDetailHouseCollectionReusableView.m; sourceTree = "<group>"; };
 		7282714F1D0AA0E40038D5F8 /* AddHomeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddHomeButton.h; path = "Custom Classes/AddHomeButton.h"; sourceTree = "<group>"; };
 		728271501D0AA0E40038D5F8 /* AddHomeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddHomeButton.m; path = "Custom Classes/AddHomeButton.m"; sourceTree = "<group>"; };
+		728271521D0C4E970038D5F8 /* SelectAvailableDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectAvailableDateViewController.h; path = "VC/Add Home/SelectAvailableDateViewController.h"; sourceTree = "<group>"; };
+		728271531D0C4E970038D5F8 /* SelectAvailableDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectAvailableDateViewController.m; path = "VC/Add Home/SelectAvailableDateViewController.m"; sourceTree = "<group>"; };
 		7285DE531BF494CD00F92608 /* NSObject+NullCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+NullCheck.h"; path = "Custom Classes/NSObject+NullCheck.h"; sourceTree = "<group>"; };
 		7285DE541BF494CD00F92608 /* NSObject+NullCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+NullCheck.m"; path = "Custom Classes/NSObject+NullCheck.m"; sourceTree = "<group>"; };
 		7285DE5E1BF4B40600F92608 /* PageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageCell.h; path = VC/CitiesVC/PageCell.h; sourceTree = "<group>"; };
@@ -617,6 +620,8 @@
 				723C3EB51CE1C7B300A82D9E /* SelectFacilityTableViewCell.m */,
 				723C3EBA1CE2075C00A82D9E /* AddPhotoViewController.h */,
 				723C3EBB1CE2075C00A82D9E /* AddPhotoViewController.m */,
+				728271521D0C4E970038D5F8 /* SelectAvailableDateViewController.h */,
+				728271531D0C4E970038D5F8 /* SelectAvailableDateViewController.m */,
 			);
 			name = "Add Home";
 			sourceTree = "<group>";
@@ -1290,6 +1295,7 @@
 				728271511D0AA0E40038D5F8 /* AddHomeButton.m in Sources */,
 				723C3EBC1CE2075C00A82D9E /* AddPhotoViewController.m in Sources */,
 				729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */,
+				728271541D0C4E970038D5F8 /* SelectAvailableDateViewController.m in Sources */,
 				723C3EB61CE1C7B300A82D9E /* SelectFacilityTableViewCell.m in Sources */,
 				726A3A441C47EA6B002C4D11 /* CommentDetailTableViewCell.m in Sources */,
 				72405AC71CCEB89400F68052 /* IDCardValidateViewController.m in Sources */,

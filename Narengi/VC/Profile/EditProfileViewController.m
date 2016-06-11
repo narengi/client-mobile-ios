@@ -269,36 +269,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 
 
 
-- (void)presentPhotoSearch:(id)sender
-{
-    DZNPhotoPickerController *picker = [DZNPhotoPickerController new];
-    picker.allowsEditing = NO;
-    picker.cropMode = DZNPhotoEditorViewControllerCropModeSquare;
-    picker.initialSearchTerm = @"California";
-    picker.enablePhotoDownload = YES;
-    picker.allowAutoCompletedSearch = YES;
-    
-    
-    [picker setFinalizationBlock:^(DZNPhotoPickerController *picker, NSDictionary *info){
-        [self updateImageWithPayload:info];
-        [self dismissController:picker];
-    }];
-    
-    [picker setFailureBlock:^(DZNPhotoPickerController *picker, NSError *error){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
-                                                        message:error.localizedDescription
-                                                       delegate:nil
-                                              cancelButtonTitle:NSLocalizedString(@"OK", nil)
-                                              otherButtonTitles:nil];
-        [alert show];
-    }];
-    
-    [picker setCancellationBlock:^(DZNPhotoPickerController *picker){
-        [self dismissController:picker];
-    }];
-    
-    [self presentController:picker sender:sender];
-}
+
 
 - (void)presentPhotoEditor:(id)sender
 {

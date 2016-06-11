@@ -421,7 +421,6 @@
     
     if (self.arriveDate == nil) {
         
-        
         if([self isInAvailableDates:dayView.date]){
             
             self.arriveDate = dayView.date;
@@ -456,10 +455,7 @@
                 
                 [SVProgressHUD showErrorWithStatus:@"روزهای بین دو روز انتخاب شده قبلا رزو شده‌اند"];
             }
-            
-            
 
-            
         }
         else if ([self.arriveDate compare:dayView.date] == NSOrderedDescending){
             

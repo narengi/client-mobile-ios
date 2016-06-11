@@ -21,7 +21,13 @@
     [self changeLeftButton];
     [self changeRighNavigationToMenu];
     self.title = @"مهمان‌پذیری";
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(houseInserted) name:@"houseInsertStatus" object:nil];
 
+}
+
+-(void)houseInserted{
+
+    
 }
 
 - (void)didReceiveMemoryWarning {

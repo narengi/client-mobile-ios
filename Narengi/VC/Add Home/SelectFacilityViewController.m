@@ -8,7 +8,7 @@
 
 #import "SelectFacilityViewController.h"
 #import "SelectFacilityTableViewCell.h"
-
+#import "AddPhotoViewController.h"
 
 @interface SelectFacilityViewController ()
 
@@ -189,7 +189,9 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
     if ([segue.identifier isEqualToString:@"goToSelectImgesVC"]) {
-        
+     
+        AddPhotoViewController *vc = segue.destinationViewController;
+        vc.houseObj = self.houseObj;
     }
     
 }

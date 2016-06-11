@@ -10,4 +10,7 @@
 
 @interface AddPhotoViewController : UIViewController
 
+@property (nonatomic,strong) HouseObject *houseObj;
+
+
 @end
