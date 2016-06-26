@@ -35,6 +35,7 @@
     mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     mapView_.settings.compassButton = YES;
     mapView_.settings.myLocationButton = YES;
+    
     // Listen to the myLocation property of GMSMapView.
     [self addObserver:self
            forKeyPath:@"myLocation"

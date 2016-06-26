@@ -71,4 +71,10 @@
     UINavigationController *addHouseNavVC = [storyboard instantiateViewControllerWithIdentifier:@"addHomNavigationVC"];
     [self presentViewController:addHouseNavVC animated:YES completion:nil];
 }
+
+-(void)getAllMyHoumes{
+    
+}
+
+
 @end
