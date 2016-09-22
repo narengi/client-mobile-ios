@@ -214,7 +214,6 @@
 - (void)hide
 {
 	[self hideWithCompletionHandler:nil];
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
 }
 
 - (void)hideWithCompletionHandler:(void(^)(void))completionHandler

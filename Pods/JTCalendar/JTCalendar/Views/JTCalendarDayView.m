@@ -70,7 +70,7 @@
         
         _textLabel.textColor = [UIColor blackColor];
         _textLabel.textAlignment = NSTextAlignmentCenter;
-        _textLabel.font = [UIFont fontWithName:@"IRANSansMobileFaNum" size:13];
+        _textLabel.font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
     }
     
     {

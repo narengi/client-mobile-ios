@@ -17,6 +17,7 @@
 #import "ModalAnimator.h"
 #import "SearchViewController.h"
 #import "HouseCollectionViewCell.h"
+#import "MapViewController.h"
 
 
 @interface CitiesViewController()
@@ -64,21 +65,25 @@
     
 }
 -(void)viewWillAppear:(BOOL)animated{
-
+    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
-
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    
+    self.navigationController.navigationBarHidden = YES;
+    
 }
 
 -(void)handleSingleClickOnCollectionView:(UITapGestureRecognizer *)gestureRecognizer
 {
-    CGPoint p = [gestureRecognizer locationInView:self.collectionView];
-    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:p];
-    
-    AroundPlaceObject *aroundObj = self.aroundPArr[indexPath.row];
-    
-    [self goTodetailWithUrl:aroundObj.urlStr andWithType:aroundObj.type];
-
+    if(self.aroundPArr.count > 0){
+        
+        CGPoint p = [gestureRecognizer locationInView:self.collectionView];
+        NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:p];
+        
+        AroundPlaceObject *aroundObj = self.aroundPArr[indexPath.row];
+        
+        [self goTodetailWithUrl:aroundObj.urlStr andWithType:aroundObj.type];
+    }
 }
 
 -(void)initSearchcontainerView{
@@ -308,7 +313,15 @@
 }
 
 
+#pragma mark -map
 
-
+- (IBAction)mapButtonClicked:(UIButton *)sender {
+    
+    
+    UIStoryboard *mapStory = [UIStoryboard storyboardWithName:@"Maps" bundle:nil];
+    MapViewController *mapVC = [mapStory instantiateViewControllerWithIdentifier:@"mapVCID"];
+    
+    [self.navigationController pushViewController:mapVC animated:YES];
+}
 
 @end

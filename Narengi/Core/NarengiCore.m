@@ -563,7 +563,7 @@ NarengiCore *sharedInstance;
     userObj.email           = [dict objectForKey:@"email"];
     userObj.cellNumber      = [dict objectForKey:@"cellNumber"];
     userObj.completePercent = [[[dict objectForKey:@"status"] objectForKey:@"completed"] integerValue];
-    userObj.token           = [[dict objectForKey:@"token"] objectForKey:@"token"];
+    userObj.token           = [[dict objectForKey:@"token"] checkNull];
     userObj.gender          = [[[dict objectForKey:@"profile"] checkNull] objectForKey:@"gender"];
     userObj.birthDate       = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"birthDate"] checkNull];
     userObj.bio             = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"bio"] checkNull];

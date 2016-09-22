@@ -422,6 +422,7 @@ CGFloat const distance_W_LabelHeader = 35.0;
         CGFloat headerScaleFactor = -(scrollOffset) / self.imageCollectionView.bounds.size.height;
         
         CGFloat headerSizevariation = ((self.imageCollectionView.bounds.size.height * (1.0 + headerScaleFactor)) - self.imageCollectionView.bounds.size.height)/2.0;
+        
         headerTransform = CATransform3DTranslate(headerTransform, 0, headerSizevariation, 0);
         headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0);
         

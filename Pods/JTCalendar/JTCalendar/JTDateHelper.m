@@ -18,10 +18,13 @@
 - (NSCalendar *)calendar
 {
     if(!_calendar){
-        
-        _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierPersian];
+#ifdef __IPHONE_8_0
+        _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+#else
+        _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+#endif
         _calendar.timeZone = [NSTimeZone localTimeZone];
-        _calendar.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"fa_IR"];
+        _calendar.locale = [NSLocale currentLocale];
     }
     
     return _calendar;

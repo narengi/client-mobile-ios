@@ -83,8 +83,6 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
         _centerView.frame = CGRectMake(_centerView.frame.origin.x, 0, size.width, size.height);
         _rightView.frame = CGRectMake(_rightView.frame.origin.x, 0, size.width, size.height);
         
-        
-
         self.contentSize = CGSizeMake(self.contentSize.width, size.height);
     }
 }
@@ -126,10 +124,6 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
             
             break;
     }
-    
-    [_rightView setTransform:CGAffineTransformMakeScale(-1, 1)];
-    [_centerView setTransform:CGAffineTransformMakeScale(-1, 1)];
-    [_leftView setTransform:CGAffineTransformMakeScale(-1, 1)];
     
     [_manager.scrollManager updateMenuContentOffset:(self.contentOffset.x / self.contentSize.width) pageMode:_pageMode];
 }
@@ -178,10 +172,6 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
     
     _leftView = tmpView;
     _leftView.date = nextDate;
-    
-    [_rightView setTransform:CGAffineTransformMakeScale(-1, 1)];
-    [_centerView setTransform:CGAffineTransformMakeScale(-1, 1)];
-    [_leftView setTransform:CGAffineTransformMakeScale(-1, 1)];
     
     [self updateMenuDates];
     
@@ -262,11 +252,6 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
     
     _rightView = tmpView;
     _rightView.date = nextDate;
-    
-    
-    [_rightView setTransform:CGAffineTransformMakeScale(-1, 1)];
-    [_centerView setTransform:CGAffineTransformMakeScale(-1, 1)];
-    [_leftView setTransform:CGAffineTransformMakeScale(-1, 1)];
     
     [self updateMenuDates];
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		485C313219D1DA01AD421049 /* libPods-Narengi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20001E764A4017D23E3D8950 /* libPods-Narengi.a */; };
 		72004BE61C2A91AB00F9F6FB /* AttractionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72004BE01C2A91AB00F9F6FB /* AttractionDetailViewController.m */; };
 		72004BE71C2A91AB00F9F6FB /* CityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72004BE21C2A91AB00F9F6FB /* CityDetailViewController.m */; };
 		72004BE81C2A91AB00F9F6FB /* HouseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72004BE41C2A91AB00F9F6FB /* HouseDetailViewController.m */; };
@@ -75,8 +76,7 @@
 		726DF1FC1BE79937004796EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 726DF1FA1BE79937004796EC /* Main.storyboard */; };
 		726DF1FE1BE79937004796EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 726DF1FD1BE79937004796EC /* Assets.xcassets */; };
 		726DF2011BE79937004796EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 726DF1FF1BE79937004796EC /* LaunchScreen.storyboard */; };
-		726DF20C1BE79937004796EC /* NarengiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 726DF20B1BE79937004796EC /* NarengiTests.m */; };
-		726DF2171BE79937004796EC /* NarengiUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 726DF2161BE79937004796EC /* NarengiUITests.m */; };
+		72780CA21D93D51F00D5DCDA /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72780CA11D93D51F00D5DCDA /* MapViewController.m */; };
 		727F899F1C35169B00519CDD /* CityDetailAttractionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 727F899E1C35169B00519CDD /* CityDetailAttractionListViewController.m */; };
 		727F89A31C3543FA00519CDD /* CityDetailButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 727F89A21C3543FA00519CDD /* CityDetailButton.m */; };
 		727F89A91C35491000519CDD /* CityDetailAttractionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 727F89A71C35491000519CDD /* CityDetailAttractionHeader.xib */; };
@@ -171,29 +171,11 @@
 		72F274581C199FDF0048BF05 /* SearchDetailAttractionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F274571C199FDF0048BF05 /* SearchDetailAttractionCollectionViewCell.m */; };
 		72F9FBBE1C63991B00DBB347 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F9FBBD1C63991B00DBB347 /* LoginViewController.m */; };
 		72F9FBC41C639B9E00DBB347 /* UIView+Style.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F9FBC31C639B9E00DBB347 /* UIView+Style.m */; };
-		8806210A2432B6524B082D82 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184F4AA531303E30BD8254D8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		726DF2081BE79937004796EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 726DF1E61BE79936004796EC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 726DF1ED1BE79937004796EC;
-			remoteInfo = Narengi;
-		};
-		726DF2131BE79937004796EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 726DF1E61BE79936004796EC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 726DF1ED1BE79937004796EC;
-			remoteInfo = Narengi;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		184F4AA531303E30BD8254D8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		42D03D1EAFA376592485440D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		20001E764A4017D23E3D8950 /* libPods-Narengi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Narengi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4319256F2C1E3705043132B8 /* Pods-Narengi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Narengi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Narengi/Pods-Narengi.release.xcconfig"; sourceTree = "<group>"; };
 		72004BDF1C2A91AB00F9F6FB /* AttractionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttractionDetailViewController.h; path = VC/Detail/AttractionDetailViewController.h; sourceTree = "<group>"; };
 		72004BE01C2A91AB00F9F6FB /* AttractionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttractionDetailViewController.m; path = VC/Detail/AttractionDetailViewController.m; sourceTree = "<group>"; };
 		72004BE11C2A91AB00F9F6FB /* CityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityDetailViewController.h; path = VC/Detail/CityDetailViewController.h; sourceTree = "<group>"; };
@@ -315,12 +297,8 @@
 		726DF1FD1BE79937004796EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		726DF2001BE79937004796EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		726DF2021BE79937004796EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		726DF2071BE79937004796EC /* NarengiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NarengiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		726DF20B1BE79937004796EC /* NarengiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NarengiTests.m; sourceTree = "<group>"; };
-		726DF20D1BE79937004796EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		726DF2121BE79937004796EC /* NarengiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NarengiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		726DF2161BE79937004796EC /* NarengiUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NarengiUITests.m; sourceTree = "<group>"; };
-		726DF2181BE79937004796EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72780CA01D93D51F00D5DCDA /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = VC/Map/MapViewController.h; sourceTree = "<group>"; };
+		72780CA11D93D51F00D5DCDA /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = VC/Map/MapViewController.m; sourceTree = "<group>"; };
 		727F899D1C35169B00519CDD /* CityDetailAttractionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityDetailAttractionListViewController.h; path = VC/Detail/CityDetailAttractionListViewController.h; sourceTree = "<group>"; };
 		727F899E1C35169B00519CDD /* CityDetailAttractionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityDetailAttractionListViewController.m; path = VC/Detail/CityDetailAttractionListViewController.m; sourceTree = "<group>"; };
 		727F89A11C3543FA00519CDD /* CityDetailButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityDetailButton.h; path = "Custom Classes/CityDetailButton.h"; sourceTree = "<group>"; };
@@ -489,7 +467,7 @@
 		72F9FBBD1C63991B00DBB347 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = VC/Registeration/LoginViewController.m; sourceTree = "<group>"; };
 		72F9FBC21C639B9E00DBB347 /* UIView+Style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Style.h"; path = "Custom Classes/UIView+Style.h"; sourceTree = "<group>"; };
 		72F9FBC31C639B9E00DBB347 /* UIView+Style.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Style.m"; path = "Custom Classes/UIView+Style.m"; sourceTree = "<group>"; };
-		82E3942A9DDE72785E55F3C3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		8318188464203BC668CE9E86 /* Pods-Narengi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Narengi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Narengi/Pods-Narengi.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -497,36 +475,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8806210A2432B6524B082D82 /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		726DF2041BE79937004796EC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		726DF20F1BE79937004796EC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				485C313219D1DA01AD421049 /* libPods-Narengi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		215C1AD75420C27CECB60668 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				82E3942A9DDE72785E55F3C3 /* Pods.debug.xcconfig */,
-				42D03D1EAFA376592485440D /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		72004BE91C2A91D000F9F6FB /* detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -567,6 +522,8 @@
 				720B92A81C253B8E00D1468A /* SearchSection.xib */,
 				720B92A21C253B3100D1468A /* SearchSectionView.h */,
 				720B92A31C253B3100D1468A /* SearchSectionView.m */,
+				72780CA01D93D51F00D5DCDA /* MapViewController.h */,
+				72780CA11D93D51F00D5DCDA /* MapViewController.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -707,11 +664,9 @@
 			isa = PBXGroup;
 			children = (
 				726DF1F01BE79937004796EC /* Narengi */,
-				726DF20A1BE79937004796EC /* NarengiTests */,
-				726DF2151BE79937004796EC /* NarengiUITests */,
 				726DF1EF1BE79937004796EC /* Products */,
-				215C1AD75420C27CECB60668 /* Pods */,
-				F2630C2373634B62F5DE57B4 /* Frameworks */,
+				A0866033464BD0216449B826 /* Pods */,
+				99E08929AF4F64D6AB5D0299 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -719,8 +674,6 @@
 			isa = PBXGroup;
 			children = (
 				726DF1EE1BE79937004796EC /* Narengi.app */,
-				726DF2071BE79937004796EC /* NarengiTests.xctest */,
-				726DF2121BE79937004796EC /* NarengiUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -770,24 +723,6 @@
 				726DF1F21BE79937004796EC /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		726DF20A1BE79937004796EC /* NarengiTests */ = {
-			isa = PBXGroup;
-			children = (
-				726DF20B1BE79937004796EC /* NarengiTests.m */,
-				726DF20D1BE79937004796EC /* Info.plist */,
-			);
-			path = NarengiTests;
-			sourceTree = "<group>";
-		};
-		726DF2151BE79937004796EC /* NarengiUITests */ = {
-			isa = PBXGroup;
-			children = (
-				726DF2161BE79937004796EC /* NarengiUITests.m */,
-				726DF2181BE79937004796EC /* Info.plist */,
-			);
-			path = NarengiUITests;
 			sourceTree = "<group>";
 		};
 		726DF2291BE79C1B004796EC /* Custom Classes */ = {
@@ -999,12 +934,21 @@
 			name = House;
 			sourceTree = "<group>";
 		};
-		F2630C2373634B62F5DE57B4 /* Frameworks */ = {
+		99E08929AF4F64D6AB5D0299 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				184F4AA531303E30BD8254D8 /* libPods.a */,
+				20001E764A4017D23E3D8950 /* libPods-Narengi.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A0866033464BD0216449B826 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8318188464203BC668CE9E86 /* Pods-Narengi.debug.xcconfig */,
+				4319256F2C1E3705043132B8 /* Pods-Narengi.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1014,12 +958,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 726DF21B1BE79937004796EC /* Build configuration list for PBXNativeTarget "Narengi" */;
 			buildPhases = (
-				6C591D9C24D6530343ECC39B /* Check Pods Manifest.lock */,
+				9A6411ACB79A61B9ECF11CC9 /* [CP] Check Pods Manifest.lock */,
 				726DF1EA1BE79937004796EC /* Sources */,
 				726DF1EB1BE79937004796EC /* Frameworks */,
 				726DF1EC1BE79937004796EC /* Resources */,
-				F4776E308874F510497C31CE /* Embed Pods Frameworks */,
-				BDB187DA260A875972C82439 /* Copy Pods Resources */,
+				83C004A92790A5F834EA9676 /* [CP] Embed Pods Frameworks */,
+				F8EB028877FB957B0A4C8AF6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1029,42 +973,6 @@
 			productName = Narengi;
 			productReference = 726DF1EE1BE79937004796EC /* Narengi.app */;
 			productType = "com.apple.product-type.application";
-		};
-		726DF2061BE79937004796EC /* NarengiTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 726DF21E1BE79937004796EC /* Build configuration list for PBXNativeTarget "NarengiTests" */;
-			buildPhases = (
-				726DF2031BE79937004796EC /* Sources */,
-				726DF2041BE79937004796EC /* Frameworks */,
-				726DF2051BE79937004796EC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				726DF2091BE79937004796EC /* PBXTargetDependency */,
-			);
-			name = NarengiTests;
-			productName = NarengiTests;
-			productReference = 726DF2071BE79937004796EC /* NarengiTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		726DF2111BE79937004796EC /* NarengiUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 726DF2211BE79937004796EC /* Build configuration list for PBXNativeTarget "NarengiUITests" */;
-			buildPhases = (
-				726DF20E1BE79937004796EC /* Sources */,
-				726DF20F1BE79937004796EC /* Frameworks */,
-				726DF2101BE79937004796EC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				726DF2141BE79937004796EC /* PBXTargetDependency */,
-			);
-			name = NarengiUITests;
-			productName = NarengiUITests;
-			productReference = 726DF2121BE79937004796EC /* NarengiUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -1078,14 +986,6 @@
 					726DF1ED1BE79937004796EC = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = SDSK767787;
-					};
-					726DF2061BE79937004796EC = {
-						CreatedOnToolsVersion = 7.0.1;
-						TestTargetID = 726DF1ED1BE79937004796EC;
-					};
-					726DF2111BE79937004796EC = {
-						CreatedOnToolsVersion = 7.0.1;
-						TestTargetID = 726DF1ED1BE79937004796EC;
 					};
 				};
 			};
@@ -1104,8 +1004,6 @@
 			projectRoot = "";
 			targets = (
 				726DF1ED1BE79937004796EC /* Narengi */,
-				726DF2061BE79937004796EC /* NarengiTests */,
-				726DF2111BE79937004796EC /* NarengiUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1156,31 +1054,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		726DF2051BE79937004796EC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		726DF2101BE79937004796EC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6C591D9C24D6530343ECC39B /* Check Pods Manifest.lock */ = {
+		83C004A92790A5F834EA9676 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Narengi/Pods-Narengi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A6411ACB79A61B9ECF11CC9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1188,34 +1087,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		BDB187DA260A875972C82439 /* Copy Pods Resources */ = {
+		F8EB028877FB957B0A4C8AF6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F4776E308874F510497C31CE /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Narengi/Pods-Narengi-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1347,41 +1231,13 @@
 				7214FB4D1BF1C64100824043 /* CitiesCollectionViewCell.m in Sources */,
 				726DF1F31BE79937004796EC /* main.m in Sources */,
 				721355371C2B22AF00AD0BDE /* AttractionSmallCollectionViewCell.m in Sources */,
+				72780CA21D93D51F00D5DCDA /* MapViewController.m in Sources */,
 				72B19A161BFF6C6D007EDD86 /* CityObject.m in Sources */,
 				72D7FE621C15B6E000BD39A5 /* HouseCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		726DF2031BE79937004796EC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				726DF20C1BE79937004796EC /* NarengiTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		726DF20E1BE79937004796EC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				726DF2171BE79937004796EC /* NarengiUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		726DF2091BE79937004796EC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 726DF1ED1BE79937004796EC /* Narengi */;
-			targetProxy = 726DF2081BE79937004796EC /* PBXContainerItemProxy */;
-		};
-		726DF2141BE79937004796EC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 726DF1ED1BE79937004796EC /* Narengi */;
-			targetProxy = 726DF2131BE79937004796EC /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		720B92A81C253B8E00D1468A /* SearchSection.xib */ = {
@@ -1663,11 +1519,12 @@
 		};
 		726DF21C1BE79937004796EC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 82E3942A9DDE72785E55F3C3 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 8318188464203BC668CE9E86 /* Pods-Narengi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = SDSK767787;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Narengi/PrefixHeader.pch";
@@ -1682,11 +1539,12 @@
 		};
 		726DF21D1BE79937004796EC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42D03D1EAFA376592485440D /* Pods.release.xcconfig */;
+			baseConfigurationReference = 4319256F2C1E3705043132B8 /* Pods-Narengi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = SDSK767787;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Narengi/PrefixHeader.pch";
@@ -1696,54 +1554,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.narengi.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-			};
-			name = Release;
-		};
-		726DF21F1BE79937004796EC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = NarengiTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Narengi-Co..NarengiTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Narengi.app/Narengi";
-			};
-			name = Debug;
-		};
-		726DF2201BE79937004796EC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = NarengiTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Narengi-Co..NarengiTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Narengi.app/Narengi";
-			};
-			name = Release;
-		};
-		726DF2221BE79937004796EC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = NarengiUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Narengi-Co..NarengiUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = Narengi;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		726DF2231BE79937004796EC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = NarengiUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Narengi-Co..NarengiUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = Narengi;
-				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};
@@ -1764,24 +1574,6 @@
 			buildConfigurations = (
 				726DF21C1BE79937004796EC /* Debug */,
 				726DF21D1BE79937004796EC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		726DF21E1BE79937004796EC /* Build configuration list for PBXNativeTarget "NarengiTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				726DF21F1BE79937004796EC /* Debug */,
-				726DF2201BE79937004796EC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		726DF2211BE79937004796EC /* Build configuration list for PBXNativeTarget "NarengiUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				726DF2221BE79937004796EC /* Debug */,
-				726DF2231BE79937004796EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

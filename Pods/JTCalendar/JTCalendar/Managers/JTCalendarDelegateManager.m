@@ -55,13 +55,11 @@
         while(currentMonthIndex <= 0){
             currentMonthIndex += 12;
         }
-
-        text = [dateFormatter standaloneMonthSymbols][currentMonthIndex - 1];
-        text = [text stringByAppendingString:[NSString stringWithFormat:@" %ld", comps.year ]];
+        
+        text = [[dateFormatter standaloneMonthSymbols][currentMonthIndex - 1] capitalizedString];
     }
         
     [(UILabel *)menuItemView setText:text];
-    [(UILabel *)menuItemView setFont:[UIFont fontWithName:@"IRANSansMobileFaNum" size:15]];
 }
 
 #pragma mark - Content view

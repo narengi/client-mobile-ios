@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D308787AD7AB6B76A72665AD'
+               BlueprintIdentifier = 'D1EA91B93F0E68EA0FE52C48145B4710'
                BlueprintName = 'GBKUIButtonProgressView'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libGBKUIButtonProgressView.a'>

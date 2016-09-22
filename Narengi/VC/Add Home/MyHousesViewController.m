@@ -7,8 +7,10 @@
 //
 
 #import "MyHousesViewController.h"
+#import "MyHousesTableViewCell.h"
 
-@interface MyHousesViewController ()
+@interface MyHousesViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -22,6 +24,9 @@
     [self changeRighNavigationToMenu];
     self.title = @"مهمان‌پذیری";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(houseInserted) name:@"houseInsertStatus" object:nil];
+    
+    [self registerCellWithName:@"MyHomeCell" andWithIdentifier:@"myHousesCellID" andTableView:self.tableView];
+    [self getMyHome];
 
 }
 
@@ -77,4 +82,55 @@
 }
 
 
+#pragma mark - data
+
+-(void)getMyHome{
+
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+        
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:SEARCHSERVICE andWithParametrs:nil andWithBody:nil andIsFullPath:NO];
+        
+        dispatch_async(dispatch_get_main_queue(),^{
+            
+            if (!serverRs.hasErro) {
+                if (serverRs.backData !=nil ) {
+                    
+                    
+                }
+                else{
+                }
+                
+            }
+        });
+    });
+}
+
+
+
+#pragma mark - tableview
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+    return 1;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    
+    MyHousesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myHousesCellID" forIndexPath:indexPath];
+    
+    return  cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    return 325;
+}
 @end
