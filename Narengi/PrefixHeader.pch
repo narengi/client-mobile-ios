@@ -26,9 +26,9 @@
 
 #define FARSI @"Farsi"http://149.202.20.233:3500/api/v1/
 
-#define BASEURL @"http://server.staging.narengi.xyz/api/"
+#define BASEURL @"http://api.narengi.xyz/api/"
 #define SEARCHSERVICE @"search"
-#define SEARCHSERVICE @"houses"
+//#define SEARCHSERVICE @"houses"
 #define SUGGESTIONService @"suggestion"
 
 #define REACHABILITY if(![Reachability reachabilityForInternetConnection].isReachable){[self noConnection]; return;}

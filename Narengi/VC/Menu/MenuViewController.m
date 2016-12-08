@@ -41,8 +41,9 @@
         
         self.fullNameLabel.text = [[self.userObject.fisrtName stringByAppendingString:@" "] stringByAppendingString:self.userObject.lastName];
         
-        [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"Authorization"];
-        [self.avatarImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@user-profiles/picture",BASEURL]] placeholderImage:nil options:SDWebImageRefreshCached];
+        [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"access-token"];
+        
+        [self.avatarImg sd_setImageWithURL:self.userObject.avatarUrl placeholderImage:nil options:SDWebImageRefreshCached];
         
         self.avatarImg.layer.cornerRadius  = 25;
         self.avatarImg.layer.masksToBounds = YES;

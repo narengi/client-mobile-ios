@@ -71,7 +71,7 @@
 
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
-         ServerResponse *response = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService: @"basic-info/provinces" andWithParametrs:nil andWithBody:nil andIsFullPath:NO];
+         ServerResponse *response = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService: @"settings/provinces" andWithParametrs:nil andWithBody:nil andIsFullPath:NO];
         
         dispatch_async(dispatch_get_main_queue(),^{
             [SVProgressHUD dismiss];

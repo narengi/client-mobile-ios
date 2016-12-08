@@ -68,7 +68,7 @@
 
 
     
-    [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"Authorization"];
+    [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"access-token"];
     
     
     [self.idCardImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@accounts/id-card",BASEURL]] placeholderImage:nil options:SDWebImageRefreshCached];

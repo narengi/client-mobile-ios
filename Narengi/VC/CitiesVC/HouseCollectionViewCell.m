@@ -46,9 +46,8 @@
     self.titleLabel.shadowOffset = kShadowOffset;
     self.titleLabel.shadowBlur   = kShadowBlur;
     
+    self.pages.backgroundColor = [UIColor lightGrayColor];
 
-  
-    
     
 }
 

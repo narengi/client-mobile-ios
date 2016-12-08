@@ -166,9 +166,9 @@
                 
                 //Send Request For Get Status
                 
-                UserObject *userObj = [[NarengiCore sharedInstance ] parsUserObject:response.backData];
+                UserObject *userObj = [[NarengiCore sharedInstance ] parsUserObject:response.backData ];
                 
-                [[NSUserDefaults standardUserDefaults] setObject:   [response.backData objectForKey:@"token"] forKey:@"fuckingLoginedOrNOT"];
+                [[NSUserDefaults standardUserDefaults] setObject:   [[response.backData objectForKey:@"token"] objectForKey:@"token"] forKey:@"fuckingLoginedOrNOT"];
                 
                 [[NSUserDefaults standardUserDefaults] setObject:[response.backData objectForKey:@"username"] forKey:@"loginedUser"];
                 

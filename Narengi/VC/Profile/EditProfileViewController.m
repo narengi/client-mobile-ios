@@ -81,7 +81,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 
     
     
-    [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"Authorization"];
+    [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"access-token"];
 
     
 }
@@ -570,7 +570,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
-        ServerResponse *response = [[NarengiCore sharedInstance] sendRequestWithMethod:@"PUT" andWithService: @"user-profiles" andWithParametrs:nil andWithBody:[self makejson] andIsFullPath:NO];
+        ServerResponse *response = [[NarengiCore sharedInstance] sendRequestWithMethod:@"PUT" andWithService: @"accounts/update" andWithParametrs:nil andWithBody:[self makejson] andIsFullPath:NO];
         
         dispatch_async(dispatch_get_main_queue(),^{
             

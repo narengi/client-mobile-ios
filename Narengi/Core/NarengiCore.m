@@ -63,7 +63,7 @@ NarengiCore *sharedInstance;
     NSString *token  = [[NSUserDefaults standardUserDefaults] objectForKey:@"fuckingLoginedOrNOT"];
     
     if (token != nil )
-        [request addValue:[self makeAuthurizationValue] forHTTPHeaderField:@"Authorization"];
+        [request addValue:[self makeAuthurizationValue] forHTTPHeaderField:@"access-token"];
 
 
     
@@ -151,7 +151,7 @@ NarengiCore *sharedInstance;
     [request setHTTPBody:body];
 
     [request addValue:@"mobile" forHTTPHeaderField:@"src"];
-    [request addValue:[self makeAuthurizationValue] forHTTPHeaderField:@"Authorization"];
+    [request addValue:[self makeAuthurizationValue] forHTTPHeaderField:@"access-token"];
     
     NSError *error = nil;
     NSHTTPURLResponse* response;
@@ -205,7 +205,7 @@ NarengiCore *sharedInstance;
     [request setHTTPBody:body];
     
     [request addValue:@"mobile" forHTTPHeaderField:@"src"];
-    [request addValue:[self makeAuthurizationValue] forHTTPHeaderField:@"Authorization"];
+    [request addValue:[self makeAuthurizationValue] forHTTPHeaderField:@"access-token"];
     
     NSError *error = nil;
     NSHTTPURLResponse* response;
@@ -259,18 +259,18 @@ NarengiCore *sharedInstance;
 -(NSString *)makeAuthurizationValue{
 
     NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"fuckingLoginedOrNOT"];
-    NSString *user  = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginedUser"];
+//    NSString *user  = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginedUser"];
+////    
+////    NSDictionary* authenticateDict ;
+////    authenticateDict = @{@"email": user,@"token": token};
+////    
+////    NSData *bodyData = [NSJSONSerialization dataWithJSONObject:authenticateDict options:0 error:nil];
+////    NSString *result = [[NSString alloc] initWithData:bodyData encoding:NSUTF8StringEncoding];
+////    
+////    result  =[result stringByReplacingOccurrencesOfString:@"{" withString:@""] ;
+////    result  =[result stringByReplacingOccurrencesOfString:@"}" withString:@""] ;
     
-    NSDictionary* authenticateDict ;
-    authenticateDict = @{@"username": user,@"token": token};
-    
-    NSData *bodyData = [NSJSONSerialization dataWithJSONObject:authenticateDict options:0 error:nil];
-    NSString *result = [[NSString alloc] initWithData:bodyData encoding:NSUTF8StringEncoding];
-    
-    result  =[result stringByReplacingOccurrencesOfString:@"{" withString:@""] ;
-    result  =[result stringByReplacingOccurrencesOfString:@"}" withString:@""] ;
-    
-    return result;
+    return token;
 
 }
 
@@ -303,18 +303,18 @@ NarengiCore *sharedInstance;
             
             HouseObject *houseObj  = [[HouseObject alloc] init];
             
-            houseObj.cityName       = [dict objectForKey:@"CityName"];
-            houseObj.name           = [dict objectForKey:@"Name"];
-            houseObj.cost           = [dict objectForKey:@"Cost"];
-            houseObj.ID             = [[[[dict objectForKey:@"URL"] checkNull] componentsSeparatedByString:@"/"] lastObject];
-            houseObj.imageUrls      = [self parsImageArray:[dict objectForKey:@"Images"]];
+            houseObj.cityName       = [[[dict objectForKey:@"location"] checkNull] objectForKey:@"city"];
+            houseObj.name           = [[dict objectForKey:@"name"] checkNull];
+            houseObj.cost           = [[dict objectForKey:@"cost"] checkNull];
+            houseObj.ID             = [[dict objectForKey:@"id"] checkNull];
+            houseObj.imageUrls      = [self parsImageArray:[dict objectForKey:@"pictures"]];
             houseObj.rate           = [dict objectForKey:@"Rating"];
             houseObj.roundedRate    = [self roundRate:houseObj.rate];
             houseObj.geoObj         = [self parsLocation:[dict objectForKey:@"Position"]];
             
-            houseObj.summary        = [dict objectForKey:@"Summary"];
-            houseObj.featureSummray = [dict objectForKey:@"FeatureSummray"];
-            houseObj.url            = [dict objectForKey:@"URL"];
+            houseObj.summary        = [dict objectForKey:@"summary"];
+           // houseObj.featureSummray = [dict objectForKey:@"features"];
+            houseObj.url            = [dict objectForKey:@"detailUrl"];
             
             houseObj.host = [self parsHost:[dict objectForKey:@"Host"] isDetail:NO];
 
@@ -557,13 +557,13 @@ NarengiCore *sharedInstance;
     
     UserObject *userObj = [[UserObject alloc] init];
     
-    userObj.avatarUrl       = [NSURL URLWithString:[[dict objectForKey:@"ImageUrl"] checkNull]];
-    userObj.fisrtName       = [[[dict objectForKey:@"profile"] checkNull] objectForKey:@"firstName"];
-    userObj.lastName        = [[[dict objectForKey:@"profile"] checkNull] objectForKey:@"lastName"];
+    userObj.avatarUrl       = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASEURL,[[[[[dict objectForKey:@"profile"] checkNull]  objectForKey:@"picture"] checkNull] objectForKey:@"url"]]];
+    userObj.fisrtName       = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"firstName"] checkNull];
+    userObj.lastName        = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"lastName"] checkNull];
     userObj.email           = [dict objectForKey:@"email"];
     userObj.cellNumber      = [dict objectForKey:@"cellNumber"];
     userObj.completePercent = [[[dict objectForKey:@"status"] objectForKey:@"completed"] integerValue];
-    userObj.token           = [[dict objectForKey:@"token"] checkNull];
+    userObj.token           = [[[dict objectForKey:@"token"] checkNull] objectForKey:@"token"];
     userObj.gender          = [[[dict objectForKey:@"profile"] checkNull] objectForKey:@"gender"];
     userObj.birthDate       = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"birthDate"] checkNull];
     userObj.bio             = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"bio"] checkNull];
@@ -611,8 +611,8 @@ NarengiCore *sharedInstance;
 
     NSMutableArray *muArr = [[NSMutableArray alloc] init];
     [images enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        
-        [muArr addObject:[NSURL URLWithString:obj]];
+            
+        [muArr addObject:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://api.narengi.xyz/api",obj]]];
     }];
     
     return [muArr copy];

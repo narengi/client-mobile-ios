@@ -154,7 +154,7 @@
                                                                                        forIndexPath:indexPath];
         
         NSString *str = @"";
-        str = [str stringByAppendingString:aroundObj.houseObject.cost];
+        str = [str stringByAppendingString:aroundObj.houseObject.cost == nil ? @"" : aroundObj.houseObject.cost];
         str = [str stringByAppendingString:@"     "];
         
         pagerCell.priceLabel.text       = str;

@@ -58,10 +58,10 @@
 
     self.nameLabel.text = [[self.userObject.fisrtName stringByAppendingString:@" "] stringByAppendingString:self.userObject.lastName];
     
-    [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"Authorization"];
+    [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"access-token"];
     
-    [self.avatarImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@user-profiles/picture",BASEURL]] placeholderImage:nil options:SDWebImageRefreshCached];
-    
+    [self.avatarImg sd_setImageWithURL:self.userObject.avatarUrl placeholderImage:nil options:SDWebImageRefreshCached];
+
     if (self.userObject.bio.length > 0) {
         self.aboutLabel.text = self.userObject.bio;
     }
@@ -220,7 +220,7 @@
    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
-        ServerResponse *response = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService: @"user-profiles" andWithParametrs:nil andWithBody:nil andIsFullPath:NO];
+        ServerResponse *response = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService: @"accounts/me" andWithParametrs:nil andWithBody:nil andIsFullPath:NO];
 
         dispatch_async(dispatch_get_main_queue(),^{
             
