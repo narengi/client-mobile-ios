@@ -27,6 +27,8 @@
 @property (nonatomic,strong) NSArray *aroundPArr;
 @property (nonatomic) NSInteger curentRequestcount;
 @property (weak, nonatomic) IBOutlet UIView *searchContainerView;
+@property UIRefreshControl *refreshControl;
+
 
 @end
 @implementation CitiesViewController
@@ -59,11 +61,28 @@
     lpgr.delegate = self;
     [self.collectionView addGestureRecognizer:lpgr];
     
-    REACHABILITY
+    
+    [self addPullToRefresh];
     [self getData];
+    
+    [SDWebImageDownloader.sharedDownloader setValue:@"image/jpeg" forHTTPHeaderField:@"Content-Type"];
 
+}
+
+-(void)addPullToRefresh{
+
+    self.collectionView.alwaysBounceVertical = YES;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    self.refreshControl = [[UIRefreshControl alloc]
+                           init];
+    [self.refreshControl addTarget:self action:@selector(getData) forControlEvents:UIControlEventValueChanged];
+    [self.collectionView addSubview:self.refreshControl];
+    [self.refreshControl setTintColor:[UIColor whiteColor]];
     
 }
+
+
 -(void)viewWillAppear:(BOOL)animated{
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
@@ -82,7 +101,7 @@
         
         AroundPlaceObject *aroundObj = self.aroundPArr[indexPath.row];
         
-        [self goTodetailWithUrl:aroundObj.urlStr andWithType:aroundObj.type];
+        [self goToDetailWithArroundObject:aroundObj];
     }
 }
 
@@ -247,7 +266,7 @@
 
 -(void)getData{
 
-    
+    REACHABILITY
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
         ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:SEARCHSERVICE andWithParametrs:@[@"filter[limit]=40",@"filter[skip]=0"] andWithBody:nil andIsFullPath:NO];
@@ -271,6 +290,9 @@
                 }
                 else{
                 }
+                
+                [self.refreshControl endRefreshing];
+
                 
             }
         });

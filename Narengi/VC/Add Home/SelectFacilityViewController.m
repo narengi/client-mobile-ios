@@ -112,7 +112,7 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
-        ServerResponse *response = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService: @"houses/settings/features" andWithParametrs:nil andWithBody:nil andIsFullPath:NO];
+        ServerResponse *response = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService: @"house-features" andWithParametrs:nil andWithBody:nil andIsFullPath:NO];
         
         dispatch_async(dispatch_get_main_queue(),^{
             [SVProgressHUD dismiss];
@@ -149,7 +149,7 @@
     
     [arr enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        NSDictionary *dict = @{@"type":obj.allKeys[0],@"faName":[obj objectForKey:obj.allKeys[0]],@"available":@NO};
+        NSDictionary *dict = @{@"type":[obj objectForKey:@"key"],@"faName":[obj objectForKey:@"title"],@"available":@NO};
         [typeMuArr addObject:dict];
         
     }];
@@ -206,7 +206,7 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
-        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"PUT" andWithService:[NSString stringWithFormat: @"houses/%@/features",self.houseObj.ID ] andWithParametrs:nil andWithBody:[self makeJson] andIsFullPath:NO];
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"PUT" andWithService:[NSString stringWithFormat: @"houses/%@",self.houseObj.ID ] andWithParametrs:nil andWithBody:[self makeJson] andIsFullPath:NO];
         
         dispatch_async(dispatch_get_main_queue(),^{
             

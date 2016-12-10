@@ -11,5 +11,6 @@
 @interface HouseDetailViewController : UIViewController
 
 @property (nonatomic,strong) NSURL *url;
+@property (nonnull,strong) NSString *houseID;
 
 @end

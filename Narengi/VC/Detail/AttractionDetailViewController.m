@@ -99,7 +99,7 @@
     
     AroundPlaceObject *aroundObj = self.attractionObject.housesArr[indexPath.row];
     
-    [self goTodetailWithUrl:aroundObj.urlStr andWithType:aroundObj.type];
+    [self goToDetailWithArroundObject:aroundObj];
     
 }
 
@@ -401,7 +401,7 @@
 
 -(void)delegateTouchAvatar:(SearchDetailHomeCollectionViewCell *)cell
 {
-    [self goTodetailWithUrl:cell.hostUrl andWithType:@"Profile"];
+    //[self goToDetailWithArroundObject:aroundObj];
 }
 
 #pragma mark - navigation

@@ -305,7 +305,7 @@ NarengiCore *sharedInstance;
             
             houseObj.cityName       = [[[dict objectForKey:@"location"] checkNull] objectForKey:@"city"];
             houseObj.name           = [[dict objectForKey:@"name"] checkNull];
-            houseObj.cost           = [[dict objectForKey:@"cost"] checkNull];
+            houseObj.cost           = [[dict objectForKey:@"price"] checkNull];
             houseObj.ID             = [[dict objectForKey:@"id"] checkNull];
             houseObj.imageUrls      = [self parsImageArray:[dict objectForKey:@"pictures"]];
             houseObj.rate           = [dict objectForKey:@"Rating"];
@@ -323,20 +323,24 @@ NarengiCore *sharedInstance;
             
             if (isDetail) {
                 
-                houseObj.commentsArr     = [self parsComments:[dict objectForKey:@"Reviews"]];
+                houseObj.commentsArr     = [self parsComments:[[dict objectForKey:@"Reviews"] checkNull]];
                 houseObj.reviewCount  = [[[dict objectForKey:@"reviewsCount"] checkNull] stringValue];
 
                 houseObj.facilityArr     = [self parsFacilities:[dict objectForKey:@"FeatureList"]];
                 houseObj.shownFacilities = [self parsShownFacilities:houseObj.facilityArr];
                 houseObj.exteraServices  = [self parsExtraServices:[dict objectForKey:@"ExtraServices"]];
                 
-                houseObj.type          = [dict objectForKey:@"type"];
-                houseObj.bedroomCount  = [[[[dict objectForKey:@"Spec"] objectForKey:@"bedroomCount"] checkNull] stringValue];
-                houseObj.guestCount    = [[[[dict objectForKey:@"Spec"] objectForKey:@"guestCount"] checkNull] stringValue];
-                houseObj.bedCount      = [[[[dict objectForKey:@"Spec"] objectForKey:@"bedCount"] checkNull ] stringValue];
-                houseObj.maxGuestCount = [[[[dict objectForKey:@"Spec"] objectForKey:@"maxGuestCount"] checkNull] integerValue];
+                houseObj.type          = [[[[dict objectForKey:@"type"] checkNull] objectForKey:@"title"] checkNull];
                 
-                houseObj.price           = [[[[dict objectForKey:@"Price"] objectForKey:@"price"] checkNull] integerValue];
+                houseObj.bedroomCount  = [[[[[dict objectForKey:@"Spec"] checkNull] objectForKey:@"bedroom"] checkNull] stringValue];
+                
+                houseObj.guestCount    = [[[[[dict objectForKey:@"Spec"] checkNull] objectForKey:@"guest_count"] checkNull] stringValue];
+                
+                houseObj.bedCount      = [[[[[dict objectForKey:@"Spec"] checkNull] objectForKey:@"bed"] checkNull ] stringValue];
+                
+                houseObj.maxGuestCount = [[[[[dict objectForKey:@"Spec"] checkNull] objectForKey:@"max_guest_count"] checkNull] integerValue];
+                
+                houseObj.price           = [[[[dict objectForKey:@"prices"] objectForKey:@"price"] checkNull] integerValue];
                 houseObj.extraGuestPrice = [[[dict objectForKey:@"Price"] objectForKey:@"extraGuestPrice"] integerValue];
                 
                 CommissionObjetc *commObj = [[CommissionObjetc alloc] init];
@@ -443,33 +447,41 @@ NarengiCore *sharedInstance;
 -(NSArray *)parsComments:(NSArray *)comments{
 
     NSMutableArray *muArr = [[NSMutableArray alloc] init];
-    [comments enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    if (comments.count  > 0) {
+     
+        [comments enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            CommentObject *commentObj = [[CommentObject alloc] init];
+            
+            NSAttributedString * nameAtStr = [[NSAttributedString alloc] initWithString:[[obj objectForKey:@"reviewer"] stringByAppendingString:@": "] attributes:@{NSForegroundColorAttributeName:RGB(0, 150, 50, 1)}];
+            
+            NSAttributedString * messageAtStr = [[NSAttributedString alloc] initWithString:[obj objectForKey:@"Message"]attributes:@{NSForegroundColorAttributeName:RGB(118, 118, 118, 1)}];
+            
+            NSMutableAttributedString *atText =
+            [[NSMutableAttributedString alloc]
+             initWithAttributedString: nameAtStr];
+            
+            [atText appendAttributedString:messageAtStr];
+            
+            commentObj.attributeStr = atText;
+            commentObj.writerName   = [obj objectForKey:@"reviewer"];
+            commentObj.message      = [obj objectForKey:@"Message"];
+            commentObj.dateStr      = [obj objectForKey:@"date"];
+            commentObj.imageUrl     = [NSURL URLWithString:[obj objectForKey:@"ImageUrl"] ];
+            commentObj.rate         = [[obj objectForKey:@"rate"] stringValue];
+            commentObj.roundedRate  = [self roundRate:commentObj.rate];
+            
+            [muArr addObject:commentObj];
+            
+        }];
         
-        CommentObject *commentObj = [[CommentObject alloc] init];
         
-        NSAttributedString * nameAtStr = [[NSAttributedString alloc] initWithString:[[obj objectForKey:@"reviewer"] stringByAppendingString:@": "] attributes:@{NSForegroundColorAttributeName:RGB(0, 150, 50, 1)}];
-        
-        NSAttributedString * messageAtStr = [[NSAttributedString alloc] initWithString:[obj objectForKey:@"Message"]attributes:@{NSForegroundColorAttributeName:RGB(118, 118, 118, 1)}];
-        
-        NSMutableAttributedString *atText =
-        [[NSMutableAttributedString alloc]
-         initWithAttributedString: nameAtStr];
-        
-        [atText appendAttributedString:messageAtStr];
+        return muArr.copy;
 
-        commentObj.attributeStr = atText;
-        commentObj.writerName   = [obj objectForKey:@"reviewer"];
-        commentObj.message      = [obj objectForKey:@"Message"];
-        commentObj.dateStr      = [obj objectForKey:@"date"];
-        commentObj.imageUrl     = [NSURL URLWithString:[obj objectForKey:@"ImageUrl"] ];
-        commentObj.rate         = [[obj objectForKey:@"rate"] stringValue];
-        commentObj.roundedRate  = [self roundRate:commentObj.rate];
-
-        [muArr addObject:commentObj];
-        
-    }];
+    }
     
-    return muArr.copy;
+    return @[];
+    
 }
 
 -(NSArray *)parsFacilities:(NSArray*) facilities{
@@ -611,8 +623,12 @@ NarengiCore *sharedInstance;
 
     NSMutableArray *muArr = [[NSMutableArray alloc] init];
     [images enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            
-        [muArr addObject:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://api.narengi.xyz/api",obj]]];
+        
+        if ([obj isKindOfClass:[NSString class]]) {
+        
+            [muArr addObject:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://api.narengi.xyz/api",obj]]];
+        }
+        
     }];
     
     return [muArr copy];

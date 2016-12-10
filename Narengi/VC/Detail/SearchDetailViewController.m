@@ -61,7 +61,7 @@
     
     AroundPlaceObject *aroundObj = self.aroundPArr[indexPath.row];
     
-    [self goTodetailWithUrl:aroundObj.urlStr andWithType:aroundObj.type];
+    [self goToDetailWithArroundObject:aroundObj];
     
 }
 -(void)initSearchBar{
@@ -199,7 +199,7 @@
 
 -(void)delegateTouchAvatar:(SearchDetailHomeCollectionViewCell *)cell
 {
-    [self goTodetailWithUrl:cell.hostUrl andWithType:@"Profile"];
+   // [self goTodetailWithUrl:cell.hostUrl andWithType:@"Profile"];
 }
 
 

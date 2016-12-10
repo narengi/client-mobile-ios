@@ -105,11 +105,13 @@
 
 #pragma mark -Navigation
 
--(void)goTodetailWithUrl:(NSString *)urlStr andWithType:(NSString *)type{
+-(void)goToDetailWithArroundObject:(AroundPlaceObject *)arroundObject{
 
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 
-    NSURL *url = [ NSURL URLWithString:urlStr];
+    NSString *type =  arroundObject.type;
+    NSURL *url  = nil;
+    
     
     id destinationVC;
     
@@ -117,6 +119,8 @@
         
         destinationVC = (HouseDetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"houseDetailVCID"];
         ((HouseDetailViewController *)destinationVC).url  = url;
+        ((HouseDetailViewController *)destinationVC).houseID  = arroundObject.houseObject.ID;
+        
         
     }
     else if ([type isEqualToString:@"Attraction"]) {

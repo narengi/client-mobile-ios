@@ -117,7 +117,7 @@ typedef NS_ENUM(NSInteger, JTCalendarPageMode) {
         CGFloat x = (self.frame.size.width - width) / 2.;
         CGFloat height = self.frame.size.height;
         
-        _scrollView.frame = CGRectMake(x, 0, width, height);
+        _scrollView.frame = CGRectMake(x, 10, width, height);
         _scrollView.contentSize = CGSizeMake(width, height);
     }
     

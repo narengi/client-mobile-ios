@@ -150,7 +150,7 @@
     else{
     
         AroundPlaceObject *aroundObj = self.resultArray[indexPath.section][indexPath.row];
-        [self goTodetailWithUrl:aroundObj.urlStr andWithType:aroundObj.type];
+        [self goToDetailWithArroundObject:aroundObj];
     }
 }
 

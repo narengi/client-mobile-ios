@@ -55,7 +55,7 @@
     
     AroundPlaceObject *aroundObj = self.attractionsArray[indexPath.row];
     
-    [self goTodetailWithUrl:aroundObj.urlStr andWithType:aroundObj.type];
+    [self goToDetailWithArroundObject:aroundObj];
     
 }
 -(void)initNavigationTitle{

@@ -69,7 +69,7 @@
 
     AroundPlaceObject *aroundObj = (AroundPlaceObject *)marker.userData;
     
-    [self goTodetailWithUrl:aroundObj.urlStr andWithType:aroundObj.type];
+    [self goToDetailWithArroundObject:aroundObj];
     
 }
 -(void)changeGeo{

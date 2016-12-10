@@ -107,7 +107,7 @@ CGFloat const distance_W_LabelHeader = 35.0;
     
     AroundPlaceObject *aroundObj = self.cityObject.houses[indexPath.row];
     
-    [self goTodetailWithUrl:aroundObj.urlStr andWithType:aroundObj.type];
+    [self goToDetailWithArroundObject:aroundObj];
     
 }
 
@@ -377,13 +377,13 @@ CGFloat const distance_W_LabelHeader = 35.0;
         
         AroundPlaceObject *aroundObj = self.cityObject.attractions[indexPath.row];
         
-        [self goTodetailWithUrl:aroundObj.urlStr andWithType:aroundObj.type];
+        [self goToDetailWithArroundObject:aroundObj];
     }
 }
 
 -(void)delegateTouchAvatar:(SearchDetailHomeCollectionViewCell *)cell
 {
-    [self goTodetailWithUrl:cell.hostUrl andWithType:@"Profile"];
+    //[self goTodetailWithUrl:cell.hostUrl andWithType:@"Profile"];
 }
 
 #pragma mark - scrollViewDelegate

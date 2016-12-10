@@ -97,7 +97,7 @@
     self.headerFade = [UIScreen mainScreen].bounds.size.width - 150;
     
     //Get Data For firstTime
-    [self addParametrsToURL];
+    //[self addParametrsToURL];
     [self getData];
     
 
@@ -224,6 +224,7 @@
 
 -(void)getData{
     
+    self.url = [NSURL URLWithString:[NSString stringWithFormat:@"%@houses/%@",BASEURL,self.houseID] ];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
@@ -298,6 +299,10 @@
     
     
     self.commentTableHeightconstraint.constant = (70*self.houseObj.commentsArr.count)+(self.houseObj.commentsArr.count > 0 ? 80 : 0);
+    
+    if (self.commentTableHeightconstraint.constant == 0) {
+        self.commentTableHeightconstraint.constant = 1;
+    }
     
     self.ownerTableViewHeightConstraint.constant  = 60*4;
     
@@ -536,7 +541,7 @@
     }else
     {
         if (indexPath.row == 0) {
-            [self goTodetailWithUrl:self.houseObj.host.hostURL andWithType:@"Profile"];
+            //[self goTodetailWithUrl:self.houseObj.host.hostURL andWithType:@"Profile"];
         }
     }
     

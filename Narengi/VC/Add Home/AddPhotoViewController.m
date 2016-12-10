@@ -367,7 +367,7 @@
     // 2. Create an `NSMutableURLRequest`.
     
     NSMutableURLRequest *request = [serializer multipartFormRequestWithMethod:@"POST"
-                                                                    URLString:[NSString stringWithFormat:@"%@houses/%@/pictures",BASEURL,self.houseObj.ID]
+                                                                    URLString:[NSString stringWithFormat:@"%@houses/%@/picture",BASEURL,self.houseObj.ID]
                                                                    parameters:@{}
                                                     constructingBodyWithBlock:^(id formData) {
                                                         
@@ -382,7 +382,7 @@
                                                                 NSData *imageData = UIImageJPEGRepresentation(selectedImgV.image, 0.4);
                                                                 
                                                                 [formData appendPartWithFileData:imageData
-                                                                                            name:@"pictures"
+                                                                                            name:@"picture"
                                                             
                                                                                         fileName:@"myimage.jpg"
                                                                                         mimeType:@"image/jpeg"];
@@ -392,6 +392,9 @@
                                                         }];
                                                        
                                                     } error:nil];
+        
+    [request addValue:[[NarengiCore sharedInstance] makeAuthurizationValue] forHTTPHeaderField:@"access-token"];
+
     
     
     

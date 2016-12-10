@@ -16,7 +16,7 @@
 -(void)goToIdCardVerification;
 -(void)changeRightIcontoDismiss;
 -(void)noConnection;
--(void)goTodetailWithUrl:(NSString *)urlStr andWithType:(NSString *)type;
+-(void)goToDetailWithArroundObject:(AroundPlaceObject *)arroundObject;
 -(NSURL*)fixUrl:(NSURL *)url withParametrs:(NSArray *)parametrs;
 -(void)insertGradientToView:(UIView *)View;
 

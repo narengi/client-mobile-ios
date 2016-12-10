@@ -120,7 +120,7 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
-        ServerResponse *response = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService: @"houses/settings/house-types" andWithParametrs:nil andWithBody:nil andIsFullPath:NO];
+        ServerResponse *response = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService: @"house-types" andWithParametrs:nil andWithBody:nil andIsFullPath:NO];
         
         dispatch_async(dispatch_get_main_queue(),^{
             [SVProgressHUD dismiss];
@@ -158,7 +158,7 @@
     
     [arr enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        NSDictionary *dict = @{@"enName":obj.allKeys[0],@"faName":[obj objectForKey:obj.allKeys[0]],@"isSelected":@NO};
+        NSDictionary *dict = @{@"enName":[obj objectForKey:@"key"],@"faName":[obj objectForKey:@"title"],@"isSelected":@NO};
         [typeMuArr addObject:dict];
         
     }];

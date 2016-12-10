@@ -30,6 +30,7 @@
     
     _calendarManager = [JTCalendarManager new];
     _calendarManager.delegate = self;
+    _calendarManager.dateHelper.calendar.locale = [NSLocale localeWithLocaleIdentifier:@"fa_IR"];
     
     
     
