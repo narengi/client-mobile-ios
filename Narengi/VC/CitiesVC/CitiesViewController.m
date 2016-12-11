@@ -180,8 +180,6 @@
         pagerCell.descriptionLabel.text = aroundObj.houseObject.summary;
         pagerCell.titleLabel.text       = aroundObj.houseObject.name;
         pagerCell.featuresLabel.text    = aroundObj.houseObject.featureSummray;
-        pagerCell.priceLabel.layer.cornerRadius = 10;
-        pagerCell.priceLabel.layer.masksToBounds = YES;
         
         pagerCell.imageUrls       = aroundObj.houseObject.imageUrls;
         [pagerCell.pages reloadData];

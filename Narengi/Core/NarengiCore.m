@@ -304,6 +304,7 @@ NarengiCore *sharedInstance;
             HouseObject *houseObj  = [[HouseObject alloc] init];
             
             houseObj.cityName       = [[[dict objectForKey:@"location"] checkNull] objectForKey:@"city"];
+            houseObj.province       = [[[dict objectForKey:@"location"] checkNull] objectForKey:@"province"];
             houseObj.name           = [[dict objectForKey:@"name"] checkNull];
             houseObj.cost           = [[dict objectForKey:@"price"] checkNull];
             houseObj.ID             = [[dict objectForKey:@"id"] checkNull];
@@ -317,28 +318,27 @@ NarengiCore *sharedInstance;
             houseObj.url            = [dict objectForKey:@"detailUrl"];
             
             houseObj.host = [self parsHost:[dict objectForKey:@"Host"] isDetail:NO];
-
-            
             aroundPlObj.houseObject = houseObj;
             
             if (isDetail) {
                 
+                houseObj.imageUrls       = [self parsImageArrayWithStyle:[dict objectForKey:@"pictures"]];
                 houseObj.commentsArr     = [self parsComments:[[dict objectForKey:@"Reviews"] checkNull]];
                 houseObj.reviewCount  = [[[dict objectForKey:@"reviewsCount"] checkNull] stringValue];
 
-                houseObj.facilityArr     = [self parsFacilities:[dict objectForKey:@"FeatureList"]];
+                houseObj.facilityArr     = [self parsFacilities:[dict objectForKey:@"features"]];
                 houseObj.shownFacilities = [self parsShownFacilities:houseObj.facilityArr];
                 houseObj.exteraServices  = [self parsExtraServices:[dict objectForKey:@"ExtraServices"]];
                 
                 houseObj.type          = [[[[dict objectForKey:@"type"] checkNull] objectForKey:@"title"] checkNull];
                 
-                houseObj.bedroomCount  = [[[[[dict objectForKey:@"Spec"] checkNull] objectForKey:@"bedroom"] checkNull] stringValue];
+                houseObj.bedroomCount  = [[[[[dict objectForKey:@"spec"] checkNull] objectForKey:@"bedroom"] checkNull] stringValue];
                 
-                houseObj.guestCount    = [[[[[dict objectForKey:@"Spec"] checkNull] objectForKey:@"guest_count"] checkNull] stringValue];
+                houseObj.guestCount    = [[[[[dict objectForKey:@"spec"] checkNull] objectForKey:@"guest_count"] checkNull] stringValue];
                 
-                houseObj.bedCount      = [[[[[dict objectForKey:@"Spec"] checkNull] objectForKey:@"bed"] checkNull ] stringValue];
+                houseObj.bedCount      = [[[[[dict objectForKey:@"spec"] checkNull] objectForKey:@"bed"] checkNull ] stringValue];
                 
-                houseObj.maxGuestCount = [[[[[dict objectForKey:@"Spec"] checkNull] objectForKey:@"max_guest_count"] checkNull] integerValue];
+                houseObj.maxGuestCount = [[[[[dict objectForKey:@"spec"] checkNull] objectForKey:@"max_guest_count"] checkNull] integerValue];
                 
                 houseObj.price           = [[[[dict objectForKey:@"prices"] objectForKey:@"price"] checkNull] integerValue];
                 houseObj.extraGuestPrice = [[[dict objectForKey:@"Price"] objectForKey:@"extraGuestPrice"] integerValue];
@@ -491,15 +491,12 @@ NarengiCore *sharedInstance;
         
         FacilityObject *facilityObj = [[FacilityObject alloc] init];
         
-        facilityObj.name      = [[obj objectForKey:@"name"] checkNull];
-        facilityObj.type      = [[obj objectForKey:@"type"] checkNull];
-        facilityObj.available = [[obj objectForKey:@"available"] boolValue];
+        facilityObj.name      = [[obj objectForKey:@"title"] checkNull];
+        facilityObj.type      = [[obj objectForKey:@"group"] checkNull];
+        facilityObj.key       = [obj objectForKey:@"key"];
         facilityObj.iconUrl   = [[NSURL URLWithString:[obj objectForKey:@"imageUrl"]] checkNull];
         
-        if (facilityObj.available) {
-        
-            [muArr addObject:facilityObj];
-        }
+        [muArr addObject:facilityObj];
         
     }];
     
@@ -627,6 +624,21 @@ NarengiCore *sharedInstance;
         if ([obj isKindOfClass:[NSString class]]) {
         
             [muArr addObject:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://api.narengi.xyz/api",obj]]];
+        }
+        
+    }];
+    
+    return [muArr copy];
+}
+
+-(NSArray *)parsImageArrayWithStyle:(NSArray *)images{
+    
+    NSMutableArray *muArr = [[NSMutableArray alloc] init];
+    [images enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        if ([obj isKindOfClass:[NSDictionary class]]) {
+            
+            [muArr addObject:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://api.narengi.xyz/api",[obj objectForKey:@"url"]]]];
         }
         
     }];

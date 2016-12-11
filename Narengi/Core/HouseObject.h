@@ -16,6 +16,7 @@
 @property (nonatomic) NSString         *ID;
 @property (nonatomic) GeoPointObject   *geoObj;
 @property (nonatomic) NSString         *cityName;
+@property (nonatomic) NSString         *province;
 @property (nonatomic) NSArray          *imageUrls;
 @property (nonatomic) HostObject       *host;
 @property (nonatomic) NSString         *cost;

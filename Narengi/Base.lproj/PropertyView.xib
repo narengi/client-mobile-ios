@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HouseDetailViewController"/>
@@ -28,11 +32,11 @@
                                 <constraint firstAttribute="height" constant="21" id="ksU-tb-d4A"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="xKQ-UG-Ous" firstAttribute="centerX" secondItem="XTf-cU-I4R" secondAttribute="centerX" id="3qG-NG-uID"/>
                         <constraint firstItem="wdL-Ak-1SM" firstAttribute="top" secondItem="xKQ-UG-Ous" secondAttribute="bottom" constant="8" id="7lP-lE-eKO"/>
@@ -60,11 +64,11 @@
                                 <constraint firstAttribute="height" constant="21" id="tUQ-Bj-Vnl"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="M92-wS-R0U" firstAttribute="top" secondItem="BMW-eM-yxU" secondAttribute="bottom" constant="8" id="EF3-hz-wqT"/>
                         <constraint firstItem="BMW-eM-yxU" firstAttribute="top" secondItem="41q-hi-D72" secondAttribute="top" constant="8" id="FM5-Ru-YWl"/>
@@ -92,11 +96,11 @@
                                 <constraint firstAttribute="height" constant="21" id="RDx-Kc-Pep"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.0" green="0.52941176469999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.0" green="0.52941176469999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="Bvt-Fb-alV" firstAttribute="top" secondItem="PFX-Ve-WXa" secondAttribute="bottom" constant="8" id="6QN-wf-jDe"/>
                         <constraint firstAttribute="width" constant="100" id="ARf-qM-Bfd"/>
@@ -124,11 +128,11 @@
                                 <constraint firstAttribute="height" constant="21" id="m3X-Sz-s03"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.97254901959999995" green="0.4431372549" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.97254901959999995" green="0.4431372549" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="flO-Aa-bfT" firstAttribute="centerX" secondItem="AbE-0g-LgK" secondAttribute="centerX" id="0gU-jD-oHE"/>
                         <constraint firstItem="Rkn-VH-dhs" firstAttribute="top" secondItem="flO-Aa-bfT" secondAttribute="bottom" constant="8" id="Lof-nq-ooY"/>
@@ -140,7 +144,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="41q-hi-D72" firstAttribute="leading" secondItem="XTf-cU-I4R" secondAttribute="trailing" id="B2h-W8-R02"/>
                 <constraint firstItem="41q-hi-D72" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="EhV-c3-MiI"/>

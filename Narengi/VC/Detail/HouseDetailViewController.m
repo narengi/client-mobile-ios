@@ -50,10 +50,12 @@
 
 @property (nonatomic) CGFloat   headerFade;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewHeightConstraint;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *commentTableHeightconstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *ownerTableViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *facilityCollectionviewHeightConstraint;
+@property (weak, nonatomic) IBOutlet UIView *facilityCollectionViewContainer;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *desTopSpaceConstraint;
 
 @property (nonatomic,strong) NSArray     *ownerDesArr;
 @property (nonatomic,strong) HouseObject *houseObj;
@@ -95,13 +97,9 @@
     self.ownerDesArr = @[@"پروفایل مالک",@"ارتباط با مالک",@"خدمات و خدمت‌های اضافی",@"شرایط و قوانین"];
     self.navigationView.alpha = 0;
     self.headerFade = [UIScreen mainScreen].bounds.size.width - 150;
-    
-    //Get Data For firstTime
-    //[self addParametrsToURL];
+
     [self getData];
     
-
-
 }
 
 
@@ -253,29 +251,33 @@
 }
 
 
--(void)loadPorperties{
-    
-    self.typeLabel.text       = self.houseObj.type;
-    self.roomcountLabel.text  = [self.houseObj.bedroomCount stringByAppendingString:@" اتاق خواب"];
-    self.guestCountLabel.text = [self.houseObj.guestCount stringByAppendingString:@" مهمان"];
-    self.bedCountLabel.text   = [self.houseObj.bedroomCount stringByAppendingString:@" تخت"];
-
-}
 
 -(void)setDataForView{
     
-    
     self.titleLabel.text       = self.houseObj.name;
     self.navTitleLabel.text    = self.houseObj.name;
-    self.cityNameLabel.text    = self.houseObj.cityName;
-    self.descriptionLabel.text = self.houseObj.summary;
+    self.cityNameLabel.text    = [NSString stringWithFormat:@"%@، %@ ",self.houseObj.cityName, self.houseObj.province];
     self.priceLabel.text       = self.houseObj.cost;
-    self.reviewCountLabel.text = [NSString stringWithFormat:@"( %@ رای )",self.houseObj.reviewCount];
-    self.priceLabelcontainer.layer.cornerRadius = 5;
+   // self.reviewCountLabel.text = [NSString stringWithFormat:@"( %@ رای )",self.houseObj.reviewCount];
+    
+    
+    NSMutableParagraphStyle *style =  [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    style.alignment = NSTextAlignmentCenter;
+    style.firstLineHeadIndent = 15.0f;
+    style.headIndent = 15.0f;
+    style.tailIndent = -15.0f;
+    
+    NSAttributedString *attrText = [[NSAttributedString alloc] initWithString:self.houseObj.summary attributes:@{ NSParagraphStyleAttributeName : style}];
+    
+    self.descriptionLabel.attributedText = attrText;
+
+     self.reviewCountLabel.text = @"";
+self.priceLabelcontainer.layer.cornerRadius = 5;
     self.priceLabelcontainer.layer.masksToBounds = YES;
     
     
-    self.startsImg.image = IMG(([NSString stringWithFormat:@"%f",self.houseObj.roundedRate]));
+//    self.startsImg.image = IMG(([NSString stringWithFormat:@"%f",self.houseObj.roundedRate]));
+    self.startsImg.image = IMG(@"5");
     self.avatarImg.layer.cornerRadius  = 40;
     self.avatarImg.layer.masksToBounds = YES;
     self.avatarImg.layer.borderWidth = 4;
@@ -283,11 +285,7 @@
     [self.avatarImg sd_setImageWithURL:self.houseObj.host.imageUrl placeholderImage:nil];
     self.mapViewImg.layer.masksToBounds  = YES;
  
-    NSString *staticMapUrl = [NSString stringWithFormat:@"http://maps.google.com/maps/api/staticmap?markers=color:red|%f,%f&%@&sensor=true",self.houseObj.geoObj.lat, self.houseObj.geoObj.lng,[NSString stringWithFormat:@"zoom=14&size=%.fx200",[UIScreen mainScreen].nativeBounds.size.width ]];
-    NSURL *mapUrl = [NSURL URLWithString:[staticMapUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    
-    [self.mapViewImg sd_setImageWithURL:mapUrl placeholderImage:nil];
-    
+    [self loadGoogleMapImg];
     [self loadPorperties];
 
     [self.imagesCollectionView reloadData];
@@ -304,17 +302,41 @@
         self.commentTableHeightconstraint.constant = 1;
     }
     
+    
+    self.desTopSpaceConstraint.constant = 15;
+    
+    if(self.houseObj.facilityArr.count < 1){
+    
+        self.facilityCollectionviewHeightConstraint.constant = 0;
+        [self.facilityCollectionViewContainer layoutIfNeeded];
+    }
+    else{
+       
+        self.facilityCollectionviewHeightConstraint.constant = 90;
+        [self.facilityCollectionViewContainer layoutIfNeeded];
+    }
     self.ownerTableViewHeightConstraint.constant  = 60*4;
     
     [self.commentsTableView layoutIfNeeded];
     [self.ownerTableView layoutIfNeeded];
-    
-    self.contentViewHeightConstraint.constant = self.ownerTableView.frame.origin.y + (60*4)+60;
-    [self.conView layoutIfNeeded];
-    
-    self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, self.contentViewHeightConstraint.constant+50);
 
     
+}
+
+-(void)loadGoogleMapImg{
+    
+    NSString *staticMapUrl = [NSString stringWithFormat:@"http://maps.google.com/maps/api/staticmap?markers=color:red|%f,%f&%@&sensor=true",self.houseObj.geoObj.lat, self.houseObj.geoObj.lng,[NSString stringWithFormat:@"zoom=14&size=%.fx200",[UIScreen mainScreen].nativeBounds.size.width ]];
+    NSURL *mapUrl = [NSURL URLWithString:[staticMapUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    [self.mapViewImg sd_setImageWithURL:mapUrl placeholderImage:nil];
+
+}
+
+-(void)loadPorperties{
+    
+    self.typeLabel.text       = self.houseObj.type;
+    self.roomcountLabel.text  = [self.houseObj.bedroomCount stringByAppendingString:@" اتاق خواب"];
+    self.guestCountLabel.text = [self.houseObj.guestCount stringByAppendingString:@" مهمان"];
+    self.bedCountLabel.text   = [self.houseObj.bedroomCount stringByAppendingString:@" تخت"];
     
 }
 
@@ -413,10 +435,10 @@
     
     
     if (collectionView == self.imagesCollectionView || (collectionView == self.image2CollectionView )){
-        return CGSizeMake([UIScreen mainScreen].bounds.size.width ,[UIScreen mainScreen].bounds.size.width);
+        return CGSizeMake([UIScreen mainScreen].bounds.size.width ,[UIScreen mainScreen].bounds.size.width *9 /16);
     }
     else{
-        return CGSizeMake([UIScreen mainScreen].bounds.size.width/self.houseObj.shownFacilities.count, 75 );
+        return CGSizeMake([UIScreen mainScreen].bounds.size.width/self.houseObj.shownFacilities.count, 86 );
     }
     
 }
@@ -543,6 +565,11 @@
         if (indexPath.row == 0) {
             //[self goTodetailWithUrl:self.houseObj.host.hostURL andWithType:@"Profile"];
         }
+        else{
+            
+            [self showBetaAlert];
+
+        }
     }
     
 }
@@ -614,7 +641,8 @@
 #pragma mark - button
 - (IBAction)rentButtonClicked:(IranButton *)sender {
     
-    [self goToRegisterORBookWithObject:self.houseObj];
+    [self showBetaAlert];
+    //[self goToRegisterORBookWithObject:self.houseObj];
 }
 
 #pragma mark - map

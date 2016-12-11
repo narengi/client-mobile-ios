@@ -29,4 +29,6 @@
 -(void)gotoMapFromCityWithHouses:(NSArray *)houses andWithTitle:(NSString *)title;
 -(void)changeRighNavigationToMenu;
 -(void)changeRightButtonToClose;
+
+-(void)showBetaAlert;
 @end

@@ -87,6 +87,27 @@
     
 }
 
+
+-(void)showBetaAlert{
+
+    UIAlertController *buyAlert = [UIAlertController alertControllerWithTitle:nil
+                                                                      message:@"ما سخت تلاش میکنیم که انجام این عملیات در نسخه بعدی برای شما فراهم شود. ممنون که از نسخه آزمایشی نارنگی استفاده میکنید"
+                                                               preferredStyle:UIAlertControllerStyleAlert                   ];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"تایید"
+                         style:UIAlertActionStyleDestructive
+                         handler:^(UIAlertAction * action)
+                         
+                         {
+                             [buyAlert dismissViewControllerAnimated:YES completion:nil];
+                             
+                         }];
+    
+    
+    [buyAlert addAction: ok];
+    [self presentViewController:buyAlert animated:YES completion:nil];
+}
 #pragma mark - alerts and notifications
 
 -(void)noConnection{
