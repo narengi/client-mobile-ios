@@ -26,12 +26,12 @@
                             <constraint firstAttribute="width" constant="35" id="Jbc-T8-Sbn"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0l-5b-jP0" customClass="CustomFaMediumFontLabel">
-                        <rect key="frame" x="8" y="49" width="59" height="37"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0l-5b-jP0" customClass="CustomFaMediumFontLabel">
+                        <rect key="frame" x="8" y="49" width="59" height="20"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="37" id="j6r-8P-0fP"/>
-                            <constraint firstAttribute="width" constant="59" id="mT7-CE-eED"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="38" id="Obm-iA-6JP"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="qQk-7u-SWv"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -41,10 +41,10 @@
             </view>
             <constraints>
                 <constraint firstItem="ojP-Ae-un6" firstAttribute="top" secondItem="jkE-IN-xwI" secondAttribute="top" constant="9" id="4f8-ny-uOa"/>
-                <constraint firstItem="i0l-5b-jP0" firstAttribute="leading" secondItem="jkE-IN-xwI" secondAttribute="leading" constant="8" id="9qW-gG-SJJ"/>
-                <constraint firstItem="i0l-5b-jP0" firstAttribute="top" secondItem="ojP-Ae-un6" secondAttribute="bottom" constant="5" id="cFf-bY-8sz"/>
+                <constraint firstItem="i0l-5b-jP0" firstAttribute="top" secondItem="ojP-Ae-un6" secondAttribute="bottom" constant="5" id="6pk-Vo-AYW"/>
+                <constraint firstAttribute="trailing" secondItem="i0l-5b-jP0" secondAttribute="trailing" constant="8" id="7fD-99-utq"/>
+                <constraint firstItem="i0l-5b-jP0" firstAttribute="leading" secondItem="jkE-IN-xwI" secondAttribute="leading" constant="8" id="EaU-7O-g9y"/>
                 <constraint firstItem="ojP-Ae-un6" firstAttribute="centerX" secondItem="jkE-IN-xwI" secondAttribute="centerX" id="hMo-yZ-8Lx"/>
-                <constraint firstAttribute="trailing" secondItem="i0l-5b-jP0" secondAttribute="trailing" constant="8" id="mSX-6U-vWm"/>
             </constraints>
             <size key="customSize" width="91" height="79"/>
             <connections>

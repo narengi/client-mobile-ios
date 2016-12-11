@@ -263,11 +263,12 @@
     
     NSMutableParagraphStyle *style =  [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     style.alignment = NSTextAlignmentCenter;
-    style.firstLineHeadIndent = 15.0f;
+    style.paragraphSpacingBefore = 10.0f;
+    style.firstLineHeadIndent = 10;
     style.headIndent = 15.0f;
     style.tailIndent = -15.0f;
     
-    NSAttributedString *attrText = [[NSAttributedString alloc] initWithString:self.houseObj.summary attributes:@{ NSParagraphStyleAttributeName : style}];
+    NSAttributedString *attrText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", self.houseObj.summary ] attributes:@{ NSParagraphStyleAttributeName : style}];
     
     self.descriptionLabel.attributedText = attrText;
 
@@ -303,7 +304,7 @@ self.priceLabelcontainer.layer.cornerRadius = 5;
     }
     
     
-    self.desTopSpaceConstraint.constant = 15;
+    self.desTopSpaceConstraint.constant = 10;
     
     if(self.houseObj.facilityArr.count < 1){
     

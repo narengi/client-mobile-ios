@@ -43,9 +43,10 @@
 
     [self registerCollectionCellWithName:@"CitiesCollectionViewCell" andWithId:@"citiesCellID" forCORT:self.collectionView];
     
+//    [self.collectionView registerNib:[UINib nibWithNibName:@"CityCell" bundle:nil] forCellWithReuseIdentifier:@"cityCellID"];
+//    [self.collectionView registerNib:[UINib nibWithNibName:@"AttractionCell" bundle:nil] forCellWithReuseIdentifier:@"attractionCellID"];
     
-    [self.collectionView registerNib:[UINib nibWithNibName:@"CityCell" bundle:nil] forCellWithReuseIdentifier:@"cityCellID"];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"AttractionCell" bundle:nil] forCellWithReuseIdentifier:@"attractionCellID"];
+    
     [self.collectionView registerNib:[UINib nibWithNibName:@"HouseCell" bundle:nil] forCellWithReuseIdentifier:@"houseCellID"];
 
    
@@ -166,9 +167,9 @@
     
     AroundPlaceObject *aroundObj = self.aroundPArr[indexPath.row];
    
+//    
+//    if ([aroundObj.type isEqualToString:@"House"]) {
     
-    if ([aroundObj.type isEqualToString:@"House"]) {
-        
         HouseCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"houseCellID"
                                                                                        forIndexPath:indexPath];
         
@@ -185,36 +186,36 @@
         [pagerCell.pages reloadData];
         
         return pagerCell;
-    }
-    
-    else if ([aroundObj.type isEqualToString:@"Attraction"]) {
-        
-        AttractionCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"attractionCellID"
-                                                                                       forIndexPath:indexPath];
-        
-        pagerCell.titleLabel.text       = aroundObj.attractionObject.name;
-        pagerCell.cityLabel.text        = aroundObj.attractionObject.cityName;
-        pagerCell.descriptionLabel.text = aroundObj.attractionObject.aroundHousesText;
-        
-        pagerCell.imageUrls = aroundObj.attractionObject.imageUrls;
-        [pagerCell.pages reloadData];
-        
-        return pagerCell;
-    }
-    
-    else  {
-        
-        CityCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cityCellID"
-                                                                                       forIndexPath:indexPath];
-        pagerCell.titleLabel.text       = aroundObj.cityObject.name;
-        pagerCell.descriptionLabel.text = aroundObj.cityObject.houseCountText;
-        
-        pagerCell.imageUrls       = aroundObj.cityObject.imageUrls;
-        
-        [pagerCell.pages reloadData];
-        
-        return pagerCell;
-    }
+//    }
+//    
+//    else if ([aroundObj.type isEqualToString:@"Attraction"]) {
+//        
+//        AttractionCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"attractionCellID"
+//                                                                                       forIndexPath:indexPath];
+//        
+//        pagerCell.titleLabel.text       = aroundObj.attractionObject.name;
+//        pagerCell.cityLabel.text        = aroundObj.attractionObject.cityName;
+//        pagerCell.descriptionLabel.text = aroundObj.attractionObject.aroundHousesText;
+//        
+//        pagerCell.imageUrls = aroundObj.attractionObject.imageUrls;
+//        [pagerCell.pages reloadData];
+//        
+//        return pagerCell;
+//    }
+//    
+//    else  {
+//        
+//        CityCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cityCellID"
+//                                                                                       forIndexPath:indexPath];
+//        pagerCell.titleLabel.text       = aroundObj.cityObject.name;
+//        pagerCell.descriptionLabel.text = aroundObj.cityObject.houseCountText;
+//        
+//        pagerCell.imageUrls       = aroundObj.cityObject.imageUrls;
+//        
+//        [pagerCell.pages reloadData];
+//        
+//        return pagerCell;
+//    }
  
 }
 
