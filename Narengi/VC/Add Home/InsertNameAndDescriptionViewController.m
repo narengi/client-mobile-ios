@@ -62,7 +62,13 @@
         if ([self checkDesciption]) {
             if ([self checkProvinceAndCity]) {
                 
-                return YES;
+                if ([self checkAddress]) {
+                    
+                    return YES;
+                }
+                else{
+                    return NO;
+                }
             }
             else{
                 [self showError:@"استان و شهر را انتخاب کنید"];
@@ -71,13 +77,11 @@
             }
         }
         else{
-         
             [self showError:@"طول توضیحات باید بیشتر از ۱۰ کارکتر باشد"];
             return NO;
         }
     }
     else{
-        
         [self showError:@"طول عنوان باید بیشتر از ۵ کارکتر باشد"];
         return NO;
         
@@ -116,9 +120,28 @@
         return NO;
     
 }
+
+-(BOOL)checkAddress{
+    
+    NSString *str = [self.addressTextView.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    if (str.length > 0){
+        if (str.length > 10) {
+            return  YES;
+        }
+        else
+            return NO;
+    }
+    
+    else
+        return NO;
+    
+}
+
+
 -(BOOL)checkProvinceAndCity{
 
-    if (self.selectedProvince != nil && self.selectedProvince != nil)
+    if (self.selectedProvince != nil && self.selectedCity != nil)
         return YES;
     
     else
