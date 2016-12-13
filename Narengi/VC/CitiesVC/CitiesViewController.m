@@ -167,56 +167,24 @@
 
     
     AroundPlaceObject *aroundObj = self.aroundPArr[indexPath.row];
-   
-//    
-//    if ([aroundObj.type isEqualToString:@"House"]) {
     
-        HouseCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"houseCellID"
-                                                                                       forIndexPath:indexPath];
-        
-        NSString *str = @"";
-        str = [str stringByAppendingString:aroundObj.houseObject.cost == nil ? @"" : aroundObj.houseObject.cost];
-        str = [str stringByAppendingString:@"     "];
-        
-        pagerCell.priceLabel.text       = str;
-        pagerCell.descriptionLabel.text = aroundObj.houseObject.summary;
-        pagerCell.titleLabel.text       = aroundObj.houseObject.name;
-        pagerCell.featuresLabel.text    = aroundObj.houseObject.featureSummray;
-        
-        pagerCell.imageUrls       = aroundObj.houseObject.imageUrls;
-        [pagerCell.pages reloadData];
-        
-        return pagerCell;
-//    }
-//    
-//    else if ([aroundObj.type isEqualToString:@"Attraction"]) {
-//        
-//        AttractionCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"attractionCellID"
-//                                                                                       forIndexPath:indexPath];
-//        
-//        pagerCell.titleLabel.text       = aroundObj.attractionObject.name;
-//        pagerCell.cityLabel.text        = aroundObj.attractionObject.cityName;
-//        pagerCell.descriptionLabel.text = aroundObj.attractionObject.aroundHousesText;
-//        
-//        pagerCell.imageUrls = aroundObj.attractionObject.imageUrls;
-//        [pagerCell.pages reloadData];
-//        
-//        return pagerCell;
-//    }
-//    
-//    else  {
-//        
-//        CityCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cityCellID"
-//                                                                                       forIndexPath:indexPath];
-//        pagerCell.titleLabel.text       = aroundObj.cityObject.name;
-//        pagerCell.descriptionLabel.text = aroundObj.cityObject.houseCountText;
-//        
-//        pagerCell.imageUrls       = aroundObj.cityObject.imageUrls;
-//        
-//        [pagerCell.pages reloadData];
-//        
-//        return pagerCell;
-//    }
+    HouseCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"houseCellID"
+                                                                                   forIndexPath:indexPath];
+    
+    NSString *str = @"";
+    str = [str stringByAppendingString:aroundObj.houseObject.cost == nil ? @"" : aroundObj.houseObject.cost];
+    str = [str stringByAppendingString:@"     "];
+    
+    pagerCell.priceLabel.text       = str;
+    pagerCell.descriptionLabel.text = aroundObj.houseObject.summary;
+    pagerCell.titleLabel.text       = aroundObj.houseObject.name;
+    pagerCell.featuresLabel.text    = aroundObj.houseObject.featureSummray;
+    
+    pagerCell.imageUrls       = aroundObj.houseObject.imageUrls;
+    [pagerCell.pages reloadData];
+    
+    return pagerCell;
+
  
 }
 

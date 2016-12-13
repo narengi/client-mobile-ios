@@ -9,6 +9,8 @@
 #import "MyHousesViewController.h"
 #import "MyHousesTableViewCell.h"
 #import "AroundPlaceObject.h"
+#import "EditHoumeListViewController.h"
+
 
 
 @interface MyHousesViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -40,6 +42,7 @@
     [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"access-token"];
 
 
+    
 }
 
 
@@ -117,7 +120,7 @@
 
 -(void)getMyHomeForFirstTime:(BOOL)firstTime{
 
-    NSArray *parametrs = @[@"limit=20",[NSString stringWithFormat:@"skip=%ld",(long)self.skipCount]];
+    NSArray *parametrs = @[@"filter[limit]=20",[NSString stringWithFormat:@"filter[skip]=%ld",(long)self.skipCount]];
     
     REACHABILITY
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
@@ -212,10 +215,25 @@
         [cell.img sd_setImageWithURL:house.imageUrls[0] placeholderImage:nil];
     }
     
-    
-    
-    
     return  cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    
+    HouseObject *house = [(AroundPlaceObject*)self.houseArr[indexPath.row] houseObject];
+    [self goToEditHomeWithHouseObj:house];
+    
+}
+
+-(void)goToEditHomeWithHouseObj:(HouseObject *)houseObj{
+
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AddHome" bundle:nil];
+    
+    EditHoumeListViewController *editHouseVC = [storyboard instantiateViewControllerWithIdentifier:@"editHoueListVC"];
+    editHouseVC.houseObj = houseObj;
+    [self showViewController:editHouseVC sender:nil];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

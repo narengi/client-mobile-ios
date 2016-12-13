@@ -49,6 +49,7 @@
 		722A0DD11C917E8E005C6DDB /* BillHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 722A0DD01C917E8E005C6DDB /* BillHeaderView.m */; };
 		722A0DD41C9186DB005C6DDB /* ExtraServiceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 722A0DD31C9186DB005C6DDB /* ExtraServiceObject.m */; };
 		722A0DD71C918CC7005C6DDB /* PriceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 722A0DD61C918CC7005C6DDB /* PriceObject.m */; };
+		722BF4B41DFFE41A00DBFB29 /* EditHoumeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 722BF4B31DFFE41A00DBFB29 /* EditHoumeListViewController.m */; };
 		723C3EB31CE1C0B400A82D9E /* SelectFacilityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723C3EB21CE1C0B400A82D9E /* SelectFacilityViewController.m */; };
 		723C3EB61CE1C7B300A82D9E /* SelectFacilityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 723C3EB51CE1C7B300A82D9E /* SelectFacilityTableViewCell.m */; };
 		723C3EB91CE1F93500A82D9E /* SetPricesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723C3EB81CE1F93500A82D9E /* SetPricesViewController.m */; };
@@ -95,6 +96,7 @@
 		729838B51BFCB098005BC5C3 /* AroundPlaceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838B41BFCB098005BC5C3 /* AroundPlaceObject.m */; };
 		729838B81BFCB1CB005BC5C3 /* HostObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838B71BFCB1CB005BC5C3 /* HostObject.m */; };
 		729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838BA1BFCB1FC005BC5C3 /* GeoPointObject.m */; };
+		72A26FE11DFFE97C00CB2BEC /* EditHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A26FE01DFFE97C00CB2BEC /* EditHomeTableViewCell.m */; };
 		72A381F01C79FAD80065E1A9 /* PhoneValidateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A381EF1C79FAD80065E1A9 /* PhoneValidateViewController.m */; };
 		72AF71B91CA8410400A50575 /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF71B81CA8410400A50575 /* MyProfileViewController.m */; };
 		72AF71BC1CA954BC00A50575 /* IdentificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF71BB1CA954BC00A50575 /* IdentificationViewController.m */; };
@@ -249,6 +251,8 @@
 		722A0DD31C9186DB005C6DDB /* ExtraServiceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExtraServiceObject.m; path = Core/ExtraServiceObject.m; sourceTree = "<group>"; };
 		722A0DD51C918CC7005C6DDB /* PriceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PriceObject.h; path = Core/PriceObject.h; sourceTree = "<group>"; };
 		722A0DD61C918CC7005C6DDB /* PriceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PriceObject.m; path = Core/PriceObject.m; sourceTree = "<group>"; };
+		722BF4B21DFFE41A00DBFB29 /* EditHoumeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditHoumeListViewController.h; path = "VC/Add Home/EditHoumeListViewController.h"; sourceTree = "<group>"; };
+		722BF4B31DFFE41A00DBFB29 /* EditHoumeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditHoumeListViewController.m; path = "VC/Add Home/EditHoumeListViewController.m"; sourceTree = "<group>"; };
 		723C3EB11CE1C0B400A82D9E /* SelectFacilityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectFacilityViewController.h; path = "VC/Add Home/SelectFacilityViewController.h"; sourceTree = "<group>"; };
 		723C3EB21CE1C0B400A82D9E /* SelectFacilityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectFacilityViewController.m; path = "VC/Add Home/SelectFacilityViewController.m"; sourceTree = "<group>"; };
 		723C3EB41CE1C7B300A82D9E /* SelectFacilityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectFacilityTableViewCell.h; path = "VC/Add Home/SelectFacilityTableViewCell.h"; sourceTree = "<group>"; };
@@ -334,6 +338,8 @@
 		729838B71BFCB1CB005BC5C3 /* HostObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HostObject.m; path = Core/HostObject.m; sourceTree = "<group>"; };
 		729838B91BFCB1FC005BC5C3 /* GeoPointObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GeoPointObject.h; path = Core/GeoPointObject.h; sourceTree = "<group>"; };
 		729838BA1BFCB1FC005BC5C3 /* GeoPointObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GeoPointObject.m; path = Core/GeoPointObject.m; sourceTree = "<group>"; };
+		72A26FDF1DFFE97C00CB2BEC /* EditHomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditHomeTableViewCell.h; path = "VC/Add Home/EditHomeTableViewCell.h"; sourceTree = "<group>"; };
+		72A26FE01DFFE97C00CB2BEC /* EditHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditHomeTableViewCell.m; path = "VC/Add Home/EditHomeTableViewCell.m"; sourceTree = "<group>"; };
 		72A381EE1C79FAD80065E1A9 /* PhoneValidateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhoneValidateViewController.h; path = VC/Registeration/PhoneValidateViewController.h; sourceTree = "<group>"; };
 		72A381EF1C79FAD80065E1A9 /* PhoneValidateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhoneValidateViewController.m; path = VC/Registeration/PhoneValidateViewController.m; sourceTree = "<group>"; };
 		72AF71B71CA8410400A50575 /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyProfileViewController.h; path = VC/Profile/MyProfileViewController.h; sourceTree = "<group>"; };
@@ -560,6 +566,7 @@
 		7225B4371CDC9A68008A538C /* Add Home */ = {
 			isa = PBXGroup;
 			children = (
+				7225B4341CDC9489008A538C /* AddHome.storyboard */,
 				72B432271D05CDE100604C33 /* StepViewController.h */,
 				72B432281D05CDE100604C33 /* StepViewController.m */,
 				7225B43E1CDE1049008A538C /* MyHousesViewController.h */,
@@ -587,6 +594,10 @@
 				723C3EBB1CE2075C00A82D9E /* AddPhotoViewController.m */,
 				728271521D0C4E970038D5F8 /* SelectAvailableDateViewController.h */,
 				728271531D0C4E970038D5F8 /* SelectAvailableDateViewController.m */,
+				722BF4B21DFFE41A00DBFB29 /* EditHoumeListViewController.h */,
+				722BF4B31DFFE41A00DBFB29 /* EditHoumeListViewController.m */,
+				72A26FDF1DFFE97C00CB2BEC /* EditHomeTableViewCell.h */,
+				72A26FE01DFFE97C00CB2BEC /* EditHomeTableViewCell.m */,
 			);
 			name = "Add Home";
 			sourceTree = "<group>";
@@ -687,7 +698,6 @@
 				72BC8A041CD74B2A002055FA /* Alerts.storyboard */,
 				72BC8A061CD74B2A002055FA /* Verification.storyboard */,
 				72BC8A011CD74AD6002055FA /* Maps.storyboard */,
-				7225B4341CDC9489008A538C /* AddHome.storyboard */,
 				726DF1FF1BE79937004796EC /* LaunchScreen.storyboard */,
 				726DF1FD1BE79937004796EC /* Assets.xcassets */,
 				72A381ED1C79FAAC0065E1A9 /* register */,
@@ -1112,6 +1122,7 @@
 				722A0DC41C9171EA005C6DDB /* BillTableViewCell.m in Sources */,
 				723C3EB31CE1C0B400A82D9E /* SelectFacilityViewController.m in Sources */,
 				7257216B1D0E87C3005468C1 /* MyHousesTableViewCell.m in Sources */,
+				722BF4B41DFFE41A00DBFB29 /* EditHoumeListViewController.m in Sources */,
 				72F274521C199F970048BF05 /* SearchDetailCityCollectionViewCell.m in Sources */,
 				723C3EB91CE1F93500A82D9E /* SetPricesViewController.m in Sources */,
 				72F274301C196FA30048BF05 /* CitiesViewController.m in Sources */,
@@ -1200,6 +1211,7 @@
 				72BC8A141CD74BF2002055FA /* ModalAnimator.m in Sources */,
 				72D4E5B51C3E61FB00AC3D0D /* PropertyView.m in Sources */,
 				7285DE601BF4B40600F92608 /* PageCell.m in Sources */,
+				72A26FE11DFFE97C00CB2BEC /* EditHomeTableViewCell.m in Sources */,
 				722922F51BFCB4F800C5575C /* UserObject.m in Sources */,
 				72469B5B1C7CAA79005684F9 /* EnterValidationCodeViewController.m in Sources */,
 				72A381F01C79FAD80065E1A9 /* PhoneValidateViewController.m in Sources */,
