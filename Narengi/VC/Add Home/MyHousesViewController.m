@@ -8,9 +8,13 @@
 
 #import "MyHousesViewController.h"
 #import "MyHousesTableViewCell.h"
+#import "AroundPlaceObject.h"
 
 @interface MyHousesViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic,strong) NSArray *houseArr;
+@property UIRefreshControl *refreshControl;
+
 
 @end
 
@@ -27,7 +31,24 @@
     
     [self registerCellWithName:@"MyHomeCell" andWithIdentifier:@"myHousesCellID" andTableView:self.tableView];
     [self getMyHome];
+    
+    [self addPullToRefresh];
+    
+    [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"access-token"];
 
+
+}
+
+
+-(void)addPullToRefresh{
+    
+    
+    self.refreshControl = [[UIRefreshControl alloc]
+                           init];
+    [self.refreshControl addTarget:self action:@selector(getMyHome) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
+    [self.refreshControl setTintColor:[UIColor darkGrayColor]];
+    
 }
 
 -(void)houseInserted{
@@ -86,22 +107,26 @@
 
 -(void)getMyHome{
 
-    
+    REACHABILITY
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
-        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:SEARCHSERVICE andWithParametrs:nil andWithBody:nil andIsFullPath:NO];
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:MYHOUSEHSERVICE andWithParametrs:nil andWithBody:nil andIsFullPath:NO];
         
         dispatch_async(dispatch_get_main_queue(),^{
             
             if (!serverRs.hasErro) {
                 if (serverRs.backData !=nil ) {
                     
+                    self.houseArr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData andwithType:@"House" andIsDetail:YES];
                     
+                    [self.tableView reloadData];
                 }
                 else{
                 }
                 
             }
+            
+            [self.refreshControl endRefreshing];
         });
     });
 }
@@ -118,12 +143,27 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return 1;
+    return self.houseArr.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
     
     MyHousesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myHousesCellID" forIndexPath:indexPath];
+    
+    HouseObject *house = [(AroundPlaceObject*)self.houseArr[indexPath.row] houseObject];
+    
+    cell.nameLabel.text = house.name;
+    
+    cell.roomCountLabel.text = [house.bedroomCount stringByAppendingString:@" اتاق"];
+    cell.houseTypeLabel.text = house.type;
+    cell.bedCountLabel.text  = [house.bedroomCount stringByAppendingString:@" تخت"];
+    
+    if (house.imageUrls.count > 0) {
+        [cell.img sd_setImageWithURL:house.imageUrls[0] placeholderImage:nil];
+    }
+    
+    
+    
     
     return  cell;
 }
@@ -131,6 +171,6 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    return 325;
+    return 282;
 }
 @end

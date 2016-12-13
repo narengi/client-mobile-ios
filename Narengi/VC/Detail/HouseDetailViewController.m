@@ -238,7 +238,6 @@
                     
                     AroundPlaceObject *obj  = [[[NarengiCore sharedInstance] parsAroudPlacesWith:@[serverRs.backData] andwithType:@"House" andIsDetail:YES] firstObject];
                     self.houseObj = obj.houseObject;
-                    
                     [self setDataForView];
                 }
                 else{

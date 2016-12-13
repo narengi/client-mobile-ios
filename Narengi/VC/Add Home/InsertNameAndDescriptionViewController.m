@@ -60,23 +60,32 @@
 
     if ([self checkTitle]) {
         if ([self checkDesciption]) {
-            if ([self checkProvinceAndCity]) {
+            if (self.desciptionTextView.text.length < 501) {
                 
-                if ([self checkAddress]) {
+                if ([self checkProvinceAndCity]) {
                     
-                    return YES;
+                    if ([self checkAddress]) {
+                        
+                        return YES;
+                    }
+                    else{
+                        return NO;
+                    }
                 }
                 else{
+                    [self showError:@"استان و شهر را انتخاب کنید"];
                     return NO;
+                    
                 }
             }
             else{
-                [self showError:@"استان و شهر را انتخاب کنید"];
-                return NO;
-                
+                [self showError:@"طول توضیحات باید بیشتر از ۵۰۰ کارکتر نباشد"];
+                return  NO;
             }
+            
         }
         else{
+            
             [self showError:@"طول توضیحات باید بیشتر از ۱۰ کارکتر باشد"];
             return NO;
         }
@@ -108,12 +117,8 @@
 
     NSString *str = [self.desciptionTextView.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    if (str.length > 0){
-        if (str.length > 10) {
-            return  YES;
-        }
-        else
-            return NO;
+    if (str.length > 9){
+        return YES;
     }
     
     else

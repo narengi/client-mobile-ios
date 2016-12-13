@@ -332,11 +332,11 @@ NarengiCore *sharedInstance;
                 
                 houseObj.type          = [[[[dict objectForKey:@"type"] checkNull] objectForKey:@"title"] checkNull];
                 
-                houseObj.bedroomCount  = [[[[[dict objectForKey:@"spec"] checkNull] objectForKey:@"bedroom"] checkNull] stringValue];
+                houseObj.bedroomCount  = [[[[[dict objectForKey:@"spec"] checkNull] objectForKey:@"bedroom_count"] checkNull] stringValue];
                 
                 houseObj.guestCount    = [[[[[dict objectForKey:@"spec"] checkNull] objectForKey:@"guest_count"] checkNull] stringValue];
                 
-                houseObj.bedCount      = [[[[[dict objectForKey:@"spec"] checkNull] objectForKey:@"bed"] checkNull ] stringValue];
+                houseObj.bedCount      = [[[[[dict objectForKey:@"spec"] checkNull] objectForKey:@"bed_count"] checkNull ] stringValue];
                 
                 houseObj.maxGuestCount = [[[[[dict objectForKey:@"spec"] checkNull] objectForKey:@"max_guest_count"] checkNull] integerValue];
                 

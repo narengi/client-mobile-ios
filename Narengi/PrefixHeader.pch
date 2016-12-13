@@ -28,7 +28,7 @@
 
 #define BASEURL @"http://api.narengi.xyz/api/"
 #define SEARCHSERVICE @"search"
-//#define SEARCHSERVICE @"houses"
+#define MYHOUSEHSERVICE @"houses/my-houses"
 #define SUGGESTIONService @"suggestion"
 
 #define REACHABILITY if(![Reachability reachabilityForInternetConnection].isReachable){[self noConnection]; return;}

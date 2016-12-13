@@ -12,6 +12,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     // Initialization code
 }
 

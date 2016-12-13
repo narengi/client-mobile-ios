@@ -468,11 +468,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Narengi/VC/Detail/HouseDetailViewController.m"
-            timestampString = "503160055.672924"
+            timestampString = "503266618.979546"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "306"
-            endingLineNumber = "306"
+            startingLineNumber = "305"
+            endingLineNumber = "305"
             landmarkName = "-setDataForView"
             landmarkType = "7">
          </BreakpointContent>
@@ -483,13 +483,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Narengi/VC/Add Home/InsertNameAndDescriptionViewController.m"
-            timestampString = "503162345.320238"
+            filePath = "Narengi/Core/NarengiCore.m"
+            timestampString = "503258835.385448"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "-checkAllFields"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
+            landmarkName = "-parsAroudPlacesWith:andwithType:andIsDetail:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -499,13 +499,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Narengi/VC/Add Home/InsertNameAndDescriptionViewController.m"
-            timestampString = "503162360.661864"
+            filePath = "Narengi/VC/Add Home/MyHousesViewController.m"
+            timestampString = "503305017.943993"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "-checkProvinceAndCity"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "-getMyHome"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
