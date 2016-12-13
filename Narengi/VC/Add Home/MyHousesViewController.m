@@ -10,10 +10,13 @@
 #import "MyHousesTableViewCell.h"
 #import "AroundPlaceObject.h"
 
+
 @interface MyHousesViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic,strong) NSArray *houseArr;
+@property (nonatomic,strong) NSMutableArray *houseArr;
 @property UIRefreshControl *refreshControl;
+@property NSInteger skipCount;
+
 
 
 @end
@@ -30,7 +33,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(houseInserted) name:@"houseInsertStatus" object:nil];
     
     [self registerCellWithName:@"MyHomeCell" andWithIdentifier:@"myHousesCellID" andTableView:self.tableView];
-    [self getMyHome];
+    [self getMyHomeForFirstTime];
     
     [self addPullToRefresh];
     
@@ -45,7 +48,7 @@
     
     self.refreshControl = [[UIRefreshControl alloc]
                            init];
-    [self.refreshControl addTarget:self action:@selector(getMyHome) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl addTarget:self action:@selector(getMyHomeForFirstTime) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
     [self.refreshControl setTintColor:[UIColor darkGrayColor]];
     
@@ -105,33 +108,80 @@
 
 #pragma mark - data
 
--(void)getMyHome{
+-(void)getMyHomeForFirstTime{
 
+    self.houseArr = [[NSMutableArray alloc] init];
+    self.skipCount = 0;
+    [self getMyHomeForFirstTime:YES];
+}
+
+-(void)getMyHomeForFirstTime:(BOOL)firstTime{
+
+    NSArray *parametrs = @[@"limit=20",[NSString stringWithFormat:@"skip=%ld",(long)self.skipCount]];
+    
     REACHABILITY
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
-        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:MYHOUSEHSERVICE andWithParametrs:nil andWithBody:nil andIsFullPath:NO];
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:MYHOUSEHSERVICE andWithParametrs:parametrs andWithBody:nil andIsFullPath:NO];
         
         dispatch_async(dispatch_get_main_queue(),^{
             
             if (!serverRs.hasErro) {
                 if (serverRs.backData !=nil ) {
                     
-                    self.houseArr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData andwithType:@"House" andIsDetail:YES];
+                    NSArray *arr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData andwithType:@"House" andIsDetail:YES];
                     
-                    [self.tableView reloadData];
+                    
+                    if (arr.count > 0) {
+                        
+                        [self.houseArr addObjectsFromArray:arr];
+
+                        if(arr.count < 20)
+                        {
+                            [self.tableView .mj_footer removeFromSuperview];
+
+                        }
+                        else{
+                            
+                            if (firstTime)
+                                [self addLoadMore];
+                        }
+                        
+                    }
+                    else{
+                        [self.tableView .mj_footer removeFromSuperview];
+                    }
+                    
+
+                    self.skipCount += self.houseArr.count;
+
+   
                 }
                 else{
                 }
                 
             }
             
+            [self.tableView.mj_footer endRefreshing];
             [self.refreshControl endRefreshing];
+            [self.tableView reloadData];
+
         });
     });
 }
 
+#pragma mark - load more
 
+-(void)addLoadMore{
+    
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(insertRowAtBottom )];
+    
+}
+
+-(void)insertRowAtBottom{
+    
+    [self getMyHomeForFirstTime:NO];
+}
 
 #pragma mark - tableview
 

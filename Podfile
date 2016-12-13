@@ -17,5 +17,6 @@ target 'Narengi' do
     pod 'RMMapper'
     pod 'JTCalendar'
     pod 'SZTextView'
+    pod 'MJRefresh'
     pod 'GBKUIButtonProgressView', git: 'https://github.com/Guidebook/gbkui-button-progress-view'
 end

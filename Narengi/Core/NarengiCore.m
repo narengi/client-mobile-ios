@@ -81,7 +81,7 @@ NarengiCore *sharedInstance;
         
         if (response.statusCode == 200 || response.statusCode == 201  || response.statusCode == 204) {
             
-            NSLog(@"BackData: %@",[NSJSONSerialization JSONObjectWithData:data options:0 error:nil ]);
+           // NSLog(@"BackData: %@",[NSJSONSerialization JSONObjectWithData:data options:0 error:nil ]);
             serverRes.hasErro = NO;
             serverRes.backData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil ];
             serverRes.totalCount = [[[response.allHeaderFields objectForKey:@"X-Total-Count"] checkNull] integerValue];

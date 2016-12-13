@@ -24,10 +24,11 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic,strong) NSArray *aroundPArr;
+@property (nonatomic,strong) NSMutableArray *aroundPArr;
 @property (nonatomic) NSInteger curentRequestcount;
 @property (weak, nonatomic) IBOutlet UIView *searchContainerView;
 @property UIRefreshControl *refreshControl;
+@property NSInteger skipCount;
 
 
 @end
@@ -64,7 +65,7 @@
     
     
     [self addPullToRefresh];
-    [self getData];
+    [self getDataForFirstTime];
     
     [SDWebImageDownloader.sharedDownloader setValue:@"image/jpeg" forHTTPHeaderField:@"Content-Type"];
 
@@ -77,7 +78,7 @@
     
     self.refreshControl = [[UIRefreshControl alloc]
                            init];
-    [self.refreshControl addTarget:self action:@selector(getData) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl addTarget:self action:@selector(getDataForFirstTime) forControlEvents:UIControlEventValueChanged];
     [self.collectionView addSubview:self.refreshControl];
     [self.refreshControl setTintColor:[UIColor whiteColor]];
     
@@ -262,47 +263,79 @@
 
 #pragma mark - data
 
+-(void)getDataForFirstTime{
 
--(void)getData{
+    self.aroundPArr = [[NSMutableArray alloc] init];
+    self.skipCount = 0;
+    [self getDataForFirstTime:YES];
+}
 
+-(void)getDataForFirstTime:(BOOL)firstTime{
+
+    NSArray *parametrs = @[@"filter[limit]=20",[NSString stringWithFormat:@"filter[skip]=%ld",(long)self.skipCount]];
+    
     REACHABILITY
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
-        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:SEARCHSERVICE andWithParametrs:@[@"filter[limit]=40",@"filter[skip]=0"] andWithBody:nil andIsFullPath:NO];
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:SEARCHSERVICE andWithParametrs:parametrs andWithBody:nil andIsFullPath:NO];
         
         dispatch_async(dispatch_get_main_queue(),^{
             
             if (!serverRs.hasErro) {
                 if (serverRs.backData !=nil ) {
                    
-                    self.aroundPArr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData andwithType:nil andIsDetail:NO];
+                    NSArray *arr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData andwithType:nil andIsDetail:NO];
+                    if (arr.count > 0) {
+                        
+                        [self.aroundPArr addObjectsFromArray:arr];
+                        
+                        if(arr.count < 20)
+                        {
+                            [self.collectionView.mj_footer removeFromSuperview];
+                            
+                        }
+                        else{
+                            
+                            if (firstTime)
+                                [self addLoadMore];
+                        }
+                        
+                    }
+                    else{
+                        [self.collectionView .mj_footer removeFromSuperview];
+                    }
                     
-                    [UIView transitionWithView:self.collectionView
-                                      duration:0.35f
-                                       options:UIViewAnimationOptionTransitionCrossDissolve
-                                    animations:^(void)
-                     {
-                         [self.collectionView reloadData];
-                     }
-                                    completion:nil];
+                    
+                    self.skipCount += self.aroundPArr.count;
+                    
                     
                 }
                 else{
                 }
                 
-                [self.refreshControl endRefreshing];
-
-                
             }
+            
+            [self.collectionView.mj_footer endRefreshing];
+            [self.refreshControl endRefreshing];
+            [self.collectionView reloadData];
+
         });
     });
     
 }
+#pragma mark - load more
 
+-(void)addLoadMore{
+    
+    self.collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(insertRowAtBottom )];
+    
+}
 
-
-
-
+-(void)insertRowAtBottom{
+    
+    [self getDataForFirstTime:NO];
+}
 
 #pragma mark - Navigation
 

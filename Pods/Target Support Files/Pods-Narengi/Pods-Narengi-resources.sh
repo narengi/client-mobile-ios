@@ -86,6 +86,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "GBKUIButtonProgressView/GBKUIButtonProgressView/ic_control_stop@3x.png"
   install_resource "GoogleMaps/Subspecs/Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"
   install_resource "IQKeyboardManager/IQKeyBoardManager/Resources/IQKeyboardManager.bundle"
+  install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -95,6 +96,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "GBKUIButtonProgressView/GBKUIButtonProgressView/ic_control_stop@3x.png"
   install_resource "GoogleMaps/Subspecs/Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"
   install_resource "IQKeyboardManager/IQKeyBoardManager/Resources/IQKeyboardManager.bundle"
+  install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
 fi
 

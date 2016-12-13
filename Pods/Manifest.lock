@@ -44,6 +44,7 @@ PODS:
   - IQKeyboardManager (3.3.6)
   - JDStatusBarNotification (1.5.3)
   - JTCalendar (2.1.5)
+  - MJRefresh (3.1.12)
   - MZAppearance (1.1.6)
   - MZFormSheetPresentationController (2.2.1):
     - MZAppearance
@@ -67,6 +68,7 @@ DEPENDENCIES:
   - IQKeyboardManager
   - JDStatusBarNotification
   - JTCalendar
+  - MJRefresh
   - MZFormSheetPresentationController (~> 2.1)
   - Reachability
   - REFrostedViewController
@@ -95,6 +97,7 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 037cf3aec1d0a045108859a47818714eb1bfc149
   JDStatusBarNotification: 29413865af11c862c17180610b0f46a21118b412
   JTCalendar: 57a4420f12d10c93c3b28da96803e7043d1c9281
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MZAppearance: 0c06d3fa9cc55142f1da14bc8631fbe8fd6e19d5
   MZFormSheetPresentationController: 97b4ea7a52a8bd451ac93c1a1c6b5095e2326d1c
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
@@ -105,6 +108,6 @@ SPEC CHECKSUMS:
   SZTextView: 3a81174dce0710a9ab069bc73a813e6df53b9c82
   THLabel: 1a23e71d7738abfeacaf22ab409b981209b105ae
 
-PODFILE CHECKSUM: b5a5a7556bd4d7a169aa7f9a051041ff0265f31b
+PODFILE CHECKSUM: c8b4b08435135281dcb28d2663779b94ea2bcf5f
 
 COCOAPODS: 1.0.1
