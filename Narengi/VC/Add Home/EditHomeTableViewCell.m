@@ -15,6 +15,8 @@
     
     self.indexLabel.layer.cornerRadius = 15;
     self.indexLabel.layer.masksToBounds = YES;
+    
+    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     // Initialization code
 }
 

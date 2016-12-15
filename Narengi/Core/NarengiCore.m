@@ -324,6 +324,27 @@ NarengiCore *sharedInstance;
             
             if (isDetail) {
                 
+                NSDateFormatter* df = [[NSDateFormatter alloc]init];
+                [df setDateFormat: @"yyyy-MM-dd'T'HH:mm:ss zzz"];
+                houseObj.firstDate      = [df dateFromString:[dict objectForKey:@"first_date"]];
+                
+                
+                NSDateFormatter *format = [[NSDateFormatter alloc] init];
+                [format setDateFormat:@"YYYY-MM-dd"];
+                
+                NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+                dateFormat = [format changetoShortFormmat];
+                
+                if (houseObj.firstDate != nil){
+                    houseObj.firstDateStr =  [[dateFormat stringFromDate: houseObj.firstDate] stringByReplacingOccurrencesOfString:@" ه‍.ش." withString:@""];
+                }
+                else{
+                    houseObj.firstDateStr = @"-";
+                }
+                
+                
+                houseObj.address         = [[[dict objectForKey:@"location"] objectForKey:@"address"] checkNull];
+                
                 houseObj.imageUrls       = [self parsImageArrayWithStyle:[dict objectForKey:@"pictures"]];
                 houseObj.commentsArr     = [self parsComments:[[dict objectForKey:@"Reviews"] checkNull]];
                 houseObj.reviewCount  = [[[dict objectForKey:@"reviewsCount"] checkNull] stringValue];
@@ -334,16 +355,16 @@ NarengiCore *sharedInstance;
                 
                 houseObj.type          = [[[[dict objectForKey:@"type"] checkNull] objectForKey:@"title"] checkNull];
                 
-                houseObj.bedroomCount  = [[[[[dict objectForKey:@"spec"] checkNull] objectForKey:@"bedroom_count"] checkNull] stringValue];
+                houseObj.bedroomCount  = [[[[[dict objectForKey:@"spec"] checkNull] objectForKey:@"bedroom"] checkNull] stringValue];
                 
                 houseObj.guestCount    = [[[[[dict objectForKey:@"spec"] checkNull] objectForKey:@"guest_count"] checkNull] stringValue];
                 
-                houseObj.bedCount      = [[[[[dict objectForKey:@"spec"] checkNull] objectForKey:@"bed_count"] checkNull ] stringValue];
+                houseObj.bedCount      = [[[[[dict objectForKey:@"spec"] checkNull] objectForKey:@"bed"] checkNull ] stringValue];
                 
                 houseObj.maxGuestCount = [[[[[dict objectForKey:@"spec"] checkNull] objectForKey:@"max_guest_count"] checkNull] integerValue];
                 
                 houseObj.price           = [[[[dict objectForKey:@"prices"] objectForKey:@"price"] checkNull] integerValue];
-                houseObj.extraGuestPrice = [[[dict objectForKey:@"Price"] objectForKey:@"extraGuestPrice"] integerValue];
+                houseObj.extraGuestPrice = [[[dict objectForKey:@"prices"] objectForKey:@"extra_guest_price"] integerValue];
                 
                 CommissionObjetc *commObj = [[CommissionObjetc alloc] init];
                 

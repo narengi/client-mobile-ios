@@ -143,7 +143,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZ4-R0-c0A">
                                         <rect key="frame" x="0.0" y="0.0" width="396" height="1"/>
-                                        <color key="backgroundColor" red="0.50588235290000005" green="0.50588235290000005" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.76080471277236938" green="0.75689500570297241" blue="0.7567247748374939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="0.5" id="xf8-BB-N85"/>
                                         </constraints>
@@ -186,7 +186,7 @@
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vd-FR-QTM">
                                         <rect key="frame" x="132" y="0.0" width="1" height="77"/>
-                                        <color key="backgroundColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.76080471277236938" green="0.75689500570297241" blue="0.7567247748374939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="0.5" id="uk8-PY-cfo"/>
                                         </constraints>
@@ -196,7 +196,7 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcE-Q1-8Bd">
                                         <rect key="frame" x="264" y="0.0" width="1" height="77"/>
-                                        <color key="backgroundColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.76080471277236938" green="0.75689500570297241" blue="0.7567247748374939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="77" id="thF-8V-WUN"/>
                                             <constraint firstAttribute="width" constant="0.5" id="v0k-dU-7ES"/>
@@ -206,7 +206,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.90588784217834473" green="0.90200155973434448" blue="0.90180641412734985" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="8vd-FR-QTM" secondAttribute="bottom" id="3PP-Af-FFN"/>
                                     <constraint firstItem="OZ4-R0-c0A" firstAttribute="leading" secondItem="A4F-L9-Vsz" secondAttribute="leading" id="7ep-nB-Kpm"/>
@@ -237,7 +237,7 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pwb-v1-L2i" customClass="CustomFaRegularLabel">
                                 <rect key="frame" x="0.0" y="54" width="112" height="33"/>
-                                <color key="backgroundColor" red="0.94117647059999998" green="0.38823529410000002" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.95066255331039429" green="0.3872087299823761" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="8Fu-bS-jXp"/>
                                     <constraint firstAttribute="width" constant="112" id="FtC-xH-4wV"/>
@@ -253,7 +253,7 @@
                                     <constraint firstAttribute="height" constant="41" id="yeY-79-ra4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.4979824423789978" green="0.49807190895080566" blue="0.49797677993774414" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -299,6 +299,7 @@
             <connections>
                 <outlet property="availableFirstDay" destination="bYQ-Rq-hLV" id="dTQ-Vz-zwB"/>
                 <outlet property="bedCountLabel" destination="gGO-I4-8rG" id="8hr-q5-j1B"/>
+                <outlet property="containerView" destination="oLQ-z2-fBo" id="vd2-7n-sTi"/>
                 <outlet property="deleteButton" destination="Y0r-63-yEo" id="vC1-nZ-WJ0"/>
                 <outlet property="editButton" destination="lgK-6l-G0A" id="wHO-k3-dM3"/>
                 <outlet property="houseTypeLabel" destination="5B8-t7-mPb" id="xMN-LV-Qzf"/>

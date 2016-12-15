@@ -8,8 +8,9 @@
 
 #import "EditHoumeListViewController.h"
 #import "EditHomeTableViewCell.h"
+#import "InsertNameAndDescriptionViewController.h"
 
-@interface EditHoumeListViewController ()
+@interface EditHoumeListViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) NSArray *titlesArr;
 
@@ -24,6 +25,13 @@
     
     self.title  = @"ویرایش اطلاعات مسکن";
     [self changeLeftIcontoBack];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(houseChanged:) name:@"oneFuckingHouseChanged" object:nil];
+}
+
+-(void)houseChanged:(NSNotification *)notification{
+
+    self.houseObj = notification.object;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,6 +62,29 @@
     cell.indexLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row+1];
     
     return  cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    switch (indexPath.row ) {
+        case 0:
+            [self performSegueWithIdentifier:@"goToEditInfoVCID" sender:nil];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+    
+    if ([segue.identifier isEqualToString:@"goToEditInfoVCID"]) {
+        
+        InsertNameAndDescriptionViewController *vc = segue.destinationViewController;
+        vc.isComingFromEdit = YES;
+        vc.houseObj = [self.houseObj copy];
+    }
 }
 
 @end

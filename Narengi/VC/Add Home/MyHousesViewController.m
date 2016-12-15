@@ -41,10 +41,39 @@
     
     [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"authorization"];
 
-
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 10, 0);
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(houseChanged:) name:@"oneFuckingHouseChanged" object:nil];
 }
 
+-(void)houseChanged:(NSNotification *)notification{
+    
+    HouseObject *houseObj = notification.object;
+    
+    NSInteger curentIdx = [self.houseArr indexOfObjectPassingTest:^BOOL(AroundPlaceObject *obj, NSUInteger idx, BOOL *stop)
+                            {
+                                if ([obj.houseObject.ID isEqualToString:houseObj.ID] ) {
+                                    
+                                    return YES;
+                                }
+                                else{
+                                    return NO;
+                                }
+                                
+                                
+                            }];
+    if (curentIdx != NSNotFound) {
+        
+        AroundPlaceObject *aroundObj = self.houseArr[curentIdx];
+        aroundObj.houseObject = houseObj;
+        
+        [self.houseArr replaceObjectAtIndex:curentIdx withObject:aroundObj];
+        
+        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:curentIdx inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+    }
+    
+    
+}
 
 -(void)addPullToRefresh{
     
@@ -220,14 +249,13 @@
     cell.priceLabel.text = house.cost;
     
     
-    cell.availableFirstDay.text = [NSString stringWithFormat:@"اولین تاریخ آزاد:\n%@",@""];
+    cell.availableFirstDay.text = [NSString stringWithFormat:@"اولین تاریخ آزاد:\n%@",house.firstDateStr];
     
     return  cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    
     HouseObject *house = [(AroundPlaceObject*)self.houseArr[indexPath.row] houseObject];
     [self goToEditHomeWithHouseObj:house];
     
@@ -303,17 +331,17 @@
             if (!serverRs.hasErro) {
                 
                 NSInteger curentIdx = [self.houseArr indexOfObjectPassingTest:^BOOL(AroundPlaceObject *obj, NSUInteger idx, BOOL *stop)
-                                     {
-                                         if ([obj.houseObject.ID isEqualToString:houseObj.ID] ) {
-                                            
-                                             return YES;
-                                         }
-                                         else{
-                                             return NO;
-                                         }
-                                         
-                                         
-                                     }];
+                                       {
+                                           if ([obj.houseObject.ID isEqualToString:houseObj.ID] ) {
+                                               
+                                               return YES;
+                                           }
+                                           else{
+                                               return NO;
+                                           }
+                                           
+                                           
+                                       }];
                 if (curentIdx != NSNotFound) {
                     
                     [self.houseArr removeObjectAtIndex:curentIdx];

@@ -13,4 +13,6 @@
 @property (nonatomic,strong) HouseObject *houseObj;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 
+@property (nonatomic) BOOL isComingFromEdit;
+
 @end

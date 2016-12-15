@@ -17,6 +17,7 @@
 @property (nonatomic) GeoPointObject   *geoObj;
 @property (nonatomic) NSString         *cityName;
 @property (nonatomic) NSString         *province;
+@property (nonatomic) NSString         *address;
 @property (nonatomic) NSArray          *imageUrls;
 @property (nonatomic) HostObject       *host;
 @property (nonatomic) NSString         *cost;
@@ -44,6 +45,9 @@
 @property (nonatomic) NSString         *reviewCount;
 @property (nonatomic) CommissionObjetc *commissionObj;
 @property (nonatomic) NSInteger        maxGuestCount;
+
+@property (nonatomic) NSDate           *firstDate;
+@property (nonatomic) NSString         *firstDateStr;
 
 
 

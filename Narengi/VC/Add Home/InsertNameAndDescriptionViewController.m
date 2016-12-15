@@ -22,9 +22,13 @@
 @property (weak, nonatomic) IBOutlet SZTextView *paymentDesc;
 @property (nonatomic,strong) NSDictionary *selectedProvince;
 @property (nonatomic,strong) NSString *selectedCity;
+@property (nonatomic,strong) NSString *selectedProvinceStr;
 
 @property (weak, nonatomic) IBOutlet CustomFaRegularLabel *provinceLabel;
 @property (weak, nonatomic) IBOutlet CustomFaRegularLabel *cityLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *stepsViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollTopSpace;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -35,10 +39,27 @@
     [super viewDidLoad];
     
     self.title = @"عنوان و توضیح";
-    self.houseObj = [[HouseObject alloc] init];
-    [self changeRightButtonToClose];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    if (self.isComingFromEdit) {
+        
+        self.stepsViewHeightConstraint.constant  = 0;
+        [self.containerView layoutIfNeeded];
+        self.scrollTopSpace.constant = 0;
+        [self.scrollView layoutIfNeeded];
+        [self fillData];
+        self.containerView.hidden = YES;
+        [self changeLeftIcontoBack];
+    }
+    else{
+    
+        self.houseObj = [[HouseObject alloc] init];
+        [self changeRightButtonToClose];
+
+    }
+    
+    
     
 }
 
@@ -146,7 +167,7 @@
 
 -(BOOL)checkProvinceAndCity{
 
-    if (self.selectedProvince != nil && self.selectedCity != nil)
+    if (self.selectedProvinceStr != nil && self.selectedCity != nil)
         return YES;
     
     else
@@ -210,8 +231,11 @@
         SelectProvinceViewController *vc = (SelectProvinceViewController *)presentedFSViewController;
         if (vc.isSelectProvince) {
             
+            
             self.selectedProvince = vc.selectedProvince;
-            self.provinceLabel.text = [self.selectedProvince objectForKey:@"name"];
+            
+            self.selectedProvinceStr  = [self.selectedProvince objectForKey:@"name"];
+            self.provinceLabel.text = self.selectedProvinceStr ;
             
         }
         
@@ -279,7 +303,7 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
-        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"POST" andWithService:@"houses" andWithParametrs:nil andWithBody:[self makeJson] andIsFullPath:NO];
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:self.isComingFromEdit ? @"PUT" : @"POST" andWithService:self.isComingFromEdit ? [NSString stringWithFormat:@"houses/%@",self.houseObj.ID] : @"houses" andWithParametrs:nil andWithBody:[self makeJson] andIsFullPath:NO];
         
         dispatch_async(dispatch_get_main_queue(),^{
             
@@ -288,7 +312,15 @@
              
                 self.houseObj =  [(AroundPlaceObject *)[[[NarengiCore sharedInstance] parsAroudPlacesWith:@[serverRs.backData] andwithType:@"House" andIsDetail:YES] firstObject] houseObject];
                 
-                [self performSegueWithIdentifier:@"goToInsertLocation" sender:nil];
+                if (self.isComingFromEdit) {
+                    
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"oneFuckingHouseChanged" object:self.houseObj];
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                }
+                else{
+                    [self performSegueWithIdentifier:@"goToInsertLocation" sender:nil];
+                }
 
             }
             else{
@@ -313,7 +345,10 @@
     
     NSMutableDictionary* bodyDict =[[NSMutableDictionary alloc] init];
     
-    [bodyDict addEntriesFromDictionary: @{@"Name":self.titleTextField.text,@"location":@{@"City":self.selectedCity,@"Province":[self.selectedProvince objectForKey:@"name"]},@"Summary":self.desciptionTextView.text, @"Price":@{}}];
+    [bodyDict addEntriesFromDictionary: @{@"Name":self.titleTextField.text,
+                                          @"location":@{@"city":self.selectedCity,@"province":self.selectedProvinceStr,@"address":self.addressTextView.text
+                                                        }
+                                          ,@"Summary":self.desciptionTextView.text}];
     NSData *bodyData = [NSJSONSerialization dataWithJSONObject:[bodyDict copy] options:0 error:nil];
     
     
@@ -338,6 +373,21 @@
         vc.houseObj = self.houseObj;
 
     }
+}
+
+#pragma mark - edit
+-(void)fillData{
+
+    self.titleTextField.text = self.houseObj.name;
+    self.desciptionTextView.text = self.houseObj.summary;
+    
+    self.selectedProvinceStr = self.houseObj.province;
+    self.selectedCity        = self.houseObj.cityName;
+    
+    self.provinceLabel.text = self.houseObj.province;
+    self.cityLabel.text     = self.houseObj.cityName;
+    
+    self.addressTextView.text = self.houseObj.address;
 }
 
 @end

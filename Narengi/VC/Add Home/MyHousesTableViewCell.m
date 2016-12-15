@@ -14,6 +14,12 @@
     [super awakeFromNib];
     
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
+    self.containerView.layer.cornerRadius = 2;
+    self.containerView.layer.masksToBounds = YES;
+    
+    self.containerView.layer.borderColor = RGB(193, 193, 193, 1).CGColor;
+    self.containerView.layer.borderWidth = 1;
     // Initialization code
 }
 

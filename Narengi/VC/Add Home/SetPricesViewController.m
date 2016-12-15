@@ -142,11 +142,11 @@
     
     if ([self.extraGuestPriceTextField.text integerValue] > 0) {
     
-        [bodyDict addEntriesFromDictionary: @{@"Spec":@{@"guestCount":[NSNumber numberWithInteger: self.guestCount ],@"maxGuestCount":[NSNumber numberWithInteger:self.maxGuestCount]},@"Price":@{@"extraGuestPrice":self.extraGuestPriceTextField.text}}];
+        [bodyDict addEntriesFromDictionary: @{@"spec":@{@"guest_count":[NSNumber numberWithInteger: self.guestCount ],@"max_guest_count":[NSNumber numberWithInteger:self.maxGuestCount]},@"Price":@{@"extraGuestPrice":self.extraGuestPriceTextField.text}}];
     }
     else{
         
-        [bodyDict addEntriesFromDictionary: @{@"Spec":@{@"guestCount":[NSNumber numberWithInteger: self.guestCount ],@"maxGuestCount":[NSNumber numberWithInteger:self.maxGuestCount]}}];
+        [bodyDict addEntriesFromDictionary: @{@"spec":@{@"guest_count":[NSNumber numberWithInteger: self.guestCount ],@"max_guest_count":[NSNumber numberWithInteger:self.maxGuestCount]}}];
         
     }
     

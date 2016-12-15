@@ -22,7 +22,7 @@
         <scene sceneID="wlv-rW-fcf">
             <objects>
                 <navigationController storyboardIdentifier="addHomNavigationVC" id="0kk-FN-avg" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="V4K-Nm-j3D">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="V4K-Nm-j3D">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -113,6 +113,9 @@
                             <constraint firstItem="LSx-CW-osS" firstAttribute="top" secondItem="aYP-EO-x32" secondAttribute="bottom" id="T9q-7j-3kf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="fyY-mJ-sqb" kind="show" identifier="goToEditInfoVCID" id="Q8V-yL-rZu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3LN-Ua-u4R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -805,6 +808,9 @@
                         <outlet property="desciptionTextView" destination="LQR-8G-cnf" id="Kuf-I8-A62"/>
                         <outlet property="desctiptionContainerView" destination="Lu4-1I-LL9" id="JmS-LF-Son"/>
                         <outlet property="provinceLabel" destination="72t-27-UCp" id="YTj-iT-LhD"/>
+                        <outlet property="scrollTopSpace" destination="2s6-gp-gOU" id="09E-eX-3Th"/>
+                        <outlet property="scrollView" destination="EOC-Ka-puV" id="lLy-mM-Yt2"/>
+                        <outlet property="stepsViewHeightConstraint" destination="Axr-7g-SDh" id="279-1m-fq1"/>
                         <outlet property="titleTextField" destination="rax-eY-5nV" id="bD4-vz-708"/>
                         <outlet property="titleViewcontainer" destination="g1b-P3-FGH" id="WtB-Ge-vQ1"/>
                         <segue destination="OqB-Vu-iDF" kind="show" identifier="goToInsertLocation" id="hMb-aT-ne1"/>
@@ -4700,6 +4706,7 @@
         <image name="plusbtn" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Q8V-yL-rZu"/>
         <segue reference="7r0-LW-KYj"/>
     </inferredMetricsTieBreakers>
 </document>

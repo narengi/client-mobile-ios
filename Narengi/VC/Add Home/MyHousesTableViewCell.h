@@ -21,5 +21,6 @@
 @property (weak, nonatomic) IBOutlet IranButton *deleteButton;
 @property (weak, nonatomic) IBOutlet IranButton *viewButton;
 @property (weak, nonatomic) IBOutlet CustomFaRegularLabel *availableFirstDay;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 
 @end

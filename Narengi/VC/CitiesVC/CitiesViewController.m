@@ -168,8 +168,7 @@
     
     AroundPlaceObject *aroundObj = self.aroundPArr[indexPath.row];
     
-    HouseCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"houseCellID"
-                                                                                   forIndexPath:indexPath];
+    HouseCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"houseCellID"  forIndexPath:indexPath];
     
     NSString *str = @"";
     str = [str stringByAppendingString:aroundObj.houseObject.cost == nil ? @"" : aroundObj.houseObject.cost];

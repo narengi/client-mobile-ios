@@ -157,7 +157,7 @@
     
     NSMutableDictionary* bodyDict =[[NSMutableDictionary alloc] init];
     
-    [bodyDict addEntriesFromDictionary: @{@"Spec":@{@"bedroomCount":[NSNumber numberWithInteger: self.roomCount ],@"bedCount":[NSNumber numberWithInteger:self.bedCount]},@"Price":@{@"Price":self.priceTextField.text}}];
+    [bodyDict addEntriesFromDictionary: @{@"spec":@{@"bedroom":[NSNumber numberWithInteger: self.roomCount ],@"bed":[NSNumber numberWithInteger:self.bedCount]},@"Price":@{@"Price":self.priceTextField.text}}];
     NSData *bodyData = [NSJSONSerialization dataWithJSONObject:[bodyDict copy] options:0 error:nil];
     
     
