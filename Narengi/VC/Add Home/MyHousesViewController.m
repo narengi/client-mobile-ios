@@ -39,7 +39,7 @@
     
     [self addPullToRefresh];
     
-    [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"access-token"];
+    [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"authorization"];
 
 
     
@@ -71,7 +71,8 @@
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
-    
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+
 }
 
 /*
@@ -215,6 +216,12 @@
         [cell.img sd_setImageWithURL:house.imageUrls[0] placeholderImage:nil];
     }
     
+    cell.editButton.tag = cell.viewButton.tag = cell.deleteButton.tag = indexPath.row;
+    cell.priceLabel.text = house.cost;
+    
+    
+    cell.availableFirstDay.text = [NSString stringWithFormat:@"اولین تاریخ آزاد:\n%@",@""];
+    
     return  cell;
 }
 
@@ -241,4 +248,108 @@
     
     return 282;
 }
+
+#pragma mark - button
+- (IBAction)deleteButtonClicked:(UIButton *)sender {
+    
+    HouseObject *house = [(AroundPlaceObject*)self.houseArr[sender.tag] houseObject];
+    [self showDeleteHouseAlert:house andWithIndex:sender.tag];
+
+}
+
+-(void)showDeleteHouseAlert:(HouseObject *)houseObj andWithIndex:(NSInteger) index{
+
+    UIAlertController *buyAlert = [UIAlertController alertControllerWithTitle:@""
+                                                                      message:[NSString stringWithFormat:@"آیا از حذف خانه %@ اطمینان دارید؟",houseObj.name]
+                                                               preferredStyle:UIAlertControllerStyleAlert                   ];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"تایید"
+                         style:UIAlertActionStyleDestructive
+                         handler:^(UIAlertAction * action)
+                         
+                         {
+                             [self deleteHouse:houseObj andWithIndex:index];
+                         }];
+    
+    UIAlertAction* cancel = [UIAlertAction
+                             actionWithTitle:@"انصراف"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [buyAlert dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+    
+    [buyAlert addAction: ok];
+    [buyAlert addAction: cancel];
+    
+    [self presentViewController:buyAlert animated:YES completion:nil];
+}
+
+-(void)deleteHouse:(HouseObject *)houseObj andWithIndex:(NSInteger)index{
+
+    
+    REACHABILITY
+    
+    [SVProgressHUD showWithStatus:@"در حال ارسال اطلاعات" maskType:SVProgressHUDMaskTypeGradient];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+        
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"Delete" andWithService:[NSString stringWithFormat:@"%@/%@",HOUSESERVICE,houseObj.ID] andWithParametrs:nil andWithBody:nil andIsFullPath:NO];
+        
+        dispatch_async(dispatch_get_main_queue(),^{
+            
+            if (!serverRs.hasErro) {
+                
+                NSInteger curentIdx = [self.houseArr indexOfObjectPassingTest:^BOOL(AroundPlaceObject *obj, NSUInteger idx, BOOL *stop)
+                                     {
+                                         if ([obj.houseObject.ID isEqualToString:houseObj.ID] ) {
+                                            
+                                             return YES;
+                                         }
+                                         else{
+                                             return NO;
+                                         }
+                                         
+                                         
+                                     }];
+                if (curentIdx != NSNotFound) {
+                    
+                    [self.houseArr removeObjectAtIndex:curentIdx];
+                    
+                    [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:curentIdx inSection:0]] withRowAnimation:UITableViewRowAnimationRight];
+                }
+            }
+            else{
+                
+                [self showError:@"اشکال در ارسال اطلاعات"];
+            }
+            
+            
+            [SVProgressHUD dismiss];
+            
+        });
+    });
+
+    
+}
+
+
+- (IBAction)editButtonClicked:(UIButton *)sender {
+    
+    HouseObject *house = [(AroundPlaceObject*)self.houseArr[sender.tag] houseObject];
+    
+    [self goToEditHomeWithHouseObj:house];
+
+}
+- (IBAction)viewButtonClicked:(UIButton *)sender {
+    
+    AroundPlaceObject *aroundObj = self.houseArr[sender.tag];
+    
+    [self goToDetailWithArroundObject:aroundObj];
+
+}
+
+
 @end

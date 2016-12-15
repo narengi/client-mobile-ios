@@ -17,5 +17,9 @@
 @property (weak, nonatomic) IBOutlet CustomFaLightLabel *houseTypeLabel;
 @property (weak, nonatomic) IBOutlet CustomFaLightLabel *bedCountLabel;
 @property (weak, nonatomic) IBOutlet CustomFaLightLabel *roomCountLabel;
+@property (weak, nonatomic) IBOutlet IranButton *editButton;
+@property (weak, nonatomic) IBOutlet IranButton *deleteButton;
+@property (weak, nonatomic) IBOutlet IranButton *viewButton;
+@property (weak, nonatomic) IBOutlet CustomFaRegularLabel *availableFirstDay;
 
 @end

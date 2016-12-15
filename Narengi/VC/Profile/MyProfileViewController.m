@@ -58,7 +58,7 @@
 
     self.nameLabel.text = [[self.userObject.fisrtName stringByAppendingString:@" "] stringByAppendingString:self.userObject.lastName];
     
-    [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"access-token"];
+    [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"authorization"];
     
     [self.avatarImg sd_setImageWithURL:self.userObject.avatarUrl placeholderImage:nil options:SDWebImageRefreshCached];
 

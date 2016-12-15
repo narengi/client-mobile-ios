@@ -81,7 +81,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 
     
     
-    [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"access-token"];
+    [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"authorization"];
 
     
 }

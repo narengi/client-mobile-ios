@@ -63,7 +63,7 @@ NarengiCore *sharedInstance;
     NSString *token  = [[NSUserDefaults standardUserDefaults] objectForKey:@"fuckingLoginedOrNOT"];
     
     if (token != nil )
-        [request addValue:[self makeAuthurizationValue] forHTTPHeaderField:@"access-token"];
+        [request addValue:[self makeAuthurizationValue] forHTTPHeaderField:@"authorization"];
 
 
     
@@ -151,7 +151,7 @@ NarengiCore *sharedInstance;
     [request setHTTPBody:body];
 
     [request addValue:@"mobile" forHTTPHeaderField:@"src"];
-    [request addValue:[self makeAuthurizationValue] forHTTPHeaderField:@"access-token"];
+    [request addValue:[self makeAuthurizationValue] forHTTPHeaderField:@"authorization"];
     
     NSError *error = nil;
     NSHTTPURLResponse* response;
@@ -205,7 +205,7 @@ NarengiCore *sharedInstance;
     [request setHTTPBody:body];
     
     [request addValue:@"mobile" forHTTPHeaderField:@"src"];
-    [request addValue:[self makeAuthurizationValue] forHTTPHeaderField:@"access-token"];
+    [request addValue:[self makeAuthurizationValue] forHTTPHeaderField:@"authorization"];
     
     NSError *error = nil;
     NSHTTPURLResponse* response;
@@ -258,7 +258,9 @@ NarengiCore *sharedInstance;
 
 -(NSString *)makeAuthurizationValue{
 
-    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"fuckingLoginedOrNOT"];
+    NSString *tokenStr = [[NSUserDefaults standardUserDefaults] objectForKey:@"fuckingLoginedOrNOT"];
+    NSString *token = [NSString stringWithFormat:@"bearer %@",tokenStr];
+    
 //    NSString *user  = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginedUser"];
 ////    
 ////    NSDictionary* authenticateDict ;
@@ -566,7 +568,7 @@ NarengiCore *sharedInstance;
     
     UserObject *userObj = [[UserObject alloc] init];
     
-    userObj.avatarUrl       = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASEURL,[[[[[dict objectForKey:@"profile"] checkNull]  objectForKey:@"picture"] checkNull] objectForKey:@"url"]]];
+    userObj.avatarUrl       = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGEBASEURL,[[[[[dict objectForKey:@"profile"] checkNull]  objectForKey:@"picture"] checkNull] objectForKey:@"url"]]];
     userObj.fisrtName       = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"firstName"] checkNull];
     userObj.lastName        = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"lastName"] checkNull];
     userObj.email           = [dict objectForKey:@"email"];
@@ -623,7 +625,7 @@ NarengiCore *sharedInstance;
         
         if ([obj isKindOfClass:[NSString class]]) {
         
-            [muArr addObject:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://api.narengi.xyz/api",obj]]];
+            [muArr addObject:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGEBASEURL,obj]]];
         }
         
     }];
@@ -638,7 +640,7 @@ NarengiCore *sharedInstance;
         
         if ([obj isKindOfClass:[NSDictionary class]]) {
             
-            [muArr addObject:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://api.narengi.xyz/api",[obj objectForKey:@"url"]]]];
+            [muArr addObject:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"http://api.narengi.xyz/v1",[obj objectForKey:@"url"]]]];
         }
         
     }];
