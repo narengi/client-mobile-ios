@@ -93,15 +93,35 @@
 }
 - (IBAction)hostingButtonClicked:(UIButton *)sender {
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    NSString *currentToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"fuckingLoginedOrNOT"];
+
+    if (currentToken != nil) {
     
-    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"hostingNaviagtionVCID"];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"hostingNaviagtionVCID"];
+        
+        self.frostedViewController.contentViewController = navigationController;
+        [self.frostedViewController hideMenuViewController];
+    }
+    else
+    {
+        
+        [self registerClicked:nil];
+    }
     
-    self.frostedViewController.contentViewController = navigationController;
-    [self.frostedViewController hideMenuViewController];
     
 }
 
+- (IBAction)settingButtonClicked:(UIButton *)sender {
+    
+    [self showBetaAlert];
+}
+- (IBAction)guidButtonClciked:(id)sender {
+    
+    [self showBetaAlert];
+}
 
 
 
