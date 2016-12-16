@@ -17,5 +17,7 @@
 
 @property (strong, nonatomic) JTCalendarManager *calendarManager;
 @property (nonatomic,strong) HouseObject *houseObj;
+@property (nonatomic) BOOL isComingFromEdit;
+
 
 @end

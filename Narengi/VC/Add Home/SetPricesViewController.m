@@ -14,9 +14,20 @@
 
 @property (weak, nonatomic) IBOutlet CustomFaRegularLabel *guestCountLabel;
 @property (weak, nonatomic) IBOutlet CustomFaRegularLabel *maxGuestCountLabel;
+@property (weak, nonatomic) IBOutlet CustomFaRegularLabel *guestCountTitleLabel;
 
 @property (nonatomic) NSInteger  guestCount;
 @property (nonatomic) NSInteger  maxGuestCount;
+
+
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+
+@property (weak, nonatomic) IBOutlet AddHomeButton *preButton;
+@property (weak, nonatomic) IBOutlet AddHomeButton *nextButton;
+
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *stepsViewHeightConstraint;
+
 @end
 
 @implementation SetPricesViewController
@@ -24,13 +35,32 @@
 - (void)viewDidLoad {
     
     [self changeLeftIcontoBack];
-    [self changeRightButtonToClose];
     
     self.title = @"اطلاعات مهمان";
     
-    self.maxGuestCount = 1;
-    self.guestCount    = 1;
+    
     [super viewDidLoad];
+    
+    if (self.isComingFromEdit) {
+        
+        self.stepsViewHeightConstraint.constant  = 0;
+        [self.containerView layoutIfNeeded];
+        [self.guestCountTitleLabel layoutIfNeeded];
+        [self fillData];
+        self.containerView.hidden = YES;
+        
+        [self.preButton setTitle:@"انصراف" forState:UIControlStateNormal];
+        [self.nextButton setTitle:@"تایید" forState:UIControlStateNormal];
+        
+    }
+    else{
+        
+        self.maxGuestCount = 1;
+        self.guestCount    = 1;
+        self.houseObj = [[HouseObject alloc] init];
+        [self changeRightButtonToClose];
+        
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -111,8 +141,15 @@
                 
                 self.houseObj =  [(AroundPlaceObject *)[[[NarengiCore sharedInstance] parsAroudPlacesWith:@[serverRs.backData] andwithType:@"House" andIsDetail:YES] firstObject] houseObject];
                 
-                [self performSegueWithIdentifier:@"goToSelectFacilityVCID" sender:nil];
-                
+                if (self.isComingFromEdit) {
+                    
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"oneFuckingHouseChanged" object:self.houseObj];
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                }
+                else{
+                    [self performSegueWithIdentifier:@"goToSelectFacilityVCID" sender:nil];
+                }
                 
             }
             else{
@@ -142,7 +179,7 @@
     
     if ([self.extraGuestPriceTextField.text integerValue] > 0) {
     
-        [bodyDict addEntriesFromDictionary: @{@"spec":@{@"guest_count":[NSNumber numberWithInteger: self.guestCount ],@"max_guest_count":[NSNumber numberWithInteger:self.maxGuestCount]},@"Price":@{@"extraGuestPrice":self.extraGuestPriceTextField.text}}];
+        [bodyDict addEntriesFromDictionary: @{@"spec":@{@"guest_count":[NSNumber numberWithInteger: self.guestCount ],@"max_guest_count":[NSNumber numberWithInteger:self.maxGuestCount]},@"Price":@{@"extraGuestPrice":[self.extraGuestPriceTextField.text fixPersianArabaicnumberString]}}];
     }
     else{
         
@@ -167,6 +204,19 @@
         SelectFacilityViewController *vc  = segue.destinationViewController;
         vc.houseObj = self.houseObj;
     }
+}
+
+#pragma mark - edit
+
+-(void)fillData{
+    
+    self.extraGuestPriceTextField.text = [NSString stringWithFormat:@"%ld", (long)self.houseObj.extraGuestPrice ];
+    
+    
+    self.maxGuestCount  = self.houseObj.maxGuestCount;
+    self.guestCount = [self.houseObj.guestCount integerValue];
+    
+    [self updateLabels];
 }
 
 @end

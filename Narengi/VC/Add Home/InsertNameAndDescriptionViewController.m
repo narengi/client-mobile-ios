@@ -30,6 +30,9 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollTopSpace;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
+@property (weak, nonatomic) IBOutlet AddHomeButton *nextButton;
+
+
 @end
 
 @implementation InsertNameAndDescriptionViewController
@@ -51,6 +54,9 @@
         [self fillData];
         self.containerView.hidden = YES;
         [self changeLeftIcontoBack];
+        
+        [self.nextButton setTitle:@"تایید" forState:UIControlStateNormal];
+
     }
     else{
     
@@ -378,16 +384,14 @@
 #pragma mark - edit
 -(void)fillData{
 
-    self.titleTextField.text = self.houseObj.name;
+    self.selectedProvinceStr     = self.houseObj.province;
+    self.selectedCity            = self.houseObj.cityName;
+    
+    self.titleTextField.text     = self.houseObj.name;
     self.desciptionTextView.text = self.houseObj.summary;
-    
-    self.selectedProvinceStr = self.houseObj.province;
-    self.selectedCity        = self.houseObj.cityName;
-    
-    self.provinceLabel.text = self.houseObj.province;
-    self.cityLabel.text     = self.houseObj.cityName;
-    
-    self.addressTextView.text = self.houseObj.address;
+    self.provinceLabel.text      = self.houseObj.province;
+    self.cityLabel.text          = self.houseObj.cityName;
+    self.addressTextView.text    = self.houseObj.address;
 }
 
 @end

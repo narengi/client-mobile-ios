@@ -39,6 +39,7 @@
 
 
 @property (nonatomic) NSString         *type;
+@property (nonatomic) NSString         *enType;
 @property (nonatomic) NSString         *bedroomCount;
 @property (nonatomic) NSString         *guestCount;
 @property (nonatomic) NSString         *bedCount;

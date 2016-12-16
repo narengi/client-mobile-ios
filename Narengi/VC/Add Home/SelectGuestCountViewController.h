@@ -11,5 +11,7 @@
 @interface SelectGuestCountViewController : UIViewController
 
 @property (nonatomic,strong) HouseObject *houseObj;
+@property (nonatomic) BOOL isComingFromEdit;
+
 
 @end

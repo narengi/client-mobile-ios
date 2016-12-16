@@ -10,6 +10,7 @@
 #import "SelectTypeTableViewCell.h"
 #import "SelectGuestCountViewController.h"
 
+
 @interface SelectTypeViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) NSArray *houseTypesArr;
@@ -17,7 +18,10 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSDictionary *selectedDict;
 @property UIRefreshControl *refreshControl;
-
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *stepsViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollTopSpace;
+@property (weak, nonatomic) IBOutlet AddHomeButton *preButton;
+@property (weak, nonatomic) IBOutlet AddHomeButton *nextButton;
 
 @end
 
@@ -28,7 +32,6 @@
     [super viewDidLoad];
     [self getHouseTypes];
     [self changeLeftIcontoBack];
-    [self changeRightButtonToClose];
 
     self.title = @"نوع مسکن";
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -36,6 +39,27 @@
 
     
     [self setUPullToRefresh];
+    
+    
+    if (self.isComingFromEdit) {
+        
+        self.stepsViewHeightConstraint.constant  = 0;
+        [self.containerView layoutIfNeeded];
+        self.scrollTopSpace.constant = 64;
+        [self.tableView layoutIfNeeded];
+        self.containerView.hidden = YES;
+        
+        self.selectedDict = @{@"enName":self.houseObj.enType,@"faName":self.houseObj.type};
+        
+        
+        [self.preButton setTitle:@"انصراف" forState:UIControlStateNormal];
+        [self.nextButton setTitle:@"تایید" forState:UIControlStateNormal];
+    }
+    else{
+        
+        [self changeRightButtonToClose];
+        
+    }
 }
 
 -(void)setUPullToRefresh{
@@ -102,7 +126,7 @@
     }];
     
     self.houseTypesArr = [muarr copy];
-    self.selectedDict = self.houseTypesArr[indexPath.row];
+    self.selectedDict  = self.houseTypesArr[indexPath.row];
     
     [self.tableView reloadData];
 }
@@ -158,7 +182,7 @@
     
     [arr enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        NSDictionary *dict = @{@"enName":[obj objectForKey:@"key"],@"faName":[obj objectForKey:@"title"],@"isSelected":@NO};
+        NSDictionary *dict = @{@"enName":[obj objectForKey:@"key"],@"faName":[obj objectForKey:@"title"],@"isSelected":self.isComingFromEdit ? [self.houseObj.enType isEqualToString:[obj objectForKey:@"key"]] ? @YES : @NO :@NO};
         [typeMuArr addObject:dict];
         
     }];
@@ -195,10 +219,19 @@
             [SVProgressHUD dismiss];
             if (!serverRs.hasErro) {
                 
-                
                 self.houseObj =  [(AroundPlaceObject *)[[[NarengiCore sharedInstance] parsAroudPlacesWith:@[serverRs.backData] andwithType:@"House" andIsDetail:YES] firstObject] houseObject];
                 
-                [self performSegueWithIdentifier:@"goToSelectGuestCountVC" sender:nil];
+                
+                
+                if (self.isComingFromEdit) {
+                    
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"oneFuckingHouseChanged" object:self.houseObj];
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                }
+                else{
+                    [self performSegueWithIdentifier:@"goToSelectGuestCountVC" sender:nil];
+                }
 
                 
             }

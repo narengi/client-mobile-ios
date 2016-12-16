@@ -17,6 +17,11 @@
 }
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property(nonatomic, retain) CLLocationManager *locationManager;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *stepsViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollTopSpace;
+@property (weak, nonatomic) IBOutlet AddHomeButton *preButton;
+@property (weak, nonatomic) IBOutlet AddHomeButton *nextButton;
+
 
 @end
 
@@ -26,7 +31,6 @@
     
     [super viewDidLoad];
     [self changeLeftIcontoBack];
-    [self changeRightButtonToClose];
 
     self.title = @"موقعیت جغرافیایی";
     
@@ -35,8 +39,18 @@
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager requestAlwaysAuthorization];
     
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:35.758188
-                                                            longitude:51.410776
+    GeoPointObject *geoObj = [[GeoPointObject alloc] init];
+    
+    if (self.isComingFromEdit) {
+        
+        geoObj = self.houseObj.geoObj;
+    }
+    else{
+        
+        geoObj.lat = 35.758188;
+        geoObj.lng = 51.410776;
+    }
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude: geoObj.lat longitude:geoObj.lng
                                                                  zoom:12];
     
     [self.mapView setCamera:camera];
@@ -60,6 +74,23 @@
     });
     
     
+    
+    if (self.isComingFromEdit) {
+        
+        self.stepsViewHeightConstraint.constant  = 0;
+        [self.containerView layoutIfNeeded];
+        self.scrollTopSpace.constant = 0;
+        [self.mapView layoutIfNeeded];
+        self.containerView.hidden = YES;
+        
+        [self.preButton setTitle:@"انصراف" forState:UIControlStateNormal];
+        [self.nextButton setTitle:@"تایید" forState:UIControlStateNormal];
+    }
+    else{
+        
+        [self changeRightButtonToClose];
+        
+    }
     
 
 }
@@ -125,7 +156,15 @@
                 
                 self.houseObj =  [(AroundPlaceObject *)[[[NarengiCore sharedInstance] parsAroudPlacesWith:@[serverRs.backData] andwithType:@"House" andIsDetail:YES] firstObject] houseObject];
 
-                [self performSegueWithIdentifier:@"goSelectType" sender:nil];
+                if (self.isComingFromEdit) {
+                    
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"oneFuckingHouseChanged" object:self.houseObj];
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                }
+                else{
+                    [self performSegueWithIdentifier:@"goSelectType" sender:nil];
+                }
                 
             }
             else{
@@ -172,6 +211,7 @@
     }
     
 }
+
 
 
 @end

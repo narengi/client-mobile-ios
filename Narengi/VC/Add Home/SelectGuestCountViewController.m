@@ -18,8 +18,15 @@
 @property (weak, nonatomic) IBOutlet CustomFaRegularLabel *roomCountLabel;
 @property (weak, nonatomic) IBOutlet CustomFaRegularLabel *bedCountLabel;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *stepsViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollTopSpace;
 
 @property (weak, nonatomic) IBOutlet UITextField *priceTextField;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+
+@property (weak, nonatomic) IBOutlet AddHomeButton *preButton;
+@property (weak, nonatomic) IBOutlet AddHomeButton *nextButton;
+@property (weak, nonatomic) IBOutlet UIView *bedCountContainerView;
 
 @end
 
@@ -30,13 +37,34 @@
     [super viewDidLoad];
     
     [self changeLeftIcontoBack];
-    [self changeRightButtonToClose];
 
     
     self.title = @"اطلاعات اتاق";
 
-    self.bedCount      = 0;
-    self.roomCount     = 0;
+
+    
+    
+    if (self.isComingFromEdit) {
+        
+        self.stepsViewHeightConstraint.constant  = 0;
+        [self.containerView layoutIfNeeded];
+        self.scrollTopSpace.constant = 15;
+        [self.bedCountContainerView layoutIfNeeded];
+        [self fillData];
+        self.containerView.hidden = YES;
+        
+        [self.preButton setTitle:@"انصراف" forState:UIControlStateNormal];
+        [self.nextButton setTitle:@"تایید" forState:UIControlStateNormal];
+        
+    }
+    else{
+        
+        self.bedCount      = 0;
+        self.roomCount     = 0;
+        self.houseObj = [[HouseObject alloc] init];
+        [self changeRightButtonToClose];
+        
+    }
     
 }
 
@@ -127,8 +155,15 @@
                 
                 
                 self.houseObj =  [(AroundPlaceObject *)[[[NarengiCore sharedInstance] parsAroudPlacesWith:@[serverRs.backData] andwithType:@"House" andIsDetail:YES] firstObject] houseObject];
-                
-                [self performSegueWithIdentifier:@"gotoSetelectExtraPrice" sender:nil];
+                if (self.isComingFromEdit) {
+                    
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"oneFuckingHouseChanged" object:self.houseObj];
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                }
+                else{
+                    [self performSegueWithIdentifier:@"gotoSetelectExtraPrice" sender:nil];
+                }
                 
                 
             }
@@ -157,7 +192,7 @@
     
     NSMutableDictionary* bodyDict =[[NSMutableDictionary alloc] init];
     
-    [bodyDict addEntriesFromDictionary: @{@"spec":@{@"bedroom":[NSNumber numberWithInteger: self.roomCount ],@"bed":[NSNumber numberWithInteger:self.bedCount]},@"Price":@{@"Price":self.priceTextField.text}}];
+    [bodyDict addEntriesFromDictionary: @{@"spec":@{@"bedroom":[NSNumber numberWithInteger: self.roomCount ],@"bed":[NSNumber numberWithInteger:self.bedCount]},@"Price":@{@"Price":[self.priceTextField.text fixPersianArabaicnumberString]}}];
     NSData *bodyData = [NSJSONSerialization dataWithJSONObject:[bodyDict copy] options:0 error:nil];
     
     
@@ -201,7 +236,17 @@
     
 }
 
+#pragma mark - edit 
 
+-(void)fillData{
+
+    self.priceTextField.text = [NSString stringWithFormat:@"%ld", (long)self.houseObj.price ];
+    
+    self.bedCount  = [self.houseObj.bedCount integerValue];
+    self.roomCount = [self.houseObj.bedroomCount integerValue];
+    
+    [self updateLabels];
+}
 
 /*
 #pragma mark - Navigation

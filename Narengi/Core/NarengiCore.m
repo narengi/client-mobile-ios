@@ -313,7 +313,7 @@ NarengiCore *sharedInstance;
             houseObj.imageUrls      = [self parsImageArray:[dict objectForKey:@"pictures"]];
             houseObj.rate           = [dict objectForKey:@"Rating"];
             houseObj.roundedRate    = [self roundRate:houseObj.rate];
-            houseObj.geoObj         = [self parsLocation:[dict objectForKey:@"Position"]];
+            houseObj.geoObj         = [self parsLocation:[dict objectForKey:@"position"]];
             
             houseObj.summary        = [dict objectForKey:@"summary"];
            // houseObj.featureSummray = [dict objectForKey:@"features"];
@@ -354,6 +354,7 @@ NarengiCore *sharedInstance;
                 houseObj.exteraServices  = [self parsExtraServices:[dict objectForKey:@"ExtraServices"]];
                 
                 houseObj.type          = [[[[dict objectForKey:@"type"] checkNull] objectForKey:@"title"] checkNull];
+                houseObj.enType        = [[[[dict objectForKey:@"type"] checkNull] objectForKey:@"key"] checkNull];
                 
                 houseObj.bedroomCount  = [[[[[dict objectForKey:@"spec"] checkNull] objectForKey:@"bedroom"] checkNull] stringValue];
                 

@@ -98,6 +98,7 @@
 		729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838BA1BFCB1FC005BC5C3 /* GeoPointObject.m */; };
 		72A26FE11DFFE97C00CB2BEC /* EditHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A26FE01DFFE97C00CB2BEC /* EditHomeTableViewCell.m */; };
 		72A381F01C79FAD80065E1A9 /* PhoneValidateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A381EF1C79FAD80065E1A9 /* PhoneValidateViewController.m */; };
+		72AA06CC1E03E48700E3AE42 /* NSString+PersianArabic.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AA06CB1E03E48700E3AE42 /* NSString+PersianArabic.m */; };
 		72AF71B91CA8410400A50575 /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF71B81CA8410400A50575 /* MyProfileViewController.m */; };
 		72AF71BC1CA954BC00A50575 /* IdentificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF71BB1CA954BC00A50575 /* IdentificationViewController.m */; };
 		72B19A131BFF6B3F007EDD86 /* AttractionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B19A121BFF6B3F007EDD86 /* AttractionObject.m */; };
@@ -342,6 +343,8 @@
 		72A26FE01DFFE97C00CB2BEC /* EditHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditHomeTableViewCell.m; path = "VC/Add Home/EditHomeTableViewCell.m"; sourceTree = "<group>"; };
 		72A381EE1C79FAD80065E1A9 /* PhoneValidateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhoneValidateViewController.h; path = VC/Registeration/PhoneValidateViewController.h; sourceTree = "<group>"; };
 		72A381EF1C79FAD80065E1A9 /* PhoneValidateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhoneValidateViewController.m; path = VC/Registeration/PhoneValidateViewController.m; sourceTree = "<group>"; };
+		72AA06CA1E03E48700E3AE42 /* NSString+PersianArabic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+PersianArabic.h"; path = "Custom Classes/NSString+PersianArabic.h"; sourceTree = "<group>"; };
+		72AA06CB1E03E48700E3AE42 /* NSString+PersianArabic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+PersianArabic.m"; path = "Custom Classes/NSString+PersianArabic.m"; sourceTree = "<group>"; };
 		72AF71B71CA8410400A50575 /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyProfileViewController.h; path = VC/Profile/MyProfileViewController.h; sourceTree = "<group>"; };
 		72AF71B81CA8410400A50575 /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyProfileViewController.m; path = VC/Profile/MyProfileViewController.m; sourceTree = "<group>"; };
 		72AF71BA1CA954BC00A50575 /* IdentificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IdentificationViewController.h; path = VC/Profile/IdentificationViewController.h; sourceTree = "<group>"; };
@@ -778,6 +781,8 @@
 				72BC8A0F1CD74BF2002055FA /* ModalAnimator.m */,
 				7282714F1D0AA0E40038D5F8 /* AddHomeButton.h */,
 				728271501D0AA0E40038D5F8 /* AddHomeButton.m */,
+				72AA06CA1E03E48700E3AE42 /* NSString+PersianArabic.h */,
+				72AA06CB1E03E48700E3AE42 /* NSString+PersianArabic.m */,
 				72C24F241C6D6D3A00026821 /* DZNPhoto */,
 			);
 			name = "Custom Classes";
@@ -1129,6 +1134,7 @@
 				72EA4D731C50F6750053456F /* CustomMarginLabel.m in Sources */,
 				720B92A41C253B3100D1468A /* SearchSectionView.m in Sources */,
 				72B662DD1CC8E1DF00D2B3FB /* SelectProvinceTableViewCell.m in Sources */,
+				72AA06CC1E03E48700E3AE42 /* NSString+PersianArabic.m in Sources */,
 				722A0DD11C917E8E005C6DDB /* BillHeaderView.m in Sources */,
 				72BC8A501CD74CF9002055FA /* UIImagePickerController+Block.m in Sources */,
 				72DFF0E61C106C2F00884E04 /* SearchTableViewCell.m in Sources */,

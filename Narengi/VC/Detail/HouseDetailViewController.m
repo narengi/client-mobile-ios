@@ -96,7 +96,7 @@
     
     self.ownerDesArr = @[@"پروفایل مالک",@"ارتباط با مالک",@"خدمات و خدمت‌های اضافی",@"شرایط و قوانین"];
     self.navigationView.alpha = 0;
-    self.headerFade = [UIScreen mainScreen].bounds.size.width - 150;
+    self.headerFade = [UIScreen mainScreen].bounds.size.width - 250;
 
     [self getData];
     

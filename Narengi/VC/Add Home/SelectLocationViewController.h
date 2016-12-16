@@ -11,6 +11,8 @@
 @interface SelectLocationViewController : UIViewController
 
 @property (nonatomic,strong) HouseObject *houseObj;
+@property (nonatomic) BOOL isComingFromEdit;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 
 
 @end

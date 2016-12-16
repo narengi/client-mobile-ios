@@ -9,6 +9,13 @@
 #import "EditHoumeListViewController.h"
 #import "EditHomeTableViewCell.h"
 #import "InsertNameAndDescriptionViewController.h"
+#import "SelectLocationViewController.h"
+#import "SelectTypeViewController.h"
+#import "SelectTypeViewController.h"
+#import "SetPricesViewController.h"
+#import "SelectGuestCountViewController.h"
+#import "SelectFacilityViewController.h"
+
 
 @interface EditHoumeListViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -71,6 +78,26 @@
             [self performSegueWithIdentifier:@"goToEditInfoVCID" sender:nil];
             break;
             
+        case 1:
+            [self performSegueWithIdentifier:@"goToEditLocationVCID" sender:nil];
+            break;
+            
+        case 2:
+            [self performSegueWithIdentifier:@"goToEditTypeVCID" sender:nil];
+            break;
+            
+        case 3:
+            [self performSegueWithIdentifier:@"goToEditGuestCountVCID" sender:nil];
+            break;
+            
+        case 4:
+            [self performSegueWithIdentifier:@"goToEditPriceVCID" sender:nil];
+            break;
+            
+        case 5:
+            [self performSegueWithIdentifier:@"goToEditFacilityVCID" sender:nil];
+            break;
+            
         default:
             break;
     }
@@ -83,8 +110,39 @@
         
         InsertNameAndDescriptionViewController *vc = segue.destinationViewController;
         vc.isComingFromEdit = YES;
-        vc.houseObj = [self.houseObj copy];
+        vc.houseObj = self.houseObj;
     }
+    else if ([segue.identifier isEqualToString:@"goToEditLocationVCID"]){
+        
+        SelectLocationViewController *vc = segue.destinationViewController;
+        vc.houseObj = self.houseObj;
+        vc.isComingFromEdit = YES;
+    }
+    else if ([segue.identifier isEqualToString:@"goToEditTypeVCID"]){
+        
+        SelectTypeViewController *vc = segue.destinationViewController;
+        vc.houseObj = self.houseObj;
+        vc.isComingFromEdit = YES;
+    }
+    else if ([segue.identifier isEqualToString:@"goToEditGuestCountVCID"]){
+        
+        SelectGuestCountViewController *vc = segue.destinationViewController;
+        vc.houseObj = self.houseObj;
+        vc.isComingFromEdit = YES;
+    }
+    else if ([segue.identifier isEqualToString:@"goToEditPriceVCID"]){
+        
+        SetPricesViewController *vc = segue.destinationViewController;
+        vc.houseObj = self.houseObj;
+        vc.isComingFromEdit = YES;
+    }
+    else if ([segue.identifier isEqualToString:@"goToEditFacilityVCID"]){
+        
+        SelectFacilityViewController *vc = segue.destinationViewController;
+        vc.houseObj = self.houseObj;
+        vc.isComingFromEdit = YES;
+    }
+    
 }
 
 @end

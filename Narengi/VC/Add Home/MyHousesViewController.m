@@ -239,7 +239,7 @@
     
     cell.roomCountLabel.text = [house.bedroomCount stringByAppendingString:@" اتاق"];
     cell.houseTypeLabel.text = house.type;
-    cell.bedCountLabel.text  = [house.bedroomCount stringByAppendingString:@" تخت"];
+    cell.bedCountLabel.text  = [house.bedCount stringByAppendingString:@" تخت"];
     
     if (house.imageUrls.count > 0) {
         [cell.img sd_setImageWithURL:house.imageUrls[0] placeholderImage:nil];
