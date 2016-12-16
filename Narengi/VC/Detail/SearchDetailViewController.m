@@ -9,12 +9,17 @@
 #import "SearchDetailViewController.h"
 #import "SearchDetailAttractionCollectionViewCell.h"
 #import "SearchDetailCityCollectionViewCell.h"
+#import "HouseCollectionViewCell.h"
+
 #import "SearchDetailHomeCollectionViewCell.h"
 
 @interface SearchDetailViewController ()<HouseCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) NSInteger curentRequestcount;
+@property NSInteger skipCount;
+@property UIRefreshControl *refreshControl;
+
 
 @end
 
@@ -25,11 +30,10 @@
     [super viewDidLoad];
     
     [self initSearchBar];
-    [self changeRightIcontoMap];
+   // [self changeRightIcontoMap];
     
-    [self.collectionView registerNib:[UINib nibWithNibName:@"SearchDetailCityCell" bundle:nil] forCellWithReuseIdentifier:@"cityCellID"];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"SearchDetaillAttractionCell" bundle:nil] forCellWithReuseIdentifier:@"attractionCellID"];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"SearchDetailHomeCell" bundle:nil] forCellWithReuseIdentifier:@"homeCellID"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"HouseCell" bundle:nil] forCellWithReuseIdentifier:@"houseCellID"];
+
     
     [self reloadCollctionWithanimation];
     
@@ -40,8 +44,21 @@
                                     initWithTarget:self action:@selector(handleSingleClickOnCollectionView:)];
     lpgr.delegate = self;
     [self.collectionView addGestureRecognizer:lpgr];
-    [self serachWithTerm];
+    [self getDataForFirstTime];
     
+    
+}
+
+-(void)addPullToRefresh{
+    
+    self.collectionView.alwaysBounceVertical = YES;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    self.refreshControl = [[UIRefreshControl alloc]
+                           init];
+    [self.refreshControl addTarget:self action:@selector(getDataForFirstTime) forControlEvents:UIControlEventValueChanged];
+    [self.collectionView addSubview:self.refreshControl];
+    [self.refreshControl setTintColor:[UIColor whiteColor]];
     
 }
 
@@ -103,68 +120,24 @@
     
     AroundPlaceObject *aroundObj = self.aroundPArr[indexPath.row];
     
-    if ([aroundObj.type isEqualToString:@"House"]) {
-        SearchDetailHomeCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"homeCellID" forIndexPath:indexPath];
-        
-        NSString *str = @"";
-        str = [str stringByAppendingString:aroundObj.houseObject.cost];
-        str = [str stringByAppendingString:@"   "];
-        
-        pagerCell.priceLabel.text       = str;
-        pagerCell.descriptionLabel.text = aroundObj.houseObject.featureSummray;
-        pagerCell.titleLabel.text       = aroundObj.houseObject.name;
-        [pagerCell.coverImg sd_setImageWithURL:aroundObj.houseObject.host.imageUrl placeholderImage:nil];
-        pagerCell.priceLabel.layer.cornerRadius = 10;
-        pagerCell.priceLabel.layer.masksToBounds = YES;
-        
-        pagerCell.imageUrls       = aroundObj.houseObject.imageUrls;
-        [pagerCell.pages reloadData];
-        pagerCell.rateImg.image = IMG(([NSString stringWithFormat:@"%f",aroundObj.houseObject.roundedRate]));
-        
-        pagerCell.hostUrl   = aroundObj.houseObject.host.hostURL;
-
-        pagerCell.delegate  = self;
-        return pagerCell;
-
-    }
-    else if ([aroundObj.type isEqualToString:@"Attraction"]) {
-        SearchDetailAttractionCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"attractionCellID" forIndexPath:indexPath];
-
-        pagerCell.titleLabel.text       = aroundObj.attractionObject.name;
-        pagerCell.descriptionLabel.text = aroundObj.attractionObject.aroundHousesText;
-        
-        pagerCell.imageUrls = aroundObj.attractionObject.imageUrls;
-        [pagerCell.pages reloadData];
-       return  pagerCell;
-
-    }
+    HouseCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"houseCellID"  forIndexPath:indexPath];
     
-    else  {
-        
-        SearchDetailCityCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cityCellID" forIndexPath:indexPath];
-        
-        
-        NSString *str = @"";
-        str = [str stringByAppendingString:aroundObj.cityObject.houseCountText];
-        str = [str stringByAppendingString:@"     "];
-        
-        pagerCell.nameLabel.text       = aroundObj.cityObject.name;
-        pagerCell.residentCountLabel.text = str;
-        
-        pagerCell.imageUrls       = aroundObj.cityObject.imageUrls;
-        pagerCell.desciptionLabel.text = aroundObj.cityObject.summary;
-        
-        [pagerCell.pages reloadData];
-        
-        return  pagerCell;
-
-    }
-
-
+    NSString *str = @"";
+    str = [str stringByAppendingString:aroundObj.houseObject.cost == nil ? @"" : aroundObj.houseObject.cost];
+    str = [str stringByAppendingString:@"     "];
+    
+    pagerCell.priceLabel.text       = str;
+    pagerCell.descriptionLabel.text = aroundObj.houseObject.summary;
+    pagerCell.titleLabel.text       = aroundObj.houseObject.name;
+    pagerCell.featuresLabel.text    = aroundObj.houseObject.featureSummray;
+    
+    pagerCell.imageUrls       = aroundObj.houseObject.imageUrls;
+    [pagerCell.pages reloadData];
+    
+    return pagerCell;
+    
+    
 }
-
-
-
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -208,47 +181,86 @@
 
 #pragma mark -search
 
--(void)serachWithTerm{
 
-    [self getDataWithText];
-    
-}
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
 
     self.termrStr = searchText;
-    [self getDataWithText];
+    [self getDataForFirstTime];
 }
 
--(void)getDataWithText{
+-(void)getDataForFirstTime{
+    
+    self.aroundPArr = [[NSMutableArray alloc] init];
+    self.skipCount = 1;
+    [self getDataForFirstTime:YES];
+}
+
+-(void)getDataForFirstTime:(BOOL)firstTime{
+
+    NSArray *parametrs = @[@"perpage=25",[NSString stringWithFormat:@"page=%ld",(long)self.skipCount],[NSString stringWithFormat: @"term=%@",self.termrStr]];
 
     REACHABILITY
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
-        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:SEARCHSERVICE andWithParametrs:@[@"filter[limit]=20",@"filter[skip]=0",[NSString stringWithFormat: @"term=%@",self.termrStr]] andWithBody:nil andIsFullPath:NO];
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:SEARCHSERVICE andWithParametrs:parametrs andWithBody:nil andIsFullPath:NO];
         
         self.curentRequestcount++;
         dispatch_async(dispatch_get_main_queue(),^{
             
             self.curentRequestcount--;
-            self.aroundPArr = @[];
             if (self.curentRequestcount == 0 ) {
                 
                 if (!serverRs.hasErro) {
                     
                     if (serverRs.backData !=nil ) {
                         
-                        self.aroundPArr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData andwithType:nil andIsDetail:NO];
-                        [self reloadCollctionWithanimation];
+                        NSArray *arr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData andwithType:nil andIsDetail:NO];
                         
+                        if (arr.count > 0) {
+                            
+                            [self.aroundPArr addObjectsFromArray:arr];
+                            
+                            if (firstTime)
+                                [self addLoadMore];
+                            
+                            
+                        }
+                        else{
+                            [self.collectionView .mj_footer removeFromSuperview];
+                        }
+                        
+                        [self reloadCollctionWithanimation];
+                     
+                        
+                        self.skipCount ++;
                     }
                     else{
                         //show erro if nedded
                     }
                 }
                 
+                
+                [self.collectionView.mj_footer endRefreshing];
+                [self.refreshControl endRefreshing];
+                [self.collectionView reloadData];
+                
             }
         });
     });
+}
+
+
+#pragma mark - load more
+
+-(void)addLoadMore{
+    
+    self.collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(insertRowAtBottom )];
+    
+}
+
+-(void)insertRowAtBottom{
+    
+    [self getDataForFirstTime:NO];
 }
 
 
