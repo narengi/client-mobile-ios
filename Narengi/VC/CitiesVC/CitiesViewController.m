@@ -233,13 +233,13 @@
 -(void)getDataForFirstTime{
 
     self.aroundPArr = [[NSMutableArray alloc] init];
-    self.skipCount = 0;
+    self.skipCount = 1;
     [self getDataForFirstTime:YES];
 }
 
 -(void)getDataForFirstTime:(BOOL)firstTime{
 
-    NSArray *parametrs = @[@"filter[limit]=20",[NSString stringWithFormat:@"filter[skip]=%ld",(long)self.skipCount]];
+    NSArray *parametrs = @[@"perpage=25",[NSString stringWithFormat:@"page=%ld",(long)self.skipCount]];
     
     REACHABILITY
     
@@ -257,24 +257,16 @@
                         
                         [self.aroundPArr addObjectsFromArray:arr];
                         
-                        if(arr.count < 20)
-                        {
-                            [self.collectionView.mj_footer removeFromSuperview];
-                            
-                        }
-                        else{
-                            
-                            if (firstTime)
-                                [self addLoadMore];
-                        }
+                        if (firstTime)
+                            [self addLoadMore];
+                        
                         
                     }
                     else{
                         [self.collectionView .mj_footer removeFromSuperview];
                     }
                     
-                    
-                    self.skipCount += self.aroundPArr.count;
+                    self.skipCount ++;
                     
                     
                 }

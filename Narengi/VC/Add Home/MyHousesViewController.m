@@ -171,17 +171,9 @@
                     if (arr.count > 0) {
                         
                         [self.houseArr addObjectsFromArray:arr];
-
-                        if(arr.count < 20)
-                        {
-                            [self.tableView .mj_footer removeFromSuperview];
-
-                        }
-                        else{
-                            
-                            if (firstTime)
-                                [self addLoadMore];
-                        }
+                        
+                        if (firstTime)
+                            [self addLoadMore];
                         
                     }
                     else{

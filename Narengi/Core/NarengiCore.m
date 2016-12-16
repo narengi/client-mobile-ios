@@ -450,7 +450,12 @@ NarengiCore *sharedInstance;
     
     [datesArr enumerateObjectsUsingBlock:^(NSString  *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        [muarr addObject:[df dateFromString:obj]];
+        NSDate *date = [df dateFromString:obj];
+        if (date != nil) {
+            
+            [muarr addObject:date];
+        }
+        
     }];
     
     return [muarr copy];

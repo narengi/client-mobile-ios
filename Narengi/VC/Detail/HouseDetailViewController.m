@@ -59,6 +59,7 @@
 
 @property (nonatomic,strong) NSArray     *ownerDesArr;
 @property (nonatomic,strong) HouseObject *houseObj;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleButtonHeight;
 
 
 @property (weak, nonatomic) IBOutlet UILabel *bedCountLabel;
@@ -302,6 +303,7 @@ self.priceLabelcontainer.layer.cornerRadius = 5;
         self.commentTableHeightconstraint.constant = 1;
     }
     
+    self.titleButtonHeight.constant = 0;
     
     self.desTopSpaceConstraint.constant = 10;
     

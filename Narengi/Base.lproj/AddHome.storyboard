@@ -22,7 +22,7 @@
         <scene sceneID="wlv-rW-fcf">
             <objects>
                 <navigationController storyboardIdentifier="addHomNavigationVC" id="0kk-FN-avg" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="V4K-Nm-j3D">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="V4K-Nm-j3D">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
