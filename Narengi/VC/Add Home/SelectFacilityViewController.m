@@ -9,6 +9,7 @@
 #import "SelectFacilityViewController.h"
 #import "SelectFacilityTableViewCell.h"
 #import "AddPhotoViewController.h"
+#import "FacilityObject.h"
 
 @interface SelectFacilityViewController ()
 
@@ -17,6 +18,12 @@
 @property (weak, nonatomic ) IBOutlet UITableView  *tableView;
 @property (nonatomic,strong) NSDictionary *selectedDict;
 @property UIRefreshControl *refreshControl;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *stepsViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollTopSpace;
+@property (weak, nonatomic) IBOutlet AddHomeButton *preButton;
+@property (weak, nonatomic) IBOutlet AddHomeButton *nextButton;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 
 @end
 
@@ -27,7 +34,6 @@
 
     [self getHouseFacilities];
     [self changeLeftIcontoBack];
-    [self changeRightButtonToClose];
     
     self.title = @"امکانات";
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -35,6 +41,27 @@
     [self setUPullToRefresh];
     
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 75, 0);
+    
+    
+    if (self.isComingFromEdit) {
+        
+        self.stepsViewHeightConstraint.constant  = 0;
+        [self.containerView layoutIfNeeded];
+        self.scrollTopSpace.constant = 64;
+        [self.tableView layoutIfNeeded];
+        self.containerView.hidden = YES;
+        
+        self.selectedDict = @{@"enName":self.houseObj.enType,@"faName":self.houseObj.type};
+        
+        
+        [self.preButton setTitle:@"انصراف" forState:UIControlStateNormal];
+        [self.nextButton setTitle:@"تایید" forState:UIControlStateNormal];
+    }
+    else{
+        
+        [self changeRightButtonToClose];
+        
+    }
 }
 
 -(void)setUPullToRefresh{
@@ -69,11 +96,12 @@
     
     SelectFacilityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"selectFacilityCellID" forIndexPath:indexPath];
     
-    NSDictionary *typeDict  = self.houseFacilityArr[indexPath.row];
-    cell.titleLabel.text = [typeDict objectForKey:@"faName"];
-    cell.img.image = IMG([typeDict objectForKey:@"type"]);
+    FacilityObject *facilityObj  = self.houseFacilityArr[indexPath.row];
     
-    if ([[typeDict objectForKey:@"available"] boolValue]) {
+    cell.titleLabel.text = facilityObj.name;
+    cell.img.image = IMG(facilityObj.key);
+    
+    if (facilityObj.available) {
         cell.checkBoxImg.image  = IMG(@"amenitieschecked");
     }
     else{
@@ -88,15 +116,13 @@
     
     NSMutableArray *muarr = [[NSMutableArray alloc] initWithArray:self.houseFacilityArr];
     
-    NSMutableDictionary *dict  = [[NSMutableDictionary alloc] initWithDictionary: self.houseFacilityArr[indexPath.row]];
+     FacilityObject *facilityObj  = self.houseFacilityArr[indexPath.row];
     
-    BOOL isSelected = [[dict objectForKey:@"available"] boolValue];
-    [dict setObject:@(!isSelected) forKey:@"available"];
+    facilityObj.available = !facilityObj.available;
     
-    [muarr replaceObjectAtIndex:indexPath.row withObject:dict];
+    [muarr replaceObjectAtIndex:indexPath.row withObject:facilityObj];
     
     self.houseFacilityArr = [muarr copy];
-    self.selectedDict = self.houseFacilityArr[indexPath.row];
     
     [self.tableView reloadData];
     
@@ -118,9 +144,12 @@
             [SVProgressHUD dismiss];
             
             if (!response.hasErro) {
+                                
+                self.houseFacilityArr = [[NarengiCore sharedInstance] parsFacilities:response.backData];
                 
-                [self makeFacility:response.backData];
-                
+                if (self.isComingFromEdit) {
+                    [self addAvailableFacilities];
+                }
             }
             else{
                 
@@ -137,34 +166,22 @@
                 }
             }
             
+            [self.tableView reloadData];
             [self.refreshControl endRefreshing];
 
         });
     });
     
 }
--(void)makeFacility:(NSArray*)arr{
-    
-    NSMutableArray *typeMuArr = [[NSMutableArray alloc] init];
-    
-    [arr enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        
-        NSDictionary *dict = @{@"type":[obj objectForKey:@"key"],@"faName":[obj objectForKey:@"title"],@"available":@NO};
-        [typeMuArr addObject:dict];
-        
-    }];
-    
-    self.houseFacilityArr = [typeMuArr copy];
-    [self.tableView reloadData];
-}
+
 - (IBAction)nextButtonClicked:(UIButton *)sender {
     
     
     NSMutableArray *muArr = [[NSMutableArray alloc] init];
     
-    [self.houseFacilityArr enumerateObjectsUsingBlock:^(NSDictionary  *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.houseFacilityArr enumerateObjectsUsingBlock:^(FacilityObject  *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        if ([[obj objectForKey:@"available"] boolValue]) {
+        if (obj.available) {
             [muArr addObject:obj];
         }
         
@@ -216,7 +233,17 @@
                 
                 self.houseObj =  [(AroundPlaceObject *)[[[NarengiCore sharedInstance] parsAroudPlacesWith:@[serverRs.backData] andwithType:@"House" andIsDetail:YES] firstObject] houseObject];
                 
-                [self performSegueWithIdentifier:@"goToSelectImgesVC" sender:nil];
+                
+                if (self.isComingFromEdit) {
+                    
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"oneFuckingHouseChanged" object:self.houseObj];
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                }
+                else{
+                    
+                    [self performSegueWithIdentifier:@"goToSelectImgesVC" sender:nil];
+                }
                 
                 
             }
@@ -246,21 +273,51 @@
     if (self.houseObj.facilityArr.count > 0) {
        
         NSMutableArray *muArr = [[NSMutableArray alloc] init];
-        [self.houseObj.facilityArr enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self.houseObj.facilityArr enumerateObjectsUsingBlock:^(FacilityObject *obj, NSUInteger idx, BOOL * _Nonnull stop) {
             
-            [muArr addObject:@{@"type":[obj objectForKey:@"type"],@"available":@YES}];
+            [muArr addObject:@{@"key":obj.key,@"title":obj.name,@"id":obj.ID}];
         }];
         
-         [bodyDict addEntriesFromDictionary: @{@"FeatureList":[muArr copy]}];
+         [bodyDict addEntriesFromDictionary: @{@"features":[muArr copy]}];
     }
     else
-        [bodyDict addEntriesFromDictionary: @{@"FeatureList":@[]}];
+        [bodyDict addEntriesFromDictionary: @{@"features":@[]}];
 
     
     NSData *bodyData = [NSJSONSerialization dataWithJSONObject:[bodyDict copy] options:0 error:nil];
     
     
     return bodyData;
+}
+
+-(void)addAvailableFacilities{
+
+    NSMutableArray *muarr = [[NSMutableArray alloc] initWithArray:self.houseFacilityArr];
+    
+    
+    [muarr enumerateObjectsUsingBlock:^(FacilityObject  *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        NSInteger curentIdx = [self.houseObj.facilityArr indexOfObjectPassingTest:^BOOL(FacilityObject *innerObj, NSUInteger idx, BOOL *stop)
+                               {
+                                   if ([innerObj.key isEqualToString:obj.key] ) {
+                                       
+                                       return YES;
+                                   }
+                                   else{
+                                       return NO;
+                                   }
+                                   
+                                   
+                               }];
+        if (curentIdx != NSNotFound) {
+            
+            obj.available = !obj.available;
+        }
+        
+    }];
+    
+    self.houseFacilityArr = [muarr copy];
+    
 }
 
 @end

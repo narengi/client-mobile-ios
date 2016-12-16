@@ -27,7 +27,7 @@
 -(HostObject *)parsHost:(NSDictionary *)dict isDetail:(BOOL)isDetail;
 -(UserObject *)parsUserObject:(NSDictionary *)dict;
 -(NSString *)makeAuthurizationValue;
-
+-(NSArray *)parsFacilities:(NSArray*) facilities;
 
 
 @end

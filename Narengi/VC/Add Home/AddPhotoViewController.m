@@ -34,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *Img8;
 @property (weak, nonatomic) IBOutlet UIImageView *Img9;
 @property (weak, nonatomic) IBOutlet UIImageView *Img10;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 
 
@@ -41,6 +42,11 @@
 
 @property (nonatomic) NSInteger currentImgTag;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *stepsViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollTopSpace;
+@property (weak, nonatomic) IBOutlet AddHomeButton *preButton;
+@property (weak, nonatomic) IBOutlet AddHomeButton *nextButton;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 
 @end
 
@@ -56,15 +62,33 @@
     self.imagesStateMuArr = [[NSMutableArray alloc] init];
     
     for (int  i = 0; i<10; i++) {
-        [self.imagesStateMuArr addObject:@NO];
+        [self.imagesStateMuArr addObject:@{@"type":@"loacal",@"selected":@NO}];
     }
     self.automaticallyAdjustsScrollViewInsets = NO;
 
     
     [self changeLeftIcontoBack];
-    [self changeRightButtonToClose];
     self.title = @"تصاویر";
     [self addTapActionOnImgaes];
+    
+    if (self.isComingFromEdit) {
+        
+        self.stepsViewHeightConstraint.constant  = 0;
+        [self.containerView layoutIfNeeded];
+        self.scrollTopSpace.constant = 0;
+        [self.scrollView layoutIfNeeded];
+        self.containerView.hidden = YES;
+        
+        [self.preButton setTitle:@"انصراف" forState:UIControlStateNormal];
+        [self.nextButton setTitle:@"تایید" forState:UIControlStateNormal];
+        
+        [self loadImages];
+    }
+    else{
+        
+        [self changeRightButtonToClose];
+        
+    }
 }
 
 //-(void)setUpStatusButtons{
@@ -117,14 +141,15 @@
 
     _actionSheet = [UIActionSheet new];
     
-    if ([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront]) {
-        [_actionSheet addButtonWithTitle:NSLocalizedString(@"Take Photo", nil)];
-    }
-    
-    [_actionSheet addButtonWithTitle:NSLocalizedString(@"Choose Photo", nil)];
-    
-    if ([self.imagesStateMuArr[self.currentImgTag] boolValue]) {
+    if ([[self.imagesStateMuArr[self.currentImgTag-1] objectForKey:@"selected"] boolValue]) {
         [_actionSheet addButtonWithTitle:NSLocalizedString(@"Delete Photo", nil)];
+    }
+    else{
+        
+        if ([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront]) {
+            [_actionSheet addButtonWithTitle:NSLocalizedString(@"Take Photo", nil)];
+        }
+        [_actionSheet addButtonWithTitle:NSLocalizedString(@"Choose Photo", nil)];
     }
     
     
@@ -232,8 +257,7 @@
     UIImageView *selectedImgV =  (UIImageView *)[self valueForKey:[NSString stringWithFormat: @"Img%ld",(long)self.currentImgTag]];
 
     selectedImgV.image = image;
-    self.navigationItem.rightBarButtonItem.enabled = image ? YES : NO;
-    [self.imagesStateMuArr replaceObjectAtIndex:self.currentImgTag-1 withObject:@YES];
+    [self.imagesStateMuArr replaceObjectAtIndex:self.currentImgTag-1 withObject:@{@"type":@"loacal",@"selected":@YES}];
     
     //[self startUploadImg];
 }
@@ -249,13 +273,66 @@
 
 - (void)resetContent
 {
-    _photoPayload = nil;
-    [self.imagesStateMuArr replaceObjectAtIndex:self.currentImgTag-1 withObject:@NO];
     
-    UIImageView *selectedImgV =  (UIImageView *)[self valueForKey:[NSString stringWithFormat: @"Img%ld",(long)self.currentImgTag]];
+    NSDictionary *curentDict = self.imagesStateMuArr [self.currentImgTag-1 ];
+    
+    if ([[curentDict objectForKey:@"type"] isEqualToString:@"loacal"]) {
+       
+        _photoPayload = nil;
+        [self.imagesStateMuArr replaceObjectAtIndex:self.currentImgTag-1 withObject:@{@"type":@"loacal",@"selected":@NO}];
+        
+        UIImageView *selectedImgV =  (UIImageView *)[self valueForKey:[NSString stringWithFormat: @"Img%ld",(long)self.currentImgTag]];
+        selectedImgV.image = IMG(@"AvatarPlaceHolder");
+    }
+    else{
+        
+        [self deleteImageFromServerWithDictionary:curentDict andWithImage:(UIImageView *)[self valueForKey:[NSString stringWithFormat: @"Img%ld",(long)self.currentImgTag]]];
+        //call delete image API
+    }
+    
+}
 
-    selectedImgV.image = IMG(@"AvatarPlaceHolder");
-    self.navigationItem.rightBarButtonItem.enabled = NO;
+-(void)deleteImageFromServerWithDictionary:(NSDictionary *)dict andWithImage:(UIImageView *)imageView{
+
+    __block UIImageView *selectedImgV =  imageView;
+    
+    REACHABILITY
+    
+    [SVProgressHUD showWithStatus:@"در حال ارسال اطلاعات" maskType:SVProgressHUDMaskTypeGradient];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+        
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"DELETE" andWithService:[NSString stringWithFormat: @"medias/remove/%@",[dict objectForKey:@"mediaID"] ] andWithParametrs:nil andWithBody:nil andIsFullPath:NO];
+        
+        dispatch_async(dispatch_get_main_queue(),^{
+            
+            [SVProgressHUD dismiss];
+            if (!serverRs.hasErro) {
+                
+                [self.imagesStateMuArr replaceObjectAtIndex:self.currentImgTag-1 withObject:@{@"type":@"loacal",@"selected":@NO}];
+                
+                selectedImgV =  (UIImageView *)[self valueForKey:[NSString stringWithFormat: @"Img%ld",(long)self.currentImgTag]];
+                selectedImgV.image = IMG(@"AvatarPlaceHolder");
+                
+                [self removeUrlFromHouseObj:[dict objectForKey:@"url"]];
+            }
+            else{
+                
+                if (serverRs.backData != nil ) {
+                    
+                    //show error
+                    NSString *erroStr = [[serverRs.backData objectForKey:@"error"] objectForKey:@"message"];
+                    [self showError:erroStr];
+                }
+                else{
+                    
+                    [self showError:@"اشکال در ارتباط با سرور"];
+                    
+                }
+            }
+        });
+    });
+    
 }
 
 - (void)presentController:(UIViewController *)controller sender:(id)sender
@@ -336,9 +413,9 @@
     
     __block NSInteger count = 0;
     
-    [self.imagesStateMuArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.imagesStateMuArr enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
     
-        if ([obj boolValue]) {
+        if ([[obj objectForKey:@"selected"] boolValue]) {
             count ++;
         }
     }];
@@ -372,10 +449,10 @@
                                                     constructingBodyWithBlock:^(id formData) {
                                                         
                                                         
-                                                        [self.imagesStateMuArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                                                        [self.imagesStateMuArr enumerateObjectsUsingBlock:^(NSDictionary  *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                                                             
                                                             
-                                                            if ([obj boolValue]) {
+                                                            if ([[obj objectForKey:@"selected"] boolValue] && [[obj objectForKey:@"type"] isEqualToString:@"loacal"]) {
                                                                 
                                                                 UIImageView *selectedImgV =  (UIImageView *)[self valueForKey:[NSString stringWithFormat: @"Img%ld",idx+1]];
                                                                 
@@ -406,8 +483,17 @@
                                          
                                          [SVProgressHUD showSuccessWithStatus:@"تمامی عکس‌ها بارگذاری شد."];
                                          
-                                         [self performSegueWithIdentifier:@"goToAddAvailabelDates" sender:nil];
-                                         NSLog(@"Success %@", responseObject);
+                                         if (self.isComingFromEdit) {
+                                             
+                                             
+                                             [self addImageUrls:[[responseObject objectForKey:@"result"] objectForKey:@"uids"]];
+                                             
+                                             
+                                         }
+                                         else{
+                                             [self performSegueWithIdentifier:@"goToAddAvailabelDates" sender:nil];
+                                             NSLog(@"Success %@", responseObject);
+                                         }
                                          
                                      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                          
@@ -429,6 +515,24 @@
     [operation start];
 }
 
+
+-(void)addImageUrls:(NSArray *)arr{
+    
+    NSMutableArray *muArr = [[NSMutableArray alloc] initWithArray:self.houseObj.imageUrls];
+    [arr enumerateObjectsUsingBlock:^(NSString  *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        NSString *newUrlStr = [NSString stringWithFormat:@"%@/medias/get/%@",IMAGEBASEURL,obj];
+        NSURL *newUrl = [NSURL URLWithString:newUrlStr];
+        
+        [muArr addObject:newUrl];
+    }];
+    
+    self.houseObj.imageUrls = [muArr copy];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"oneFuckingHouseChanged" object:self.houseObj];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark -navigation
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -439,6 +543,45 @@
         SelectAvailableDateViewController *vc = segue.destinationViewController;
         vc.houseObj = self.houseObj;
     }
+}
+
+#pragma mark - edit
+
+-(void)loadImages{
+
+    [self.houseObj.imageUrls enumerateObjectsUsingBlock:^(NSURL  *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        UIImageView *imgView = [self valueForKey:[NSString stringWithFormat: @"Img%ld",idx+1]];
+        
+        [imgView sd_setImageWithURL:obj placeholderImage:nil];
+        
+        NSString *imageID = [[[obj absoluteString] componentsSeparatedByString:@"/"] lastObject];
+        
+        [self.imagesStateMuArr replaceObjectAtIndex:idx withObject:@{@"type":@"url",@"selected":@YES,@"mediaID":imageID,@"url":obj}];
+
+    }];
+}
+
+-(void)removeUrlFromHouseObj:(NSURL *)url{
+
+    NSMutableArray *muArr = [[NSMutableArray alloc] initWithArray:self.houseObj.imageUrls];
+    
+    [muArr enumerateObjectsUsingBlock:^(NSURL  *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        if ([obj.absoluteString isEqualToString:[url absoluteString]]) {
+            
+            [muArr removeObjectAtIndex:idx];
+            return;
+        }
+    }];
+    
+    self.houseObj.imageUrls = [muArr copy];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"oneFuckingHouseChanged" object:self.houseObj];
+
+    
+    [self loadImages];
+    
 }
 
 @end

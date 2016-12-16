@@ -120,6 +120,7 @@
                         <segue destination="NTj-HR-Ovg" kind="show" identifier="goToEditGuestCountVCID" id="SdV-BG-cIs"/>
                         <segue destination="8b0-Kh-7AD" kind="show" identifier="goToEditPriceVCID" id="TNi-i0-GTA"/>
                         <segue destination="GwB-4d-qbh" kind="show" identifier="goToEditFacilityVCID" id="2qb-cf-CIU"/>
+                        <segue destination="V0B-gi-abl" kind="show" identifier="goToEditPhotoVCID" id="X2w-pw-Wcu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3LN-Ua-u4R" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2087,6 +2088,10 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="400" height="700"/>
                     <connections>
+                        <outlet property="containerView" destination="DIf-Wy-fiN" id="SWO-VB-Epm"/>
+                        <outlet property="nextButton" destination="0mE-Gl-mrI" id="Ybd-ec-fGh"/>
+                        <outlet property="preButton" destination="yWC-1J-qkC" id="Fra-nV-aLK"/>
+                        <outlet property="stepsViewHeightConstraint" destination="WBa-gB-M6w" id="lcO-bA-9s4"/>
                         <outlet property="tableView" destination="sLG-f7-BIi" id="gmz-ZJ-fnw"/>
                         <segue destination="V0B-gi-abl" kind="show" identifier="goToSelectImgesVC" id="PBM-yH-dh6"/>
                     </connections>
@@ -3495,7 +3500,13 @@
                         <outlet property="Img7" destination="Q5k-02-5qk" id="age-1r-wou"/>
                         <outlet property="Img8" destination="asm-u2-WHE" id="VNc-63-qQV"/>
                         <outlet property="Img9" destination="ljX-tr-9bY" id="DSh-Ja-ZQx"/>
+                        <outlet property="containerView" destination="77j-uc-Pgd" id="Nux-Vb-HcN"/>
                         <outlet property="containerViewHeight" destination="qho-Px-hbZ" id="RuW-ne-xX3"/>
+                        <outlet property="nextButton" destination="dGj-Sg-6UF" id="ZJA-rj-3qN"/>
+                        <outlet property="preButton" destination="Ekk-Pe-al2" id="JZv-D3-YGj"/>
+                        <outlet property="scrollTopSpace" destination="Rgk-2C-bFz" id="mfM-NW-roO"/>
+                        <outlet property="scrollView" destination="5XH-q2-ZqH" id="r6w-IU-ouC"/>
+                        <outlet property="stepsViewHeightConstraint" destination="VNY-A4-taX" id="xaS-jK-u8e"/>
                         <segue destination="rpQ-OQ-KeL" kind="show" identifier="goToAddAvailabelDates" id="ae4-O1-lye"/>
                     </connections>
                 </viewController>
@@ -3751,7 +3762,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Uu3-fL-G35"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pZ1-bz-xPL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="399" height="50"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y7A-HX-9DL">
@@ -4479,12 +4490,13 @@
         <image name="plusbtn" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MPv-Y2-rEy"/>
-        <segue reference="TNi-i0-GTA"/>
+        <segue reference="X2w-pw-Wcu"/>
         <segue reference="Q8V-yL-rZu"/>
         <segue reference="EUZ-X1-5KY"/>
+        <segue reference="TNi-i0-GTA"/>
+        <segue reference="2qb-cf-CIU"/>
         <segue reference="SdV-BG-cIs"/>
         <segue reference="EGt-PY-1IT"/>
-        <segue reference="9J0-no-R3O"/>
+        <segue reference="Wpe-Zj-DyB"/>
     </inferredMetricsTieBreakers>
 </document>

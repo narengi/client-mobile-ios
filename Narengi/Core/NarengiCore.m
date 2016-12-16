@@ -516,7 +516,7 @@ NarengiCore *sharedInstance;
         FacilityObject *facilityObj = [[FacilityObject alloc] init];
         
         facilityObj.name      = [[obj objectForKey:@"title"] checkNull];
-        facilityObj.type      = [[obj objectForKey:@"group"] checkNull];
+        facilityObj.ID        = [[obj objectForKey:@"id"] checkNull];
         facilityObj.key       = [obj objectForKey:@"key"];
         facilityObj.iconUrl   = [[NSURL URLWithString:[obj objectForKey:@"imageUrl"]] checkNull];
         
