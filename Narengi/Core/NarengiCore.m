@@ -306,8 +306,11 @@ NarengiCore *sharedInstance;
             HouseObject *houseObj  = [[HouseObject alloc] init];
             
             houseObj.cityName       = [[[dict objectForKey:@"location"] checkNull] objectForKey:@"city"];
+            
             houseObj.province       = [[[dict objectForKey:@"location"] checkNull] objectForKey:@"province"];
             houseObj.name           = [[dict objectForKey:@"name"] checkNull];
+            
+            houseObj.googleMapImageUrl  = [[dict objectForKey:@"googleMap"] addBaseUrl];
             houseObj.cost           = [[dict objectForKey:@"price"] checkNull];
             houseObj.ID             = [[dict objectForKey:@"id"] checkNull];
             houseObj.imageUrls      = [self parsImageArray:[dict objectForKey:@"pictures"]];
@@ -589,7 +592,7 @@ NarengiCore *sharedInstance;
 
     HostObject *hostObj = [[HostObject alloc] init];
 
-    hostObj.imageUrl    = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGEBASEURL,[[dict objectForKey:@"picture"] objectForKey:@"url"]]];
+    hostObj.imageUrl    = [[[dict objectForKey:@"picture"] objectForKey:@"url"] addBaseUrl];
     hostObj.displayName = [dict objectForKey:@"fullName"];
     hostObj.hostURL     = [dict objectForKey:@"detailUrl"];
     hostObj.ID          = [dict objectForKey:@"uid"];
@@ -614,7 +617,7 @@ NarengiCore *sharedInstance;
     
     UserObject *userObj = [[UserObject alloc] init];
     
-    userObj.avatarUrl       = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGEBASEURL,[[[[[dict objectForKey:@"profile"] checkNull]  objectForKey:@"picture"] checkNull] objectForKey:@"url"]]];
+    userObj.avatarUrl       = [[[[[[dict objectForKey:@"profile"] checkNull]  objectForKey:@"picture"] checkNull] objectForKey:@"url"] addBaseUrl];
     userObj.fisrtName       = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"firstName"] checkNull];
     userObj.lastName        = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"lastName"] checkNull];
     userObj.email           = [dict objectForKey:@"email"];
@@ -671,7 +674,7 @@ NarengiCore *sharedInstance;
         
         if ([obj isKindOfClass:[NSString class]]) {
         
-            [muArr addObject:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGEBASEURL,obj]]];
+            [muArr addObject:[obj addBaseUrl]];
         }
         
     }];

@@ -286,7 +286,8 @@ self.priceLabelcontainer.layer.cornerRadius = 5;
     [self.avatarImg sd_setImageWithURL:self.houseObj.host.imageUrl placeholderImage:nil];
     self.mapViewImg.layer.masksToBounds  = YES;
  
-    [self loadGoogleMapImg];
+    [self.mapViewImg sd_setImageWithURL:self.houseObj.googleMapImageUrl placeholderImage:nil];
+    
     [self loadPorperties];
 
     [self.imagesCollectionView reloadData];
@@ -325,13 +326,6 @@ self.priceLabelcontainer.layer.cornerRadius = 5;
     
 }
 
--(void)loadGoogleMapImg{
-    
-    NSString *staticMapUrl = [NSString stringWithFormat:@"http://maps.google.com/maps/api/staticmap?markers=color:red|%f,%f&%@&sensor=true",self.houseObj.geoObj.lat, self.houseObj.geoObj.lng,[NSString stringWithFormat:@"zoom=14&size=%.fx200",[UIScreen mainScreen].nativeBounds.size.width ]];
-    NSURL *mapUrl = [NSURL URLWithString:[staticMapUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    [self.mapViewImg sd_setImageWithURL:mapUrl placeholderImage:nil];
-
-}
 
 -(void)loadPorperties{
     

@@ -11,4 +11,5 @@
 @interface NSString (Utilities)
 
 -(NSString *)fixPersianString;
+-(NSURL *)addBaseUrl;
 @end

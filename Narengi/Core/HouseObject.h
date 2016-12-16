@@ -51,5 +51,7 @@
 @property (nonatomic) NSString         *firstDateStr;
 
 
+@property (nonatomic) NSURL            *googleMapImageUrl;
+
 
 @end
