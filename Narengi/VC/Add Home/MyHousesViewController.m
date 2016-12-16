@@ -32,7 +32,6 @@
     [self changeLeftButton];
     [self changeRighNavigationToMenu];
     self.title = @"مهمان‌پذیری";
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(houseInserted) name:@"houseInsertStatus" object:nil];
     
     [self registerCellWithName:@"MyHomeCell" andWithIdentifier:@"myHousesCellID" andTableView:self.tableView];
     [self getMyHomeForFirstTime];
@@ -71,6 +70,15 @@
         
         [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:curentIdx inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
     }
+    else{
+        
+        AroundPlaceObject *aroundObj = [[AroundPlaceObject alloc] init];
+        aroundObj.houseObject   = notification.object;
+        
+        [self.houseArr addObject:aroundObj];
+        
+        [self.tableView reloadData];
+    }
     
     
 }
@@ -83,11 +91,6 @@
     [self.refreshControl addTarget:self action:@selector(getMyHomeForFirstTime) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
     [self.refreshControl setTintColor:[UIColor darkGrayColor]];
-    
-}
-
--(void)houseInserted{
-
     
 }
 
@@ -144,13 +147,13 @@
 -(void)getMyHomeForFirstTime{
 
     self.houseArr = [[NSMutableArray alloc] init];
-    self.skipCount = 0;
+    self.skipCount = 1;
     [self getMyHomeForFirstTime:YES];
 }
 
 -(void)getMyHomeForFirstTime:(BOOL)firstTime{
 
-    NSArray *parametrs = @[@"filter[limit]=20",[NSString stringWithFormat:@"filter[skip]=%ld",(long)self.skipCount]];
+    NSArray *parametrs = @[@"perpage=20",[NSString stringWithFormat:@"page=%ld",(long)self.skipCount]];
     
     REACHABILITY
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
@@ -186,7 +189,7 @@
                     }
                     
 
-                    self.skipCount += self.houseArr.count;
+                    self.skipCount ++;
 
    
                 }

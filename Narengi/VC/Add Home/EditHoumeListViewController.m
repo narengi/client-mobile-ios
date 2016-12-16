@@ -16,6 +16,7 @@
 #import "SelectGuestCountViewController.h"
 #import "SelectFacilityViewController.h"
 #import "AddPhotoViewController.h"
+#import "SelectAvailableDateViewController.h"
 
 
 @interface EditHoumeListViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -103,7 +104,7 @@
             break;
             
         case 7:
-            [self performSegueWithIdentifier:@"goToEditFacilityVCID" sender:nil];
+            [self performSegueWithIdentifier:@"goToEditAvailableDatesVCID" sender:nil];
             break;
             
         default:
@@ -153,6 +154,12 @@
     else if ([segue.identifier isEqualToString:@"goToEditPhotoVCID"]){
         
         AddPhotoViewController *vc = segue.destinationViewController;
+        vc.houseObj = self.houseObj;
+        vc.isComingFromEdit = YES;
+    }
+    else if ([segue.identifier isEqualToString:@"goToEditAvailableDatesVCID"]){
+        
+        SelectAvailableDateViewController *vc = segue.destinationViewController;
         vc.houseObj = self.houseObj;
         vc.isComingFromEdit = YES;
     }

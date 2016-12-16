@@ -388,11 +388,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Narengi/Core/NarengiCore.m"
-            timestampString = "503509330.943021"
+            timestampString = "503589296.436981"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "472"
-            endingLineNumber = "472"
+            startingLineNumber = "489"
+            endingLineNumber = "489"
             landmarkName = "-parsComments:"
             landmarkType = "7">
          </BreakpointContent>
@@ -468,11 +468,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Narengi/VC/Add Home/EditHoumeListViewController.m"
-            timestampString = "503576852.999232"
+            timestampString = "503589433.264313"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -537,6 +537,70 @@
                   startingLineNumber = "552"
                   endingLineNumber = "552"
                   offsetFromSymbolStart = "33">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Narengi/Core/NarengiCore.m"
+            timestampString = "503588459.15538"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "326"
+            endingLineNumber = "326"
+            landmarkName = "-parsAroudPlacesWith:andwithType:andIsDetail:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Narengi/VC/Add Home/SelectAvailableDateViewController.m"
+            timestampString = "503589339.44334"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "296"
+            endingLineNumber = "296"
+            landmarkName = "-fillData"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SelectAvailableDateViewController fillData]"
+                  moduleName = "Narengi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Morteza/Projects/Narengi/Narengi/VC/Add%20Home/SelectAvailableDateViewController.m"
+                  timestampString = "503589434.376966"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "298"
+                  endingLineNumber = "298"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__45-[SelectAvailableDateViewController fillData]_block_invoke"
+                  moduleName = "Narengi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Morteza/Projects/Narengi/Narengi/VC/Add%20Home/SelectAvailableDateViewController.m"
+                  timestampString = "503589434.379636"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "298"
+                  endingLineNumber = "298"
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>

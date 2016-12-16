@@ -342,7 +342,7 @@ NarengiCore *sharedInstance;
                     houseObj.firstDateStr = @"-";
                 }
                 
-                
+                houseObj.availableDates  = [self addAvailableDates:[dict objectForKey:@"dates"] ];
                 houseObj.address         = [[[dict objectForKey:@"location"] objectForKey:@"address"] checkNull];
                 
                 houseObj.imageUrls       = [self parsImageArrayWithStyle:[dict objectForKey:@"pictures"]];
@@ -438,6 +438,23 @@ NarengiCore *sharedInstance;
     }];
     
     return [muTmpArr copy];
+}
+
+
+-(NSArray *)addAvailableDates:(NSArray *)datesArr{
+
+    NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    [df setDateFormat: @"yyyy-MM-dd'T'HH:mm:ss zzz"];
+    
+    NSMutableArray *muarr = [[NSMutableArray alloc] init];
+    
+    [datesArr enumerateObjectsUsingBlock:^(NSString  *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        [muarr addObject:[df dateFromString:obj]];
+    }];
+    
+    return [muarr copy];
+    
 }
 
 -(GeoPointObject *)parsLocation:(NSDictionary *)position{

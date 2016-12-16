@@ -9,6 +9,8 @@
 #import "SelectAvailableDateViewController.h"
 
 
+
+
 @interface SelectAvailableDateViewController ()
 {
     
@@ -16,6 +18,16 @@
     NSMutableArray *_datesSelected;
     
 }
+
+
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+
+@property (weak, nonatomic) IBOutlet AddHomeButton *preButton;
+@property (weak, nonatomic) IBOutlet AddHomeButton *nextButton;
+
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *stepsViewHeightConstraint;
+
 @end
 
 @implementation SelectAvailableDateViewController
@@ -24,9 +36,29 @@
     [super viewDidLoad];
     
     [self changeLeftIcontoBack];
-    [self changeRightButtonToClose];
     self.title = @"روز‌های قابل رزرو";
     
+    
+    _datesSelected = [NSMutableArray new];
+    
+    
+    if (self.isComingFromEdit) {
+        
+        self.stepsViewHeightConstraint.constant  = 0;
+        [self.containerView layoutIfNeeded];
+        [self fillData];
+        self.containerView.hidden = YES;
+        
+        [self.preButton setTitle:@"انصراف" forState:UIControlStateNormal];
+        [self.nextButton setTitle:@"تایید" forState:UIControlStateNormal];
+        
+    }
+    else{
+        
+        self.houseObj = [[HouseObject alloc] init];
+        [self changeRightButtonToClose];
+        
+    }
     
     _calendarManager = [JTCalendarManager new];
     _calendarManager.delegate = self;
@@ -39,7 +71,19 @@
     [_calendarManager setDate:[NSDate date]];
     
     
-    _datesSelected = [NSMutableArray new];
+    
+}
+
+
+-(BOOL)isInAvailableDates:(NSDate *)date{
+    
+    for(NSDate *dateSelected in self.houseObj.availableDates){
+        if([_calendarManager.dateHelper date:dateSelected isTheSameDayThan:date]){
+            return YES;
+        }
+    }
+    
+    return NO;
 }
 
 
@@ -186,9 +230,16 @@
                 
                 self.houseObj =  [(AroundPlaceObject *)[[[NarengiCore sharedInstance] parsAroudPlacesWith:@[serverRs.backData] andwithType:@"House" andIsDetail:YES] firstObject] houseObject];
                 
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"houseInsertStatus" object:nil];
-
-                [self dismissViewControllerAnimated:YES completion:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"oneFuckingHouseChanged" object:self.houseObj];
+                
+                if (self.isComingFromEdit) {
+                    
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                }
+                else{
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }
                 
             }
             else{
@@ -239,6 +290,16 @@
     return  bodyData;
 }
 
+#pragma mark - edit
 
+-(void)fillData{
+   
+    
+    [self.houseObj.availableDates enumerateObjectsUsingBlock:^(NSDate  *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        [_datesSelected addObject:obj];
+    }];
+    
+}
 
 @end

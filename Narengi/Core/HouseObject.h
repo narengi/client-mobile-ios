@@ -34,7 +34,7 @@
 @property (nonatomic) NSArray          *commentsArr;
 @property (nonatomic) NSArray          *facilityArr;
 @property (nonatomic) NSArray          *shownFacilities;
-
+@property (nonatomic) NSArray          *availableDates;
 @property (nonatomic) BOOL             canShowMoreFacility;
 
 
