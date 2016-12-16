@@ -388,11 +388,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Narengi/Core/NarengiCore.m"
-            timestampString = "503591644.516705"
+            timestampString = "503594267.223205"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "494"
-            endingLineNumber = "494"
+            startingLineNumber = "495"
+            endingLineNumber = "495"
             landmarkName = "-parsComments:"
             landmarkType = "7">
          </BreakpointContent>
@@ -436,11 +436,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Narengi/Core/NarengiCore.m"
-            timestampString = "503509330.943021"
+            timestampString = "503594267.223205"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "365"
-            endingLineNumber = "365"
+            startingLineNumber = "366"
+            endingLineNumber = "366"
             landmarkName = "-parsAroudPlacesWith:andwithType:andIsDetail:"
             landmarkType = "7">
          </BreakpointContent>
@@ -544,7 +544,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Narengi/Core/NarengiCore.m"
@@ -580,7 +580,7 @@
                   moduleName = "Narengi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Morteza/Projects/Narengi/Narengi/VC/Add%20Home/SelectAvailableDateViewController.m"
-                  timestampString = "503593735.701899"
+                  timestampString = "503594268.352979"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "298"
@@ -595,7 +595,7 @@
                   moduleName = "Narengi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Morteza/Projects/Narengi/Narengi/VC/Add%20Home/SelectAvailableDateViewController.m"
-                  timestampString = "503593735.704197"
+                  timestampString = "503594268.355214"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "298"

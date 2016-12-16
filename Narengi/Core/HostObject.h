@@ -13,6 +13,7 @@
 @property (nonatomic) NSString *displayName;
 @property (nonatomic) NSURL *imageUrl;
 @property (nonatomic) NSString *hostURL;
+@property (nonatomic) NSString *ID;
 
 //detail
 @property (nonatomic) NSString *locationText;

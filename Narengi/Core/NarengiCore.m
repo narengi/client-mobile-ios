@@ -319,11 +319,12 @@ NarengiCore *sharedInstance;
            // houseObj.featureSummray = [dict objectForKey:@"features"];
             houseObj.url            = [dict objectForKey:@"detailUrl"];
             
-            houseObj.host = [self parsHost:[dict objectForKey:@"Host"] isDetail:NO];
             aroundPlObj.houseObject = houseObj;
             
             if (isDetail) {
                 
+                houseObj.host = [self parsHost:[dict objectForKey:@"owner"] isDetail:NO];
+
                 NSDateFormatter* df = [[NSDateFormatter alloc]init];
                 [df setDateFormat: @"yyyy-MM-dd'T'HH:mm:ss zzz"];
                 houseObj.firstDate      = [df dateFromString:[dict objectForKey:@"first_date"]];
@@ -587,10 +588,11 @@ NarengiCore *sharedInstance;
 -(HostObject *)parsHost:(NSDictionary *)dict isDetail:(BOOL)isDetail{
 
     HostObject *hostObj = [[HostObject alloc] init];
-    
-    hostObj.imageUrl    = [dict objectForKey:@"ImageUrl"];
-    hostObj.displayName = [dict objectForKey:@"DisplayName"];
-    hostObj.hostURL     = [dict objectForKey:@"HostURL"];
+
+    hostObj.imageUrl    = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGEBASEURL,[[dict objectForKey:@"picture"] objectForKey:@"url"]]];
+    hostObj.displayName = [dict objectForKey:@"fullName"];
+    hostObj.hostURL     = [dict objectForKey:@"detailUrl"];
+    hostObj.ID          = [dict objectForKey:@"uid"];
     
     if (isDetail) {
         
