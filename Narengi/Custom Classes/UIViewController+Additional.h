@@ -31,4 +31,5 @@
 -(void)changeRightButtonToClose;
 
 -(void)showBetaAlert;
+-(void)goToProfileWithUrl:(NSString *)urlStr;
 @end

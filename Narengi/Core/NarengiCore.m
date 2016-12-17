@@ -310,7 +310,7 @@ NarengiCore *sharedInstance;
             houseObj.province       = [[[dict objectForKey:@"location"] checkNull] objectForKey:@"province"];
             houseObj.name           = [[dict objectForKey:@"name"] checkNull];
             
-            houseObj.googleMapImageUrl  = [[dict objectForKey:@"googleMap"] addBaseUrl];
+            houseObj.googleMapImageUrl  = [[dict objectForKey:@"googleMap"] addImageBaseUrl];
             houseObj.cost           = [[dict objectForKey:@"price"] checkNull];
             houseObj.ID             = [[dict objectForKey:@"id"] checkNull];
             houseObj.imageUrls      = [self parsImageArray:[dict objectForKey:@"pictures"]];
@@ -592,7 +592,7 @@ NarengiCore *sharedInstance;
 
     HostObject *hostObj = [[HostObject alloc] init];
 
-    hostObj.imageUrl    = [[[dict objectForKey:@"picture"] objectForKey:@"url"] addBaseUrl];
+    hostObj.imageUrl    = [[[dict objectForKey:@"picture"] objectForKey:@"url"] addImageBaseUrl];
     hostObj.displayName = [dict objectForKey:@"fullName"];
     hostObj.hostURL     = [dict objectForKey:@"detailUrl"];
     hostObj.ID          = [dict objectForKey:@"uid"];
@@ -617,7 +617,7 @@ NarengiCore *sharedInstance;
     
     UserObject *userObj = [[UserObject alloc] init];
     
-    userObj.avatarUrl       = [[[[[[dict objectForKey:@"profile"] checkNull]  objectForKey:@"picture"] checkNull] objectForKey:@"url"] addBaseUrl];
+    userObj.avatarUrl       = [[[[[[dict objectForKey:@"profile"] checkNull]  objectForKey:@"picture"] checkNull] objectForKey:@"url"] addImageBaseUrl];
     userObj.fisrtName       = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"firstName"] checkNull];
     userObj.lastName        = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"lastName"] checkNull];
     userObj.email           = [dict objectForKey:@"email"];
@@ -674,7 +674,7 @@ NarengiCore *sharedInstance;
         
         if ([obj isKindOfClass:[NSString class]]) {
         
-            [muArr addObject:[obj addBaseUrl]];
+            [muArr addObject:[obj addImageBaseUrl]];
         }
         
     }];

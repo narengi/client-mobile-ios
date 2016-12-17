@@ -10,7 +10,7 @@
 
 @interface ProfileViewController : UIViewController
 
-@property (nonatomic,strong) NSURL *url;
+@property (nonatomic,strong) NSString *urlStr;
 
 
 @end

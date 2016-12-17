@@ -21,8 +21,6 @@
 @property (weak, nonatomic) IBOutlet UILabel        *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel        *descriptionLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *jobLabel;
-@property (weak, nonatomic) IBOutlet UITableView      *commentsTableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *houseCollectionView;
 
 @property (nonatomic) CGFloat   headerFade;
@@ -31,14 +29,9 @@
 @property (weak, nonatomic) IBOutlet UIView *conView;
 @property (weak, nonatomic) IBOutlet UIView *navigationView;
 
-@property (weak, nonatomic) IBOutlet CustomFaRegularLabel *memberagaeLabel;
 @property (weak, nonatomic) IBOutlet CustomFaRegularLabel *titleLabel;
 
 
-
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewHeightConstraint;
-
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *commentTableHeightconstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *houseCollectinViewHeight;
 
 @property (nonatomic,strong) HostObject *hostObj;
@@ -52,7 +45,6 @@
     [super viewDidLoad];
     
     //register Nibs for Tableviews
-    [self.commentsTableView registerNib:[UINib nibWithNibName:@"CommentCell" bundle:nil]  forCellReuseIdentifier:@"commentCellID"];
     [self.houseCollectionView registerNib:[UINib nibWithNibName:@"SearchDetailHomeCell" bundle:nil] forCellWithReuseIdentifier:@"homeCellID"];
     [self.houseCollectionView  registerNib:[CityDetailHouseCollectionReusableView nib] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"cityDetailHouseCollectionRV"];
     
@@ -64,7 +56,6 @@
     self.navigationView.alpha = 0;
 
     
-    [self addParametrsToURL];
     [self getData];
     
 }
@@ -146,22 +137,17 @@
 }
 
 #pragma mark - Data
--(void) addParametrsToURL{
-    
-    self.url =[self fixUrl:self.url withParametrs:@[@{@"name":@"filter[review]",@"value":@"3"}]];
-    
-}
+
 
 -(void)getData{
     
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
-        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:self.url.absoluteString andWithParametrs:nil andWithBody:nil andIsFullPath:YES];
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:[self.urlStr addBaseUrl] andWithParametrs:nil andWithBody:nil andIsFullPath:YES];
         
         
         dispatch_async(dispatch_get_main_queue(),^{
-            
             
             if (!serverRs.hasErro) {
                 
@@ -182,110 +168,21 @@
 
 -(void)setDataForView{
     
-    self.commentsTableView.scrollEnabled = NO;
     self.nameLabel.text        = self.hostObj.displayName;
     self.cityNameLabel.text    = self.hostObj.locationText;
     self.descriptionLabel.text = self.hostObj.descriptionStr;
-    self.jobLabel.text         = self.hostObj.career;
-    self.memberagaeLabel.text  = self.hostObj.memberFrom;
     self.titleLabel.text       = self.hostObj.displayName;
 
     [self.avatarImg sd_setImageWithURL:self.hostObj.imageUrl placeholderImage:nil];
     self.avatarImg.layer.masksToBounds = YES;
     
         
-    [self.commentsTableView reloadData];
     [self.houseCollectionView reloadData];
     
-    self.commentTableHeightconstraint.constant = (70*self.hostObj.commentsArr.count)+(self.hostObj.commentsArr.count > 0 ? 40 : 0);
     self.houseCollectinViewHeight.constant = ((([UIScreen mainScreen].bounds.size.width) * 5 /8)*self.hostObj.houseArr.count)+(self.hostObj.houseArr.count > 0 ? 40 : 0);;
     
-    [self.commentsTableView layoutIfNeeded];
     
-    self.contentViewHeightConstraint.constant = self.commentsTableView.frame.origin.y + self.houseCollectinViewHeight.constant + self.commentTableHeightconstraint.constant;
     [self.conView layoutIfNeeded];
-    
-    self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, self.contentViewHeightConstraint.constant+50);
-}
-
-#pragma mark - tableView
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-
-{
-    return 1;
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    
-    return self.hostObj.commentsArr.count;
-    
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-
-    return 40;
-
-}
-
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    
-    UIView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"ProfileCommentsHeadeView" owner:self options:nil] objectAtIndex:0];
-    
-    return headerView;
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    CommentTableViewCell *commentCell = [tableView dequeueReusableCellWithIdentifier:@"commentCellID" forIndexPath:indexPath];
-    CommentObject *commentObj =  self.hostObj.commentsArr[indexPath.row];
-    commentCell.titleLabel.attributedText = commentObj.attributeStr;
-    
-    return commentCell;
-
-    
-    
-}
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return 70;
-}
-
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    [self showCommentDetails];
-    
-}
-
--(void)showCommentDetails{
-    
-    UIStoryboard *storybord =[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    CommentsViewController *vc = [storybord instantiateViewControllerWithIdentifier:@"commentsVC"];
-    
-    vc.houseIDStr = @"1";
-    
-    MZFormSheetPresentationViewController *formSheet = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:vc];
-    
-    
-    formSheet.presentationController.contentViewSize = CGSizeMake(300, [UIScreen mainScreen].bounds.size.height - 60);
-    
-    formSheet.presentationController.portraitTopInset = 10;
-    
-    formSheet.allowDismissByPanningPresentedView = YES;
-    formSheet.contentViewCornerRadius = 8.0;
-    
-    
-    formSheet.willPresentContentViewControllerHandler = ^(UIViewController *presentedFSViewController){
-    };
-    formSheet.didDismissContentViewControllerHandler = ^(UIViewController *presentedFSViewController){
-        
-    };
-    
-    [self presentViewController:formSheet animated:YES completion:nil];
     
 }
 

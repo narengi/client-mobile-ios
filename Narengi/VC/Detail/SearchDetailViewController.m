@@ -47,6 +47,7 @@
     [self getDataForFirstTime];
     
     
+    
 }
 
 -(void)addPullToRefresh{
@@ -81,6 +82,7 @@
     [self goToDetailWithArroundObject:aroundObj];
     
 }
+
 -(void)initSearchBar{
 
 

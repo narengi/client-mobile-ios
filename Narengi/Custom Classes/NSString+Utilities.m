@@ -22,9 +22,15 @@
     
 }
 
--(NSURL *)addBaseUrl{
+-(NSURL *)addImageBaseUrl{
 
     return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGEBASEURL,self]];
+}
+
+
+-(NSString *)addBaseUrl{
+    
+    return [NSString stringWithFormat:@"%@%@",IMAGEBASEURL,self];
 }
 
 @end

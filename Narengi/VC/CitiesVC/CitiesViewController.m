@@ -29,6 +29,9 @@
 @property (weak, nonatomic) IBOutlet UIView *searchContainerView;
 @property UIRefreshControl *refreshControl;
 @property NSInteger skipCount;
+@property (weak, nonatomic) IBOutlet UITextField *searchTextField;
+@property (nonatomic,strong) NSString *termrStr;
+
 
 
 @end
@@ -50,9 +53,6 @@
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"HouseCell" bundle:nil] forCellWithReuseIdentifier:@"houseCellID"];
 
-   
-    [self initSearchcontainerView];
-    
     self.edgesForExtendedLayout               = UIRectEdgeNone;
     self.extendedLayoutIncludesOpaqueBars     = NO;
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -68,6 +68,15 @@
     [self getDataForFirstTime];
     
     [SDWebImageDownloader.sharedDownloader setValue:@"image/jpeg" forHTTPHeaderField:@"Content-Type"];
+    
+    
+    [self.searchTextField addTarget:self
+              action:@selector(textFieldDidChange:)
+    forControlEvents:UIControlEventEditingChanged];
+    
+    
+    self.collectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+
 
 }
 
@@ -107,16 +116,7 @@
     }
 }
 
--(void)initSearchcontainerView{
 
-    self.searchContainerView.layer.cornerRadius  = 15;
-    self.searchContainerView.layer.masksToBounds = YES;
-    
-    UITapGestureRecognizer *singleFingerTap =
-    [[UITapGestureRecognizer alloc] initWithTarget:self
-                                            action:@selector(handleSingleTap:)];
-    [self.searchContainerView addGestureRecognizer:singleFingerTap];
-}
 
 -(void)handleSingleTap:(UITapGestureRecognizer *)recognizer{
     
@@ -148,6 +148,14 @@
 
     
     
+}
+
+#pragma mark - textfield
+
+-(void)textFieldDidChange:(UITextField *)sender{
+
+    self.termrStr = sender.text;
+    [self getDataForFirstTime];
 }
 
 #pragma mark - collectionView
@@ -239,7 +247,7 @@
 
 -(void)getDataForFirstTime:(BOOL)firstTime{
 
-    NSArray *parametrs = @[@"perpage=25",[NSString stringWithFormat:@"page=%ld",(long)self.skipCount]];
+    NSArray *parametrs = @[@"perpage=25",[NSString stringWithFormat:@"page=%ld",(long)self.skipCount],[NSString stringWithFormat: @"term=%@",self.termrStr == nil ? @"" : self.termrStr]];
     
     REACHABILITY
     
@@ -247,32 +255,45 @@
         
         ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:SEARCHSERVICE andWithParametrs:parametrs andWithBody:nil andIsFullPath:NO];
         
+        self.curentRequestcount++;
         dispatch_async(dispatch_get_main_queue(),^{
             
-            if (!serverRs.hasErro) {
-                if (serverRs.backData !=nil ) {
-                   
-                    NSArray *arr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData andwithType:nil andIsDetail:NO];
-                    if (arr.count > 0) {
+            self.curentRequestcount--;
+            
+            if (self.curentRequestcount == 0 ) {
+                
+                if (!serverRs.hasErro) {
+                    if (serverRs.backData !=nil ) {
                         
-                        [self.aroundPArr addObjectsFromArray:arr];
+                        NSArray *arr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData andwithType:nil andIsDetail:NO];
+                        if (arr.count > 0) {
+                            
+                            if (firstTime ){
+                                [self addLoadMore];
+                                [self.aroundPArr removeAllObjects];
+
+                            }
+                            
+                            if ( arr.count < 25)
+                                [self.collectionView .mj_footer removeFromSuperview];
+                            
+                            [self.aroundPArr addObjectsFromArray:arr];
+
+                            
+                            
+                        }
+                        else{
+                            [self.collectionView .mj_footer removeFromSuperview];
+                        }
                         
-                        if (firstTime)
-                            [self addLoadMore];
+                        self.skipCount ++;
                         
                         
                     }
                     else{
-                        [self.collectionView .mj_footer removeFromSuperview];
                     }
                     
-                    self.skipCount ++;
-                    
-                    
                 }
-                else{
-                }
-                
             }
             
             [self.collectionView.mj_footer endRefreshing];

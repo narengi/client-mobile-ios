@@ -284,6 +284,8 @@ self.priceLabelcontainer.layer.cornerRadius = 5;
     self.avatarImg.layer.borderWidth = 4;
     self.avatarImg.layer.borderColor = [UIColor whiteColor].CGColor;
     [self.avatarImg sd_setImageWithURL:self.houseObj.host.imageUrl placeholderImage:nil];
+    
+    
     self.mapViewImg.layer.masksToBounds  = YES;
  
     [self.mapViewImg sd_setImageWithURL:self.houseObj.googleMapImageUrl placeholderImage:nil];
@@ -323,7 +325,20 @@ self.priceLabelcontainer.layer.cornerRadius = 5;
     [self.commentsTableView layoutIfNeeded];
     [self.ownerTableView layoutIfNeeded];
 
+    self.avatarImg.userInteractionEnabled = YES;
     
+    UITapGestureRecognizer *tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarClicked:)];
+    tapped.numberOfTapsRequired = 1;
+    tapped.numberOfTouchesRequired  =1;
+    tapped.delegate  =self;
+    [self.avatarImg addGestureRecognizer:tapped];
+}
+
+
+#pragma mark - avatar
+-(void)avatarClicked :(UIGestureRecognizer *)gestureRecognizer {
+    
+    [self goToProfileWithUrl:self.houseObj.host.hostURL];
 }
 
 

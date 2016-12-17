@@ -159,9 +159,6 @@
     }
     else{
         
-        destinationVC = (ProfileViewController *)[storyboard instantiateViewControllerWithIdentifier:@"prodileVCID"];
-        ((ProfileViewController *)destinationVC).url  = url;
-        
     }
     
     
@@ -169,6 +166,15 @@
 
     
     
+}
+
+-(void)goToProfileWithUrl:(NSString *)urlStr{
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ProfileViewController *profileVc  = [storyboard instantiateViewControllerWithIdentifier:@"prodileVCID"];
+    profileVc.urlStr  = urlStr;
+    
+    [self.navigationController pushViewController:profileVc animated:YES];
 }
 
 #pragma mark - url
