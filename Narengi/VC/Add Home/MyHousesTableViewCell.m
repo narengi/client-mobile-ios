@@ -18,6 +18,10 @@
     self.containerView.layer.cornerRadius = 2;
     self.containerView.layer.masksToBounds = YES;
     
+    
+    self.priceLabel.layer.cornerRadius = 2;
+    self.priceLabel.layer.masksToBounds = YES;
+    
     self.containerView.layer.borderColor = RGB(193, 193, 193, 1).CGColor;
     self.containerView.layer.borderWidth = 1;
     // Initialization code

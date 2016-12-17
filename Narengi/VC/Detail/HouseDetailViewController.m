@@ -262,7 +262,7 @@
     
     
     NSMutableParagraphStyle *style =  [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    style.alignment = NSTextAlignmentCenter;
+    style.alignment = NSTextAlignmentRight;
     style.paragraphSpacingBefore = 10.0f;
     style.firstLineHeadIndent = 10;
     style.headIndent = 15.0f;

@@ -17,6 +17,7 @@
 #import "SelectGenderViewController.h"
 #import "SelectProvinceViewController.h"
 #import "SelectCityViewController.h"
+#import <AFNetworking.h>
 
 @interface EditProfileViewController ()<DZNPhotoPickerControllerDelegate,UIActionSheetDelegate,
 UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate,UITextViewDelegate>
@@ -548,12 +549,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
         
         if (self.didSelectImg) {
             
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
-                [[NarengiCore sharedInstance] sendServerRequestProfileImageWithImage:UIImageJPEGRepresentation(self.avatarImg.image, 0.4)];
-                
-                dispatch_async(dispatch_get_main_queue(),^{
-                });
-            });
+            [self sendProfileImg];
         }
         
         
@@ -562,6 +558,57 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
         [SVProgressHUD showErrorWithStatus:@"وارد کردن نام، نام‌خانوادگی،ایمیل و تلفن همراه الزامیست"];
     }
     
+}
+
+-(void)sendProfileImg{
+
+    AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];
+    
+    // 2. Create an `NSMutableURLRequest`.
+    
+    NSMutableURLRequest *request = [serializer multipartFormRequestWithMethod:@"POST"
+                                                                    URLString:[NSString stringWithFormat:@"%@medias/upload/userprofile",BASEURL]
+                                                                   parameters:@{}
+                                                    constructingBodyWithBlock:^(id formData) {
+                                                        
+                                                        
+                                                        NSData *imageData = UIImageJPEGRepresentation(self.avatarImg.image, 0.4);
+                                                        
+                                                        [formData appendPartWithFileData:imageData
+                                                                                    name:@"files"
+                                                         
+                                                                                fileName:@"myimage.jpg"
+                                                                                mimeType:@"image/jpeg"];
+//
+                                                    } error:nil];
+    
+    [request addValue:[[NarengiCore sharedInstance] makeAuthurizationValue] forHTTPHeaderField:@"authorization"];
+    
+    
+    // 3. Create and use `AFHTTPRequestOperationManager` to create an `AFHTTPRequestOperation` from the `NSMutableURLRequest` that we just created.
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPRequestOperation *operation =
+    [manager HTTPRequestOperationWithRequest:request
+                                     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                         
+                                         
+                                         
+                                     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                         
+                                     }];
+    
+    
+    
+    // 4. Set the progress block of the operation.
+    [operation setUploadProgressBlock:^(NSUInteger __unused bytesWritten,
+                                        long long totalBytesWritten,
+                                        long long totalBytesExpectedToWrite) {
+        [SVProgressHUD showProgress:(float)totalBytesWritten/totalBytesExpectedToWrite status:@"در حال ارسال اطلاعات" maskType:SVProgressHUDMaskTypeGradient];
+        NSLog(@"Wrote %f", (float)totalBytesWritten/totalBytesExpectedToWrite);
+    }];
+    
+    // 5. Begin!
+    [operation start];
 }
 
 -(void)sendUserData{

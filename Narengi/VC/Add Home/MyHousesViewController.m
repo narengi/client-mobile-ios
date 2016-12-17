@@ -240,11 +240,11 @@
         [cell.img sd_setImageWithURL:house.imageUrls[0] placeholderImage:nil];
     }
     
-    cell.editButton.tag = cell.viewButton.tag = cell.deleteButton.tag = indexPath.row;
-    cell.priceLabel.text = house.cost;
+//    cell.editButton.tag = cell.viewButton.tag = cell.deleteButton.tag = indexPath.row;
+    cell.priceLabel.text = [NSString stringWithFormat:@"%@         " , house.cost];
     
     
-    cell.availableFirstDay.text = [NSString stringWithFormat:@"اولین تاریخ آزاد:\n%@",house.firstDateStr];
+    cell.availableFirstDay.text = [NSString stringWithFormat:@"اولین تاریخ آزاد: %@",house.firstDateStr];
     
     return  cell;
 }
@@ -269,7 +269,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    return 282;
+    return 296;
 }
 
 #pragma mark - button

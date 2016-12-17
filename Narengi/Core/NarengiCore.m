@@ -128,7 +128,7 @@ NarengiCore *sharedInstance;
 //Upload profile Image
 -(void )sendServerRequestProfileImageWithImage:(NSData *)imageData{
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@user-profiles/picture",BASEURL]]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@medias/upload/userprofile",BASEURL]]];
     
     
     [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
@@ -144,7 +144,7 @@ NarengiCore *sharedInstance;
     
     NSMutableData* body = [NSMutableData data];
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"picture\"; filename=\"%@\"\r\n", @"aa"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"files\"; filename=\"%@\"\r\n", @"aa"] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[[NSString stringWithFormat:@"Content-Type: %@\r\n\r\n", @"image/jpeg"] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:imageData];
     [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
@@ -599,13 +599,9 @@ NarengiCore *sharedInstance;
     
     if (isDetail) {
         
-        hostObj.locationText   = [dict objectForKey:@"LocationText"];
-        hostObj.career         = [dict objectForKey:@"Job"];
-        hostObj.memberFrom     = [dict objectForKey:@"MemberFrom"];
-        hostObj.descriptionStr = [dict objectForKey:@"Description"];
-        hostObj.commentsArr    = [self parsComments:[dict objectForKey:@"reviews"] ];
-        hostObj.houseArr       = [self parsAroudPlacesWith:[dict objectForKey:@"Houses"] andwithType:@"House" andIsDetail:NO];
-        hostObj.descriptionStr = [dict objectForKey:@"Summary"];
+        hostObj.locationText   = [NSString stringWithFormat:@"%@، %@",[dict objectForKey:@"city"],[dict objectForKey:@"province"]];
+        hostObj.houseArr       = [self parsAroudPlacesWith:[dict objectForKey:@"houses"] andwithType:@"House" andIsDetail:NO];
+        hostObj.descriptionStr = [dict objectForKey:@"bio"];
         
     }
     

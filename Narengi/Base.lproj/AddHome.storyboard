@@ -22,7 +22,7 @@
         <scene sceneID="wlv-rW-fcf">
             <objects>
                 <navigationController storyboardIdentifier="addHomNavigationVC" id="0kk-FN-avg" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="V4K-Nm-j3D">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="V4K-Nm-j3D">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3757,11 +3757,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="399" height="50"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y7A-HX-9DL">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y7A-HX-9DL">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyD-L7-kQ3" customClass="StepLabel">
-                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyD-L7-kQ3" customClass="StepLabel">
+                                        <rect key="frame" x="7" y="7" width="36" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="36" id="Fnu-P8-4JE"/>
                                             <constraint firstAttribute="width" secondItem="fyD-L7-kQ3" secondAttribute="height" multiplier="1:1" id="ffD-Uo-CWU"/>
@@ -3825,11 +3825,11 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8da-Ab-pzf">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8da-Ab-pzf">
+                                <rect key="frame" x="50" y="0.0" width="50" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ge2-Yb-Z1x" customClass="StepLabel">
-                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ge2-Yb-Z1x" customClass="StepLabel">
+                                        <rect key="frame" x="7" y="7" width="36" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Ge2-Yb-Z1x" secondAttribute="height" multiplier="1:1" id="XiT-y4-9V1"/>
                                             <constraint firstAttribute="width" constant="36" id="p3z-ma-gc7"/>
@@ -3893,11 +3893,11 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vSk-Au-WCC">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vSk-Au-WCC">
+                                <rect key="frame" x="100" y="0.0" width="50" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6E-aH-f7C" customClass="StepLabel">
-                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6E-aH-f7C" customClass="StepLabel">
+                                        <rect key="frame" x="7" y="7" width="36" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="j6E-aH-f7C" secondAttribute="height" multiplier="1:1" id="Dnm-Zc-QUj"/>
                                             <constraint firstAttribute="width" constant="36" id="ee5-hH-jCZ"/>
@@ -3961,11 +3961,11 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LTJ-6u-iVq">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LTJ-6u-iVq">
+                                <rect key="frame" x="150" y="0.0" width="50" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbb-42-f9g" customClass="StepLabel">
-                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbb-42-f9g" customClass="StepLabel">
+                                        <rect key="frame" x="7" y="7" width="36" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="36" id="FL5-PX-7jG"/>
                                             <constraint firstAttribute="width" secondItem="Wbb-42-f9g" secondAttribute="height" multiplier="1:1" id="PEm-ET-Bje"/>
@@ -4029,11 +4029,11 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L9r-ag-iMb">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L9r-ag-iMb">
+                                <rect key="frame" x="200" y="0.0" width="50" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7B-va-BY2" customClass="StepLabel">
-                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7B-va-BY2" customClass="StepLabel">
+                                        <rect key="frame" x="7" y="7" width="36" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="36" id="Rte-fg-P0M"/>
                                             <constraint firstAttribute="width" secondItem="t7B-va-BY2" secondAttribute="height" multiplier="1:1" id="fdD-Sx-aR8"/>
@@ -4097,11 +4097,11 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ROJ-Wc-4Gq">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROJ-Wc-4Gq">
+                                <rect key="frame" x="250" y="0.0" width="50" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45J-F3-POL" customClass="StepLabel">
-                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45J-F3-POL" customClass="StepLabel">
+                                        <rect key="frame" x="7" y="7" width="36" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="36" id="Plq-pH-A9K"/>
                                             <constraint firstAttribute="width" secondItem="45J-F3-POL" secondAttribute="height" multiplier="1:1" id="RpI-GI-rJf"/>
@@ -4165,11 +4165,11 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7J3-0q-MbF">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7J3-0q-MbF">
+                                <rect key="frame" x="300" y="0.0" width="50" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ev3-jM-cMd" customClass="StepLabel">
-                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ev3-jM-cMd" customClass="StepLabel">
+                                        <rect key="frame" x="7" y="7" width="36" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="36" id="f42-ip-UUb"/>
                                             <constraint firstAttribute="width" secondItem="Ev3-jM-cMd" secondAttribute="height" multiplier="1:1" id="jXj-om-UcP"/>
@@ -4233,11 +4233,11 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kFl-GN-BfF">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kFl-GN-BfF">
+                                <rect key="frame" x="350" y="0.0" width="50" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Xk-gy-dOg" customClass="StepLabel">
-                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Xk-gy-dOg" customClass="StepLabel">
+                                        <rect key="frame" x="7" y="7" width="36" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="4Xk-gy-dOg" secondAttribute="height" multiplier="1:1" id="7wJ-hB-NZW"/>
                                             <constraint firstAttribute="width" constant="36" id="PeM-p1-UkG"/>
@@ -4461,14 +4461,14 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="eightthLabel" destination="4Xk-gy-dOg" id="1go-Gj-Pii"/>
-                        <outlet property="fifthLabel" destination="t7B-va-BY2" id="7GE-G7-9m3"/>
-                        <outlet property="fisrtLabel" destination="fyD-L7-kQ3" id="vlg-y5-zRN"/>
-                        <outlet property="fourthLabel" destination="Wbb-42-f9g" id="LZc-Ce-h7I"/>
-                        <outlet property="secondLabel" destination="Ge2-Yb-Z1x" id="lzL-Ee-DZR"/>
-                        <outlet property="seventhLabel" destination="Ev3-jM-cMd" id="c2L-gg-o05"/>
-                        <outlet property="sixthLabel" destination="45J-F3-POL" id="Fj4-A3-74R"/>
-                        <outlet property="thirdLabel" destination="j6E-aH-f7C" id="ot7-3d-QTb"/>
+                        <outlet property="eightthLabel" destination="fyD-L7-kQ3" id="nCb-CV-OIl"/>
+                        <outlet property="fifthLabel" destination="Wbb-42-f9g" id="dAO-GI-SeK"/>
+                        <outlet property="fisrtLabel" destination="4Xk-gy-dOg" id="qhh-ND-2IX"/>
+                        <outlet property="fourthLabel" destination="t7B-va-BY2" id="6zS-Qz-El1"/>
+                        <outlet property="secondLabel" destination="Ev3-jM-cMd" id="RVf-d7-qF2"/>
+                        <outlet property="seventhLabel" destination="Ge2-Yb-Z1x" id="Pyg-3m-Vsh"/>
+                        <outlet property="sixthLabel" destination="j6E-aH-f7C" id="t99-cW-UB3"/>
+                        <outlet property="thirdLabel" destination="45J-F3-POL" id="SK1-if-oAk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T1v-qZ-bre" userLabel="First Responder" sceneMemberID="firstResponder"/>

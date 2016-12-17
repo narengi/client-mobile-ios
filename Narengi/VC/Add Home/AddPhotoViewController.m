@@ -262,15 +262,6 @@
     //[self startUploadImg];
 }
 
-
-
-
-
-- (void)saveImage:(UIImage *)image
-{
-    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
-}
-
 - (void)resetContent
 {
     

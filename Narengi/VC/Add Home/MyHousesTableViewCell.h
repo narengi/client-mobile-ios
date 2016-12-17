@@ -14,13 +14,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet CustomFaLightLabel *houseTypeLabel;
-@property (weak, nonatomic) IBOutlet CustomFaLightLabel *bedCountLabel;
-@property (weak, nonatomic) IBOutlet CustomFaLightLabel *roomCountLabel;
-@property (weak, nonatomic) IBOutlet IranButton *editButton;
-@property (weak, nonatomic) IBOutlet IranButton *deleteButton;
-@property (weak, nonatomic) IBOutlet IranButton *viewButton;
-@property (weak, nonatomic) IBOutlet CustomFaRegularLabel *availableFirstDay;
+@property (weak, nonatomic) IBOutlet UILabel *houseTypeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bedCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *roomCountLabel;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
+@property (weak, nonatomic) IBOutlet UILabel *availableFirstDay;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 
 @end

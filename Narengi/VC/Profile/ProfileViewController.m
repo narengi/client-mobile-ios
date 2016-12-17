@@ -12,7 +12,9 @@
 #import "CommentTableViewCell.h"
 #import "CommentsViewController.h"
 #import "SearchDetailHomeCollectionViewCell.h"
-
+#import "HouseCollectionViewCell.h"
+#import "PageCell.h"
+#import "PagerCollectionViewCell.h"
 
 @interface ProfileViewController ()
 
@@ -20,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UILabel        *cityNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel        *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel        *descriptionLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *identityHeightConstant;
+@property (weak, nonatomic) IBOutlet UIView *identityView;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *houseCollectionView;
 
@@ -45,7 +49,9 @@
     [super viewDidLoad];
     
     //register Nibs for Tableviews
-    [self.houseCollectionView registerNib:[UINib nibWithNibName:@"SearchDetailHomeCell" bundle:nil] forCellWithReuseIdentifier:@"homeCellID"];
+    [self registerCollectionCellWithName:@"CitiesCollectionViewCell" andWithId:@"citiesCellID" forCORT:self.houseCollectionView];
+    [self.houseCollectionView registerNib:[UINib nibWithNibName:@"HouseCell" bundle:nil] forCellWithReuseIdentifier:@"houseCellID"];
+    
     [self.houseCollectionView  registerNib:[CityDetailHouseCollectionReusableView nib] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"cityDetailHouseCollectionRV"];
     
     
@@ -57,6 +63,12 @@
 
     
     [self getData];
+    
+    
+    UITapGestureRecognizer *lpgr = [[UITapGestureRecognizer alloc]
+                                    initWithTarget:self action:@selector(handleSingleClickOnCollectionView:)];
+    lpgr.delegate = self;
+    [self.houseCollectionView addGestureRecognizer:lpgr];
     
 }
 
@@ -170,14 +182,31 @@
     
     self.nameLabel.text        = self.hostObj.displayName;
     self.cityNameLabel.text    = self.hostObj.locationText;
-    self.descriptionLabel.text = self.hostObj.descriptionStr;
     self.titleLabel.text       = self.hostObj.displayName;
+    
+    NSMutableParagraphStyle *style =  [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    style.alignment = NSTextAlignmentRight;
+    style.paragraphSpacingBefore = 10.0f;
+    style.firstLineHeadIndent = 10;
+    style.headIndent = 15.0f;
+    style.tailIndent = -15.0f;
+    
+    NSAttributedString *attrText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",self.hostObj.descriptionStr ] attributes:@{ NSParagraphStyleAttributeName : style}];
+    
+    self.descriptionLabel.attributedText = attrText;
+
+    
 
     [self.avatarImg sd_setImageWithURL:self.hostObj.imageUrl placeholderImage:nil];
     self.avatarImg.layer.masksToBounds = YES;
     
         
     [self.houseCollectionView reloadData];
+    
+    
+    self.identityHeightConstant = 0;
+    [self.identityView layoutIfNeeded];
+    
     
     self.houseCollectinViewHeight.constant = ((([UIScreen mainScreen].bounds.size.width) * 5 /8)*self.hostObj.houseArr.count)+(self.hostObj.houseArr.count > 0 ? 40 : 0);;
     
@@ -191,26 +220,31 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    HouseObject *houseObj = ((AroundPlaceObject *)[self.hostObj.houseArr objectAtIndex:indexPath.row]).houseObject;
-    
-    SearchDetailHomeCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"homeCellID" forIndexPath:indexPath];
-    
-    NSString *str = @"";
-    str = [str stringByAppendingString:houseObj.cost];
-    str = [str stringByAppendingString:@"   "];
-    
-    pagerCell.priceLabel.text       = str;
-    pagerCell.descriptionLabel.text = houseObj.featureSummray;
-    pagerCell.titleLabel.text       = houseObj.name;
-    pagerCell.coverImg.alpha        = 0;
-    pagerCell.priceLabel.layer.cornerRadius = 10;
-    pagerCell.priceLabel.layer.masksToBounds = YES;
-    
-    pagerCell.imageUrls       = houseObj.imageUrls;
-    [pagerCell.pages reloadData];
-    pagerCell.rateImg.image = IMG(([NSString stringWithFormat:@"%f",houseObj.roundedRate]));
-    
-    return pagerCell;
+    if (self.hostObj.houseArr.count > 0) {
+        AroundPlaceObject *aroundObj = self.hostObj.houseArr[indexPath.row];
+        
+        
+        HouseCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"houseCellID"  forIndexPath:indexPath];
+        
+        NSString *str = @"";
+        str = [str stringByAppendingString:aroundObj.houseObject.cost == nil ? @"" : aroundObj.houseObject.cost];
+        str = [str stringByAppendingString:@"     "];
+        
+        pagerCell.priceLabel.text       = str;
+        pagerCell.descriptionLabel.text = aroundObj.houseObject.summary;
+        pagerCell.titleLabel.text       = aroundObj.houseObject.name;
+        pagerCell.featuresLabel.text    = aroundObj.houseObject.featureSummray;
+        
+        pagerCell.imageUrls       = aroundObj.houseObject.imageUrls;
+        [pagerCell.pages reloadData];
+        
+        return pagerCell;
+    }
+    else{
+        
+        HouseCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"houseCellID"  forIndexPath:indexPath];
+        return pagerCell;
+    }
 }
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -221,6 +255,20 @@
 
     return self.hostObj.houseArr.count;
     
+}
+
+
+-(void)handleSingleClickOnCollectionView:(UITapGestureRecognizer *)gestureRecognizer
+{
+    if(self.hostObj.houseArr.count > 0){
+        
+        CGPoint p = [gestureRecognizer locationInView:self.houseCollectionView];
+        NSIndexPath *indexPath = [self.houseCollectionView indexPathForItemAtPoint:p];
+        
+        AroundPlaceObject *aroundObj = self.hostObj.houseArr[indexPath.row];
+        
+        [self goToDetailWithArroundObject:aroundObj];
+    }
 }
 
 
