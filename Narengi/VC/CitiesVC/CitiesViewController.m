@@ -89,7 +89,7 @@
                            init];
     [self.refreshControl addTarget:self action:@selector(getDataForFirstTime) forControlEvents:UIControlEventValueChanged];
     [self.collectionView addSubview:self.refreshControl];
-    [self.refreshControl setTintColor:[UIColor whiteColor]];
+    [self.refreshControl setTintColor:[UIColor darkGrayColor]];
     
 }
 
@@ -174,23 +174,31 @@
 {
 
     
-    AroundPlaceObject *aroundObj = self.aroundPArr[indexPath.row];
-    
-    HouseCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"houseCellID"  forIndexPath:indexPath];
-    
-    NSString *str = @"";
-    str = [str stringByAppendingString:aroundObj.houseObject.cost == nil ? @"" : aroundObj.houseObject.cost];
-    str = [str stringByAppendingString:@"     "];
-    
-    pagerCell.priceLabel.text       = str;
-    pagerCell.descriptionLabel.text = aroundObj.houseObject.summary;
-    pagerCell.titleLabel.text       = aroundObj.houseObject.name;
-    pagerCell.featuresLabel.text    = aroundObj.houseObject.featureSummray;
-    
-    pagerCell.imageUrls       = aroundObj.houseObject.imageUrls;
-    [pagerCell.pages reloadData];
-    
-    return pagerCell;
+    if (self.aroundPArr.count > 0) {
+        AroundPlaceObject *aroundObj = self.aroundPArr[indexPath.row];
+        
+        
+        HouseCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"houseCellID"  forIndexPath:indexPath];
+        
+        NSString *str = @"";
+        str = [str stringByAppendingString:aroundObj.houseObject.cost == nil ? @"" : aroundObj.houseObject.cost];
+        str = [str stringByAppendingString:@"     "];
+        
+        pagerCell.priceLabel.text       = str;
+        pagerCell.descriptionLabel.text = aroundObj.houseObject.summary;
+        pagerCell.titleLabel.text       = aroundObj.houseObject.name;
+        pagerCell.featuresLabel.text    = aroundObj.houseObject.featureSummray;
+        
+        pagerCell.imageUrls       = aroundObj.houseObject.imageUrls;
+        [pagerCell.pages reloadData];
+        
+        return pagerCell;
+    }
+    else{
+        
+        HouseCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"houseCellID"  forIndexPath:indexPath];
+        return pagerCell;
+    }
 
  
 }

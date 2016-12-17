@@ -87,8 +87,8 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
-                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                        <state key="normal" title="پیام‌ها" image="inbox">
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
+                                        <state key="normal" title="پیام‌ها" image="Inbox">
                                             <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -102,27 +102,12 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
-                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                        <state key="normal" title="علاقه‌مندی‌ها" image="favorite-list">
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
+                                        <state key="normal" title="علاقه‌مندی‌ها" image="Heart">
                                             <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="settingButtonClicked:" destination="u4o-yP-Eby" eventType="touchUpInside" id="86o-eh-pML"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odx-Q3-ksQ" customClass="IranButton">
-                                        <rect key="frame" x="20" y="280" width="240" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="h0m-Eu-CGO"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
-                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                        <state key="normal" title="پروفایل" image="hosting">
-                                            <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="profileButton:" destination="u4o-yP-Eby" eventType="touchUpInside" id="hc9-uc-uwz"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rad-J6-Ftt">
@@ -147,8 +132,8 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
-                                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                                <state key="normal" title="مهمان‌پذیری" image="hosting">
+                                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
+                                                <state key="normal" title="مهمان‌پذیری" image="Host">
                                                     <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -174,9 +159,10 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="qWZ-SC-1SY"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
-                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                        <state key="normal" title="خانه" image="hosting">
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
+                                        <state key="normal" title="خانه" image="Home">
                                             <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -184,14 +170,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x0W-9z-8Ga" customClass="IranButton">
-                                        <rect key="frame" x="20" y="334" width="240" height="40"/>
+                                        <rect key="frame" x="20" y="278" width="240" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="4YS-Qr-26T"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
-                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                        <state key="normal" title="تنظیمات" image="hosting">
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
+                                        <state key="normal" title="تنظیمات" image="Setting">
                                             <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -199,14 +185,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHq-ri-uhU" customClass="IranButton">
-                                        <rect key="frame" x="20" y="387" width="240" height="40"/>
+                                        <rect key="frame" x="20" y="331" width="240" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="9L9-4h-kgc"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
-                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                        <state key="normal" title="راهنمایی" image="hosting">
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
+                                        <state key="normal" title="راهنمایی" image="Help">
                                             <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -219,21 +205,18 @@
                                     <constraint firstAttribute="trailing" secondItem="rad-J6-Ftt" secondAttribute="trailing" id="12t-y9-igu"/>
                                     <constraint firstAttribute="trailing" secondItem="ugF-6t-Bgp" secondAttribute="trailing" constant="10" id="2vD-Tj-eZw"/>
                                     <constraint firstItem="7dx-0Z-4k5" firstAttribute="leading" secondItem="VRQ-kg-POp" secondAttribute="leading" constant="20" id="30z-OQ-hSX"/>
-                                    <constraint firstItem="odx-Q3-ksQ" firstAttribute="leading" secondItem="VRQ-kg-POp" secondAttribute="leading" constant="20" id="BnC-f1-fXx"/>
                                     <constraint firstItem="cHq-ri-uhU" firstAttribute="leading" secondItem="VRQ-kg-POp" secondAttribute="leading" constant="20" id="EYt-Xq-dJP"/>
                                     <constraint firstAttribute="trailing" secondItem="cHq-ri-uhU" secondAttribute="trailing" constant="10" id="FfW-3e-QEc"/>
                                     <constraint firstItem="JaF-ZP-dU7" firstAttribute="leading" secondItem="VRQ-kg-POp" secondAttribute="leading" constant="20" id="Hrc-FJ-uA3"/>
                                     <constraint firstItem="ugF-6t-Bgp" firstAttribute="top" secondItem="JaF-ZP-dU7" secondAttribute="bottom" constant="12" id="KzM-qD-0qv"/>
-                                    <constraint firstAttribute="trailing" secondItem="odx-Q3-ksQ" secondAttribute="trailing" constant="10" id="Leh-um-Xp1"/>
                                     <constraint firstItem="JaF-ZP-dU7" firstAttribute="top" secondItem="0mA-ZP-RwP" secondAttribute="bottom" constant="24" id="Ls9-9q-b8p"/>
-                                    <constraint firstItem="odx-Q3-ksQ" firstAttribute="top" secondItem="7dx-0Z-4k5" secondAttribute="bottom" constant="12" id="MQv-sJ-WlZ"/>
                                     <constraint firstItem="ugF-6t-Bgp" firstAttribute="leading" secondItem="VRQ-kg-POp" secondAttribute="leading" constant="20" id="PWp-6a-n3S"/>
                                     <constraint firstAttribute="bottom" secondItem="rad-J6-Ftt" secondAttribute="bottom" id="VNn-Y9-4QG"/>
                                     <constraint firstItem="x0W-9z-8Ga" firstAttribute="leading" secondItem="VRQ-kg-POp" secondAttribute="leading" constant="20" id="XDT-yW-LgQ"/>
                                     <constraint firstItem="7dx-0Z-4k5" firstAttribute="top" secondItem="ugF-6t-Bgp" secondAttribute="bottom" constant="12" id="YX3-0s-txN"/>
+                                    <constraint firstItem="x0W-9z-8Ga" firstAttribute="top" secondItem="7dx-0Z-4k5" secondAttribute="bottom" constant="10" id="ao7-WO-kGg"/>
                                     <constraint firstAttribute="trailing" secondItem="JaF-ZP-dU7" secondAttribute="trailing" constant="10" id="cmM-2A-HeC"/>
                                     <constraint firstItem="rad-J6-Ftt" firstAttribute="leading" secondItem="VRQ-kg-POp" secondAttribute="leading" id="d38-Pd-vjO"/>
-                                    <constraint firstItem="x0W-9z-8Ga" firstAttribute="top" secondItem="odx-Q3-ksQ" secondAttribute="bottom" constant="14" id="eVt-hT-nK9"/>
                                     <constraint firstItem="0mA-ZP-RwP" firstAttribute="top" secondItem="VRQ-kg-POp" secondAttribute="top" id="gGB-aV-EUQ"/>
                                     <constraint firstAttribute="trailing" secondItem="7dx-0Z-4k5" secondAttribute="trailing" constant="10" id="isQ-L6-ksO"/>
                                     <constraint firstAttribute="trailing" secondItem="0mA-ZP-RwP" secondAttribute="trailing" id="kFj-Ma-3rB"/>
@@ -261,14 +244,14 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHf-n7-76K" customClass="IranButton">
-                                        <rect key="frame" x="26" y="200" width="236" height="43"/>
+                                        <rect key="frame" x="0.0" y="200" width="262" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="QN3-7d-n6X"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
-                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                        <state key="normal" title="عضویت/ورود" image="signup-login">
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
+                                        <state key="normal" title="عضویت/ورود" image="Login">
                                             <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -276,14 +259,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iw5-w9-ZZL" customClass="IranButton">
-                                        <rect key="frame" x="26" y="252" width="236" height="43"/>
+                                        <rect key="frame" x="8" y="252" width="254" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="Klv-ib-dAG"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
-                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                        <state key="normal" title="خانه" image="hosting">
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
+                                        <state key="normal" title="خانه" image="Home">
                                             <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -291,14 +274,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kP2-mY-wgE" customClass="IranButton">
-                                        <rect key="frame" x="26" y="312" width="236" height="43"/>
+                                        <rect key="frame" x="8" y="312" width="254" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="Af6-0H-Pnx"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
-                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                        <state key="normal" title="تنظیمات" image="hosting">
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
+                                        <state key="normal" title="تنظیمات" image="Setting">
                                             <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -326,8 +309,8 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
-                                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                                <state key="normal" title="مهمان‌پذیری" image="hosting">
+                                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
+                                                <state key="normal" title="مهمان‌پذیری" image="Host">
                                                     <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -348,14 +331,14 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5i-BD-mHs" customClass="IranButton">
-                                        <rect key="frame" x="26" y="369" width="236" height="43"/>
+                                        <rect key="frame" x="8" y="369" width="254" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="I9V-Ab-qry"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
-                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                        <state key="normal" title="راهنمایی" image="hosting">
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
+                                        <state key="normal" title="راهنمایی" image="Help">
                                             <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -365,7 +348,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="xHf-n7-76K" firstAttribute="leading" secondItem="OSf-zD-2YN" secondAttribute="leading" constant="26" id="2JK-CU-JEn"/>
+                                    <constraint firstItem="xHf-n7-76K" firstAttribute="leading" secondItem="OSf-zD-2YN" secondAttribute="leading" id="2JK-CU-JEn"/>
                                     <constraint firstItem="iw5-w9-ZZL" firstAttribute="top" secondItem="xHf-n7-76K" secondAttribute="bottom" constant="9" id="8m1-6o-g1h"/>
                                     <constraint firstAttribute="trailing" secondItem="xHf-n7-76K" secondAttribute="trailing" constant="8" id="9Uf-Ya-XV3"/>
                                     <constraint firstAttribute="trailing" secondItem="kP2-mY-wgE" secondAttribute="trailing" constant="8" id="FMh-Ea-P9L"/>
@@ -375,14 +358,14 @@
                                     <constraint firstItem="WJx-rV-pVz" firstAttribute="top" secondItem="OSf-zD-2YN" secondAttribute="top" id="bgk-hS-FlR"/>
                                     <constraint firstAttribute="bottom" secondItem="2jP-V5-Za2" secondAttribute="bottom" id="ePl-w8-QAr"/>
                                     <constraint firstAttribute="trailing" secondItem="WJx-rV-pVz" secondAttribute="trailing" id="g8L-ux-boD"/>
-                                    <constraint firstItem="kP2-mY-wgE" firstAttribute="leading" secondItem="OSf-zD-2YN" secondAttribute="leading" constant="26" id="igz-xw-BBB"/>
+                                    <constraint firstItem="kP2-mY-wgE" firstAttribute="leading" secondItem="OSf-zD-2YN" secondAttribute="leading" constant="8" id="igz-xw-BBB"/>
                                     <constraint firstItem="WJx-rV-pVz" firstAttribute="leading" secondItem="OSf-zD-2YN" secondAttribute="leading" id="jdY-oO-LES"/>
                                     <constraint firstItem="xHf-n7-76K" firstAttribute="top" secondItem="WJx-rV-pVz" secondAttribute="bottom" constant="27" id="kh7-Ba-B0t"/>
                                     <constraint firstAttribute="trailing" secondItem="2jP-V5-Za2" secondAttribute="trailing" id="le0-TK-YS8"/>
                                     <constraint firstItem="A5i-BD-mHs" firstAttribute="top" secondItem="kP2-mY-wgE" secondAttribute="bottom" constant="14" id="n8M-fp-CH7"/>
                                     <constraint firstAttribute="trailing" secondItem="iw5-w9-ZZL" secondAttribute="trailing" constant="8" id="qwW-EK-vuj"/>
-                                    <constraint firstItem="A5i-BD-mHs" firstAttribute="leading" secondItem="OSf-zD-2YN" secondAttribute="leading" constant="26" id="svU-D5-oNX"/>
-                                    <constraint firstItem="iw5-w9-ZZL" firstAttribute="leading" secondItem="OSf-zD-2YN" secondAttribute="leading" constant="26" id="tuh-ak-pph"/>
+                                    <constraint firstItem="A5i-BD-mHs" firstAttribute="leading" secondItem="OSf-zD-2YN" secondAttribute="leading" constant="8" id="svU-D5-oNX"/>
+                                    <constraint firstItem="iw5-w9-ZZL" firstAttribute="leading" secondItem="OSf-zD-2YN" secondAttribute="leading" constant="8" id="tuh-ak-pph"/>
                                     <constraint firstAttribute="trailing" secondItem="A5i-BD-mHs" secondAttribute="trailing" constant="8" id="zdc-8z-0X6"/>
                                 </constraints>
                             </view>
@@ -905,7 +888,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qbn-16-Owt">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="S1o-Bq-qxr">
                                     <size key="itemSize" width="400" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -4536,20 +4519,23 @@
         <image name="CloseIcon" width="32" height="32"/>
         <image name="CloseIconOrange" width="32" height="32"/>
         <image name="GuestsNumber" width="35" height="35"/>
+        <image name="Heart" width="32" height="32"/>
+        <image name="Help" width="32" height="32"/>
+        <image name="Home" width="32" height="32"/>
+        <image name="Host" width="32" height="32"/>
+        <image name="Inbox" width="32" height="32"/>
+        <image name="Login" width="32" height="32"/>
         <image name="MenuIcon" width="32" height="32"/>
         <image name="MenuLogo" width="185" height="85"/>
         <image name="RoomNumber" width="35" height="35"/>
         <image name="SearchBoxIconOrange" width="22" height="22"/>
+        <image name="Setting" width="32" height="32"/>
         <image name="TypeOfHouse" width="35" height="35"/>
         <image name="add-avatar" width="32" height="32"/>
         <image name="angle-left" width="16" height="16"/>
-        <image name="favorite-list" width="32" height="32"/>
-        <image name="hosting" width="32" height="32"/>
-        <image name="inbox" width="32" height="32"/>
         <image name="map" width="199" height="78"/>
         <image name="minusbtn" width="25" height="25"/>
         <image name="plusbtn" width="25" height="25"/>
-        <image name="signup-login" width="32" height="32"/>
         <image name="signup-successful" width="128" height="128"/>
         <image name="tab-triangle" width="24" height="12"/>
         <image name="timearrow" width="30" height="30"/>
