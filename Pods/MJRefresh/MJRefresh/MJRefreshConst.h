@@ -27,7 +27,7 @@
 #define MJRefreshLabelTextColor MJRefreshColor(90, 90, 90)
 
 // 字体大小
-#define MJRefreshLabelFont [UIFont boldSystemFontOfSize:14]
+#define MJRefreshLabelFont [UIFont fontWithName:@"IRANSansMobileFaNum" size:14];
 
 // 常量
 UIKIT_EXTERN const CGFloat MJRefreshLabelLeftInset;

@@ -21,13 +21,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Z4I-fZ-yF7">
-                                <rect key="frame" x="75" y="282" width="224" height="102"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="102" id="1ys-5e-rKP"/>
-                                    <constraint firstAttribute="width" constant="224" id="zsL-Ky-SEZ"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.narengi.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvz-d2-IFx">
                                 <rect key="frame" x="114.5" y="638" width="146" height="21"/>
                                 <constraints>
@@ -38,12 +31,19 @@
                                 <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashLogo" translatesAutoresizingMaskIntoConstraints="NO" id="3cf-na-LAU">
+                                <rect key="frame" x="75" y="282" width="224" height="102"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="102" id="KiK-Jo-HzU"/>
+                                    <constraint firstAttribute="width" constant="224" id="wOM-IH-JNI"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Z4I-fZ-yF7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jdb-ca-Ss7"/>
-                            <constraint firstItem="Z4I-fZ-yF7" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="noD-vx-wuf"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Yvz-d2-IFx" secondAttribute="bottom" constant="8" id="q3D-df-ecx"/>
+                            <constraint firstItem="3cf-na-LAU" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="rqp-28-bAl"/>
+                            <constraint firstItem="3cf-na-LAU" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="sqb-VP-WAI"/>
                             <constraint firstItem="Yvz-d2-IFx" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="whA-zo-WVx"/>
                         </constraints>
                     </view>
