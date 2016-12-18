@@ -92,7 +92,7 @@
         [self.backButton  setImage:IMG(@"CloseBtnShadow") forState:UIControlStateNormal];
         [self.back1Button setImage:IMG(@"CloseBtnOrange") forState:UIControlStateNormal];
     }
-    
+    self.houseCollectionView.scrollEnabled = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -265,15 +265,19 @@
 -(void)setDataForView{
     
     
-    self.beforeLoadView.alpha = 1;
-    
-    [UIView animateWithDuration:0.5 animations:^(void) {
+    if (!self.isShowAllHouseButton) {
         
-        self.beforeLoadView.alpha = 0;
+        self.beforeLoadView.alpha = 1;
         
+        [UIView animateWithDuration:0.5 animations:^(void) {
+            
+            self.beforeLoadView.alpha = 0;
+            
+        }
+                         completion:^(BOOL finished){
+                         }];
     }
-                     completion:^(BOOL finished){
-                     }];
+    
     
     self.nameLabel.text        = self.hostObj.displayName;
     self.cityNameLabel.text    = self.hostObj.locationText;
@@ -294,7 +298,7 @@
     
     if (self.isShowAllHouseButton) {
         
-       self.houseCollectinViewHeight.constant = ((([UIScreen mainScreen].bounds.size.width) * 5 /8) * self.hostObj.houseArr.count) + (self.hostObj.houseArr.count > 0 ? 40 : 0) ;
+       self.houseCollectinViewHeight.constant = ((([UIScreen mainScreen].bounds.size.width) * 5 /8) * self.hostObj.houseArr.count) + 30 ;
     }
     else{
         
@@ -331,6 +335,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     if (self.hostObj.houseArr.count > 0) {
+        
         AroundPlaceObject *aroundObj = self.hostObj.houseArr[indexPath.row];
         
         if (aroundObj.houseObject.isOnlyButton) {
@@ -422,7 +427,7 @@
     
     if (aroundObj.houseObject.isOnlyButton) {
         
-        return CGSizeMake([UIScreen mainScreen].bounds.size.width, 60);
+        return CGSizeMake([UIScreen mainScreen].bounds.size.width, 40);
     }
     else{
         return CGSizeMake([UIScreen mainScreen].bounds.size.width, ([UIScreen mainScreen].bounds.size.width) * 5 /8 );
@@ -482,11 +487,51 @@
     [self presentViewController:destinationVC animated:YES completion:nil];
     
 }
+
 #pragma mark - all houses
 
 -(void)getAllHouses{
 
 
+    REACHABILITY
+    
+    __block MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    [hud setUserInteractionEnabled:NO];
+    [hud showAnimated:YES];
+    hud.contentColor = RGB(252, 61, 0, 1);
+    hud.label.text = @"در حال دریافت اطلاعات";
+    hud.label.font = [UIFont fontWithName:@"IRANSansMobileFaNum" size:15];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+        
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:[NSString stringWithFormat:@"accounts/%@/houses",self.hostObj.ID] andWithParametrs:nil andWithBody:nil andIsFullPath:NO];
+        
+        
+        dispatch_async(dispatch_get_main_queue(),^{
+            
+            if (!serverRs.hasErro) {
+                
+                if (serverRs.backData !=nil ) {
+                    
+                    self.hostObj.houseArr  = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData andwithType:@"House" andIsDetail:YES];
+                    
+                    self.isShowAllHouseButton = YES;
+                    [self setDataForView];
+                }
+                else{
+                   // [self showErrorButtonWithMessage:@"اشکال در ارتباط"];
+                }
+            }
+            else{
+                
+                //[self showErrorButtonWithMessage:@"اشکال در ارتباط"];
+                
+            }
+            
+            [hud hideAnimated:YES];
+            
+        });
+    });
 }
 
 

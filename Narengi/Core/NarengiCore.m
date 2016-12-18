@@ -88,8 +88,13 @@ NarengiCore *sharedInstance;
             serverRes.link = [response.allHeaderFields objectForKey:@"Link"];
         
         }
-        else if(response.statusCode == 401 || response.statusCode == 400)
+        else if(response.statusCode == 401)
         {
+            //erase all data user
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"fuckingLoginedOrNOT"];
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"userObject"];
+            
+            
             serverRes.hasErro = YES;
             serverRes.backData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil ];
             
@@ -109,6 +114,9 @@ NarengiCore *sharedInstance;
         
         if (error.code  == -1012) {
          
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"fuckingLoginedOrNOT"];
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"userObject"];
+            
             id backData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil ];
             
             if (backData != nil)
@@ -223,7 +231,7 @@ NarengiCore *sharedInstance;
             serverRes.hasErro = NO;
             serverRes.backData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil ];
         }
-        else if(response.statusCode == 401 || response.statusCode == 400)
+        else if(response.statusCode == 401 )
         {
             serverRes.hasErro = YES;
             serverRes.backData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil ];
@@ -605,7 +613,7 @@ NarengiCore *sharedInstance;
     if (isDetail) {
         
         hostObj.locationText   = [NSString stringWithFormat:@"%@، %@",[[dict objectForKey:@"city"] checkNull] == nil ?  @"شهر" : [dict objectForKey:@"city"] ,[[dict objectForKey:@"province"] checkNull] == nil ? @"استان" : [dict objectForKey:@"province"]];
-        hostObj.houseArr       = [self parsAroudPlacesWith:[dict objectForKey:@"houses"] andwithType:@"House" andIsDetail:NO];
+        hostObj.houseArr       = [self parsAroudPlacesWith:[dict objectForKey:@"houses"] andwithType:@"House" andIsDetail:YES];
         hostObj.descriptionStr = [[dict objectForKey:@"bio"] checkNull] == nil ? @"توضییحات ندارد" : [dict objectForKey:@"bio"];
         
     }
