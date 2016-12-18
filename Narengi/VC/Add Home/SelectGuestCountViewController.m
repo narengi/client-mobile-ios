@@ -240,7 +240,14 @@
 
 -(void)fillData{
 
-    self.priceTextField.text = [NSString stringWithFormat:@"%ld", (long)self.houseObj.price ];
+    if (self.houseObj.price == 0) {
+        self.priceTextField.text = @"";
+    }
+    else{
+        
+        self.priceTextField.text = [NSString stringWithFormat:@"%ld", (long)self.houseObj.price ];
+    }
+    
     
     self.bedCount  = [self.houseObj.bedCount integerValue];
     self.roomCount = [self.houseObj.bedroomCount integerValue];

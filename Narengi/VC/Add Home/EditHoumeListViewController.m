@@ -17,11 +17,13 @@
 #import "SelectFacilityViewController.h"
 #import "AddPhotoViewController.h"
 #import "SelectAvailableDateViewController.h"
+#import "DeleteHomeTableViewCell.h"
 
 
 @interface EditHoumeListViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) NSArray *titlesArr;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -36,6 +38,10 @@
     [self changeLeftIcontoBack];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(houseChanged:) name:@"oneFuckingHouseChanged" object:nil];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"DeleteHouseCell" bundle:nil] forCellReuseIdentifier:@"deleteHomeCell"];
+    
+    
 }
 
 -(void)houseChanged:(NSNotification *)notification{
@@ -58,19 +64,29 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return self.titlesArr.count;
+    return self.titlesArr.count+1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    EditHomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"editHomeCellID" forIndexPath:indexPath];
+    if (indexPath.row < self.titlesArr.count) {
+        EditHomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"editHomeCellID" forIndexPath:indexPath];
+        
+        NSDictionary *dict = self.titlesArr[indexPath.row];
+        
+        cell.titleLable.text = [dict objectForKey:@"title"];
+        cell.indexLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row+1];
+        
+        return  cell;
+    }
+    else{
+        
+        DeleteHomeTableViewCell *deleteCell = [tableView dequeueReusableCellWithIdentifier:@"deleteHomeCell" forIndexPath:indexPath];
+
+        return deleteCell;
+        
+    }
     
-    NSDictionary *dict = self.titlesArr[indexPath.row];
-    
-    cell.titleLable.text = [dict objectForKey:@"title"];
-    cell.indexLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row+1];
-    
-    return  cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -105,6 +121,9 @@
             
         case 7:
             [self performSegueWithIdentifier:@"goToEditAvailableDatesVCID" sender:nil];
+            break;
+        case 8:
+            [self showDeleteHouseAlert];
             break;
             
         default:
@@ -163,6 +182,73 @@
         vc.houseObj = self.houseObj;
         vc.isComingFromEdit = YES;
     }
+    
+}
+
+#pragma mark - button
+
+
+-(void)showDeleteHouseAlert{
+    
+    UIAlertController *buyAlert = [UIAlertController alertControllerWithTitle:@""
+                                                                      message:[NSString stringWithFormat:@"آیا از حذف خانه %@ اطمینان دارید؟",self.houseObj.name]
+                                                               preferredStyle:UIAlertControllerStyleAlert                   ];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"تایید"
+                         style:UIAlertActionStyleDestructive
+                         handler:^(UIAlertAction * action)
+                         
+                         {
+                             [self sendDeleteHouseRequest];
+                         }];
+    
+    UIAlertAction* cancel = [UIAlertAction
+                             actionWithTitle:@"انصراف"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [buyAlert dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+    
+    [buyAlert addAction: ok];
+    [buyAlert addAction: cancel];
+    
+    [self presentViewController:buyAlert animated:YES completion:nil];
+}
+
+-(void)sendDeleteHouseRequest{
+    
+    
+    REACHABILITY
+    
+    [SVProgressHUD showWithStatus:@"در حال ارسال اطلاعات" maskType:SVProgressHUDMaskTypeGradient];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+        
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"Delete" andWithService:[NSString stringWithFormat:@"%@/%@",HOUSESERVICE,self.houseObj.ID] andWithParametrs:nil andWithBody:nil andIsFullPath:NO];
+        
+        dispatch_async(dispatch_get_main_queue(),^{
+            
+            if (!serverRs.hasErro) {
+                
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"deleteHouseNotification" object:self.houseObj];
+                
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+            else{
+                
+                [self showError:@"اشکال در ارسال اطلاعات"];
+            }
+            
+            
+            [SVProgressHUD dismiss];
+            
+        });
+    });
+    
     
 }
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="seeAllHousesCellID" id="fWd-jW-lu2">
+            <rect key="frame" x="0.0" y="0.0" width="315" height="57"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="315" height="57"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="مشاهده اقامتگاه‌ها" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvm-ch-BOh" customClass="CustomFaRegularLabel">
+                        <rect key="frame" x="35" y="16" width="245" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="Wwm-1U-ted"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.74117647058823533" green="0.74117647058823533" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="Yvm-ch-BOh" firstAttribute="centerX" secondItem="fWd-jW-lu2" secondAttribute="centerX" id="Jyl-xH-hcI"/>
+                <constraint firstItem="Yvm-ch-BOh" firstAttribute="centerY" secondItem="fWd-jW-lu2" secondAttribute="centerY" id="P9D-X1-tCh"/>
+                <constraint firstAttribute="trailing" secondItem="Yvm-ch-BOh" secondAttribute="trailing" constant="35" id="Vtx-7S-noP"/>
+                <constraint firstItem="Yvm-ch-BOh" firstAttribute="leading" secondItem="fWd-jW-lu2" secondAttribute="leading" constant="35" id="yQV-Ja-sEC"/>
+            </constraints>
+            <size key="customSize" width="315" height="57"/>
+            <point key="canvasLocation" x="-122.5" y="-87.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -43,6 +43,9 @@
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 10, 0);
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(houseChanged:) name:@"oneFuckingHouseChanged" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteHouse:) name:@"deleteHouseNotification" object:nil];
+    
 }
 
 -(void)houseChanged:(NSNotification *)notification{
@@ -80,6 +83,31 @@
         [self.tableView reloadData];
     }
     
+    
+}
+
+-(void)deleteHouse:(NSNotification *)notification{
+
+    HouseObject *houseObj = notification.object;
+    
+    NSInteger curentIdx = [self.houseArr indexOfObjectPassingTest:^BOOL(AroundPlaceObject *obj, NSUInteger idx, BOOL *stop)
+                           {
+                               if ([obj.houseObject.ID isEqualToString:houseObj.ID] ) {
+                                   
+                                   return YES;
+                               }
+                               else{
+                                   return NO;
+                               }
+                               
+                               
+                           }];
+    if (curentIdx != NSNotFound) {
+        
+        [self.houseArr removeObjectAtIndex:curentIdx];
+        
+        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:curentIdx inSection:0]] withRowAnimation:UITableViewRowAnimationRight];
+    }
     
 }
 
@@ -251,8 +279,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    HouseObject *house = [(AroundPlaceObject*)self.houseArr[indexPath.row] houseObject];
-    [self goToEditHomeWithHouseObj:house];
+    AroundPlaceObject *aroundObj = self.houseArr[indexPath.row];
+    [self goToDetailWithArroundObject:aroundObj];
     
 }
 
@@ -272,91 +300,7 @@
     return 296;
 }
 
-#pragma mark - button
-- (IBAction)deleteButtonClicked:(UIButton *)sender {
-    
-    HouseObject *house = [(AroundPlaceObject*)self.houseArr[sender.tag] houseObject];
-    [self showDeleteHouseAlert:house andWithIndex:sender.tag];
 
-}
-
--(void)showDeleteHouseAlert:(HouseObject *)houseObj andWithIndex:(NSInteger) index{
-
-    UIAlertController *buyAlert = [UIAlertController alertControllerWithTitle:@""
-                                                                      message:[NSString stringWithFormat:@"آیا از حذف خانه %@ اطمینان دارید؟",houseObj.name]
-                                                               preferredStyle:UIAlertControllerStyleAlert                   ];
-    
-    UIAlertAction* ok = [UIAlertAction
-                         actionWithTitle:@"تایید"
-                         style:UIAlertActionStyleDestructive
-                         handler:^(UIAlertAction * action)
-                         
-                         {
-                             [self deleteHouse:houseObj andWithIndex:index];
-                         }];
-    
-    UIAlertAction* cancel = [UIAlertAction
-                             actionWithTitle:@"انصراف"
-                             style:UIAlertActionStyleDefault
-                             handler:^(UIAlertAction * action)
-                             {
-                                 [buyAlert dismissViewControllerAnimated:YES completion:nil];
-                                 
-                             }];
-    
-    [buyAlert addAction: ok];
-    [buyAlert addAction: cancel];
-    
-    [self presentViewController:buyAlert animated:YES completion:nil];
-}
-
--(void)deleteHouse:(HouseObject *)houseObj andWithIndex:(NSInteger)index{
-
-    
-    REACHABILITY
-    
-    [SVProgressHUD showWithStatus:@"در حال ارسال اطلاعات" maskType:SVProgressHUDMaskTypeGradient];
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
-        
-        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"Delete" andWithService:[NSString stringWithFormat:@"%@/%@",HOUSESERVICE,houseObj.ID] andWithParametrs:nil andWithBody:nil andIsFullPath:NO];
-        
-        dispatch_async(dispatch_get_main_queue(),^{
-            
-            if (!serverRs.hasErro) {
-                
-                NSInteger curentIdx = [self.houseArr indexOfObjectPassingTest:^BOOL(AroundPlaceObject *obj, NSUInteger idx, BOOL *stop)
-                                       {
-                                           if ([obj.houseObject.ID isEqualToString:houseObj.ID] ) {
-                                               
-                                               return YES;
-                                           }
-                                           else{
-                                               return NO;
-                                           }
-                                           
-                                           
-                                       }];
-                if (curentIdx != NSNotFound) {
-                    
-                    [self.houseArr removeObjectAtIndex:curentIdx];
-                    
-                    [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:curentIdx inSection:0]] withRowAnimation:UITableViewRowAnimationRight];
-                }
-            }
-            else{
-                
-                [self showError:@"اشکال در ارسال اطلاعات"];
-            }
-            
-            
-            [SVProgressHUD dismiss];
-            
-        });
-    });
-
-    
-}
 
 
 - (IBAction)editButtonClicked:(UIButton *)sender {
@@ -366,13 +310,7 @@
     [self goToEditHomeWithHouseObj:house];
 
 }
-- (IBAction)viewButtonClicked:(UIButton *)sender {
-    
-    AroundPlaceObject *aroundObj = self.houseArr[sender.tag];
-    
-    [self goToDetailWithArroundObject:aroundObj];
 
-}
 
 
 @end

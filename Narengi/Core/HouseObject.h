@@ -53,5 +53,7 @@
 
 @property (nonatomic) NSURL            *googleMapImageUrl;
 
+@property (nonatomic) BOOL             isOnlyButton;
+
 
 @end

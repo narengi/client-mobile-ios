@@ -49,7 +49,10 @@
         [self.tableView layoutIfNeeded];
         self.containerView.hidden = YES;
         
-        self.selectedDict = @{@"enName":self.houseObj.enType,@"faName":self.houseObj.type};
+        if (self.houseObj.enType != nil) {
+            self.selectedDict = @{@"enName":self.houseObj.enType,@"faName":self.houseObj.type};
+        }
+        
         
         
         [self.preButton setTitle:@"انصراف" forState:UIControlStateNormal];

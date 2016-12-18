@@ -86,6 +86,7 @@
 		728271541D0C4E970038D5F8 /* SelectAvailableDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 728271531D0C4E970038D5F8 /* SelectAvailableDateViewController.m */; };
 		7285DE551BF494CD00F92608 /* NSObject+NullCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE541BF494CD00F92608 /* NSObject+NullCheck.m */; };
 		7285DE601BF4B40600F92608 /* PageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE5F1BF4B40600F92608 /* PageCell.m */; };
+		729034151E05A2A500F9BD94 /* AllHousesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 729034141E05A2A500F9BD94 /* AllHousesCell.xib */; };
 		7293145E1CE0762A00CDB4C5 /* SelectTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7293145D1CE0762A00CDB4C5 /* SelectTypeViewController.m */; };
 		729314611CE07E7C00CDB4C5 /* SelectTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 729314601CE07E7C00CDB4C5 /* SelectTypeTableViewCell.m */; };
 		729314671CE08FB700CDB4C5 /* SelectGuestCountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 729314661CE08FB700CDB4C5 /* SelectGuestCountViewController.m */; };
@@ -109,6 +110,8 @@
 		72B662DA1CC8E16500D2B3FB /* SelectProvinceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B662D91CC8E16500D2B3FB /* SelectProvinceViewController.m */; };
 		72B662DD1CC8E1DF00D2B3FB /* SelectProvinceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B662DC1CC8E1DF00D2B3FB /* SelectProvinceTableViewCell.m */; };
 		72B662E01CC8EF3D00D2B3FB /* NSString+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B662DF1CC8EF3D00D2B3FB /* NSString+Utilities.m */; };
+		72B8E18C1E0669AA00B79441 /* DeleteHouseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72B8E18B1E0669AA00B79441 /* DeleteHouseCell.xib */; };
+		72B8E18F1E066A4500B79441 /* DeleteHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B8E18E1E066A4500B79441 /* DeleteHomeTableViewCell.m */; };
 		72BC8A031CD74AD6002055FA /* Maps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72BC8A011CD74AD6002055FA /* Maps.storyboard */; };
 		72BC8A081CD74B2A002055FA /* Alerts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72BC8A041CD74B2A002055FA /* Alerts.storyboard */; };
 		72BC8A091CD74B2A002055FA /* Verification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72BC8A061CD74B2A002055FA /* Verification.storyboard */; };
@@ -319,6 +322,7 @@
 		7285DE541BF494CD00F92608 /* NSObject+NullCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+NullCheck.m"; path = "Custom Classes/NSObject+NullCheck.m"; sourceTree = "<group>"; };
 		7285DE5E1BF4B40600F92608 /* PageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageCell.h; path = VC/CitiesVC/PageCell.h; sourceTree = "<group>"; };
 		7285DE5F1BF4B40600F92608 /* PageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageCell.m; path = VC/CitiesVC/PageCell.m; sourceTree = "<group>"; };
+		729034141E05A2A500F9BD94 /* AllHousesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AllHousesCell.xib; path = VC/Profile/AllHousesCell.xib; sourceTree = "<group>"; };
 		7293145C1CE0762A00CDB4C5 /* SelectTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectTypeViewController.h; path = "VC/Add Home/SelectTypeViewController.h"; sourceTree = "<group>"; };
 		7293145D1CE0762A00CDB4C5 /* SelectTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectTypeViewController.m; path = "VC/Add Home/SelectTypeViewController.m"; sourceTree = "<group>"; };
 		7293145F1CE07E7C00CDB4C5 /* SelectTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectTypeTableViewCell.h; path = "VC/Add Home/SelectTypeTableViewCell.h"; sourceTree = "<group>"; };
@@ -365,6 +369,9 @@
 		72B662DC1CC8E1DF00D2B3FB /* SelectProvinceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectProvinceTableViewCell.m; path = VC/Profile/SelectProvinceTableViewCell.m; sourceTree = "<group>"; };
 		72B662DE1CC8EF3D00D2B3FB /* NSString+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Utilities.h"; path = "Custom Classes/NSString+Utilities.h"; sourceTree = "<group>"; };
 		72B662DF1CC8EF3D00D2B3FB /* NSString+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Utilities.m"; path = "Custom Classes/NSString+Utilities.m"; sourceTree = "<group>"; };
+		72B8E18B1E0669AA00B79441 /* DeleteHouseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DeleteHouseCell.xib; path = "VC/Add Home/DeleteHouseCell.xib"; sourceTree = "<group>"; };
+		72B8E18D1E066A4500B79441 /* DeleteHomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeleteHomeTableViewCell.h; path = "VC/Add Home/DeleteHomeTableViewCell.h"; sourceTree = "<group>"; };
+		72B8E18E1E066A4500B79441 /* DeleteHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeleteHomeTableViewCell.m; path = "VC/Add Home/DeleteHomeTableViewCell.m"; sourceTree = "<group>"; };
 		72BC8A021CD74AD6002055FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Maps.storyboard; sourceTree = "<group>"; };
 		72BC8A051CD74B2A002055FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Alerts.storyboard; sourceTree = "<group>"; };
 		72BC8A071CD74B2A002055FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Verification.storyboard; sourceTree = "<group>"; };
@@ -599,6 +606,9 @@
 				728271531D0C4E970038D5F8 /* SelectAvailableDateViewController.m */,
 				722BF4B21DFFE41A00DBFB29 /* EditHoumeListViewController.h */,
 				722BF4B31DFFE41A00DBFB29 /* EditHoumeListViewController.m */,
+				72B8E18B1E0669AA00B79441 /* DeleteHouseCell.xib */,
+				72B8E18D1E066A4500B79441 /* DeleteHomeTableViewCell.h */,
+				72B8E18E1E066A4500B79441 /* DeleteHomeTableViewCell.m */,
 				72A26FDF1DFFE97C00CB2BEC /* EditHomeTableViewCell.h */,
 				72A26FE01DFFE97C00CB2BEC /* EditHomeTableViewCell.m */,
 			);
@@ -656,6 +666,7 @@
 				72EA4D741C51051C0053456F /* ProfileViewController.h */,
 				72EA4D751C51051C0053456F /* ProfileViewController.m */,
 				725DE6401C5948E50001E5DC /* ProfileCommentsHeadeView.xib */,
+				729034141E05A2A500F9BD94 /* AllHousesCell.xib */,
 				7294429A1C6CC5DD003F3D92 /* EditProfileViewController.h */,
 				7294429B1C6CC5DD003F3D92 /* EditProfileViewController.m */,
 				72AF71B71CA8410400A50575 /* MyProfileViewController.h */,
@@ -1039,6 +1050,7 @@
 				725DE6421C5948E50001E5DC /* ProfileCommentsHeadeView.xib in Resources */,
 				72F2743F1C1976E90048BF05 /* IRANSans-Mobile(FaNum).ttf in Resources */,
 				7257216E1D0E885A005468C1 /* MyHomeCell.xib in Resources */,
+				72B8E18C1E0669AA00B79441 /* DeleteHouseCell.xib in Resources */,
 				726DF1FE1BE79937004796EC /* Assets.xcassets in Resources */,
 				72BC8A081CD74B2A002055FA /* Alerts.storyboard in Resources */,
 				72F274331C1970F50048BF05 /* SearchDetailHomeCell.xib in Resources */,
@@ -1057,6 +1069,7 @@
 				727F89A91C35491000519CDD /* CityDetailAttractionHeader.xib in Resources */,
 				720B92AA1C253B8E00D1468A /* SearchSection.xib in Resources */,
 				72F274391C19712E0048BF05 /* SearchDetaillAttractionCell.xib in Resources */,
+				729034151E05A2A500F9BD94 /* AllHousesCell.xib in Resources */,
 				722A0DC91C917E0D005C6DDB /* BookFacilityHeader.xib in Resources */,
 				721E15231C0EE212006E394B /* CityCell.xib in Resources */,
 				72F274401C1976E90048BF05 /* IRANSansMobile(FaNum)_Bold.ttf in Resources */,
@@ -1143,6 +1156,7 @@
 				726A3A3E1C47E14E002C4D11 /* FacilitiesViewController.m in Sources */,
 				721F951F1CD21B91003CC915 /* FailReserveViewController.m in Sources */,
 				72D5E5EE1BF4BB7500E950C1 /* PagerCollectionViewCell.m in Sources */,
+				72B8E18F1E066A4500B79441 /* DeleteHomeTableViewCell.m in Sources */,
 				721F951C1CD21B7F003CC915 /* SuccessReserveViewController.m in Sources */,
 				72004BE71C2A91AB00F9F6FB /* CityDetailViewController.m in Sources */,
 				72D4E5BB1C3E625A00AC3D0D /* CommentTableViewCell.m in Sources */,
@@ -1552,6 +1566,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.narengi.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1572,6 +1587,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.narengi.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

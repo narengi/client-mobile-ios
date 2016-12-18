@@ -43,7 +43,15 @@
     
     if (self.isComingFromEdit) {
         
-        geoObj = self.houseObj.geoObj;
+        if (self.houseObj.geoObj.lat == 0) {
+            
+            geoObj.lat = 35.758188;
+            geoObj.lng = 51.410776;
+        }
+        else{
+            geoObj = self.houseObj.geoObj;
+        }
+        
     }
     else{
         

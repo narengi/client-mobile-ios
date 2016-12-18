@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *houseCollectionView;
 
 @property (nonatomic) CGFloat   headerFade;
+@property (nonatomic) BOOL isShowAllHouseButton  ;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *conView;
@@ -51,6 +52,11 @@
     //register Nibs for Tableviews
     [self registerCollectionCellWithName:@"CitiesCollectionViewCell" andWithId:@"citiesCellID" forCORT:self.houseCollectionView];
     [self.houseCollectionView registerNib:[UINib nibWithNibName:@"HouseCell" bundle:nil] forCellWithReuseIdentifier:@"houseCellID"];
+
+    
+    [self.houseCollectionView registerNib:[UINib nibWithNibName:@"AllHousesCell" bundle:nil] forCellWithReuseIdentifier:@"seeAllHousesCellID"];
+    
+    
     
     [self.houseCollectionView  registerNib:[CityDetailHouseCollectionReusableView nib] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"cityDetailHouseCollectionRV"];
     
@@ -166,6 +172,19 @@
                 if (serverRs.backData !=nil ) {
                     
                     self.hostObj  = [[NarengiCore sharedInstance] parsHost:serverRs.backData isDetail:YES];
+                    if (self.hostObj.houseArr. count > 0) {
+                        
+                        AroundPlaceObject *around = [[AroundPlaceObject alloc] init];
+                        HouseObject *house = [[HouseObject alloc] init];
+                        house.isOnlyButton = YES;
+                        around.houseObject = house;
+                        
+                        NSMutableArray *muarr = [[NSMutableArray alloc] initWithArray:self.hostObj.houseArr];
+                        
+                        [muarr addObject:around];
+                        
+                        self.hostObj.houseArr = [muarr copy];
+                    }
                     
                     [self setDataForView];
                 }
@@ -207,9 +226,16 @@
     self.identityHeightConstant = 0;
     [self.identityView layoutIfNeeded];
     
-    
-    self.houseCollectinViewHeight.constant = ((([UIScreen mainScreen].bounds.size.width) * 5 /8)*self.hostObj.houseArr.count)+(self.hostObj.houseArr.count > 0 ? 40 : 0);;
-    
+    if (self.isShowAllHouseButton) {
+        
+       self.houseCollectinViewHeight.constant = ((([UIScreen mainScreen].bounds.size.width) * 5 /8) * self.hostObj.houseArr.count) + (self.hostObj.houseArr.count > 0 ? 40 : 0) ;
+    }
+    else{
+        
+        self.houseCollectinViewHeight.constant = ((([UIScreen mainScreen].bounds.size.width) * 5 /8) * (self.hostObj.houseArr.count - 1))  + (self.hostObj.houseArr.count > 0 ? 40 : 0) + 60 ;
+        
+    }
+
     
     [self.conView layoutIfNeeded];
     
@@ -223,22 +249,29 @@
     if (self.hostObj.houseArr.count > 0) {
         AroundPlaceObject *aroundObj = self.hostObj.houseArr[indexPath.row];
         
-        
-        HouseCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"houseCellID"  forIndexPath:indexPath];
-        
-        NSString *str = @"";
-        str = [str stringByAppendingString:aroundObj.houseObject.cost == nil ? @"" : aroundObj.houseObject.cost];
-        str = [str stringByAppendingString:@"     "];
-        
-        pagerCell.priceLabel.text       = str;
-        pagerCell.descriptionLabel.text = aroundObj.houseObject.summary;
-        pagerCell.titleLabel.text       = aroundObj.houseObject.name;
-        pagerCell.featuresLabel.text    = aroundObj.houseObject.featureSummray;
-        
-        pagerCell.imageUrls       = aroundObj.houseObject.imageUrls;
-        [pagerCell.pages reloadData];
-        
-        return pagerCell;
+        if (aroundObj.houseObject.isOnlyButton) {
+          
+            UICollectionViewCell *seeCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"seeAllHousesCellID"  forIndexPath:indexPath];
+            
+            return seeCell;
+        }
+        else{
+            HouseCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"houseCellID"  forIndexPath:indexPath];
+            
+            NSString *str = @"";
+            str = [str stringByAppendingString:aroundObj.houseObject.cost == nil ? @"" : aroundObj.houseObject.cost];
+            str = [str stringByAppendingString:@"     "];
+            
+            pagerCell.priceLabel.text       = str;
+            pagerCell.descriptionLabel.text = aroundObj.houseObject.summary;
+            pagerCell.titleLabel.text       = aroundObj.houseObject.name;
+            pagerCell.featuresLabel.text    = aroundObj.houseObject.featureSummray;
+            
+            pagerCell.imageUrls       = aroundObj.houseObject.imageUrls;
+            [pagerCell.pages reloadData];
+            
+            return pagerCell;
+        }
     }
     else{
         
@@ -267,7 +300,13 @@
         
         AroundPlaceObject *aroundObj = self.hostObj.houseArr[indexPath.row];
         
-        [self goToDetailWithArroundObject:aroundObj];
+        if (aroundObj.houseObject.isOnlyButton) {
+           
+            [self getAllHouses];
+        }
+        else{
+            [self goToDetailWithArroundObject:aroundObj];
+        }
     }
 }
 
@@ -295,7 +334,16 @@
 {
     
 
-    return CGSizeMake([UIScreen mainScreen].bounds.size.width, ([UIScreen mainScreen].bounds.size.width) * 5 /8 );
+    AroundPlaceObject *aroundObj = self.hostObj.houseArr[indexPath.row];
+    
+    if (aroundObj.houseObject.isOnlyButton) {
+        
+        return CGSizeMake([UIScreen mainScreen].bounds.size.width, 60);
+    }
+    else{
+        return CGSizeMake([UIScreen mainScreen].bounds.size.width, ([UIScreen mainScreen].bounds.size.width) * 5 /8 );
+    }
+    
     
 }
 
@@ -325,6 +373,13 @@
     
     [self.navigationController popViewControllerAnimated:YES];
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
+}
+
+#pragma mark - all houses
+
+-(void)getAllHouses{
+
+
 }
 
 @end
