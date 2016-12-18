@@ -12,5 +12,8 @@
 
 @property (nonatomic,strong) NSString *urlStr;
 
+@property (nonatomic) BOOL isModal;
+
+@property (nonatomic) BOOL isME;
 
 @end

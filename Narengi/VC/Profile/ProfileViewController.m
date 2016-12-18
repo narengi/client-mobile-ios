@@ -15,6 +15,7 @@
 #import "HouseCollectionViewCell.h"
 #import "PageCell.h"
 #import "PagerCollectionViewCell.h"
+#import "EditProfileViewController.h"
 
 @interface ProfileViewController ()
 
@@ -44,6 +45,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *signoutButton;
 @property (weak, nonatomic) IBOutlet UIButton *setting1Button;
 @property (weak, nonatomic) IBOutlet UIButton *signout1Button;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UIButton *back1Button;
 
 
 @end
@@ -79,6 +82,10 @@
                                     initWithTarget:self action:@selector(handleSingleClickOnCollectionView:)];
     lpgr.delegate = self;
     [self.houseCollectionView addGestureRecognizer:lpgr];
+    
+    if (self.isModal) {
+        [self.backButton setImage:IMG(@"CloseIconOrange") forState:UIControlStateNormal];
+    }
     
 }
 
@@ -375,17 +382,84 @@
     
     return header_view;
 }
+
 - (IBAction)backButtonClicked:(UIButton *)sender {
     
-    [self.navigationController popViewControllerAnimated:YES];
-    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    if (self.isModal) {
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else{
+        
+        [self.navigationController popViewControllerAnimated:YES];
+        self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    
+    }
+    
 }
 
+- (IBAction)exitButtonClicked:(UIButton *)sender {
+    
+    [self showExitAlert];
+}
+- (IBAction)settingButtonclciked:(id)sender {
+    
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    EditProfileViewController *destinationVC = [storyboard instantiateViewControllerWithIdentifier:@"editProfileVCID"];
+    
+    [self presentViewController:destinationVC animated:YES completion:nil];
+    
+}
 #pragma mark - all houses
 
 -(void)getAllHouses{
 
 
+}
+
+
+-(void)showExitAlert{
+
+    UIAlertController *exitAlert = [UIAlertController alertControllerWithTitle:@"حساب کاربری"
+                                                                       message: @"آیا از خروج اطمینان دارید؟"
+                                                                preferredStyle:UIAlertControllerStyleAlert                   ];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"بله"
+                         style:UIAlertActionStyleDestructive
+                         handler:^(UIAlertAction * action)
+                         {
+                             //erase all data user
+                             [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"fuckingLoginedOrNOT"];
+                             [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"userObject"];
+                             
+                             [exitAlert dismissViewControllerAnimated:YES completion:nil];
+                             
+                             if (self.isModal) {
+                                 [self dismissViewControllerAnimated:YES completion:nil];
+                             }
+                             else{
+                                 [self.navigationController popToRootViewControllerAnimated:YES];
+                             }
+                             
+                             
+                             
+                             
+                         }];
+    UIAlertAction* cancel = [UIAlertAction
+                             actionWithTitle:@"خیر"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [exitAlert dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+    
+    [exitAlert addAction: ok];
+    [exitAlert addAction: cancel];
+    
+    [self presentViewController:exitAlert animated:YES completion:nil];
 }
 
 @end

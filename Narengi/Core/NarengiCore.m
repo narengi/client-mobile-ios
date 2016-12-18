@@ -615,6 +615,7 @@ NarengiCore *sharedInstance;
     
     
     userObj.ID              = [dict objectForKey:@"id"];
+    userObj.uID             = [dict objectForKey:@"profileUrl"];
     userObj.avatarUrl       = [[[[[[dict objectForKey:@"profile"] checkNull]  objectForKey:@"picture"] checkNull] objectForKey:@"url"] addImageBaseUrl];
     userObj.fisrtName       = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"firstName"] checkNull];
     userObj.lastName        = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"lastName"] checkNull];

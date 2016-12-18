@@ -2180,7 +2180,7 @@
         <!--Edit Profile View Controller-->
         <scene sceneID="48o-sK-d1U">
             <objects>
-                <viewController id="ncn-aU-npj" customClass="EditProfileViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editProfileVCID" id="ncn-aU-npj" customClass="EditProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mgk-OT-5M5"/>
                         <viewControllerLayoutGuide type="bottom" id="SFG-Ch-Fkr"/>
@@ -3551,6 +3551,9 @@
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" image="Setting"/>
+                                        <connections>
+                                            <action selector="settingButtonclciked:" destination="LxZ-zm-Rhc" eventType="touchUpInside" id="dWc-IA-xRx"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IbP-0m-tEa">
                                         <rect key="frame" x="0.0" y="8" width="40" height="56"/>
@@ -3560,6 +3563,9 @@
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" image="Login"/>
+                                        <connections>
+                                            <action selector="exitButtonClicked:" destination="LxZ-zm-Rhc" eventType="touchUpInside" id="k1F-wj-WpO"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3589,6 +3595,9 @@
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" image="Setting"/>
+                                <connections>
+                                    <action selector="settingButtonclciked:" destination="LxZ-zm-Rhc" eventType="touchUpInside" id="r9z-JI-Zjf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbH-NF-rYd">
                                 <rect key="frame" x="0.0" y="8" width="40" height="56"/>
@@ -3598,6 +3607,9 @@
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" image="Login"/>
+                                <connections>
+                                    <action selector="exitButtonClicked:" destination="LxZ-zm-Rhc" eventType="touchUpInside" id="fzS-fu-Ecn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyC-1J-6tm">
                                 <rect key="frame" x="328" y="21" width="72" height="43"/>
@@ -3638,6 +3650,8 @@
                     <size key="freeformSize" width="400" height="502"/>
                     <connections>
                         <outlet property="avatarImg" destination="JFu-4k-0nm" id="q9N-cF-GMp"/>
+                        <outlet property="back1Button" destination="v7W-ir-3s3" id="Z6Y-Ox-Iys"/>
+                        <outlet property="backButton" destination="uyC-1J-6tm" id="X5v-JN-wlo"/>
                         <outlet property="cityNameLabel" destination="gJA-sd-7J9" id="WQ5-2Y-pUR"/>
                         <outlet property="conView" destination="vpy-cf-Tk4" id="h74-c7-R01"/>
                         <outlet property="descriptionLabel" destination="hzd-Hc-22C" id="2tZ-td-TtB"/>
@@ -4596,6 +4610,6 @@
         <image name="timearrow" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pui-JH-pWd"/>
+        <segue reference="oPa-UN-mOr"/>
     </inferredMetricsTieBreakers>
 </document>

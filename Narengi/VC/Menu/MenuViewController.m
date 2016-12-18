@@ -9,6 +9,8 @@
 #import "MenuViewController.h"
 #import "REFrostedViewController.h"
 #import "UIViewController+REFrostedViewController.h"
+#import "ProfileViewController.h"
+
 
 @interface MenuViewController ()
 
@@ -50,6 +52,7 @@
         self.avatarImg.layer.borderWidth = 4;
         self.avatarImg.layer.borderColor = RGB(255, 88, 36, 1).CGColor;
         
+        [self getDataUserData];
     }
     else{
         
@@ -71,10 +74,14 @@
 
 - (IBAction)profileButton:(UIButton *)sender {
 
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    UINavigationController *myProfileNav = [storyboard instantiateViewControllerWithIdentifier:@"myProfileNav"];
-    [self presentViewController:myProfileNav animated:YES completion:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ProfileViewController *destinationVC = [storyboard instantiateViewControllerWithIdentifier:@"prodileVCID"];
+    
+    destinationVC.isModal = YES;
+    destinationVC.urlStr  = self.userObject.uID;
+    
+    [self presentViewController:destinationVC animated:YES completion:nil];
     
 }
 - (IBAction)homeButtonClicked:(IranButton *)sender {
@@ -130,6 +137,22 @@
     [self showBetaAlert];
 }
 
-
+-(void)getDataUserData{
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+        
+        ServerResponse *response = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService: @"accounts/me" andWithParametrs:nil andWithBody:nil andIsFullPath:NO];
+        
+        dispatch_async(dispatch_get_main_queue(),^{
+            
+            if (!response.hasErro && response.backData != nil) {
+                UserObject *userObj = [[NarengiCore sharedInstance ] parsUserObject:response.backData];
+                [[NSUserDefaults standardUserDefaults] rm_setCustomObject:userObj forKey:@"userObject"];
+                
+            }
+            
+        });
+    });
+}
 
 @end
