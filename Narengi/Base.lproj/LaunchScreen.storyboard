@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,18 +21,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Z4I-fZ-yF7">
-                                <rect key="frame" x="157" y="303" width="60" height="60"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Z4I-fZ-yF7">
+                                <rect key="frame" x="75" y="282" width="224" height="102"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="1ys-5e-rKP"/>
-                                    <constraint firstAttribute="width" constant="60" id="zsL-Ky-SEZ"/>
+                                    <constraint firstAttribute="height" constant="102" id="1ys-5e-rKP"/>
+                                    <constraint firstAttribute="width" constant="224" id="zsL-Ky-SEZ"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.narengi.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvz-d2-IFx">
+                                <rect key="frame" x="114.5" y="638" width="146" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="146" id="0IR-9E-yxY"/>
+                                    <constraint firstAttribute="height" constant="21" id="WIK-LP-A0J"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Z4I-fZ-yF7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jdb-ca-Ss7"/>
                             <constraint firstItem="Z4I-fZ-yF7" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="noD-vx-wuf"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Yvz-d2-IFx" secondAttribute="bottom" constant="8" id="q3D-df-ecx"/>
+                            <constraint firstItem="Yvz-d2-IFx" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="whA-zo-WVx"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -42,6 +54,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="splashIcon" width="60" height="60"/>
+        <image name="SplashLogo" width="224" height="102"/>
     </resources>
 </document>

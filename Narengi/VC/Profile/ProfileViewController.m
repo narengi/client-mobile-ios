@@ -89,8 +89,8 @@
     [self.houseCollectionView addGestureRecognizer:lpgr];
     
     if (self.isModal) {
-        [self.backButton  setImage:IMG(@"CloseIconOrange") forState:UIControlStateNormal];
-        [self.back1Button setImage:IMG(@"CloseIconOrange") forState:UIControlStateNormal];
+        [self.backButton  setImage:IMG(@"CloseBtnShadow") forState:UIControlStateNormal];
+        [self.back1Button setImage:IMG(@"CloseBtnOrange") forState:UIControlStateNormal];
     }
     
 }
@@ -102,7 +102,9 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     [[UIApplication sharedApplication] setStatusBarStyle:self.navigationView.alpha == 1?UIStatusBarStyleDefault:UIStatusBarStyleLightContent];
-
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
@@ -151,18 +153,35 @@
     
     
     if(scrollOffset > _headerFade && self.navigationView.alpha == 0.0){ //make the header appear
+        
         self.navigationView.alpha = 0;
         self.navigationView.hidden = NO;
+        
+        self.backButton.alpha = 1;
+        self.signoutButton.alpha = 1;
+        self.settingButton.alpha = 1;
+        
         [UIView animateWithDuration:0.3 animations:^{
+            
             self.navigationView.alpha = 1;
+            self.backButton.alpha = 0;
+            self.signoutButton.alpha = 0;
+            self.settingButton.alpha = 0;
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
             
         }];
     }
     else if(scrollOffset < _headerFade &&  self.navigationView.alpha == 1.0){ //make the header disappear
+        
         [UIView animateWithDuration:0.3 animations:^{
+            
             self.navigationView.alpha = 0;
+            self.backButton.alpha = 1;
+            self.signoutButton.alpha = 1;
+            self.settingButton.alpha = 1;
+            
         } completion: ^(BOOL finished) {
+            
             self.navigationView.hidden = YES;
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
             

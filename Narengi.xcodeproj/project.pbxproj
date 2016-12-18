@@ -87,6 +87,7 @@
 		7285DE551BF494CD00F92608 /* NSObject+NullCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE541BF494CD00F92608 /* NSObject+NullCheck.m */; };
 		7285DE601BF4B40600F92608 /* PageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE5F1BF4B40600F92608 /* PageCell.m */; };
 		7290241B1E06EAAE004A9D6D /* RetyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7290241A1E06EAAE004A9D6D /* RetyButton.m */; };
+		7290241E1E070073004A9D6D /* IranLightButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7290241D1E070073004A9D6D /* IranLightButton.m */; };
 		729034151E05A2A500F9BD94 /* AllHousesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 729034141E05A2A500F9BD94 /* AllHousesCell.xib */; };
 		7293145E1CE0762A00CDB4C5 /* SelectTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7293145D1CE0762A00CDB4C5 /* SelectTypeViewController.m */; };
 		729314611CE07E7C00CDB4C5 /* SelectTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 729314601CE07E7C00CDB4C5 /* SelectTypeTableViewCell.m */; };
@@ -325,6 +326,8 @@
 		7285DE5F1BF4B40600F92608 /* PageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageCell.m; path = VC/CitiesVC/PageCell.m; sourceTree = "<group>"; };
 		729024191E06EAAE004A9D6D /* RetyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RetyButton.h; path = "Custom Classes/RetyButton.h"; sourceTree = "<group>"; };
 		7290241A1E06EAAE004A9D6D /* RetyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RetyButton.m; path = "Custom Classes/RetyButton.m"; sourceTree = "<group>"; };
+		7290241C1E070073004A9D6D /* IranLightButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IranLightButton.h; path = "Custom Classes/IranLightButton.h"; sourceTree = "<group>"; };
+		7290241D1E070073004A9D6D /* IranLightButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IranLightButton.m; path = "Custom Classes/IranLightButton.m"; sourceTree = "<group>"; };
 		729034141E05A2A500F9BD94 /* AllHousesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AllHousesCell.xib; path = VC/Profile/AllHousesCell.xib; sourceTree = "<group>"; };
 		7293145C1CE0762A00CDB4C5 /* SelectTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectTypeViewController.h; path = "VC/Add Home/SelectTypeViewController.h"; sourceTree = "<group>"; };
 		7293145D1CE0762A00CDB4C5 /* SelectTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectTypeViewController.m; path = "VC/Add Home/SelectTypeViewController.m"; sourceTree = "<group>"; };
@@ -800,6 +803,8 @@
 				72C24F241C6D6D3A00026821 /* DZNPhoto */,
 				729024191E06EAAE004A9D6D /* RetyButton.h */,
 				7290241A1E06EAAE004A9D6D /* RetyButton.m */,
+				7290241C1E070073004A9D6D /* IranLightButton.h */,
+				7290241D1E070073004A9D6D /* IranLightButton.m */,
 			);
 			name = "Custom Classes";
 			sourceTree = "<group>";
@@ -1187,6 +1192,7 @@
 				72BC8A581CD74FF8002055FA /* HouseDetailMapViewController.m in Sources */,
 				72405ABB1CCE6F7100F68052 /* VerficationRootViewController.m in Sources */,
 				727F899F1C35169B00519CDD /* CityDetailAttractionListViewController.m in Sources */,
+				7290241E1E070073004A9D6D /* IranLightButton.m in Sources */,
 				72F274551C199FC30048BF05 /* SearchDetailHomeCollectionViewCell.m in Sources */,
 				729314611CE07E7C00CDB4C5 /* SelectTypeTableViewCell.m in Sources */,
 				726DF1F61BE79937004796EC /* AppDelegate.m in Sources */,

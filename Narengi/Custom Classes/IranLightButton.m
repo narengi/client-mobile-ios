@@ -1,14 +1,14 @@
 //
-//  RetyButton.m
+//  IranLightButton.m
 //  Narengi
 //
 //  Created by Morteza Hoseinizade on 12/18/16.
 //  Copyright © 2016 Morteza Hosseinizade. All rights reserved.
 //
 
-#import "RetyButton.h"
+#import "IranLightButton.h"
 
-@implementation RetyButton
+@implementation IranLightButton
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -18,13 +18,14 @@
 }
 */
 
+
 -(void)awakeFromNib
 {
+    
+    CGFloat fontSize = self.titleLabel.font.pointSize;
 
-    self.layer.cornerRadius = 5;
-    self.layer.masksToBounds  = YES;
-    self.titleLabel.font  = [UIFont fontWithName:@"IRANSansMobileFaNum" size:10];
- 
+    self.titleLabel.font  = [UIFont fontWithName:@"IRANSansMobileFaNum-Light" size:fontSize];
+    
     [super awakeFromNib];
 }
 @end

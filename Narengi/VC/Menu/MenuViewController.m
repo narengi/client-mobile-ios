@@ -49,7 +49,7 @@
         
         self.avatarImg.layer.cornerRadius  = 25;
         self.avatarImg.layer.masksToBounds = YES;
-        self.avatarImg.layer.borderWidth = 4;
+        self.avatarImg.layer.borderWidth = 2;
         self.avatarImg.layer.borderColor = RGB(255, 88, 36, 1).CGColor;
         
         [self getDataUserData];
@@ -89,7 +89,6 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"navRootVCID"];
-    
     
 //    LinesViewController *linesViewC = [self.storyboard instantiateViewControllerWithIdentifier:@"lineView"];
 //    navigationController.viewControllers = @[linesViewC];

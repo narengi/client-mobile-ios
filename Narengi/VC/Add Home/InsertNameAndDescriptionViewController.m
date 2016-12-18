@@ -329,6 +329,8 @@
                     
                 }
                 else{
+                    
+                    self.isComingFromEdit = YES;
                     [self performSegueWithIdentifier:@"goToInsertLocation" sender:nil];
                 }
 

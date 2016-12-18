@@ -90,6 +90,9 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 -(void)viewWillAppear:(BOOL)animated{
     
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+
 }
 
 

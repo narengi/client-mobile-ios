@@ -19,6 +19,8 @@
     self.frostedViewController.direction = REFrostedViewControllerDirectionRight;
     self.frostedViewController.blurTintColor = [UIColor redColor];
     self.frostedViewController.blurRadius = 20;
+    
+    [self.frostedViewController resizeMenuViewControllerToSize:CGSizeMake(100, 500)];
     self.contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"navRootVCID"];
     self.menuViewController    = [self.storyboard instantiateViewControllerWithIdentifier:@"menuVCID"];
 
