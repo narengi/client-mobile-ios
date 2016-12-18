@@ -87,7 +87,7 @@
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
                                         <state key="normal" title="پیام‌ها" image="Inbox">
-                                            <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.99215686270000003" green="0.36078431370000003" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="settingButtonClicked:" destination="u4o-yP-Eby" eventType="touchUpInside" id="69T-EY-PxX"/>
@@ -102,7 +102,7 @@
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
                                         <state key="normal" title="علاقه‌مندی‌ها" image="Heart">
-                                            <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.99215686270000003" green="0.36078431370000003" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="settingButtonClicked:" destination="u4o-yP-Eby" eventType="touchUpInside" id="86o-eh-pML"/>
@@ -127,7 +127,7 @@
                                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
                                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
                                                 <state key="normal" title="مهمان‌پذیری" image="Host">
-                                                    <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="0.99215686270000003" green="0.36078431370000003" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="hostingButtonClicked:" destination="u4o-yP-Eby" eventType="touchUpInside" id="ii0-fb-sUg"/>
@@ -156,7 +156,7 @@
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
                                         <state key="normal" title="خانه" image="Home">
-                                            <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.99215686270000003" green="0.36078431370000003" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="homeButtonClicked:" destination="u4o-yP-Eby" eventType="touchUpInside" id="Bip-et-hyS"/>
@@ -171,7 +171,7 @@
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
                                         <state key="normal" title="تنظیمات" image="Setting">
-                                            <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.99215686270000003" green="0.36078431370000003" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="settingButtonClicked:" destination="u4o-yP-Eby" eventType="touchUpInside" id="1Aq-Xx-KJB"/>
@@ -186,7 +186,7 @@
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
                                         <state key="normal" title="راهنمایی" image="Help">
-                                            <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.99215686270000003" green="0.36078431370000003" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="guidButtonClciked:" destination="u4o-yP-Eby" eventType="touchUpInside" id="zuF-Aj-AaE"/>
@@ -252,7 +252,7 @@
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
                                         <state key="normal" title="عضویت/ورود" image="Login">
-                                            <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.99215686270000003" green="0.36078431370000003" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="registerClicked:" destination="u4o-yP-Eby" eventType="touchUpInside" id="eLe-ja-tww"/>
@@ -267,7 +267,7 @@
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
                                         <state key="normal" title="خانه" image="Home">
-                                            <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.99215686270000003" green="0.36078431370000003" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="homeButtonClicked:" destination="u4o-yP-Eby" eventType="touchUpInside" id="sox-Gi-1pZ"/>
@@ -282,7 +282,7 @@
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
                                         <state key="normal" title="تنظیمات" image="Setting">
-                                            <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.99215686270000003" green="0.36078431370000003" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="settingButtonClicked:" destination="u4o-yP-Eby" eventType="touchUpInside" id="sqa-YF-Mnk"/>
@@ -307,7 +307,7 @@
                                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
                                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
                                                 <state key="normal" title="مهمان‌پذیری" image="Host">
-                                                    <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="0.99215686270000003" green="0.36078431370000003" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="hostingButtonClicked:" destination="u4o-yP-Eby" eventType="touchUpInside" id="i4Y-EW-IMO"/>
@@ -335,7 +335,7 @@
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
                                         <state key="normal" title="راهنمایی" image="Help">
-                                            <color key="titleColor" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.99215686270000003" green="0.36078431370000003" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="guidButtonClciked:" destination="u4o-yP-Eby" eventType="touchUpInside" id="TbH-uR-aVP"/>
@@ -1770,24 +1770,121 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="به خانه خود خوش آمدید." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUc-jP-sNX" customClass="CustomFaRegularLabel">
-                                <rect key="frame" x="230" y="29" width="140" height="78"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MenuLogo" translatesAutoresizingMaskIntoConstraints="NO" id="guA-Um-1Ku">
+                                <rect key="frame" x="114" y="73" width="147" height="67"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="br6-Ft-oYH"/>
-                                    <constraint firstAttribute="height" constant="78" id="c8H-5L-HOc"/>
+                                    <constraint firstAttribute="width" constant="147" id="TGS-sG-a3i"/>
+                                    <constraint firstAttribute="height" constant="67" id="yLe-52-CgL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" red="0.22352941176470589" green="0.62745098039215685" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zfg-D5-kXu">
-                                <rect key="frame" x="0.0" y="181" width="600" height="235"/>
+                                <rect key="frame" x="0.0" y="207" width="375" height="235"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vef-22-rOB">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="235"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osv-nP-CwK" customClass="IranButton">
+                                                <rect key="frame" x="37.5" y="134" width="300" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="300" id="QjY-ir-9hD"/>
+                                                    <constraint firstAttribute="height" constant="40" id="eE0-Xp-fx1"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <state key="normal" title="ورود">
+                                                    <color key="titleColor" red="0.22352941179999999" green="0.62745098040000002" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="loginButtonClicked:" destination="qkH-Gb-xEX" eventType="touchUpInside" id="Exf-1t-PW8"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNb-Lx-DVz">
+                                                <rect key="frame" x="37.5" y="20" width="300" height="100"/>
+                                                <subviews>
+                                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="آدرس ایمیل" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ldd-24-HNc" customClass="CustomTextField">
+                                                        <rect key="frame" x="10" y="9" width="280" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="eFB-ou-Sdi"/>
+                                                            <constraint firstAttribute="width" constant="280" id="yKs-k8-zpB"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                        <connections>
+                                                            <action selector="textFiedlChanged:" destination="qkH-Gb-xEX" eventType="editingChanged" id="Egn-fp-eSq"/>
+                                                            <outlet property="delegate" destination="qkH-Gb-xEX" id="R4a-PX-3zX"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1e-Zd-Ohn">
+                                                        <rect key="frame" x="0.0" y="49" width="300" height="1"/>
+                                                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="300" id="khT-8N-0dS"/>
+                                                            <constraint firstAttribute="height" constant="1" id="nQG-zj-l2t"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="کلمه عبور" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="paE-YX-IoJ" customClass="CustomTextField">
+                                                        <rect key="frame" x="10" y="62" width="280" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="280" id="Ph5-9l-X7c"/>
+                                                            <constraint firstAttribute="height" constant="30" id="n4l-SL-un7"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <connections>
+                                                            <action selector="textFiedlChanged:" destination="qkH-Gb-xEX" eventType="editingChanged" id="e6l-cy-51v"/>
+                                                            <outlet property="delegate" destination="qkH-Gb-xEX" id="ksa-TH-358"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="n1e-Zd-Ohn" secondAttribute="trailing" id="4Kb-Go-piS"/>
+                                                    <constraint firstAttribute="height" constant="100" id="4f7-0C-tdf"/>
+                                                    <constraint firstItem="n1e-Zd-Ohn" firstAttribute="top" secondItem="ldd-24-HNc" secondAttribute="bottom" constant="10" id="5YK-40-bz1"/>
+                                                    <constraint firstAttribute="width" constant="300" id="Bse-SV-j89"/>
+                                                    <constraint firstAttribute="trailing" secondItem="paE-YX-IoJ" secondAttribute="trailing" constant="10" id="IQq-Um-OeW"/>
+                                                    <constraint firstItem="ldd-24-HNc" firstAttribute="top" secondItem="bNb-Lx-DVz" secondAttribute="top" constant="9" id="Qok-Po-W91"/>
+                                                    <constraint firstItem="paE-YX-IoJ" firstAttribute="top" secondItem="n1e-Zd-Ohn" secondAttribute="bottom" constant="12" id="bgW-Zg-ka5"/>
+                                                    <constraint firstAttribute="bottom" secondItem="paE-YX-IoJ" secondAttribute="bottom" constant="8" id="gJ9-ZL-iAq"/>
+                                                    <constraint firstItem="n1e-Zd-Ohn" firstAttribute="leading" secondItem="bNb-Lx-DVz" secondAttribute="leading" id="inF-Gy-NT8"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ldd-24-HNc" secondAttribute="trailing" constant="10" id="ktl-N2-od4"/>
+                                                    <constraint firstItem="ldd-24-HNc" firstAttribute="leading" secondItem="bNb-Lx-DVz" secondAttribute="leading" constant="10" id="pmp-gA-CP2"/>
+                                                    <constraint firstItem="paE-YX-IoJ" firstAttribute="leading" secondItem="bNb-Lx-DVz" secondAttribute="leading" constant="10" id="zXC-LN-XkB"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5EA-TG-Kys" customClass="IranButton">
+                                                <rect key="frame" x="150" y="185" width="300" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="AKo-94-uhf"/>
+                                                    <constraint firstAttribute="width" constant="300" id="fex-Pz-hrx"/>
+                                                </constraints>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="osv-nP-CwK" firstAttribute="top" secondItem="bNb-Lx-DVz" secondAttribute="bottom" constant="14" id="FPd-Du-t2M"/>
+                                            <constraint firstItem="bNb-Lx-DVz" firstAttribute="centerX" secondItem="Vef-22-rOB" secondAttribute="centerX" id="HUn-k8-wfT"/>
+                                            <constraint firstAttribute="width" constant="300" id="NY9-gZ-pC9"/>
+                                            <constraint firstItem="osv-nP-CwK" firstAttribute="centerX" secondItem="Vef-22-rOB" secondAttribute="centerX" id="Shd-O5-feF"/>
+                                            <constraint firstItem="5EA-TG-Kys" firstAttribute="top" secondItem="osv-nP-CwK" secondAttribute="bottom" constant="11" id="WmO-XJ-Jv6"/>
+                                            <constraint firstItem="5EA-TG-Kys" firstAttribute="centerX" secondItem="Vef-22-rOB" secondAttribute="centerX" id="Xri-Jl-ADi"/>
+                                            <constraint firstAttribute="height" constant="235" id="gAx-Fm-0U1"/>
+                                            <constraint firstItem="bNb-Lx-DVz" firstAttribute="top" secondItem="Vef-22-rOB" secondAttribute="top" constant="20" id="rO9-1p-Ddk"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="NY9-gZ-pC9"/>
+                                                <exclude reference="gAx-Fm-0U1"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cvj-JO-rbE">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="235"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="235"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0H-hZ-ZBZ" customClass="IranButton">
-                                                <rect key="frame" x="150" y="134" width="300" height="40"/>
+                                                <rect key="frame" x="37.5" y="134" width="300" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="300" id="Uti-V0-0FU"/>
                                                     <constraint firstAttribute="height" constant="40" id="VXA-7P-Pdq"/>
@@ -1801,7 +1898,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lqa-KX-Hu9">
-                                                <rect key="frame" x="150" y="20" width="300" height="100"/>
+                                                <rect key="frame" x="37.5" y="20" width="300" height="100"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="آدرس ایمیل" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pdB-Tf-WKa" customClass="CustomTextField">
                                                         <rect key="frame" x="10" y="9" width="280" height="30"/>
@@ -1866,134 +1963,24 @@
                                             <constraint firstItem="lqa-KX-Hu9" firstAttribute="top" secondItem="Cvj-JO-rbE" secondAttribute="top" constant="20" id="nzI-qD-GnJ"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vef-22-rOB">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="235"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osv-nP-CwK" customClass="IranButton">
-                                                <rect key="frame" x="150" y="134" width="300" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="300" id="QjY-ir-9hD"/>
-                                                    <constraint firstAttribute="height" constant="40" id="eE0-Xp-fx1"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <state key="normal" title="ورود">
-                                                    <color key="titleColor" red="0.22352941179999999" green="0.62745098040000002" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="loginButtonClicked:" destination="qkH-Gb-xEX" eventType="touchUpInside" id="Exf-1t-PW8"/>
-                                                </connections>
-                                            </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNb-Lx-DVz">
-                                                <rect key="frame" x="150" y="20" width="300" height="100"/>
-                                                <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="آدرس ایمیل" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ldd-24-HNc" customClass="CustomTextField">
-                                                        <rect key="frame" x="10" y="9" width="280" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="eFB-ou-Sdi"/>
-                                                            <constraint firstAttribute="width" constant="280" id="yKs-k8-zpB"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
-                                                        <connections>
-                                                            <action selector="textFiedlChanged:" destination="qkH-Gb-xEX" eventType="editingChanged" id="Egn-fp-eSq"/>
-                                                            <outlet property="delegate" destination="qkH-Gb-xEX" id="R4a-PX-3zX"/>
-                                                        </connections>
-                                                    </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1e-Zd-Ohn">
-                                                        <rect key="frame" x="0.0" y="49" width="300" height="1"/>
-                                                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="300" id="khT-8N-0dS"/>
-                                                            <constraint firstAttribute="height" constant="1" id="nQG-zj-l2t"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="کلمه عبور" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="paE-YX-IoJ" customClass="CustomTextField">
-                                                        <rect key="frame" x="10" y="62" width="280" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="280" id="Ph5-9l-X7c"/>
-                                                            <constraint firstAttribute="height" constant="30" id="n4l-SL-un7"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                                        <connections>
-                                                            <action selector="textFiedlChanged:" destination="qkH-Gb-xEX" eventType="editingChanged" id="e6l-cy-51v"/>
-                                                            <outlet property="delegate" destination="qkH-Gb-xEX" id="ksa-TH-358"/>
-                                                        </connections>
-                                                    </textField>
-                                                </subviews>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="n1e-Zd-Ohn" secondAttribute="trailing" id="4Kb-Go-piS"/>
-                                                    <constraint firstAttribute="height" constant="100" id="4f7-0C-tdf"/>
-                                                    <constraint firstItem="n1e-Zd-Ohn" firstAttribute="top" secondItem="ldd-24-HNc" secondAttribute="bottom" constant="10" id="5YK-40-bz1"/>
-                                                    <constraint firstAttribute="width" constant="300" id="Bse-SV-j89"/>
-                                                    <constraint firstAttribute="trailing" secondItem="paE-YX-IoJ" secondAttribute="trailing" constant="10" id="IQq-Um-OeW"/>
-                                                    <constraint firstItem="ldd-24-HNc" firstAttribute="top" secondItem="bNb-Lx-DVz" secondAttribute="top" constant="9" id="Qok-Po-W91"/>
-                                                    <constraint firstItem="paE-YX-IoJ" firstAttribute="top" secondItem="n1e-Zd-Ohn" secondAttribute="bottom" constant="12" id="bgW-Zg-ka5"/>
-                                                    <constraint firstAttribute="bottom" secondItem="paE-YX-IoJ" secondAttribute="bottom" constant="8" id="gJ9-ZL-iAq"/>
-                                                    <constraint firstItem="n1e-Zd-Ohn" firstAttribute="leading" secondItem="bNb-Lx-DVz" secondAttribute="leading" id="inF-Gy-NT8"/>
-                                                    <constraint firstAttribute="trailing" secondItem="ldd-24-HNc" secondAttribute="trailing" constant="10" id="ktl-N2-od4"/>
-                                                    <constraint firstItem="ldd-24-HNc" firstAttribute="leading" secondItem="bNb-Lx-DVz" secondAttribute="leading" constant="10" id="pmp-gA-CP2"/>
-                                                    <constraint firstItem="paE-YX-IoJ" firstAttribute="leading" secondItem="bNb-Lx-DVz" secondAttribute="leading" constant="10" id="zXC-LN-XkB"/>
-                                                </constraints>
-                                            </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5EA-TG-Kys" customClass="IranButton">
-                                                <rect key="frame" x="150" y="185" width="300" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="AKo-94-uhf"/>
-                                                    <constraint firstAttribute="width" constant="300" id="fex-Pz-hrx"/>
-                                                </constraints>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="osv-nP-CwK" firstAttribute="top" secondItem="bNb-Lx-DVz" secondAttribute="bottom" constant="14" id="FPd-Du-t2M"/>
-                                            <constraint firstItem="bNb-Lx-DVz" firstAttribute="centerX" secondItem="Vef-22-rOB" secondAttribute="centerX" id="HUn-k8-wfT"/>
-                                            <constraint firstAttribute="width" constant="300" id="NY9-gZ-pC9"/>
-                                            <constraint firstItem="osv-nP-CwK" firstAttribute="centerX" secondItem="Vef-22-rOB" secondAttribute="centerX" id="Shd-O5-feF"/>
-                                            <constraint firstItem="5EA-TG-Kys" firstAttribute="top" secondItem="osv-nP-CwK" secondAttribute="bottom" constant="11" id="WmO-XJ-Jv6"/>
-                                            <constraint firstItem="5EA-TG-Kys" firstAttribute="centerX" secondItem="Vef-22-rOB" secondAttribute="centerX" id="Xri-Jl-ADi"/>
-                                            <constraint firstAttribute="height" constant="235" id="gAx-Fm-0U1"/>
-                                            <constraint firstItem="bNb-Lx-DVz" firstAttribute="top" secondItem="Vef-22-rOB" secondAttribute="top" constant="20" id="rO9-1p-Ddk"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="NY9-gZ-pC9"/>
-                                                <exclude reference="gAx-Fm-0U1"/>
-                                            </mask>
-                                        </variation>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Cvj-JO-rbE" firstAttribute="leading" secondItem="Zfg-D5-kXu" secondAttribute="leading" id="3FX-94-XJb"/>
                                     <constraint firstItem="Vef-22-rOB" firstAttribute="top" secondItem="Zfg-D5-kXu" secondAttribute="top" id="B4C-Xk-CY8"/>
-                                    <constraint firstAttribute="width" constant="600" id="HXK-9e-vh7"/>
                                     <constraint firstAttribute="bottom" secondItem="Cvj-JO-rbE" secondAttribute="bottom" id="Q3r-Qb-P9t"/>
                                     <constraint firstItem="Cvj-JO-rbE" firstAttribute="top" secondItem="Zfg-D5-kXu" secondAttribute="top" id="XF0-UP-YMo"/>
                                     <constraint firstAttribute="bottom" secondItem="Vef-22-rOB" secondAttribute="bottom" id="eCc-Gw-7k1"/>
                                     <constraint firstAttribute="trailing" secondItem="Cvj-JO-rbE" secondAttribute="trailing" id="gtJ-iM-5f3"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vef-22-rOB" secondAttribute="trailing" id="m6n-Nt-vwQ"/>
                                     <constraint firstItem="Vef-22-rOB" firstAttribute="leading" secondItem="Zfg-D5-kXu" secondAttribute="leading" id="nPf-ZZ-XFZ"/>
                                     <constraint firstAttribute="height" constant="235" id="wMK-Hf-Uye"/>
-                                    <constraint firstAttribute="trailing" secondItem="Vef-22-rOB" secondAttribute="trailing" id="zLE-VF-2TM"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2An-SP-Sq2">
-                                <rect key="frame" x="27" y="26" width="45" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="CloseIconOrange"/>
-                                <connections>
-                                    <action selector="closeButton:" destination="qkH-Gb-xEX" eventType="touchUpInside" id="9ym-RX-eGr"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98D-UG-hVg" customClass="IranButton">
-                                <rect key="frame" x="300" y="130" width="300" height="30"/>
+                                <rect key="frame" x="187.5" y="156" width="187.5" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="cGf-Fp-2Vi"/>
-                                    <constraint firstAttribute="width" constant="300" id="qsZ-0r-F2i"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="ورود">
@@ -2004,10 +1991,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5R-HR-sGd" customClass="IranButton">
-                                <rect key="frame" x="0.0" y="130" width="300" height="30"/>
+                                <rect key="frame" x="0.0" y="156" width="187.5" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Jwp-rF-MZ4"/>
-                                    <constraint firstAttribute="width" constant="300" id="bdw-4f-Yb6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="ثبت نام">
@@ -2018,30 +2004,40 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4SY-hg-jfa">
-                                <rect key="frame" x="0.0" y="184" width="600" height="1"/>
+                                <rect key="frame" x="0.0" y="210" width="375" height="1"/>
                                 <color key="backgroundColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="Ygy-wZ-5i4"/>
-                                    <constraint firstAttribute="width" constant="600" id="bkk-TK-Led"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="tab-triangle" translatesAutoresizingMaskIntoConstraints="NO" id="NjW-yD-cQA">
-                                <rect key="frame" x="438" y="173" width="24" height="12"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab-triangle" translatesAutoresizingMaskIntoConstraints="NO" id="NjW-yD-cQA">
+                                <rect key="frame" x="213" y="199" width="24" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="4jP-oE-SPd"/>
                                     <constraint firstAttribute="height" constant="12" id="tzT-lB-PH0"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2An-SP-Sq2">
+                                <rect key="frame" x="314" y="28" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="MSe-Cs-1su"/>
+                                    <constraint firstAttribute="height" constant="45" id="zLt-Fr-IsW"/>
+                                </constraints>
+                                <state key="normal" image="CloseIconOrange"/>
+                                <connections>
+                                    <action selector="closeButton:" destination="qkH-Gb-xEX" eventType="touchUpInside" id="9ym-RX-eGr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="y5R-HR-sGd" firstAttribute="top" secondItem="rUc-jP-sNX" secondAttribute="bottom" constant="23" id="2cH-mo-RgT"/>
-                            <constraint firstItem="rUc-jP-sNX" firstAttribute="centerX" secondItem="g6c-cw-Xaa" secondAttribute="centerX" id="C49-7s-0PR"/>
+                            <constraint firstItem="2An-SP-Sq2" firstAttribute="top" secondItem="cj1-7n-RrK" secondAttribute="bottom" constant="8" id="1UJ-iX-43r"/>
+                            <constraint firstItem="98D-UG-hVg" firstAttribute="top" secondItem="cj1-7n-RrK" secondAttribute="bottom" constant="136" id="419-5E-5Xz"/>
                             <constraint firstAttribute="trailing" secondItem="4SY-hg-jfa" secondAttribute="trailing" id="D1N-7v-QJ4"/>
-                            <constraint firstItem="98D-UG-hVg" firstAttribute="top" secondItem="rUc-jP-sNX" secondAttribute="bottom" constant="23" id="HJa-WR-LB2"/>
+                            <constraint firstItem="y5R-HR-sGd" firstAttribute="top" secondItem="guA-Um-1Ku" secondAttribute="bottom" constant="16" id="Jzi-of-OPg"/>
                             <constraint firstItem="NjW-yD-cQA" firstAttribute="top" secondItem="98D-UG-hVg" secondAttribute="bottom" constant="12.5" id="KwF-ch-1SJ"/>
                             <constraint firstItem="4SY-hg-jfa" firstAttribute="top" secondItem="y5R-HR-sGd" secondAttribute="bottom" constant="24" id="Off-fg-2t6"/>
                             <constraint firstItem="98D-UG-hVg" firstAttribute="leading" secondItem="y5R-HR-sGd" secondAttribute="trailing" id="W1O-Lp-P9a"/>
@@ -2049,10 +2045,12 @@
                             <constraint firstItem="98D-UG-hVg" firstAttribute="height" secondItem="y5R-HR-sGd" secondAttribute="height" id="Xct-gt-Ckc"/>
                             <constraint firstAttribute="trailing" secondItem="98D-UG-hVg" secondAttribute="trailing" id="Yxa-s0-8wI"/>
                             <constraint firstItem="4SY-hg-jfa" firstAttribute="leading" secondItem="g6c-cw-Xaa" secondAttribute="leading" id="iii-ny-Pze"/>
-                            <constraint firstItem="Zfg-D5-kXu" firstAttribute="top" secondItem="g6c-cw-Xaa" secondAttribute="top" constant="181" id="l4k-bI-FE1"/>
+                            <constraint firstItem="guA-Um-1Ku" firstAttribute="top" secondItem="g6c-cw-Xaa" secondAttribute="top" constant="73" id="iqI-Lo-Axa"/>
+                            <constraint firstItem="Zfg-D5-kXu" firstAttribute="top" secondItem="g6c-cw-Xaa" secondAttribute="top" constant="207" id="l4k-bI-FE1"/>
                             <constraint firstItem="y5R-HR-sGd" firstAttribute="leading" secondItem="g6c-cw-Xaa" secondAttribute="leading" id="lL3-95-OdC"/>
+                            <constraint firstItem="guA-Um-1Ku" firstAttribute="centerX" secondItem="g6c-cw-Xaa" secondAttribute="centerX" id="ntW-Mx-Ek2"/>
+                            <constraint firstAttribute="trailing" secondItem="2An-SP-Sq2" secondAttribute="trailing" constant="16" id="sqH-wN-zUu"/>
                             <constraint firstAttribute="trailing" secondItem="Zfg-D5-kXu" secondAttribute="trailing" id="w3l-i0-FB6"/>
-                            <constraint firstItem="rUc-jP-sNX" firstAttribute="top" secondItem="cj1-7n-RrK" secondAttribute="bottom" constant="9" id="wtg-T3-pT2"/>
                             <constraint firstAttribute="trailing" secondItem="NjW-yD-cQA" secondAttribute="trailing" constant="138" id="z6S-Pu-aNX"/>
                             <constraint firstItem="Zfg-D5-kXu" firstAttribute="leading" secondItem="g6c-cw-Xaa" secondAttribute="leading" id="zG4-qd-a4e"/>
                         </constraints>
@@ -2061,7 +2059,6 @@
                     <connections>
                         <outlet property="emailTextField" destination="ldd-24-HNc" id="UYJ-Hs-6d9"/>
                         <outlet property="firstViewLeadingSpace" destination="nPf-ZZ-XFZ" id="wCl-qH-dd4"/>
-                        <outlet property="fisrtViewtrailingSpace" destination="zLE-VF-2TM" id="RCo-O9-API"/>
                         <outlet property="forgetButton" destination="5EA-TG-Kys" id="GWP-43-6vg"/>
                         <outlet property="loginButton" destination="osv-nP-CwK" id="w3C-c2-1gG"/>
                         <outlet property="passwordTextField" destination="paE-YX-IoJ" id="RFx-8t-3NC"/>
@@ -2079,7 +2076,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GSy-tS-lgY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="203" y="4576"/>
+            <point key="canvasLocation" x="202.40000000000001" y="4575.5622188905554"/>
         </scene>
         <!--Ask For Complete Profile View Controller-->
         <scene sceneID="1Pi-iv-t4A">
@@ -4437,7 +4434,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V0f-yD-K1N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2087" y="1588"/>
+            <point key="canvasLocation" x="2418" y="1613"/>
         </scene>
         <!--My Houses View Controller-->
         <scene sceneID="Wom-DL-Z3J">
@@ -4733,6 +4730,6 @@
         <image name="timearrow" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oPa-UN-mOr"/>
+        <segue reference="pui-JH-pWd"/>
     </inferredMetricsTieBreakers>
 </document>
