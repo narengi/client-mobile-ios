@@ -32,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 @property (nonatomic,strong) NSString *termrStr;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 
 
 @end
@@ -278,6 +279,9 @@
     
     REACHABILITY
     
+    self.activityView.hidden = NO;
+    [self.activityView startAnimating];
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
         ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:SEARCHSERVICE andWithParametrs:parametrs andWithBody:nil andIsFullPath:NO];
@@ -323,6 +327,8 @@
                 }
             }
             
+            self.activityView.hidden = YES;
+            [self.activityView stopAnimating];
             [self.collectionView.mj_footer endRefreshing];
             [self.refreshControl endRefreshing];
             [self.collectionView reloadData];

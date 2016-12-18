@@ -62,15 +62,15 @@
         if (self.currentPage >= 1) {
            
             if (view.tag < self.currentPage) {
-                view.backgroundColor = [UIColor greenColor];
+                view.backgroundColor = RGB(0, 116, 81, 1);
                 ((UILabel *)view).textColor = [UIColor whiteColor];
             }
             else if (view.tag == self.currentPage){
-                view.backgroundColor = [UIColor orangeColor];
+                view.backgroundColor = RGB(253, 92, 32, 1);
                 ((UILabel *)view).textColor = [UIColor whiteColor];
             }
             else{
-                view.backgroundColor = [UIColor lightGrayColor];
+                view.backgroundColor = RGB(191, 191, 191, 1);
                 ((UILabel *)view).textColor = [UIColor darkGrayColor];
             }
         }
