@@ -45,7 +45,7 @@
         
         self.stepsViewHeightConstraint.constant  = 0;
         [self.containerView layoutIfNeeded];
-        self.scrollTopSpace.constant = 74;
+        self.scrollTopSpace.constant = 64;
         [self.tableView layoutIfNeeded];
         self.containerView.hidden = YES;
         

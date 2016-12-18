@@ -22,7 +22,7 @@
         <scene sceneID="wlv-rW-fcf">
             <objects>
                 <navigationController storyboardIdentifier="addHomNavigationVC" id="0kk-FN-avg" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="V4K-Nm-j3D">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="V4K-Nm-j3D">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -846,7 +846,7 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_marker" translatesAutoresizingMaskIntoConstraints="NO" id="ILq-ws-knq">
-                                <rect key="frame" x="189.5" y="356.5" width="22" height="39"/>
+                                <rect key="frame" x="190" y="357" width="22" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="22" id="HJs-Bm-gya"/>
                                     <constraint firstAttribute="height" constant="39" id="cN2-Gq-IAi"/>

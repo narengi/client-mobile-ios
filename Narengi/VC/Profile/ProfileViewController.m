@@ -239,6 +239,11 @@
     }
 
     
+    if (self.houseCollectinViewHeight.constant < ([UIScreen mainScreen].bounds.size.height)) {
+        
+        self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    }
+    
     [self.conView layoutIfNeeded];
     
     
@@ -252,6 +257,8 @@
         self.signout1Button.hidden = YES;
     }
     
+    
+    self.scrollView.alwaysBounceVertical = YES;
 }
 
 
