@@ -2116,7 +2116,7 @@
                                     <constraint firstAttribute="width" constant="300" id="5Hi-uY-sVe"/>
                                     <constraint firstAttribute="height" constant="80" id="ufe-Lp-gfX"/>
                                 </constraints>
-                                <string key="text">برای استفاده از خدمات و امکانات نارنگی میبایست  پروفایل کاربری خود را کامل کنید. پیشنهاد می‌کنیم همین حالا اقدام به تکمیل نمیایید.</string>
+                                <string key="text">برای استفاده از خدمات و امکانات نارنگی میبایست  پروفایل کاربری خود را کامل کنید. پیشنهاد می‌کنیم همین حالا اقدام به تکمیل نمایید.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2128,7 +2128,7 @@
                                     <constraint firstAttribute="width" constant="300" id="b8V-R7-3AF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="تکمیل پروفایل کاربردی">
+                                <state key="normal" title="تکمیل پروفایل کاربری">
                                     <color key="titleColor" red="0.35294117650000001" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -2192,7 +2192,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="829"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bo9-d8-lQd">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bo9-d8-lQd">
                                 <rect key="frame" x="0.0" y="64" width="600" height="225"/>
                                 <color key="backgroundColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -4723,7 +4723,7 @@
         <image name="Host" width="32" height="32"/>
         <image name="Inbox" width="32" height="32"/>
         <image name="Login" width="32" height="32"/>
-        <image name="MenuIcon" width="32" height="32"/>
+        <image name="MenuIcon" width="24" height="24"/>
         <image name="MenuLogo" width="147" height="67"/>
         <image name="RoomNumber" width="35" height="35"/>
         <image name="SearchBoxIconOrange" width="22" height="22"/>

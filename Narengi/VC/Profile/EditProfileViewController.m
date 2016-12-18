@@ -124,7 +124,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     
     [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"authorization"];
     
-    [self.avatarImg sd_setImageWithURL:self.userObject.avatarUrl placeholderImage:IMG(@"edit-profile-empty-avatar") options:SDWebImageRefreshCached];
+    [self.avatarImg sd_setImageWithURL:self.userObject.avatarUrl placeholderImage:IMG(@"nil") options:SDWebImageRefreshCached];
     
     if (self.userObject.birthDate != nil ) {
         
@@ -372,7 +372,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 {
     _photoPayload = nil;
     self.didSelectImg = NO;
-    self.avatarImg.image = IMG(@"AvatarPlaceHolder");
+   //self.avatarImg.image = IMG(@"AvatarPlaceHolder");
     self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 
