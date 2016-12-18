@@ -84,7 +84,8 @@
     [self.houseCollectionView addGestureRecognizer:lpgr];
     
     if (self.isModal) {
-        [self.backButton setImage:IMG(@"CloseIconOrange") forState:UIControlStateNormal];
+        [self.backButton  setImage:IMG(@"CloseIconOrange") forState:UIControlStateNormal];
+        [self.back1Button setImage:IMG(@"CloseIconOrange") forState:UIControlStateNormal];
     }
     
 }
@@ -183,7 +184,7 @@
                 if (serverRs.backData !=nil ) {
                     
                     self.hostObj  = [[NarengiCore sharedInstance] parsHost:serverRs.backData isDetail:YES];
-                    if (self.hostObj.houseArr. count > 0) {
+                    if (self.hostObj.houseArr. count > 2) {
                         
                         AroundPlaceObject *around = [[AroundPlaceObject alloc] init];
                         HouseObject *house = [[HouseObject alloc] init];
@@ -215,7 +216,6 @@
     self.titleLabel.text       = self.hostObj.displayName;
     
     self.descriptionLabel.text = self.hostObj.descriptionStr;
-
     
 
     [self.avatarImg sd_setImageWithURL:self.hostObj.imageUrl placeholderImage:nil];
@@ -234,7 +234,7 @@
     }
     else{
         
-        self.houseCollectinViewHeight.constant = ((([UIScreen mainScreen].bounds.size.width) * 5 /8) * (self.hostObj.houseArr.count - 1))  + (self.hostObj.houseArr.count > 0 ? 40 : 0) + 60 ;
+        self.houseCollectinViewHeight.constant = ((([UIScreen mainScreen].bounds.size.width) * 5 /8) * (self.hostObj.houseArr.count > 2 ? self.hostObj.houseArr.count - 1 : self.hostObj.houseArr.count ))  + (self.hostObj.houseArr.count > 2 ? 40 : 0) + 30 ;
         
     }
 
@@ -249,7 +249,7 @@
         self.settingButton.hidden  = YES;
         self.setting1Button.hidden = YES;
         self.signoutButton.hidden  = YES;
-        self.setting1Button.hidden = YES;
+        self.signout1Button.hidden = YES;
     }
     
 }

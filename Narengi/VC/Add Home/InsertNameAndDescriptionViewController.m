@@ -97,6 +97,9 @@
                         return YES;
                     }
                     else{
+                        
+                        [self showError:@"طول آدرس باید بیشتر از ۱۰ کارکتر باشد"];
+
                         return NO;
                     }
                 }

@@ -593,15 +593,17 @@ NarengiCore *sharedInstance;
     HostObject *hostObj = [[HostObject alloc] init];
 
     hostObj.imageUrl    = [[[dict objectForKey:@"picture"] objectForKey:@"url"] addImageBaseUrl];
-    hostObj.displayName = [dict objectForKey:@"fullName"];
+    hostObj.displayName = [[dict objectForKey:@"fullName"] checkNull] == nil ?  @"نام و نام‌خانوادگی" :[dict objectForKey:@"fullName"];
+    
+    
     hostObj.hostURL     = [dict objectForKey:@"detailUrl"];
     hostObj.ID          = [dict objectForKey:@"uid"];
     
     if (isDetail) {
         
-        hostObj.locationText   = [NSString stringWithFormat:@"%@، %@",[dict objectForKey:@"city"],[dict objectForKey:@"province"]];
+        hostObj.locationText   = [NSString stringWithFormat:@"%@، %@",[[dict objectForKey:@"city"] checkNull] == nil ?  @"شهر" : [dict objectForKey:@"city"] ,[[dict objectForKey:@"province"] checkNull] == nil ? @"استان" : [dict objectForKey:@"province"]];
         hostObj.houseArr       = [self parsAroudPlacesWith:[dict objectForKey:@"houses"] andwithType:@"House" andIsDetail:NO];
-        hostObj.descriptionStr = [dict objectForKey:@"bio"];
+        hostObj.descriptionStr = [[dict objectForKey:@"bio"] checkNull] == nil ? @"توضییحات ندارد" : [dict objectForKey:@"bio"];
         
     }
     

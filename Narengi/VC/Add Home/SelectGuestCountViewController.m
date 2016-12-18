@@ -61,7 +61,6 @@
         
         self.bedCount      = 0;
         self.roomCount     = 0;
-        self.houseObj = [[HouseObject alloc] init];
         [self changeRightButtonToClose];
         
     }
