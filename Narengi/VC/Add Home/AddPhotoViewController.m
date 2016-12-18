@@ -89,6 +89,9 @@
         [self changeRightButtonToClose];
         
     }
+    
+    self.navigationItem.hidesBackButton = YES;
+
 }
 
 //-(void)setUpStatusButtons{

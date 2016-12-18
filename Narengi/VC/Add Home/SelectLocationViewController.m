@@ -101,6 +101,8 @@
     }
     
 
+    self.navigationItem.hidesBackButton = YES;
+
 }
 
 

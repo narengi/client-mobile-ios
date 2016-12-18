@@ -63,6 +63,9 @@
         [self changeRightButtonToClose];
         
     }
+    
+    self.navigationItem.hidesBackButton = YES;
+
 }
 
 -(void)setUPullToRefresh{

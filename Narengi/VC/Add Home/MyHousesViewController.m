@@ -26,16 +26,16 @@
 @implementation MyHousesViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self changeLeftButton];
-    [self changeRighNavigationToMenu];
+    [self changeRighNavigationToClose];
     self.title = @"مهمان‌پذیری";
     
     [self registerCellWithName:@"MyHomeCell" andWithIdentifier:@"myHousesCellID" andTableView:self.tableView];
     [self getMyHomeForFirstTime];
-    
     [self addPullToRefresh];
     
     [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"authorization"];
@@ -43,7 +43,6 @@
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 10, 0);
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(houseChanged:) name:@"oneFuckingHouseChanged" object:nil];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteHouse:) name:@"deleteHouseNotification" object:nil];
     
 }
@@ -64,6 +63,7 @@
                                 
                                 
                             }];
+    
     if (curentIdx != NSNotFound) {
         
         AroundPlaceObject *aroundObj = self.houseArr[curentIdx];
@@ -311,6 +311,25 @@
 
 }
 
+
+-(void)changeRighNavigationToClose{
+    
+    UIImage *buttonImage = [UIImage imageNamed:@"CloseIconOrange"];
+    UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [menuButton setImage:buttonImage forState:UIControlStateNormal];
+    menuButton.frame = CGRectMake(0, 0, 45, 45);
+    menuButton.contentEdgeInsets = UIEdgeInsetsMake(0, 15, 0, -15);
+    
+    UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:menuButton];
+    self.navigationItem.rightBarButtonItem = customBarItem;
+    [menuButton addTarget:self action:@selector(closeButton) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+-(void)closeButton{
+
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 @end

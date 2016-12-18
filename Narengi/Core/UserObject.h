@@ -12,6 +12,7 @@
 @interface UserObject : NSObject
 
 @property (nonatomic) NSString  *fisrtName;
+@property (nonatomic) NSString *ID;
 @property (nonatomic) NSString  *lastName;
 @property (nonatomic) NSString  *birthDate;
 @property (nonatomic) NSInteger completePercent;

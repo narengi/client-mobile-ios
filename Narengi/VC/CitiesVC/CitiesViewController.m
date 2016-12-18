@@ -177,7 +177,6 @@
     if (self.aroundPArr.count > 0) {
         AroundPlaceObject *aroundObj = self.aroundPArr[indexPath.row];
         
-        
         HouseCollectionViewCell *pagerCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"houseCellID"  forIndexPath:indexPath];
         
         NSString *str = @"";

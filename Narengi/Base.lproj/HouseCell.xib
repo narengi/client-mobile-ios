@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,9 +23,9 @@
                         <color key="backgroundColor" red="0.74509803919999995" green="0.74509803919999995" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1n-bC-faJ" customClass="CustomFaBoldLabel">
-                        <rect key="frame" x="19" y="78" width="329" height="27"/>
+                        <rect key="frame" x="19" y="78" width="329" height="38"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="27" id="17z-Q5-b5k"/>
+                            <constraint firstAttribute="height" constant="38" id="17z-Q5-b5k"/>
                             <constraint firstAttribute="width" constant="329" id="ZNE-lk-Ym1"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
@@ -35,7 +35,7 @@
                         <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nD-Of-Eyq" customClass="CustomFaLightLabel">
-                        <rect key="frame" x="19" y="113" width="329" height="21"/>
+                        <rect key="frame" x="19" y="124" width="329" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="1V4-q6-QQJ"/>
                             <constraint firstAttribute="width" constant="329" id="KeZ-PT-hx7"/>
@@ -48,7 +48,7 @@
                         <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghU-UJ-aL9" customClass="CustomFaLightLabel">
-                        <rect key="frame" x="0.0" y="195" width="99" height="33"/>
+                        <rect key="frame" x="-2" y="195" width="99" height="33"/>
                         <color key="backgroundColor" red="0.94117647058823528" green="0.38823529411764707" blue="0.019607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="99" id="6X9-69-fo9"/>
@@ -59,7 +59,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mq2-HL-9ER">
-                        <rect key="frame" x="0.0" y="241.5" width="366" height="0.5"/>
+                        <rect key="frame" x="0.0" y="242" width="366" height="0.0"/>
                         <color key="backgroundColor" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="0.5" id="7I5-1E-uEb"/>
@@ -76,8 +76,8 @@
                 <constraint firstAttribute="trailing" secondItem="JYd-3f-1Al" secondAttribute="trailing" id="90D-IK-gjo"/>
                 <constraint firstAttribute="trailing" secondItem="mq2-HL-9ER" secondAttribute="trailing" id="Lo7-2m-T4a"/>
                 <constraint firstItem="6nD-Of-Eyq" firstAttribute="top" secondItem="U1n-bC-faJ" secondAttribute="bottom" constant="8" id="Mth-2m-Vy9"/>
-                <constraint firstItem="ghU-UJ-aL9" firstAttribute="leading" secondItem="65C-rd-lR6" secondAttribute="leading" id="Qb7-5p-iso"/>
-                <constraint firstItem="U1n-bC-faJ" firstAttribute="centerY" secondItem="65C-rd-lR6" secondAttribute="centerY" constant="-29.5" id="Xlu-yl-u7s"/>
+                <constraint firstItem="ghU-UJ-aL9" firstAttribute="leading" secondItem="65C-rd-lR6" secondAttribute="leading" constant="-2" id="Qb7-5p-iso"/>
+                <constraint firstItem="U1n-bC-faJ" firstAttribute="centerY" secondItem="65C-rd-lR6" secondAttribute="centerY" constant="-24" id="Xlu-yl-u7s"/>
                 <constraint firstItem="U1n-bC-faJ" firstAttribute="centerX" secondItem="65C-rd-lR6" secondAttribute="centerX" id="Yh9-p9-ag1"/>
                 <constraint firstItem="JYd-3f-1Al" firstAttribute="top" secondItem="65C-rd-lR6" secondAttribute="top" id="fQK-ni-Buj"/>
                 <constraint firstAttribute="bottom" secondItem="JYd-3f-1Al" secondAttribute="bottom" id="jvJ-mK-VGx"/>

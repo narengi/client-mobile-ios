@@ -46,8 +46,14 @@
     self.titleLabel.shadowOffset = kShadowOffset;
     self.titleLabel.shadowBlur   = kShadowBlur;
     
+    self.descriptionLabel.shadowColor  = kShadowColor1;
+    self.descriptionLabel.shadowOffset = kShadowOffset;
+    self.descriptionLabel.shadowBlur   = kShadowBlur;
+    
     self.pages.backgroundColor = [UIColor lightGrayColor];
-
+    
+    self.priceLabel.layer.cornerRadius  = 2;
+    self.priceLabel.layer.masksToBounds = YES;
     
 }
 

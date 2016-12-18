@@ -16,7 +16,7 @@
 
 
 @property (weak, nonatomic) IBOutlet THLabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet THLabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet CustomLabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *featuresLabel;
 

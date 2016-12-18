@@ -57,7 +57,6 @@
     UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:menuButton];
     self.navigationItem.rightBarButtonItem = customBarItem;
     [menuButton addTarget:self action:@selector(showMenu) forControlEvents:UIControlEventTouchUpInside];
-    
 }
 
 -(void)showMenu{
@@ -73,10 +72,10 @@
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [backButton setImage:buttonImage forState:UIControlStateNormal];
     backButton.frame = CGRectMake(0, 0, 32, 32);
-    backButton.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10);
+    backButton.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, -10);
 
     UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-    self.navigationItem.leftBarButtonItem = customBarItem;
+    self.navigationItem.rightBarButtonItem = customBarItem;
     [backButton addTarget:self action:@selector(Back) forControlEvents:UIControlEventTouchUpInside];
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
 }
@@ -372,14 +371,14 @@
 
 -(void)changeRightButtonToClose{
     
-    UIImage *buttonImage = [UIImage imageNamed:@"minusbtn"];
+    UIImage *buttonImage = [UIImage imageNamed:@"CloseIconOrange"];
     UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [closeButton setImage:buttonImage forState:UIControlStateNormal];
     closeButton.frame = CGRectMake(0, 0, 32, 32);
     closeButton.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10);
     
     UIBarButtonItem *customBarItem = [[UIBarButtonItem alloc] initWithCustomView:closeButton];
-    self.navigationItem.rightBarButtonItem = customBarItem;
+    self.navigationItem.leftBarButtonItem = customBarItem;
     [closeButton addTarget:self action:@selector(closeClicked) forControlEvents:UIControlEventTouchUpInside];
     
 }

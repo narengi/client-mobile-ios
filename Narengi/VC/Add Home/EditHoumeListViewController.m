@@ -41,7 +41,8 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"DeleteHouseCell" bundle:nil] forCellReuseIdentifier:@"deleteHomeCell"];
     
-    
+ 
+    self.navigationItem.hidesBackButton = YES;
 }
 
 -(void)houseChanged:(NSNotification *)notification{
@@ -242,7 +243,6 @@
                 
                 [self showError:@"اشکال در ارسال اطلاعات"];
             }
-            
             
             [SVProgressHUD dismiss];
             

@@ -374,6 +374,8 @@ self.priceLabelcontainer.layer.cornerRadius = 5;
                 
                 FacilityObject *facilityObj = self.houseObj.shownFacilities[indexPath.row];
                 cell.titleLabel.text = facilityObj.name;
+                [cell.img sd_setImageWithURL:facilityObj.iconUrl placeholderImage:nil];
+
                 
                 return cell;
             }
@@ -392,6 +394,8 @@ self.priceLabelcontainer.layer.cornerRadius = 5;
             
             FacilityObject *facilityObj = self.houseObj.shownFacilities[indexPath.row];
             cell.titleLabel.text = facilityObj.name;
+            [cell.img sd_setImageWithURL:facilityObj.iconUrl placeholderImage:nil];
+
             
             return cell;
             

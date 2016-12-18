@@ -40,6 +40,10 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *houseCollectinViewHeight;
 
 @property (nonatomic,strong) HostObject *hostObj;
+@property (weak, nonatomic) IBOutlet UIButton *settingButton;
+@property (weak, nonatomic) IBOutlet UIButton *signoutButton;
+@property (weak, nonatomic) IBOutlet UIButton *setting1Button;
+@property (weak, nonatomic) IBOutlet UIButton *signout1Button;
 
 
 @end
@@ -64,7 +68,7 @@
     //scrollView delegate
     void *context = (__bridge void *)self;
     [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:context];
-    _headerFade                     = [UIScreen mainScreen].bounds.size.width/2;
+    _headerFade                     = ([UIScreen mainScreen].bounds.size.width/2) -50;
     self.navigationView.alpha = 0;
 
     
@@ -203,16 +207,7 @@
     self.cityNameLabel.text    = self.hostObj.locationText;
     self.titleLabel.text       = self.hostObj.displayName;
     
-    NSMutableParagraphStyle *style =  [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    style.alignment = NSTextAlignmentRight;
-    style.paragraphSpacingBefore = 10.0f;
-    style.firstLineHeadIndent = 10;
-    style.headIndent = 15.0f;
-    style.tailIndent = -15.0f;
-    
-    NSAttributedString *attrText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",self.hostObj.descriptionStr ] attributes:@{ NSParagraphStyleAttributeName : style}];
-    
-    self.descriptionLabel.attributedText = attrText;
+    self.descriptionLabel.text = self.hostObj.descriptionStr;
 
     
 
@@ -238,6 +233,17 @@
 
     
     [self.conView layoutIfNeeded];
+    
+    
+    UserObject *userObject = [[ NSUserDefaults standardUserDefaults] rm_customObjectForKey:@"userObject"];
+    
+    if (![userObject.ID isEqualToString:self.hostObj.ID]) {
+        
+        self.settingButton.hidden  = YES;
+        self.setting1Button.hidden = YES;
+        self.signoutButton.hidden  = YES;
+        self.setting1Button.hidden = YES;
+    }
     
 }
 
@@ -351,7 +357,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    return CGSizeMake(0., 40);
+    return CGSizeMake(0., 30);
 
     
 }

@@ -57,10 +57,13 @@
         
         self.maxGuestCount = 1;
         self.guestCount    = 1;
-        self.houseObj = [[HouseObject alloc] init];
         [self changeRightButtonToClose];
         
     }
+    
+    
+    self.navigationItem.hidesBackButton = YES;
+
 }
 
 -(void)viewWillAppear:(BOOL)animated

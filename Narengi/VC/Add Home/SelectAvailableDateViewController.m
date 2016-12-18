@@ -70,7 +70,8 @@
     [_calendarManager setContentView:_calendarContentView];
     [_calendarManager setDate:[NSDate date]];
     
-    
+    self.navigationItem.hidesBackButton = YES;
+
     
 }
 

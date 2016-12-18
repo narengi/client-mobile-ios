@@ -544,7 +544,7 @@ NarengiCore *sharedInstance;
         facilityObj.name      = [[obj objectForKey:@"title"] checkNull];
         facilityObj.ID        = [[obj objectForKey:@"id"] checkNull];
         facilityObj.key       = [obj objectForKey:@"key"];
-        facilityObj.iconUrl   = [[NSURL URLWithString:[obj objectForKey:@"imageUrl"]] checkNull];
+        facilityObj.iconUrl   = [[[obj objectForKey:@"icon"] checkNull] addImageBaseUrl];
         
         [muArr addObject:facilityObj];
         
@@ -613,6 +613,8 @@ NarengiCore *sharedInstance;
     
     UserObject *userObj = [[UserObject alloc] init];
     
+    
+    userObj.ID              = [dict objectForKey:@"id"];
     userObj.avatarUrl       = [[[[[[dict objectForKey:@"profile"] checkNull]  objectForKey:@"picture"] checkNull] objectForKey:@"url"] addImageBaseUrl];
     userObj.fisrtName       = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"firstName"] checkNull];
     userObj.lastName        = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"lastName"] checkNull];

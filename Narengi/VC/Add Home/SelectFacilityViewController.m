@@ -62,6 +62,9 @@
         [self changeRightButtonToClose];
         
     }
+    
+    self.navigationItem.hidesBackButton = YES;
+
 }
 
 -(void)setUPullToRefresh{
@@ -99,7 +102,7 @@
     FacilityObject *facilityObj  = self.houseFacilityArr[indexPath.row];
     
     cell.titleLabel.text = facilityObj.name;
-    cell.img.image = IMG(facilityObj.key);
+    [cell.img sd_setImageWithURL:facilityObj.iconUrl placeholderImage:nil];
     
     if (facilityObj.available) {
         cell.checkBoxImg.image  = IMG(@"amenitieschecked");
