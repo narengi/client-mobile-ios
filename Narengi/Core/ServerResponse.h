@@ -13,6 +13,7 @@
 @property (nonatomic) id        backData;
 @property (nonatomic) BOOL      hasErro;
 @property (nonatomic) NSString  *link;
+@property (nonatomic) NSString  *message;
 @property (nonatomic) NSInteger totalCount;
 
 

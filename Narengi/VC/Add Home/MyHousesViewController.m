@@ -147,7 +147,7 @@
 
 -(void)changeLeftButton{
 
-    UIImage *buttonImage = [UIImage imageNamed:@"add-avatar"];
+    UIImage *buttonImage = [UIImage imageNamed:@"AddListing"];
     UIButton *addbutton = [UIButton buttonWithType:UIButtonTypeCustom];
     [addbutton setImage:buttonImage forState:UIControlStateNormal];
     addbutton.frame = CGRectMake(0, 0, 32, 32);

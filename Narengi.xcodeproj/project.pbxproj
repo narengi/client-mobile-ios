@@ -86,6 +86,7 @@
 		728271541D0C4E970038D5F8 /* SelectAvailableDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 728271531D0C4E970038D5F8 /* SelectAvailableDateViewController.m */; };
 		7285DE551BF494CD00F92608 /* NSObject+NullCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE541BF494CD00F92608 /* NSObject+NullCheck.m */; };
 		7285DE601BF4B40600F92608 /* PageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7285DE5F1BF4B40600F92608 /* PageCell.m */; };
+		7290241B1E06EAAE004A9D6D /* RetyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7290241A1E06EAAE004A9D6D /* RetyButton.m */; };
 		729034151E05A2A500F9BD94 /* AllHousesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 729034141E05A2A500F9BD94 /* AllHousesCell.xib */; };
 		7293145E1CE0762A00CDB4C5 /* SelectTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7293145D1CE0762A00CDB4C5 /* SelectTypeViewController.m */; };
 		729314611CE07E7C00CDB4C5 /* SelectTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 729314601CE07E7C00CDB4C5 /* SelectTypeTableViewCell.m */; };
@@ -322,6 +323,8 @@
 		7285DE541BF494CD00F92608 /* NSObject+NullCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+NullCheck.m"; path = "Custom Classes/NSObject+NullCheck.m"; sourceTree = "<group>"; };
 		7285DE5E1BF4B40600F92608 /* PageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageCell.h; path = VC/CitiesVC/PageCell.h; sourceTree = "<group>"; };
 		7285DE5F1BF4B40600F92608 /* PageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageCell.m; path = VC/CitiesVC/PageCell.m; sourceTree = "<group>"; };
+		729024191E06EAAE004A9D6D /* RetyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RetyButton.h; path = "Custom Classes/RetyButton.h"; sourceTree = "<group>"; };
+		7290241A1E06EAAE004A9D6D /* RetyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RetyButton.m; path = "Custom Classes/RetyButton.m"; sourceTree = "<group>"; };
 		729034141E05A2A500F9BD94 /* AllHousesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AllHousesCell.xib; path = VC/Profile/AllHousesCell.xib; sourceTree = "<group>"; };
 		7293145C1CE0762A00CDB4C5 /* SelectTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectTypeViewController.h; path = "VC/Add Home/SelectTypeViewController.h"; sourceTree = "<group>"; };
 		7293145D1CE0762A00CDB4C5 /* SelectTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectTypeViewController.m; path = "VC/Add Home/SelectTypeViewController.m"; sourceTree = "<group>"; };
@@ -795,6 +798,8 @@
 				72AA06CA1E03E48700E3AE42 /* NSString+PersianArabic.h */,
 				72AA06CB1E03E48700E3AE42 /* NSString+PersianArabic.m */,
 				72C24F241C6D6D3A00026821 /* DZNPhoto */,
+				729024191E06EAAE004A9D6D /* RetyButton.h */,
+				7290241A1E06EAAE004A9D6D /* RetyButton.m */,
 			);
 			name = "Custom Classes";
 			sourceTree = "<group>";
@@ -1238,6 +1243,7 @@
 				72D7FE651C15C59D00BD39A5 /* CustomLabel.m in Sources */,
 				722922F81BFCEA3600C5575C /* ServerResponse.m in Sources */,
 				723E3C651C883FDC0006DEF4 /* CustomFaTextField.m in Sources */,
+				7290241B1E06EAAE004A9D6D /* RetyButton.m in Sources */,
 				72EA4D761C51051C0053456F /* ProfileViewController.m in Sources */,
 				7294429C1C6CC5DD003F3D92 /* EditProfileViewController.m in Sources */,
 				729442991C6B6F88003F3D92 /* AskForCompleteProfileViewController.m in Sources */,

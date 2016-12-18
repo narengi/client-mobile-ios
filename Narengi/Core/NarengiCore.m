@@ -92,11 +92,14 @@ NarengiCore *sharedInstance;
         {
             serverRes.hasErro = YES;
             serverRes.backData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil ];
+            
         }
         else
         {
             serverRes.hasErro = YES;
             serverRes.backData = nil;
+            
+            serverRes.message = @"اشکال در ارتباط";
         }
         
     }

@@ -16,6 +16,7 @@
 #import "PageCell.h"
 #import "PagerCollectionViewCell.h"
 #import "EditProfileViewController.h"
+#import "MBProgressHUD.h"
 
 @interface ProfileViewController ()
 
@@ -48,6 +49,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIButton *back1Button;
 
+@property (weak, nonatomic) IBOutlet UIView *beforeLoadView;
+
+@property (weak, nonatomic) IBOutlet CustomFaRegularLabel *messageLabel;
+@property (weak, nonatomic) IBOutlet UIView *errorView;
 
 @end
 
@@ -171,45 +176,85 @@
 
 -(void)getData{
     
+    self.errorView.hidden  = YES;
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+    if(![Reachability reachabilityForInternetConnection].isReachable){
         
-        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:[self.urlStr addBaseUrl] andWithParametrs:nil andWithBody:nil andIsFullPath:YES];
-        
-        
-        dispatch_async(dispatch_get_main_queue(),^{
+        [self showErrorButtonWithMessage:@"اتصال اینترنت را بررسی کنید"];
+    }
+    else{
+        __block MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeIndeterminate;
+        [hud setUserInteractionEnabled:NO];
+        [hud showAnimated:YES];
+        hud.contentColor = RGB(252, 61, 0, 1);
+        hud.label.text = @"در حال دریافت اطلاعات";
+        hud.label.font = [UIFont fontWithName:@"IRANSansMobileFaNum" size:15];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
             
-            if (!serverRs.hasErro) {
+            ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:[self.urlStr addBaseUrl] andWithParametrs:nil andWithBody:nil andIsFullPath:YES];
+            
+            
+            dispatch_async(dispatch_get_main_queue(),^{
                 
-                if (serverRs.backData !=nil ) {
+                if (!serverRs.hasErro) {
                     
-                    self.hostObj  = [[NarengiCore sharedInstance] parsHost:serverRs.backData isDetail:YES];
-                    if (self.hostObj.houseArr. count > 2) {
+                    if (serverRs.backData !=nil ) {
                         
-                        AroundPlaceObject *around = [[AroundPlaceObject alloc] init];
-                        HouseObject *house = [[HouseObject alloc] init];
-                        house.isOnlyButton = YES;
-                        around.houseObject = house;
+                        self.hostObj  = [[NarengiCore sharedInstance] parsHost:serverRs.backData isDetail:YES];
+                        if (self.hostObj.houseArr. count > 2) {
+                            
+                            AroundPlaceObject *around = [[AroundPlaceObject alloc] init];
+                            HouseObject *house = [[HouseObject alloc] init];
+                            house.isOnlyButton = YES;
+                            around.houseObject = house;
+                            
+                            NSMutableArray *muarr = [[NSMutableArray alloc] initWithArray:self.hostObj.houseArr];
+                            
+                            [muarr addObject:around];
+                            
+                            self.hostObj.houseArr = [muarr copy];
+                        }
                         
-                        NSMutableArray *muarr = [[NSMutableArray alloc] initWithArray:self.hostObj.houseArr];
-                        
-                        [muarr addObject:around];
-                        
-                        self.hostObj.houseArr = [muarr copy];
+                        [self setDataForView];
                     }
-                    
-                    [self setDataForView];
+                    else{
+                        [self showErrorButtonWithMessage:@"اشکال در ارتباط"];
+                    }
                 }
                 else{
-                    //show erro if nedded
+                
+                    [self showErrorButtonWithMessage:@"اشکال در ارتباط"];
+
                 }
-            }
+                
+                [hud hideAnimated:YES];
+
+            });
         });
-    });
+    }
+    
+}
+
+-(void)showErrorButtonWithMessage:(NSString *)meesage{
+    
+    self.errorView.hidden  = NO;
+    self.messageLabel.text = meesage;
     
 }
 
 -(void)setDataForView{
+    
+    
+    self.beforeLoadView.alpha = 1;
+    
+    [UIView animateWithDuration:0.5 animations:^(void) {
+        
+        self.beforeLoadView.alpha = 0;
+        
+    }
+                     completion:^(BOOL finished){
+                     }];
     
     self.nameLabel.text        = self.hostObj.displayName;
     self.cityNameLabel.text    = self.hostObj.locationText;
@@ -467,6 +512,10 @@
     [exitAlert addAction: cancel];
     
     [self presentViewController:exitAlert animated:YES completion:nil];
+}
+- (IBAction)retyButtonClicked:(UIButton *)sender {
+    
+    [self getData];
 }
 
 @end

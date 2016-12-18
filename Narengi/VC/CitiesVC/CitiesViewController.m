@@ -75,6 +75,11 @@
     forControlEvents:UIControlEventEditingChanged];
     
     
+    [self.searchTextField addTarget:self
+                             action:@selector(resignFirstResponder:)
+        forControlEvents:UIControlEventEditingDidEndOnExit];
+    
+    
     self.collectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
 
 
@@ -154,9 +159,24 @@
 
 -(void)textFieldDidChange:(UITextField *)sender{
 
+    if (sender.text.length == 0) {
+        
+        self.termrStr = sender.text;
+        [self getDataForFirstTime];
+    }
+    
+}
+
+
+-(void)resignFirstResponder:(UITextField *)sender{
+
     self.termrStr = sender.text;
     [self getDataForFirstTime];
+    
+    [sender resignFirstResponder];
 }
+
+
 
 #pragma mark - collectionView
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView

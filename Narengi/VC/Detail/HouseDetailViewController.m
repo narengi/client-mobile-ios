@@ -17,6 +17,7 @@
 #import "HWViewPager.h"
 #import "FacilitiesViewController.h"
 #import "CommentsViewController.h"
+#import "MBProgressHUD.h"
 
 @interface HouseDetailViewController ()<UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate,UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 
@@ -67,7 +68,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *roomcountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *navTitleLabel;
+@property (weak, nonatomic) IBOutlet UIView *beforeLoadView;
 
+@property (weak, nonatomic) IBOutlet CustomFaRegularLabel *messageLabel;
+@property (weak, nonatomic) IBOutlet UIView *errorView;
+@property (weak, nonatomic) IBOutlet UIButton *frontBackbutton;
+@property (weak, nonatomic) IBOutlet UIView *backButton;
 
 @end
 
@@ -85,7 +91,7 @@
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
     
     self.scrollView.clipsToBounds = YES;
-
+    ;
     [self registerNibFiles];
     
     [self.facilitiesCollectionView setTransform:CGAffineTransformMakeScale(-1, 1)];
@@ -192,19 +198,29 @@
     }
     
     
-    if(scrollOffset > _headerFade && self.navigationView.alpha == 0.0){ //make the header appear
+    if(scrollOffset > _headerFade && self.navigationView.alpha == 0.0){
+        //make the header appear
         self.navigationView.alpha = 0;
+        
+        self.frontBackbutton.alpha = 1;
         self.navigationView.hidden = NO;
+        
         [UIView animateWithDuration:0.3 animations:^{
+            
             self.navigationView.alpha = 1;
+            self.frontBackbutton.alpha = 0;
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
             
         }];
     }
     else if(scrollOffset < _headerFade &&  self.navigationView.alpha == 1.0){ //make the header disappear
         [UIView animateWithDuration:0.3 animations:^{
+            
             self.navigationView.alpha = 0;
+            self.frontBackbutton.alpha = 1;
+            
         } completion: ^(BOOL finished) {
+            
             self.navigationView.hidden = YES;
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
             
@@ -223,36 +239,80 @@
 
 -(void)getData{
     
-    self.url = [NSURL URLWithString:[NSString stringWithFormat:@"%@houses/%@",BASEURL,self.houseID] ];
+    self.errorView.hidden  = YES;
+
+    if(![Reachability reachabilityForInternetConnection].isReachable){
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+        [self showErrorButtonWithMessage:@"اتصال اینترنت را بررسی کنید"];
+    }
+    else{
+        __block MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeIndeterminate;
+        [hud setUserInteractionEnabled:NO];
+        [hud showAnimated:YES];
+        hud.contentColor = RGB(252, 61, 0, 1);
+        hud.label.text = @"در حال دریافت اطلاعات";
+        hud.label.font = [UIFont fontWithName:@"IRANSansMobileFaNum" size:15];
         
-        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:self.url.absoluteString andWithParametrs:nil andWithBody:nil andIsFullPath:YES];
         
+        self.url = [NSURL URLWithString:[NSString stringWithFormat:@"%@houses/%@",BASEURL,self.houseID] ];
         
-        dispatch_async(dispatch_get_main_queue(),^{
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+            
+            ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:self.url.absoluteString andWithParametrs:nil andWithBody:nil andIsFullPath:YES];
             
             
-            if (!serverRs.hasErro) {
+            dispatch_async(dispatch_get_main_queue(),^{
                 
-                if (serverRs.backData !=nil ) {
+                
+                if (!serverRs.hasErro) {
                     
-                    AroundPlaceObject *obj  = [[[NarengiCore sharedInstance] parsAroudPlacesWith:@[serverRs.backData] andwithType:@"House" andIsDetail:YES] firstObject];
-                    self.houseObj = obj.houseObject;
-                    [self setDataForView];
+                    if (serverRs.backData !=nil ) {
+                        
+                        AroundPlaceObject *obj  = [[[NarengiCore sharedInstance] parsAroudPlacesWith:@[serverRs.backData] andwithType:@"House" andIsDetail:YES] firstObject];
+                        self.houseObj = obj.houseObject;
+                        [self setDataForView];
+                        
+                        
+                        
+                    }
+                    else{
+                        
+                        [self showErrorButtonWithMessage:@"اشکال در ارتباط"];
+                    }
                 }
                 else{
-                    //show erro if nedded
+                    [self showErrorButtonWithMessage:@"اشکال در ارتباط"];
                 }
-            }
+                
+                [hud hideAnimated:YES];
+            });
         });
-    });
+        
+    }
+    
+}
+
+-(void)showErrorButtonWithMessage:(NSString *)meesage{
+    
+    self.errorView.hidden  = NO;
+    self.messageLabel.text = meesage;
     
 }
 
 
 
 -(void)setDataForView{
+    
+    self.beforeLoadView.alpha = 1;
+    
+    [UIView animateWithDuration:0.5 animations:^(void) {
+        
+        self.beforeLoadView.alpha = 0;
+        
+    }
+                     completion:^(BOOL finished){
+                     }];
     
     self.titleLabel.text       = self.houseObj.name;
     self.navTitleLabel.text    = self.houseObj.name;
@@ -332,6 +392,8 @@ self.priceLabelcontainer.layer.cornerRadius = 5;
     tapped.numberOfTouchesRequired  =1;
     tapped.delegate  =self;
     [self.avatarImg addGestureRecognizer:tapped];
+    
+    
 }
 
 
@@ -674,4 +736,9 @@ self.priceLabelcontainer.layer.cornerRadius = 5;
     
     [self gotoMapForHouseDetailwithGeo:self.houseObj.geoObj];
 }
+- (IBAction)retyButtonClicked:(UIButton *)sender {
+    
+    [self getData];
+}
+
 @end

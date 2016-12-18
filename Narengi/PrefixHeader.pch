@@ -34,6 +34,8 @@
 #define SUGGESTIONService @"suggestion"
 
 #define REACHABILITY if(![Reachability reachabilityForInternetConnection].isReachable){[self noConnection]; return;}
+
+#define REACHABILITY if(![Reachability reachabilityForInternetConnection].isReachable){[self noConnection]; return;}
 #define NORMALREACHABILITY if(![Reachability reachabilityForInternetConnection].isReachable){[self noConnection]; [self.refreshControl endRefreshing]; return;}
 
 
