@@ -18,9 +18,11 @@
 #import "SearchViewController.h"
 #import "HouseCollectionViewCell.h"
 #import "MapViewController.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import "UIScrollView+EmptyDataSet.h"
+#import "MBProgressHUD.h"
 
-
-@interface CitiesViewController()
+@interface CitiesViewController()<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -33,7 +35,10 @@
 @property (nonatomic,strong) NSString *termrStr;
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
-
+@property (nonatomic) BOOL didGetData;
+@property (nonatomic) BOOL isEmpty;
+@property (nonatomic) BOOL firstTimeLoad;
+@property (nonatomic) BOOL failDataLoad;
 
 @end
 @implementation CitiesViewController
@@ -47,10 +52,7 @@
     self.title = @"موقعیت جغرافیایی";
 
     [self registerCollectionCellWithName:@"CitiesCollectionViewCell" andWithId:@"citiesCellID" forCORT:self.collectionView];
-    
-//    [self.collectionView registerNib:[UINib nibWithNibName:@"CityCell" bundle:nil] forCellWithReuseIdentifier:@"cityCellID"];
-//    [self.collectionView registerNib:[UINib nibWithNibName:@"AttractionCell" bundle:nil] forCellWithReuseIdentifier:@"attractionCellID"];
-    
+
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"HouseCell" bundle:nil] forCellWithReuseIdentifier:@"houseCellID"];
 
@@ -83,6 +85,11 @@
     
     self.collectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
 
+    self.collectionView.emptyDataSetSource   = self;
+    self.collectionView.emptyDataSetDelegate = self;
+    
+    self.firstTimeLoad = YES;
+    
 
 }
 
@@ -102,7 +109,14 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    if (self.aroundPArr.count > 0) {
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
+    }
+    else{
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+
+    }
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
     
     self.navigationController.navigationBarHidden = YES;
@@ -162,8 +176,8 @@
 
     if (sender.text.length == 0) {
         
-        self.termrStr = sender.text;
-        [self getDataForFirstTime];
+       // self.termrStr = sender.text;
+        //[self getDataForFirstTime];
     }
     
 }
@@ -269,7 +283,10 @@
 -(void)getDataForFirstTime{
 
     self.aroundPArr = [[NSMutableArray alloc] init];
-    self.skipCount = 1;
+    self.skipCount  = 1;
+    self.didGetData = NO;
+    self.isEmpty    = NO;
+    
     [self getDataForFirstTime:YES];
 }
 
@@ -277,7 +294,26 @@
 
     NSArray *parametrs = @[@"perpage=25",[NSString stringWithFormat:@"page=%ld",(long)self.skipCount],[NSString stringWithFormat: @"term=%@",self.termrStr == nil ? @"" : self.termrStr]];
     
+    
+    
+    
     REACHABILITY
+    
+    
+    __block MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    [hud setUserInteractionEnabled:NO];
+    
+    hud.contentColor = RGB(252, 61, 0, 1);
+    hud.label.text = @"در حال دریافت اطلاعات";
+    hud.label.font = [UIFont fontWithName:@"IRANSansMobileFaNum" size:15];
+    [hud showAnimated:YES];
+    
+    if (self.firstTimeLoad) {
+        
+        [hud hideAnimated:YES];
+    }
+    
     
     self.activityView.hidden = NO;
     [self.activityView startAnimating];
@@ -287,6 +323,9 @@
         ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:SEARCHSERVICE andWithParametrs:parametrs andWithBody:nil andIsFullPath:NO];
         
         self.curentRequestcount++;
+        
+        self.firstTimeLoad = YES;
+        
         dispatch_async(dispatch_get_main_queue(),^{
             
             self.curentRequestcount--;
@@ -302,18 +341,20 @@
                             if (firstTime ){
                                 [self addLoadMore];
                                 [self.aroundPArr removeAllObjects];
-
+                                
                             }
                             
                             if ( arr.count < 25)
                                 [self.collectionView .mj_footer removeFromSuperview];
                             
                             [self.aroundPArr addObjectsFromArray:arr];
-
+                            
                             
                             
                         }
                         else{
+                            
+                            self.isEmpty = YES;
                             [self.collectionView .mj_footer removeFromSuperview];
                         }
                         
@@ -327,14 +368,41 @@
                 }
             }
             
+            
+            if (self.firstTimeLoad) {
+                
+                if (self.aroundPArr.count < 1) {
+                    self.failDataLoad = YES;
+                }
+                else{
+                    self.firstTimeLoad = NO;
+                }
+            }
+            
+            
+            if (self.aroundPArr.count > 0) {
+                [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+                
+            }
+            else{
+                [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+                
+            }
+            
+            [hud hideAnimated:YES];
+            self.didGetData = YES;
             self.activityView.hidden = YES;
             [self.activityView stopAnimating];
             [self.collectionView.mj_footer endRefreshing];
             [self.refreshControl endRefreshing];
             [self.collectionView reloadData];
-
+            
+            
         });
     });
+    
+    
+    
     
 }
 #pragma mark - load more
@@ -389,6 +457,84 @@
     MapViewController *mapVC = [mapStory instantiateViewControllerWithIdentifier:@"mapVCID"];
     
     [self.navigationController pushViewController:mapVC animated:YES];
+}
+
+#pragma mark - delegate
+
+-(NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
+
+    
+    if (self.didGetData){
+        if (self.isEmpty)
+        {
+            
+            UIFont *font = [UIFont fontWithName:@"IRANSansMobileFaNum-Medium" size:18.0];
+            NSDictionary *attrsDictionary = @{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor redColor]};
+            NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:@"جستجوی شما نتیجه‌ای نداشت!" attributes:attrsDictionary];
+            
+            return attrString;
+        }
+        
+        else
+        {
+            
+            UIFont *font = [UIFont fontWithName:@"IRANSansMobileFaNum-Medium" size:18.0];
+            NSDictionary *attrsDictionary = @{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor redColor]};
+            NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:@"اشکال در ارتباط!" attributes:attrsDictionary];
+            
+            return attrString;
+        }
+    }
+    else
+        return nil;
+    
+    
+}
+
+- (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView;
+{
+    
+    if (self.didGetData){
+        if (self.isEmpty)
+            return YES;
+        
+        else
+            return YES;
+    }
+    else
+        return NO;
+    
+}
+
+-(NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
+
+    
+    if (self.didGetData){
+        if (self.isEmpty){
+            return nil;
+        }
+        
+        else{
+            
+            UIFont *font = [UIFont fontWithName:@"IRANSansMobileFaNum-Medium" size:14.0];
+            NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:font
+                                                                        forKey:NSFontAttributeName];
+            NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:@"تلاش دوباره" attributes:attrsDictionary];
+            
+            return attrString;
+        }
+            
+    }
+    else
+        return nil;
+    
+    
+}
+
+
+-(void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button{
+
+    [self getDataForFirstTime];
 }
 
 @end
