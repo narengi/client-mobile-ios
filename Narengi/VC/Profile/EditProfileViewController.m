@@ -560,7 +560,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
         
     }
     else{
-        [SVProgressHUD showErrorWithStatus:@"وارد کردن نام، نام‌خانوادگی،ایمیل و تلفن همراه الزامیست"];
+        [SVProgressHUD showErrorWithStatus:@"وارد کردن نام، نام‌خانوادگی الزامیست"];
     }
     
 }

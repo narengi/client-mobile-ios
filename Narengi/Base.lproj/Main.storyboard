@@ -243,7 +243,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHf-n7-76K" customClass="IranLightButton">
-                                        <rect key="frame" x="19" y="187" width="341" height="43"/>
+                                        <rect key="frame" x="19" y="187" width="348" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="zZF-Me-547"/>
                                         </constraints>
@@ -258,7 +258,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iw5-w9-ZZL" customClass="IranLightButton">
-                                        <rect key="frame" x="19" y="235" width="341" height="43"/>
+                                        <rect key="frame" x="19" y="235" width="348" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="sX0-Kc-qrb"/>
                                         </constraints>
@@ -343,10 +343,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="iw5-w9-ZZL" secondAttribute="trailing" constant="15" id="589-tB-g2a"/>
+                                    <constraint firstAttribute="trailing" secondItem="iw5-w9-ZZL" secondAttribute="trailing" constant="8" id="589-tB-g2a"/>
                                     <constraint firstItem="kP2-mY-wgE" firstAttribute="top" secondItem="iw5-w9-ZZL" secondAttribute="bottom" constant="7" id="5We-BV-fQC"/>
                                     <constraint firstAttribute="trailing" secondItem="A5i-BD-mHs" secondAttribute="trailing" constant="8" id="8to-si-rqd"/>
-                                    <constraint firstAttribute="trailing" secondItem="xHf-n7-76K" secondAttribute="trailing" constant="15" id="BF2-e3-rpH"/>
+                                    <constraint firstAttribute="trailing" secondItem="xHf-n7-76K" secondAttribute="trailing" constant="8" id="BF2-e3-rpH"/>
                                     <constraint firstItem="WJx-rV-pVz" firstAttribute="top" secondItem="OSf-zD-2YN" secondAttribute="top" id="EsH-HU-Woe"/>
                                     <constraint firstItem="xHf-n7-76K" firstAttribute="top" secondItem="WJx-rV-pVz" secondAttribute="bottom" constant="14" id="FfO-nx-3HL"/>
                                     <constraint firstItem="2jP-V5-Za2" firstAttribute="leading" secondItem="OSf-zD-2YN" secondAttribute="leading" id="GAp-6W-9Zc"/>
@@ -392,7 +392,7 @@
             <objects>
                 <navigationController storyboardIdentifier="navRootVCID" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="Cxm-0Q-ckZ" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="o23-FL-UdL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="o23-FL-UdL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -408,7 +408,7 @@
         <scene sceneID="UbH-5T-DzH">
             <objects>
                 <navigationController storyboardIdentifier="myProfileNav" useStoryboardIdentifierAsRestorationIdentifier="YES" id="q7n-Bk-anY" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="niV-j4-eAZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="niV-j4-eAZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -458,7 +458,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LtZ-q5-Bo6">
                                                 <rect key="frame" x="0.0" y="200" width="400" height="506"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSg-eL-UCf" customClass="CustomFaRegularLabel">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSg-eL-UCf" customClass="CustomFaRegularLabel">
                                                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="368" id="ATd-Cy-7e5"/>
@@ -468,7 +468,7 @@
                                                         <color key="textColor" red="0.039215686270000001" green="0.73333333329999995" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UqJ-Yq-p8n" customClass="CustomFaRegularLabel">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UqJ-Yq-p8n" customClass="CustomFaRegularLabel">
                                                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="368" id="OCT-bb-Gx9"/>
@@ -478,7 +478,7 @@
                                                         <color key="textColor" red="0.47843137254901957" green="0.47843137254901957" blue="0.47843137254901957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYM-Bd-BPI">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYM-Bd-BPI">
                                                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                                                         <color key="backgroundColor" red="0.81568627450980391" green="0.81568627450980391" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -489,7 +489,7 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQA-GA-RZm" customClass="CustomMarginLabel">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQA-GA-RZm" customClass="CustomMarginLabel">
                                                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -1756,7 +1756,7 @@
             <objects>
                 <navigationController storyboardIdentifier="registrationNav" navigationBarHidden="YES" id="bzl-lz-X7V" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cz1-5j-u9S">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="cz1-5j-u9S">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1989,7 +1989,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98D-UG-hVg" customClass="IranButton">
-                                <rect key="frame" x="188" y="156" width="187" height="30"/>
+                                <rect key="frame" x="187.5" y="156" width="187.5" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="cGf-Fp-2Vi"/>
                                 </constraints>
@@ -2002,7 +2002,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5R-HR-sGd" customClass="IranButton">
-                                <rect key="frame" x="0.0" y="156" width="188" height="30"/>
+                                <rect key="frame" x="0.0" y="156" width="187.5" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Jwp-rF-MZ4"/>
                                 </constraints>
@@ -2179,7 +2179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rs7-mq-xMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="910" y="4686"/>
+            <point key="canvasLocation" x="804" y="5273"/>
         </scene>
         <!--Edit Profile View Controller-->
         <scene sceneID="48o-sK-d1U">
@@ -3802,7 +3802,7 @@
             <objects>
                 <navigationController storyboardIdentifier="bookNavigation" navigationBarHidden="YES" id="hFP-O3-47m" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="s5D-Ca-UMr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="s5D-Ca-UMr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -4493,7 +4493,7 @@
         <scene sceneID="hgq-72-21Z">
             <objects>
                 <navigationController storyboardIdentifier="hostingNaviagtionVCID" id="Ci0-1B-pON" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SyX-jS-9yg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="SyX-jS-9yg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -4510,7 +4510,7 @@
             <objects>
                 <navigationController storyboardIdentifier="searchNavVCID" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="PhU-3h-Bv7" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rdl-ZJ-ifk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rdl-ZJ-ifk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4741,6 +4741,6 @@
         <image name="timearrow" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pui-JH-pWd"/>
+        <segue reference="jl0-VP-lww"/>
     </inferredMetricsTieBreakers>
 </document>

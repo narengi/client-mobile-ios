@@ -247,6 +247,8 @@
             self.selectedProvinceStr  = [self.selectedProvince objectForKey:@"name"];
             self.provinceLabel.text = self.selectedProvinceStr ;
             
+            self.cityLabel.text = @"";
+            self.selectedCity = nil;
         }
         
     };

@@ -254,8 +254,8 @@
     self.roomCount = [self.houseObj.bedroomCount integerValue];
     
     [self updateLabels];
-}
 
+}
 /*
 #pragma mark - Navigation
 

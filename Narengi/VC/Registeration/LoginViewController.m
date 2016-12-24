@@ -174,7 +174,7 @@
                 
                 [[NSUserDefaults standardUserDefaults] rm_setCustomObject:userObj forKey:@"userObject"];
 
-                if (userObj.completePercent > 70) {
+                if (userObj.fisrtName.length > 0 && userObj.lastName.length > 0) {
                     
                     [self dismissViewControllerAnimated:YES completion:nil];
                 }

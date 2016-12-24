@@ -384,7 +384,32 @@
 }
 -(void)closeClicked{
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+//    UIAlertController *exitAlert = [UIAlertController alertControllerWithTitle:@"حساب کاربری"
+//                                                                       message: @"آیا از خروج اطمینان دارید؟"
+//                                                                preferredStyle:UIAlertControllerStyleAlert                   ];
+//    
+//    UIAlertAction* ok = [UIAlertAction
+//                         actionWithTitle:@"بله"
+//                         style:UIAlertActionStyleDestructive
+//                         handler:^(UIAlertAction * action)
+//                         {
+                             [self dismissViewControllerAnimated:YES completion:nil];
+//                             
+//                         }];
+//    UIAlertAction* cancel = [UIAlertAction
+//                             actionWithTitle:@"خیر"
+//                             style:UIAlertActionStyleDefault
+//                             handler:^(UIAlertAction * action)
+//                             {
+//                                 [exitAlert dismissViewControllerAnimated:YES completion:nil];
+//                                 
+//                             }];
+//    
+//    [exitAlert addAction: ok];
+//    [exitAlert addAction: cancel];
+//    
+//    [self presentViewController:exitAlert animated:YES completion:nil];
 }
 
 @end

@@ -99,6 +99,7 @@
 		729838B51BFCB098005BC5C3 /* AroundPlaceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838B41BFCB098005BC5C3 /* AroundPlaceObject.m */; };
 		729838B81BFCB1CB005BC5C3 /* HostObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838B71BFCB1CB005BC5C3 /* HostObject.m */; };
 		729838BB1BFCB1FC005BC5C3 /* GeoPointObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 729838BA1BFCB1FC005BC5C3 /* GeoPointObject.m */; };
+		72988CA71E0EF90500D06351 /* PriceCustomTextfield.m in Sources */ = {isa = PBXBuildFile; fileRef = 72988CA61E0EF90500D06351 /* PriceCustomTextfield.m */; };
 		72A26FE11DFFE97C00CB2BEC /* EditHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A26FE01DFFE97C00CB2BEC /* EditHomeTableViewCell.m */; };
 		72A381F01C79FAD80065E1A9 /* PhoneValidateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A381EF1C79FAD80065E1A9 /* PhoneValidateViewController.m */; };
 		72AA06CC1E03E48700E3AE42 /* NSString+PersianArabic.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AA06CB1E03E48700E3AE42 /* NSString+PersianArabic.m */; };
@@ -349,6 +350,8 @@
 		729838B71BFCB1CB005BC5C3 /* HostObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HostObject.m; path = Core/HostObject.m; sourceTree = "<group>"; };
 		729838B91BFCB1FC005BC5C3 /* GeoPointObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GeoPointObject.h; path = Core/GeoPointObject.h; sourceTree = "<group>"; };
 		729838BA1BFCB1FC005BC5C3 /* GeoPointObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GeoPointObject.m; path = Core/GeoPointObject.m; sourceTree = "<group>"; };
+		72988CA51E0EF90500D06351 /* PriceCustomTextfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PriceCustomTextfield.h; path = "Custom Classes/PriceCustomTextfield.h"; sourceTree = "<group>"; };
+		72988CA61E0EF90500D06351 /* PriceCustomTextfield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PriceCustomTextfield.m; path = "Custom Classes/PriceCustomTextfield.m"; sourceTree = "<group>"; };
 		72A26FDF1DFFE97C00CB2BEC /* EditHomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditHomeTableViewCell.h; path = "VC/Add Home/EditHomeTableViewCell.h"; sourceTree = "<group>"; };
 		72A26FE01DFFE97C00CB2BEC /* EditHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditHomeTableViewCell.m; path = "VC/Add Home/EditHomeTableViewCell.m"; sourceTree = "<group>"; };
 		72A381EE1C79FAD80065E1A9 /* PhoneValidateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhoneValidateViewController.h; path = VC/Registeration/PhoneValidateViewController.h; sourceTree = "<group>"; };
@@ -805,6 +808,8 @@
 				7290241A1E06EAAE004A9D6D /* RetyButton.m */,
 				7290241C1E070073004A9D6D /* IranLightButton.h */,
 				7290241D1E070073004A9D6D /* IranLightButton.m */,
+				72988CA51E0EF90500D06351 /* PriceCustomTextfield.h */,
+				72988CA61E0EF90500D06351 /* PriceCustomTextfield.m */,
 			);
 			name = "Custom Classes";
 			sourceTree = "<group>";
@@ -1223,6 +1228,7 @@
 				72B19A131BFF6B3F007EDD86 /* AttractionObject.m in Sources */,
 				722A0DD71C918CC7005C6DDB /* PriceObject.m in Sources */,
 				72BC8A431CD74CF9002055FA /* DZNPhotoEditorViewController.m in Sources */,
+				72988CA71E0EF90500D06351 /* PriceCustomTextfield.m in Sources */,
 				72F2744F1C1978B20048BF05 /* CustomFaLightLabel.m in Sources */,
 				72AF71BC1CA954BC00A50575 /* IdentificationViewController.m in Sources */,
 				723E3C6A1C885A310006DEF4 /* SelectGenderViewController.m in Sources */,

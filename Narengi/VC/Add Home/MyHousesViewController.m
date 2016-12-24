@@ -11,15 +11,21 @@
 #import "AroundPlaceObject.h"
 #import "EditHoumeListViewController.h"
 
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import "UIScrollView+EmptyDataSet.h"
+#import "MBProgressHUD.h"
 
+@interface MyHousesViewController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 
-@interface MyHousesViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *houseArr;
 @property UIRefreshControl *refreshControl;
 @property NSInteger skipCount;
 
-
+@property (nonatomic) BOOL didGetData;
+@property (nonatomic) BOOL isEmpty;
+@property (nonatomic) BOOL firstTimeLoad;
+@property (nonatomic) BOOL failDataLoad;
 
 @end
 
@@ -45,6 +51,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(houseChanged:) name:@"oneFuckingHouseChanged" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteHouse:) name:@"deleteHouseNotification" object:nil];
     
+    self.tableView.emptyDataSetSource   = self;
+    self.tableView.emptyDataSetDelegate = self;
 }
 
 -(void)houseChanged:(NSNotification *)notification{
@@ -176,6 +184,10 @@
 
     self.houseArr = [[NSMutableArray alloc] init];
     self.skipCount = 1;
+    
+    self.didGetData = NO;
+    self.isEmpty    = NO;
+    
     [self getMyHomeForFirstTime:YES];
 }
 
@@ -183,7 +195,20 @@
 
     NSArray *parametrs = @[@"perpage=20",[NSString stringWithFormat:@"page=%ld",(long)self.skipCount]];
     
-    REACHABILITY
+    __block MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    [hud setUserInteractionEnabled:NO];
+    
+    hud.contentColor = RGB(252, 61, 0, 1);
+    hud.label.text = @"در حال دریافت اطلاعات";
+    hud.label.font = [UIFont fontWithName:@"IRANSansMobileFaNum" size:15];
+    [hud showAnimated:YES];
+    
+    if (self.firstTimeLoad) {
+        
+        [hud hideAnimated:YES];
+    }
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
         ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:MYHOUSEHSERVICE andWithParametrs:parametrs andWithBody:nil andIsFullPath:NO];
@@ -205,6 +230,8 @@
                         
                     }
                     else{
+                        
+                        self.isEmpty = YES;
                         [self.tableView .mj_footer removeFromSuperview];
                     }
                     
@@ -218,6 +245,9 @@
                 
             }
             
+            
+            [hud hideAnimated:YES];
+            self.didGetData = YES;
             [self.tableView.mj_footer endRefreshing];
             [self.refreshControl endRefreshing];
             [self.tableView reloadData];
@@ -268,7 +298,7 @@
         [cell.img sd_setImageWithURL:house.imageUrls[0] placeholderImage:nil];
     }
     
-//    cell.editButton.tag = cell.viewButton.tag = cell.deleteButton.tag = indexPath.row;
+    cell.editButton.tag = indexPath.row;
     cell.priceLabel.text = [NSString stringWithFormat:@"%@         " , house.cost];
     
     
@@ -331,5 +361,91 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+#pragma mark - delegate
+
+-(NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
+    
+    
+    if (self.didGetData){
+        
+        if (self.isEmpty)
+        {
+            
+            UIFont *font = [UIFont fontWithName:@"IRANSansMobileFaNum-Medium" size:18.0];
+            NSDictionary *attrsDictionary = @{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor grayColor]};
+            NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:@"شما هنوز خانه‌ای ثبت نکرده‌اید. برای ثبت خانه جدید، دکمه اضافه کردن خانه در بالای صفحه را کلیک کنید." attributes:attrsDictionary];
+            
+            return attrString;
+        }
+        
+        
+        else
+        {
+            
+            UIFont *font = [UIFont fontWithName:@"IRANSansMobileFaNum-Medium" size:18.0];
+            NSDictionary *attrsDictionary = @{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor redColor]};
+            NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:@"اشکال در ارتباط!" attributes:attrsDictionary];
+            
+            return attrString;
+        }
+    }
+    else
+        return nil;
+    
+    
+}
+
+- (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView;
+{
+    
+    if (self.didGetData){
+        if (self.isEmpty)
+            return YES;
+        
+        else
+            return YES;
+    }
+    else
+        return NO;
+    
+}
+
+-(NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
+    
+    
+    if (self.didGetData){
+        if (self.isEmpty){
+            return nil;
+        }
+        
+        else{
+            
+            UIFont *font = [UIFont fontWithName:@"IRANSansMobileFaNum-Medium" size:14.0];
+            NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:font
+                                                                        forKey:NSFontAttributeName];
+            NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:@"تلاش دوباره" attributes:attrsDictionary];
+            
+            return attrString;
+        }
+        
+    }
+    else
+        return nil;
+    
+    
+}
+
+
+-(void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button{
+    
+    [self getMyHomeForFirstTime];
+}
+
+
+-(BOOL)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView
+{
+    return YES;
+}
 
 @end

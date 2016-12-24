@@ -55,7 +55,6 @@
     }
     else{
         
-        self.houseObj = [[HouseObject alloc] init];
         [self changeRightButtonToClose];
         
     }

@@ -220,6 +220,8 @@
     self.guestCount = [self.houseObj.guestCount integerValue];
     
     [self updateLabels];
+    
+
 }
 
 @end
