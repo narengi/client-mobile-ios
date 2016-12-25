@@ -193,7 +193,7 @@
     
     NSMutableDictionary* bodyDict =[[NSMutableDictionary alloc] init];
     
-    [bodyDict addEntriesFromDictionary: @{@"spec":@{@"bedroom":[NSNumber numberWithInteger: self.roomCount ],@"bed":[NSNumber numberWithInteger:self.bedCount]},@"Price":@{@"Price":[self.priceTextField.text fixPersianArabaicnumberString]}}];
+    [bodyDict addEntriesFromDictionary: @{@"spec":@{@"bedroom":[NSNumber numberWithInteger: self.roomCount ],@"bed":[NSNumber numberWithInteger:self.bedCount],@"guest_count": self.houseObj.guestCount,@"max_guest_count":[NSNumber numberWithInteger:self.houseObj.maxGuestCount]},@"prices":@{@"price":[self.priceTextField.text fixPersianArabaicnumberString],@"extra_guest_price":[NSNumber numberWithInteger: self.houseObj.extraGuestPrice ]}}];
     NSData *bodyData = [NSJSONSerialization dataWithJSONObject:[bodyDict copy] options:0 error:nil];
     
     

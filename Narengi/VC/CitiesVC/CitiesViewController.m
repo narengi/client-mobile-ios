@@ -295,124 +295,106 @@
     NSArray *parametrs = @[@"perpage=25",[NSString stringWithFormat:@"page=%ld",(long)self.skipCount],[NSString stringWithFormat: @"term=%@",self.termrStr == nil ? @"" : self.termrStr]];
     
     
-//    if(![Reachability reachabilityForInternetConnection].isReachable){
-//        
-//        
-//        self.didGetData = YES;
-//        
-//        self.activityView.hidden = YES;
-//        [self.activityView stopAnimating];
-//        
-//        [self.collectionView reloadData];
-//
-//        
-//        //return;
-//    }
-//    
-//    else{
     
-        __block MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.mode = MBProgressHUDModeIndeterminate;
-        [hud setUserInteractionEnabled:NO];
-        
-        hud.contentColor = RGB(252, 61, 0, 1);
-        hud.label.text = @"در حال دریافت اطلاعات";
-        hud.label.font = [UIFont fontWithName:@"IRANSansMobileFaNum" size:15];
+    __block MBProgressHUD *hud = firstTime ? [MBProgressHUD showHUDAddedTo:self.view animated:YES] : nil;
+    hud.mode = MBProgressHUDModeIndeterminate;
+    [hud setUserInteractionEnabled:NO];
+    
+    hud.contentColor = RGB(252, 61, 0, 1);
+    hud.label.text = @"در حال دریافت اطلاعات";
+    hud.label.font = [UIFont fontWithName:@"IRANSansMobileFaNum" size:15];
+    
+    if (firstTime) {
         [hud showAnimated:YES];
+    }
+    
+    
+    self.activityView.hidden = NO;
+    [self.activityView startAnimating];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
         
-        if (self.firstTimeLoad) {
-            
-            [hud hideAnimated:YES];
-        }
+        ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:SEARCHSERVICE andWithParametrs:parametrs andWithBody:nil andIsFullPath:NO];
         
+        self.curentRequestcount++;
         
-        self.activityView.hidden = NO;
-        [self.activityView startAnimating];
+        self.firstTimeLoad = YES;
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+        dispatch_async(dispatch_get_main_queue(),^{
             
-            ServerResponse *serverRs = [[NarengiCore sharedInstance] sendRequestWithMethod:@"GET" andWithService:SEARCHSERVICE andWithParametrs:parametrs andWithBody:nil andIsFullPath:NO];
+            self.curentRequestcount--;
             
-            self.curentRequestcount++;
-            
-            self.firstTimeLoad = YES;
-            
-            dispatch_async(dispatch_get_main_queue(),^{
+            if (self.curentRequestcount == 0 ) {
                 
-                self.curentRequestcount--;
-                
-                if (self.curentRequestcount == 0 ) {
-                    
-                    if (!serverRs.hasErro) {
-                        if (serverRs.backData !=nil ) {
+                if (!serverRs.hasErro) {
+                    if (serverRs.backData !=nil ) {
+                        
+                        NSArray *arr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData andwithType:nil andIsDetail:NO];
+                        if (arr.count > 0) {
                             
-                            NSArray *arr = [[NarengiCore sharedInstance] parsAroudPlacesWith:serverRs.backData andwithType:nil andIsDetail:NO];
-                            if (arr.count > 0) {
-                                
-                                if (firstTime ){
-                                    [self addLoadMore];
-                                    [self.aroundPArr removeAllObjects];
-                                    
-                                }
-                                
-                                if ( arr.count < 25)
-                                    [self.collectionView .mj_footer removeFromSuperview];
-                                
-                                [self.aroundPArr addObjectsFromArray:arr];
-                                
-                                
+                            if (firstTime ){
+                                [self addLoadMore];
+                                [self.aroundPArr removeAllObjects];
                                 
                             }
-                            else{
-                                
-                                self.isEmpty = YES;
+                            
+                            if ( arr.count < 25)
                                 [self.collectionView .mj_footer removeFromSuperview];
-                            }
                             
-                            self.skipCount ++;
+                            [self.aroundPArr addObjectsFromArray:arr];
+                            
                             
                             
                         }
                         else{
+                            
+                            self.isEmpty = YES;
+                            [self.collectionView .mj_footer removeFromSuperview];
                         }
                         
-                    }
-                }
-                
-                
-                if (self.firstTimeLoad) {
-                    
-                    if (self.aroundPArr.count < 1) {
-                        self.failDataLoad = YES;
+                        self.skipCount ++;
+                        
+                        
                     }
                     else{
-                        self.firstTimeLoad = NO;
                     }
-                }
-                
-                
-                if (self.aroundPArr.count > 0) {
-                    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
                     
+                }
+            }
+            
+            
+            if (self.firstTimeLoad) {
+                
+                if (self.aroundPArr.count < 1) {
+                    self.failDataLoad = YES;
                 }
                 else{
-                    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-                    
+                    self.firstTimeLoad = NO;
                 }
+            }
+            
+            
+            if (self.aroundPArr.count > 0) {
+                [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
                 
-                [hud hideAnimated:YES];
-                self.didGetData = YES;
-                self.activityView.hidden = YES;
-                [self.activityView stopAnimating];
-                [self.collectionView.mj_footer endRefreshing];
-                [self.refreshControl endRefreshing];
-                [self.collectionView reloadData];
+            }
+            else{
+                [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
                 
-                
-            });
+            }
+            
+            [hud hideAnimated:YES];
+            self.didGetData = YES;
+            self.activityView.hidden = YES;
+            [self.activityView stopAnimating];
+            [self.collectionView.mj_footer endRefreshing];
+            [self.refreshControl endRefreshing];
+            [self.collectionView reloadData];
+            
+            
         });
-        
-//    }
+    });
+    
     
     
     
@@ -547,6 +529,9 @@
 
 -(void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button{
 
+    
+    self.didGetData  = NO;
+    [self.collectionView reloadData];
     [self getDataForFirstTime];
 }
 

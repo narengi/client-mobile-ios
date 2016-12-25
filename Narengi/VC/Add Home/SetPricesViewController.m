@@ -182,7 +182,7 @@
     
     if ([self.extraGuestPriceTextField.text integerValue] > 0) {
     
-        [bodyDict addEntriesFromDictionary: @{@"spec":@{@"guest_count":[NSNumber numberWithInteger: self.guestCount ],@"max_guest_count":[NSNumber numberWithInteger:self.maxGuestCount]},@"Price":@{@"extraGuestPrice":[self.extraGuestPriceTextField.text fixPersianArabaicnumberString]}}];
+        [bodyDict addEntriesFromDictionary: @{@"spec":@{@"bedroom":self.houseObj.bedroomCount ,@"bed":self.houseObj.bedCount,@"guest_count": self.houseObj.guestCount,@"guest_count":[NSNumber numberWithInteger: self.guestCount ],@"max_guest_count":[NSNumber numberWithInteger:self.maxGuestCount]},@"prices":@{@"extra_guest_price":[self.extraGuestPriceTextField.text fixPersianArabaicnumberString],@"price":[NSNumber numberWithInteger: self.houseObj.price ]}}];
     }
     else{
         

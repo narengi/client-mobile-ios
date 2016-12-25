@@ -264,7 +264,7 @@
     
     NSMutableDictionary* bodyDict =[[NSMutableDictionary alloc] init];
     
-    [bodyDict addEntriesFromDictionary: @{@"type":self.selectedDict[@"enName"]}];
+    [bodyDict addEntriesFromDictionary: @{@"housetype":self.selectedDict[@"enName"]}];
     NSData *bodyData = [NSJSONSerialization dataWithJSONObject:[bodyDict copy] options:0 error:nil];
     
     
