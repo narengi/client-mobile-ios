@@ -4,60 +4,18 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            scope = "0"
-            stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Narengi/VC/Detail/HouseDetailViewController.m"
-            timestampString = "503774196.65083"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "348"
-            endingLineNumber = "348"
-            landmarkName = "-setDataForView"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Narengi/VC/Add Home/SelectLocationViewController.m"
-            timestampString = "503736094.900868"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Narengi/Core/NarengiCore.m"
-            timestampString = "503784945.009444"
+            timestampString = "504796053.183026"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "554"
-            endingLineNumber = "554"
-            landmarkName = "-parsFacilities:"
+            startingLineNumber = "628"
+            endingLineNumber = "628"
+            landmarkName = "-parsUserObject:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -67,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Narengi/VC/Add Home/InsertNameAndDescriptionViewController.m"
-            timestampString = "504294829.455412"
+            filePath = "Narengi/VC/Profile/EditProfileViewController.m"
+            timestampString = "504798382.826839"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "297"
-            endingLineNumber = "297"
-            landmarkName = "-nextButtonClicked:"
+            startingLineNumber = "643"
+            endingLineNumber = "643"
+            landmarkName = "-sendUserData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -83,13 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Narengi/VC/Profile/ProfileViewController.m"
-            timestampString = "503784366.531215"
+            filePath = "Narengi/VC/Profile/EditProfileViewController.m"
+            timestampString = "504798382.826839"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "360"
-            endingLineNumber = "360"
-            landmarkName = "-collectionView:cellForItemAtIndexPath:"
+            startingLineNumber = "612"
+            endingLineNumber = "612"
+            landmarkName = "-sendProfileImg"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -99,14 +57,46 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Narengi/VC/Profile/ProfileViewController.m"
-            timestampString = "503783765.537031"
+            filePath = "Narengi/VC/Profile/EditProfileViewController.m"
+            timestampString = "504798382.826839"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
-            landmarkName = "-getData"
+            startingLineNumber = "607"
+            endingLineNumber = "607"
+            landmarkName = "-sendProfileImg"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__43-[EditProfileViewController sendProfileImg]_block_invoke.420"
+                  moduleName = "Narengi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Morteza/Projects/Narengi/Narengi/VC/Profile/EditProfileViewController.m"
+                  timestampString = "504796896.337239"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "601"
+                  endingLineNumber = "601"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__43-[EditProfileViewController sendProfileImg]_block_invoke_2"
+                  moduleName = "Narengi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Morteza/Projects/Narengi/Narengi/VC/Profile/EditProfileViewController.m"
+                  timestampString = "504796896.339229"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "603"
+                  endingLineNumber = "603"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -115,14 +105,46 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Narengi/Core/NarengiCore.m"
-            timestampString = "503784945.009444"
+            filePath = "Narengi/VC/Menu/MenuViewController.m"
+            timestampString = "504797883.129441"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "698"
-            endingLineNumber = "698"
-            landmarkName = "-parsImageArrayWithStyle:"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "-getDataUserData"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__37-[MenuViewController getDataUserData]_block_invoke"
+                  moduleName = "Narengi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Morteza/Projects/Narengi/Narengi/VC/Menu/MenuViewController.m"
+                  timestampString = "504797883.584487"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "172">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__37-[MenuViewController getDataUserData]_block_invoke_2"
+                  moduleName = "Narengi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Morteza/Projects/Narengi/Narengi/VC/Menu/MenuViewController.m"
+                  timestampString = "504797883.586121"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -131,61 +153,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Narengi/Core/NarengiCore.m"
-            timestampString = "503784945.009444"
+            filePath = "Narengi/VC/Add Home/MyHousesViewController.m"
+            timestampString = "504798714.177085"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "291"
-            endingLineNumber = "291"
-            landmarkName = "-parsAroudPlacesWith:andwithType:andIsDetail:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Narengi/VC/Profile/ProfileViewController.m"
-            timestampString = "503784366.531215"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "517"
-            endingLineNumber = "517"
-            landmarkName = "-getAllHouses"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Narengi/Core/NarengiCore.m"
-            timestampString = "503784881.67984"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "-sendRequestWithMethod:andWithService:andWithParametrs:andWithBody:andIsFullPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Narengi/Core/NarengiCore.m"
-            timestampString = "503784894.276769"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "-sendRequestWithMethod:andWithService:andWithParametrs:andWithBody:andIsFullPath:"
+            startingLineNumber = "311"
+            endingLineNumber = "311"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

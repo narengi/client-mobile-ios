@@ -190,12 +190,15 @@
 - (IBAction)selectProvinceClicked:(UIButton *)sender {
     
     [self goToSelectProvince];
+    
+    
 }
 
 - (IBAction)selectCityClicked:(UIButton *)sender {
     
     if (self.selectedProvince !=  nil) {
         [self goToSelectCity];
+        
     }
     else{
         
@@ -219,6 +222,10 @@
 }
 
 -(void)goToSelectProvince{
+    
+    [self.titleTextField resignFirstResponder];
+    [self.desciptionTextView resignFirstResponder];
+    [self.addressTextView resignFirstResponder];
     
     UIStoryboard *storybord =[UIStoryboard storyboardWithName:@"Alerts" bundle:nil];
     SelectProvinceViewController *vc = [storybord instantiateViewControllerWithIdentifier:@"selectProvinceVCID"];
@@ -251,6 +258,8 @@
             self.selectedCity = nil;
         }
         
+        [self.view endEditing:YES];
+        
     };
     
     [self presentViewController:formSheet animated:YES completion:nil];
@@ -258,6 +267,10 @@
 
 
 -(void)goToSelectCity{
+    
+    [self.titleTextField resignFirstResponder];
+    [self.desciptionTextView resignFirstResponder];
+    [self.addressTextView resignFirstResponder];
     
     UIStoryboard *storybord =[UIStoryboard storyboardWithName:@"Alerts" bundle:nil];
     SelectCityViewController *vc = [storybord instantiateViewControllerWithIdentifier:@"selectCityVCID"];
@@ -285,6 +298,8 @@
             self.selectedCity = vc.selectedCity;
             self.cityLabel.text = self.selectedCity ;
         }
+        
+        [self.view endEditing:YES];
     };
     
     [self presentViewController:formSheet animated:YES completion:nil];

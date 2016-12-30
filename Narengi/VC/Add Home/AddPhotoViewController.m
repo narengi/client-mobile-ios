@@ -35,6 +35,17 @@
 @property (weak, nonatomic) IBOutlet UIImageView *Img9;
 @property (weak, nonatomic) IBOutlet UIImageView *Img10;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIImageView *plus1;
+@property (weak, nonatomic) IBOutlet UIImageView *plus2;
+@property (weak, nonatomic) IBOutlet UIImageView *plus3;
+@property (weak, nonatomic) IBOutlet UIImageView *plus4;
+@property (weak, nonatomic) IBOutlet UIImageView *plus5;
+@property (weak, nonatomic) IBOutlet UIImageView *plus6;
+@property (weak, nonatomic) IBOutlet UIImageView *plus7;
+@property (weak, nonatomic) IBOutlet UIImageView *plus8;
+@property (weak, nonatomic) IBOutlet UIImageView *plus9;
+@property (weak, nonatomic) IBOutlet UIImageView *plus10;
+
 
 
 
@@ -206,7 +217,7 @@
     picker.sourceType = sourceType;
     picker.allowsEditing = YES;
     picker.delegate = self;
-    picker.navigationBar.tintColor = [UIColor whiteColor];
+    picker.navigationBar.tintColor = [UIColor blackColor];
     
     picker.cropMode = DZNPhotoEditorViewControllerCropModeCustom;
     picker.cropSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width/2);
@@ -309,6 +320,10 @@
                 selectedImgV.image = IMG(@"AvatarPlaceHolder");
                 
                 [self removeUrlFromHouseObj:[dict objectForKey:@"url"]];
+                
+                UIImageView *plusView = [self valueForKey:[NSString stringWithFormat: @"plus%ld",imageView.tag]];
+                plusView.hidden = NO;
+                
             }
             else{
                 
@@ -548,6 +563,9 @@
         UIImageView *imgView = [self valueForKey:[NSString stringWithFormat: @"Img%ld",idx+1]];
         
         [imgView sd_setImageWithURL:obj placeholderImage:nil];
+        
+        UIImageView *plusView = [self valueForKey:[NSString stringWithFormat: @"plus%ld",idx+1]];
+        plusView.hidden = YES;
         
         NSString *imageID = [[[obj absoluteString] componentsSeparatedByString:@"/"] lastObject];
         

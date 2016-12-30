@@ -603,8 +603,8 @@ NarengiCore *sharedInstance;
 
     HostObject *hostObj = [[HostObject alloc] init];
 
-    hostObj.imageUrl    = [[[dict objectForKey:@"picture"] objectForKey:@"url"] addImageBaseUrl];
-    hostObj.displayName = [[dict objectForKey:@"fullName"] checkNull] == nil ?  @"نام و نام‌خانوادگی" :[dict objectForKey:@"fullName"];
+    hostObj.imageUrl    = [[[dict objectForKey:@"picture"] objectForKey:@"external_url"] addImageBaseUrl];
+    hostObj.displayName = ([[dict objectForKey:@"fullName"] checkNull] == nil || [[[dict objectForKey:@"fullName"] checkNull] isEqualToString:@""] ) ?  @"نام و نام‌خانوادگی" :[dict objectForKey:@"fullName"];
     
     
     hostObj.hostURL     = [dict objectForKey:@"detailUrl"];
@@ -629,7 +629,7 @@ NarengiCore *sharedInstance;
     
     userObj.ID              = [dict objectForKey:@"id"];
     userObj.uID             = [dict objectForKey:@"profileUrl"];
-    userObj.avatarUrl       = [[[[[[dict objectForKey:@"profile"] checkNull]  objectForKey:@"picture"] checkNull] objectForKey:@"url"] addImageBaseUrl];
+    userObj.avatarUrl       = [[[[[[dict objectForKey:@"profile"] checkNull]  objectForKey:@"picture"] checkNull] objectForKey:@"external_url"] addImageBaseUrl];
     userObj.fisrtName       = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"firstName"] checkNull];
     userObj.lastName        = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"lastName"] checkNull];
     userObj.email           = [dict objectForKey:@"email"];
@@ -641,6 +641,8 @@ NarengiCore *sharedInstance;
     userObj.bio             = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"bio"] checkNull];
     userObj.city            = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"city"] checkNull];
     userObj.province        = [[[[dict objectForKey:@"profile"] checkNull] objectForKey:@"province"] checkNull];
+    
+    userObj.fullName = ([[dict objectForKey:@"displayName"] checkNull] == nil || [[[dict objectForKey:@"displayName"] checkNull] isEqualToString:@""] ) ?  @"نام و نام‌خانوادگی" :[dict objectForKey:@"displayName"];
     
     [[dict objectForKey:@"verification"] enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         

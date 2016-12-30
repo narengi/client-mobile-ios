@@ -488,6 +488,8 @@ static char const * const kEmptyDataSetView =       "emptyDataSetView";
         view.hidden = NO;
         view.clipsToBounds = YES;
         
+        
+        
         // Configure empty dataset userInteraction permission
         view.userInteractionEnabled = [self dzn_isTouchAllowed];
         
@@ -771,6 +773,10 @@ NSString *dzn_implementationKey(id target, SEL selector)
         _button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         _button.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         _button.accessibilityIdentifier = @"empty set button";
+        
+        _button.layer.cornerRadius = 5;
+        _button.layer.borderWidth = 1;
+        _button.layer.borderColor = [[UIColor blackColor] CGColor];
         
         [_button addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
         

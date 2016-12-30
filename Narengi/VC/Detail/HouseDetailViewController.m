@@ -322,8 +322,9 @@
     
     
     NSMutableParagraphStyle *style =  [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    style.alignment = NSTextAlignmentRight;
+    style.alignment = NSTextAlignmentJustified;
     style.paragraphSpacingBefore = 10.0f;
+    style.baseWritingDirection = NSWritingDirectionRightToLeft;
     style.firstLineHeadIndent = 10;
     style.headIndent = 15.0f;
     style.tailIndent = -15.0f;
@@ -640,7 +641,8 @@ self.priceLabelcontainer.layer.cornerRadius = 5;
     }else
     {
         if (indexPath.row == 0) {
-            //[self goTodetailWithUrl:self.houseObj.host.hostURL andWithType:@"Profile"];
+            
+            [self goToProfileWithUrl:self.houseObj.host.hostURL];
         }
         else{
             

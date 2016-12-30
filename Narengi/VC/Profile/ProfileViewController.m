@@ -547,10 +547,14 @@
                          handler:^(UIAlertAction * action)
                          {
                              //erase all data user
+                             
+                             [[SDImageCache sharedImageCache] removeImageForKey:[self.hostObj.imageUrl absoluteString] fromDisk:YES];
+
                              [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"fuckingLoginedOrNOT"];
                              [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"userObject"];
                              
                              [exitAlert dismissViewControllerAnimated:YES completion:nil];
+                             
                              
                              if (self.isModal) {
                                  [self dismissViewControllerAnimated:YES completion:nil];

@@ -41,7 +41,7 @@
         self.notLoginedView.hidden = YES;
         self.userObject = [[ NSUserDefaults standardUserDefaults] rm_customObjectForKey:@"userObject"];
         
-        self.fullNameLabel.text = [[self.userObject.fisrtName stringByAppendingString:@" "] stringByAppendingString:self.userObject.lastName];
+        self.fullNameLabel.text = self.userObject.fullName;
         
         [SDWebImageDownloader.sharedDownloader setValue:[[NarengiCore sharedInstance] makeAuthurizationValue ] forHTTPHeaderField:@"authorization"];
         

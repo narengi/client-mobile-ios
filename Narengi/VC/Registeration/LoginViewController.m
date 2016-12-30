@@ -269,6 +269,10 @@
     self.editingLogIn = NO;
 }
 
+- (IBAction)forgotbuttonClicked:(UIButton *)sender {
+    
+    [self showBetaAlert];
+}
 
 
 @end

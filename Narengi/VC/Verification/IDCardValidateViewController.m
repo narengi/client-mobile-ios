@@ -161,7 +161,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     picker.sourceType = sourceType;
     picker.allowsEditing = YES;
     picker.delegate = self;
-    picker.navigationBar.tintColor = [UIColor whiteColor];
+    picker.navigationBar.tintColor = [UIColor blackColor];
     
     picker.cropMode = DZNPhotoEditorViewControllerCropModeCircular;
     

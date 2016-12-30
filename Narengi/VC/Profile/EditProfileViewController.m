@@ -309,7 +309,7 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     picker.sourceType = sourceType;
     picker.allowsEditing = YES;
     picker.delegate = self;
-    picker.navigationBar.tintColor = [UIColor whiteColor];
+    picker.navigationBar.tintColor = [UIColor blackColor];
     
     picker.cropMode = DZNPhotoEditorViewControllerCropModeCircular;
     
@@ -495,6 +495,10 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
         else{
             self.didSelectedGender = NO;
         }
+        
+        
+        [self.view endEditing:YES];
+
     };
     
     [self presentViewController:formSheet animated:YES completion:nil];
@@ -538,6 +542,9 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
             self.birthdayLabel.text = datePickerVC.selectedDateStr;
             
         }
+        
+        [self.view endEditing:YES];
+
     };
     
     [self presentViewController:formSheet animated:YES completion:nil];
@@ -584,6 +591,8 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
                                                          
                                                                                 fileName:@"myimage.jpg"
                                                                                 mimeType:@"image/jpeg"];
+                                                        
+                                                        
 //
                                                     } error:nil];
     
@@ -596,7 +605,8 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
     [manager HTTPRequestOperationWithRequest:request
                                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                          
-                                         
+                                         [[SDImageCache sharedImageCache] removeImageForKey:[self.userObject.avatarUrl absoluteString] fromDisk:YES];
+
                                          
                                      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                          
@@ -633,10 +643,10 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
 
                 [SVProgressHUD showSuccessWithStatus:@"اطلاعات با موفقیت ذخیره شد"];
 
-                if (!self.userObject.phoneVerification.isVerified) {
+                //if (!self.userObject.phoneVerification.isVerified) {
                     
                     [self dismissViewControllerAnimated:YES completion:nil]; 
-                }
+                //}
             }
             else{
                 
@@ -758,6 +768,9 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
             
         }
         
+        [self.view endEditing:YES];
+
+        
     };
     
     [self presentViewController:formSheet animated:YES completion:nil];
@@ -792,7 +805,11 @@ UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControl
             self.selectedCity = vc.selectedCity;
             self.cityLabel.text = self.selectedCity ;
         }
+        
+        [self.view endEditing:YES];
+
     };
+    
     
     [self presentViewController:formSheet animated:YES completion:nil];
 }

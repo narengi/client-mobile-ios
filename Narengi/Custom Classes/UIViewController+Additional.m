@@ -20,6 +20,7 @@
 #import "HouseDetailMapViewController.h"
 #import "CityDetailMapViewController.h"
 #import "REFrostedViewController.h"
+#import "BetaAlertViewController.h"
 
 
 @implementation UIViewController (Additional)
@@ -89,23 +90,32 @@
 
 -(void)showBetaAlert{
 
-    UIAlertController *buyAlert = [UIAlertController alertControllerWithTitle:nil
-                                                                      message:@"ما سخت تلاش میکنیم که انجام این عملیات در نسخه بعدی برای شما فراهم شود. ممنون که از نسخه آزمایشی نارنگی استفاده میکنید"
-                                                               preferredStyle:UIAlertControllerStyleAlert                   ];
     
-    UIAlertAction* ok = [UIAlertAction
-                         actionWithTitle:@"تایید"
-                         style:UIAlertActionStyleDestructive
-                         handler:^(UIAlertAction * action)
-                         
-                         {
-                             [buyAlert dismissViewControllerAnimated:YES completion:nil];
-                             
-                         }];
+    //betaAlertVCID
+    
+    UIStoryboard *storybord =[UIStoryboard storyboardWithName:@"Alerts" bundle:nil];
+    BetaAlertViewController *vc = [storybord instantiateViewControllerWithIdentifier:@"betaAlertVCID"];
     
     
-    [buyAlert addAction: ok];
-    [self presentViewController:buyAlert animated:YES completion:nil];
+    MZFormSheetPresentationViewController *formSheet = [[MZFormSheetPresentationViewController alloc] initWithContentViewController:vc];
+    
+    
+    formSheet.presentationController.contentViewSize = CGSizeMake(280, 230);
+    
+    formSheet.presentationController.shouldCenterVertically = YES;
+    
+    formSheet.allowDismissByPanningPresentedView = YES;
+    formSheet.contentViewCornerRadius = 8.0;
+    
+    
+    formSheet.willPresentContentViewControllerHandler = ^(UIViewController *presentedFSViewController){
+    };
+    formSheet.didDismissContentViewControllerHandler = ^(UIViewController *presentedFSViewController){
+        
+    };
+    
+    [self presentViewController:formSheet animated:YES completion:nil];
+
 }
 #pragma mark - alerts and notifications
 

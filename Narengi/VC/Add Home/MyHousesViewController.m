@@ -335,7 +335,10 @@
 
 - (IBAction)editButtonClicked:(UIButton *)sender {
     
-    HouseObject *house = [(AroundPlaceObject*)self.houseArr[sender.tag] houseObject];
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    
+    HouseObject *house = [(AroundPlaceObject*)self.houseArr[indexPath.row] houseObject];
     
     [self goToEditHomeWithHouseObj:house];
 

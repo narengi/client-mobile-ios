@@ -54,6 +54,7 @@
     
     FacilityObject *facilityObj = self.facilitiesArr[indexPath.row];
     cell.titleLabel.text = facilityObj.name;
+    [cell.img sd_setImageWithURL:facilityObj.iconUrl placeholderImage:nil];
 
     return cell;
 }
