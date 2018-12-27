@@ -1,0 +1,12 @@
+/* 
+  Farsi.strings
+  Narengi
+
+  Created by Morteza Hosseinizade on 11/9/15.
+  Copyright © 2015 Morteza Hosseinizade. All rights reserved.
+*/
+
+"Menu" = "لیست";
+"LOADING" = "در حال دریافت اطلاعات...";
+"CHECKYOUINTERNET" = "!اتصال به اینترنت را چک کنید";
+"SERVERERROR" = "اشکال در ارتباط با سرور";

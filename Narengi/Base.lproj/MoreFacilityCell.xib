@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="moreFacilityCell" id="k7D-xe-hg5" customClass="MoreFacilityCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CCz-IC-bZO" customClass="CustomFaBoldLabel">
+                        <rect key="frame" x="8" y="13" width="56" height="46"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="46" id="2vy-PM-3Nj"/>
+                            <constraint firstAttribute="width" constant="56" id="oN4-T3-XuI"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                        <color key="textColor" red="0.96470588235294119" green="0.49019607843137253" blue="0.14509803921568626" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="CCz-IC-bZO" firstAttribute="top" secondItem="k7D-xe-hg5" secondAttribute="top" constant="13" id="FUf-0O-LdR"/>
+                <constraint firstAttribute="bottom" secondItem="CCz-IC-bZO" secondAttribute="bottom" constant="13" id="Odb-m1-AS1"/>
+                <constraint firstItem="CCz-IC-bZO" firstAttribute="leading" secondItem="k7D-xe-hg5" secondAttribute="leading" constant="8" id="mJR-JL-YXA"/>
+                <constraint firstAttribute="trailing" secondItem="CCz-IC-bZO" secondAttribute="trailing" constant="8" id="mNc-H4-kv2"/>
+            </constraints>
+            <size key="customSize" width="72" height="72"/>
+            <connections>
+                <outlet property="titleLabel" destination="CCz-IC-bZO" id="Zgb-9O-sr8"/>
+            </connections>
+            <point key="canvasLocation" x="504" y="330"/>
+        </collectionViewCell>
+    </objects>
+</document>

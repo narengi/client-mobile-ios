@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Narengi/Core/NarengiCore.m"
+            timestampString = "504796053.183026"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "628"
+            endingLineNumber = "628"
+            landmarkName = "-parsUserObject:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Narengi/VC/Profile/EditProfileViewController.m"
+            timestampString = "504798382.826839"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "643"
+            endingLineNumber = "643"
+            landmarkName = "-sendUserData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Narengi/VC/Profile/EditProfileViewController.m"
+            timestampString = "504798382.826839"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "612"
+            endingLineNumber = "612"
+            landmarkName = "-sendProfileImg"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Narengi/VC/Profile/EditProfileViewController.m"
+            timestampString = "504798382.826839"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "607"
+            endingLineNumber = "607"
+            landmarkName = "-sendProfileImg"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__43-[EditProfileViewController sendProfileImg]_block_invoke.420"
+                  moduleName = "Narengi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Morteza/Projects/Narengi/Narengi/VC/Profile/EditProfileViewController.m"
+                  timestampString = "504796896.337239"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "601"
+                  endingLineNumber = "601"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__43-[EditProfileViewController sendProfileImg]_block_invoke_2"
+                  moduleName = "Narengi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Morteza/Projects/Narengi/Narengi/VC/Profile/EditProfileViewController.m"
+                  timestampString = "504796896.339229"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "603"
+                  endingLineNumber = "603"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Narengi/VC/Menu/MenuViewController.m"
+            timestampString = "504797883.129441"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "-getDataUserData"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__37-[MenuViewController getDataUserData]_block_invoke"
+                  moduleName = "Narengi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Morteza/Projects/Narengi/Narengi/VC/Menu/MenuViewController.m"
+                  timestampString = "504797883.584487"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "172">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__37-[MenuViewController getDataUserData]_block_invoke_2"
+                  moduleName = "Narengi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Morteza/Projects/Narengi/Narengi/VC/Menu/MenuViewController.m"
+                  timestampString = "504797883.586121"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Narengi/VC/Add Home/MyHousesViewController.m"
+            timestampString = "504798714.177085"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "311"
+            endingLineNumber = "311"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

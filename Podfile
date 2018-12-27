@@ -1,0 +1,22 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'Narengi' do
+    pod 'SDWebImage'
+    pod 'SVProgressHUD'
+    pod 'FMDB'
+    pod 'DZNEmptyDataSet'
+    pod 'AFNetworking'
+    pod 'REFrostedViewController'
+    pod 'GoogleMaps'
+    pod 'Google-Maps-iOS-Utils'
+    pod 'THLabel', '~> 1.4'
+    pod 'JDStatusBarNotification'
+    pod 'Reachability'
+    pod 'MZFormSheetPresentationController', '~> 2.1'
+    pod 'IQKeyboardManager'
+    pod 'RMMapper'
+    pod 'JTCalendar'
+    pod 'SZTextView'
+    pod 'MJRefresh'
+    pod 'GBKUIButtonProgressView', git: 'https://github.com/Guidebook/gbkui-button-progress-view'
+end

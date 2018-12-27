@@ -1,0 +1,96 @@
+//
+//  PrefixHeader.pch
+//  Narengi
+//
+//  Created by Morteza Hosseinizade on 11/9/15.
+//  Copyright © 2015 Morteza Hosseinizade. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
+
+#define RGB(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+#define IMG(imageName) [UIImage imageNamed:imageName]
+#define LANGUAGE [[NSUserDefaults standardUserDefaults] objectForKey:@"Language"]
+
+#define LANGUAGEKEY(key) NSLocalizedStringFromTable(key , LANGUAGE, nil) 
+
+#define kShadowColor1		[UIColor blackColor]
+#define kShadowOffset		CGSizeMake(0.0, UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 0.0 : 0.0)
+#define kShadowBlur			(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 10.0 : 5.0)
+
+#define FARSI @"Farsi"http://149.202.20.233:3500/api/v1/
+
+#define BASEURL @"http://api.narengi.xyz/v1/"
+#define IMAGEBASEURL @"http://api.narengi.xyz/v1"
+#define SEARCHSERVICE @"search"
+#define MYHOUSEHSERVICE @"houses/my-houses"
+#define HOUSESERVICE @"houses"
+#define SUGGESTIONService @"suggestion"
+
+#define REACHABILITY if(![Reachability reachabilityForInternetConnection].isReachable){[self noConnection]; return;}
+
+#define REACHABILITY if(![Reachability reachabilityForInternetConnection].isReachable){[self noConnection]; return;}
+#define NORMALREACHABILITY if(![Reachability reachabilityForInternetConnection].isReachable){[self noConnection]; [self.refreshControl endRefreshing]; return;}
+
+
+
+
+//Core Classes
+#import "NSObject+NullCheck.h"
+#import "NarengiCore.h"
+#import "HouseObject.h"
+#import "AroundPlaceObject.h"
+#import "HostObject.h"
+#import "GeoPointObject.h"
+#import "ServerResponse.h"
+#import "AttractionObject.h"
+#import "CityObject.h"
+#import "CommentObject.h"
+#import "FacilityObject.h"
+#import "UserObject.h"
+#import "VerificationObject.h"
+#import "PriceObject.h"
+#import "ExtraServiceObject.h"
+#import "CommissionObjetc.h"
+#import "AddHomeButton.h"
+
+
+
+//General Usefull Classes
+#import "UIImageView+WebCache.h"
+#import "UIViewController+Additional.h"
+#import "MZFormSheetPresentationViewController.h"
+#import "Reachability.h"
+#import "UIViewController+Utilities.h"
+#import <GoogleMaps/GoogleMaps.h>
+#import "UIView+Style.h"
+#import "SVProgressHUD.h"
+#import "NSUserDefaults+RMSaveCustomObject.h"
+#import "NSDateFormatter+Persian.h"
+#import "NSString+Utilities.h"
+#import "MJRefresh.h"
+#import "NSString+PersianArabic.h"
+
+
+
+
+//UI Custom classes
+#import "IranButton.h"
+#import "THLabel.h"
+#import "CustomLabel.h"
+#import "CustomFaBoldLabel.h"
+#import "CustomFaLightLabel.h"
+#import "CustomFaMediumFontLabel.h"
+#import "CustomFaRegularLabel.h"
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+/* 
+  English.strings
+  Narengi
+
+  Created by Morteza Hosseinizade on 11/9/15.
+  Copyright © 2015 Morteza Hosseinizade. All rights reserved.
+*/
+
+"Menu" = "Menu";
+"LOADING" = "Reciving data...";
+"CHECKYOUINTERNET" = "Check your internet connection!";
+"SERVERERROR" = "Server error!";
+ 
